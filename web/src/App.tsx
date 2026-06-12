@@ -14,7 +14,7 @@ function useHealth(): HealthState {
         const body: unknown = await res.json()
         if (cancelled) return
         const ok = res.ok && typeof body === 'object' && body !== null && (body as { ok?: unknown }).ok === true
-        setHealth(ok ? { status: 'ok' } : { status: 'error', detail: `unexpected response (HTTP ${res.status})` })
+        setHealth(ok ? { status: 'ok' } : { status: 'error', detail: `unexpected response, HTTP ${res.status}` })
       })
       .catch((err: unknown) => {
         if (!cancelled) setHealth({ status: 'error', detail: err instanceof Error ? err.message : String(err) })

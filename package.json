@@ -9,7 +9,8 @@
     "build": "vite build web",
     "test": "vitest run",
     "lint": "eslint . --max-warnings 4",
-    "check": "tsc --noEmit && tsc -b web && eslint . --max-warnings 4 && vitest run"
+    "check": "tsc --noEmit && tsc -b web && eslint . --max-warnings 4 && vitest run",
+    "deploy": "npm run check && npm run build && wrangler deploy"
   },
   "engines": {
     "node": ">=22.12"

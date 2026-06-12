@@ -34,7 +34,7 @@ npm test         # vitest run, both projects
 npm run lint     # eslint . --max-warnings 4 (max-lines 500 is a warning — budgeted, not free)
 npm run check    # tsc --noEmit && tsc -b web && eslint . --max-warnings 4 && vitest run — green before any deploy
 npm run build    # vite build web → dist/client (assets for wrangler deploy)
-npx wrangler deploy   # manual deploy — there is deliberately no CI/CD
+npm run deploy   # check + build + wrangler deploy — the deploy path; never run bare `wrangler deploy` (stale dist/client deploys silently). Deliberately no CI/CD.
 ```
 
 Iceland is UTC year-round: all dates are plain UTC `YYYY-MM-DD`, no timezone math anywhere.

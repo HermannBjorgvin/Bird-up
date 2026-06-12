@@ -8,7 +8,7 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
 |---|---|---|
 | Config format | `wrangler.jsonc` | Officially recommended over TOML for new projects; some newer features are JSON-only |
 | Dev loop | `@cloudflare/vite-plugin` (`vite dev` runs the Worker in real workerd with bindings + site HMR) | One dev command for site + API + MCP; reads `wrangler.jsonc` directly |
-| Deploy | **Manual**: `npm run build && npx wrangler deploy` | No CI/CD by explicit decision; a hobby project's deploy is one command |
+| Deploy | **Manual**: `npm run deploy` (check + build + `wrangler deploy`) | No CI/CD by explicit decision; a hobby project's deploy is one command |
 | Types | `wrangler types` → `worker-configuration.d.ts` | Preferred over `@cloudflare/workers-types`; generated from our own config |
 | zod | v4 | Forced by `agents` peer dep (`^4.0.0`); MCP SDK now accepts `^3.25 \|\| ^4.0` |
 | vitest | 4.1.x pinned | `@cloudflare/vitest-pool-workers` peer-requires `^4.1.0` exactly; this pairing historically lags — pin and upgrade deliberately |
@@ -114,11 +114,11 @@ Most stories after S02 will be delegated to agents; these are the deterministic 
 **Deploy (manual, no CI/CD — deliberate):**
 
 ```sh
-npm run check                 # typecheck + both test projects
-npm run build                 # vite build → dist/
-npx wrangler deploy           # workflows (+ schedules) + KV bindings + assets from wrangler.jsonc
+npm run deploy                # = npm run check && npm run build && wrangler deploy
 npx wrangler tail             # optional: live logs
 ```
+
+The one script is the deploy path (added at S02 on review): `wrangler deploy` reads the raw `wrangler.jsonc` and uploads whatever `dist/client` contains, so running it bare deploys a stale site silently. The script makes the gate + fresh build non-optional.
 
 **One-time setup:** `wrangler login` · `wrangler kv namespace create KV` (paste id into config) · `wrangler secret put EBIRD_API_KEY` · `wrangler types` (regenerate after config changes; `worker-configuration.d.ts` is committed).
 
