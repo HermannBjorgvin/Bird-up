@@ -1,1 +1,1 @@
-- [S01 review open risks](project_s01-open-risks.md) — post-pivot ledger: /api 404 untracked; S04 schedules-gate verification gap; spec 07 stale fetch snippet
+- [Review-findings ledger (S01–S03)](project_s01-open-risks.md) — S04 schedules-gate gap; spec 07 stale snippet; S03 CORS/onError/dead-knob; frozen scores pin population sd

@@ -17,7 +17,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 **Tests first**:
 - The canonical table T1–T12 from [02-scoring-policy.md](02-scoring-policy.md) as table-driven tests over `scoreDay`/`findWindows` (node project). Freeze the exact T2/T4/T8 scores back into the spec table once green.
 - `findWindows` edges: empty digest, run touching horizon (`mayExtend`), two separate runs, run shorter than `minDays`.
-- Override merge/validation: bounds table, weight renormalization, `+custom` version suffix.
+- Override merge/validation: bounds table, weight-ratio blend, `+custom` version suffix.
 - Integration (workers project): in-process `exports.default.fetch` of `/api/windows?start=…&end=…` → 200, body parses against the zod `Recommendation` schema; invalid params → 400 `INVALID_PARAMS`.
 
 **Demo**: `curl localhost:8787/api/windows?...` returns scored windows for Reykjavík from fixture weather. *You can now ask Tjaldur for weather windows.*

@@ -21,7 +21,7 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
 | `hono` | 4.12.x | Router |
 | `agents` | 0.15.0 | `createMcpHandler` from **`agents/mcp`**; peer-requires zod 4 |
 | `@modelcontextprotocol/sdk` | 1.29.0 | Install explicitly (also used by MCP tests as the client) |
-| `zod` | 4.4.x | |
+| `zod` | 4.4.3 | Added at S03 for `core/types.ts`; newest 4.4.x inside the quarantine |
 | `vite` | 8.0.14 | React app in `web/` (create-vite 9.0.7 `react-ts` template) |
 | `react` + `react-dom` | 19.2.6 | Pinned exact at S02 scaffold time (+ `@vitejs/plugin-react` 6.0.2) |
 | `eslint` (+ template plugins) | 10.4.1 flat config | What the `react-ts` template ships as of S02; see "Lint & agent guardrails" |

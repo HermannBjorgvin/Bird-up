@@ -56,7 +56,7 @@ src/
 │   ├── birds.ts             # seen-list matching, unseen-this-year diff (pure)
 │   └── recommend.ts         # assembleRecommendation(windows, campsites, birds?, opts)
 ├── ports/
-│   ├── weather.ts           # WeatherSource: getDigests(sites) → SiteDigest[]
+│   ├── weather.ts           # WeatherSource: getDigest() → WeatherDigest (the wx:digest:v1 blob)
 │   ├── campsites.ts         # CampsiteSource: list() → Campsite[]
 │   ├── birds.ts             # BirdSource: recentObs(region), taxonomy()
 │   └── store.ts             # Store: getJson/putJson (thin KV wrapper)
@@ -124,7 +124,7 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 ```ts
 {
   generatedAt: string;            // ISO instant
-  policyVersion: string;          // e.g. "2026-06.1" or "2026-06.1+custom"
+  policyVersion: string;          // e.g. "2026-06.2" or "2026-06.2+custom"
   dataAge: {
     weatherFetchedAt: string; model: string; stale: boolean;
     campsitesFetchedAt: string; birdObsFetchedAt?: string;

@@ -21,21 +21,20 @@ export interface ScoringPolicy {
   version: string;
   hardFloor: { minDays: number; minPeakTempC: number };
   excellentPeakTempC: number;
-  weights: { tempAnomaly: number; tempAbsolute: number;
-             precipitation: number; gusts: number };       // sum to 1
+  weights: { tempAnomaly: number; tempAbsolute: number };  // warmth blend; only the ratio matters
   tempAbsolute: { fullPenaltyC: number; noPenaltyC: number };  // ramp
-  precip: { idealMaxMmDay: number; hardMaxMmDay: number };     // ramp
-  gusts:  { idealMaxKmh: number; hardMaxKmh: number };         // ramp
+  precip: { idealMaxMmDay: number; hardMaxMmDay: number };     // multiplicative gate
+  gusts:  { idealMaxKmh: number; hardMaxKmh: number };         // multiplicative gate
   anomaly: { baselineDays: number; zClamp: number };
   tiers: { excellentMinScore: number; goodMinScore: number };
   confidence: { highMaxLeadDays: number; mediumMaxLeadDays: number };
 }
 
 export const DEFAULT_POLICY: ScoringPolicy = {
-  version: "2026-06.1",
+  version: "2026-06.2",
   hardFloor: { minDays: 2, minPeakTempC: 18 },
   excellentPeakTempC: 20,
-  weights: { tempAnomaly: 0.40, tempAbsolute: 0.20, precipitation: 0.25, gusts: 0.15 },
+  weights: { tempAnomaly: 0.40, tempAbsolute: 0.20 },
   tempAbsolute: { fullPenaltyC: 12, noPenaltyC: 22 },
   precip: { idealMaxMmDay: 1, hardMaxMmDay: 8 },
   gusts:  { idealMaxKmh: 35, hardMaxKmh: 65 },
@@ -52,18 +51,21 @@ Default rationale: 18 °C peaks on ≥2 days is the owner's floor; 20 °C is an 
 For one site and one forecast day, given the site's `DailyDigest` and a per-site baseline computed over the whole fetched horizon (`anomaly.baselineDays` = 16 days: "the surrounding ~2 weeks"):
 
 ```
-baseline      = { mean, sd } of tMaxC over the horizon (sd floored at 1 °C)
+baseline      = { mean, sd } of tMaxC over the horizon (population sd, ÷n; floored at 1 °C)
 zAnomaly      = clamp((tMaxC − mean) / sd, ±zClamp)
 anomalyScore  = (zAnomaly + zClamp) / (2·zClamp)                     // 0–1
 absScore      = ramp01(tMaxC, fullPenaltyC → noPenaltyC)             // 0–1
-precipScore   = 1 − ramp01(precipSumMm, idealMaxMmDay → hardMaxMmDay)
-gustScore     = 1 − ramp01(gustMaxKmh,  idealMaxKmh  → hardMaxKmh)
+warmth        = (w.tempAnomaly·anomalyScore + w.tempAbsolute·absScore)
+                / (w.tempAnomaly + w.tempAbsolute)                   // 0–1
+gustFactor    = 1 − ramp01(gustMaxKmh,  idealMaxKmh  → hardMaxKmh)   // 1→0 gate
+precipFactor  = 1 − ramp01(precipSumMm, idealMaxMmDay → hardMaxMmDay) // 1→0 gate
 
-dayScore = 100 · ( w.tempAnomaly·anomalyScore + w.tempAbsolute·absScore
-                 + w.precipitation·precipScore + w.gusts·gustScore )
+dayScore = 100 · warmth · gustFactor · precipFactor
 ```
 
 `ramp01(x, a → b)` = 0 below `a`, 1 above `b`, linear between. All components are 0–1; the result is 0–100.
+
+**Warmth sets the ceiling; wind and rain are multiplicative gates** (decided at S03, replacing the original all-additive weighted sum). Warmth blends relative anomaly with absolute temperature (anomaly weighted higher — only the two weights' *ratio* matters, since `warmth` divides by their sum). Gusts and precipitation then *discount* that ceiling: each factor ramps 1→0 from its ideal to its hard limit, so a day at or beyond `hardMaxKmh`/`hardMaxMmDay` scores **0 regardless of warmth** — a tent-flattening gale or a soaking is disqualifying, not merely down-weighted. This is why the canonical T5/T6 cases land at `marginal`; an additive sum with the same weights could not reach them.
 
 ## Window detection
 
@@ -88,7 +90,7 @@ Callers may override a bounded subset (MCP `thresholds` argument / website slide
 | `excellentPeakTempC` | ≥ `minPeakTempC`, ≤ 35 |
 | `precip.idealMaxMmDay` / `hardMaxMmDay` | 0–50, ideal < hard |
 | `gusts.idealMaxKmh` / `hardMaxKmh` | 0–150, ideal < hard |
-| `weights.*` | each 0–1; renormalized to sum 1 |
+| `weights.tempAnomaly` / `weights.tempAbsolute` | each 0–1; only their ratio matters (warmth blend) |
 
 Out-of-bounds → `INVALID_PARAMS` (never silently clamped). Any override sets `policyVersion: "<base>+custom"` in the response.
 
@@ -99,19 +101,19 @@ Tests transcribe this table verbatim (see [07-testing.md](07-testing.md)). Chang
 | # | Case | Input sketch | Expected |
 |---|---|---|---|
 | T1 | Flat cool fortnight | tMax 15 °C all days, dry, calm | no windows |
-| T2 | Owner's floor case | 2 consecutive days tMax 18 °C, rest 13 °C; dry, calm | exactly 1 window, 2 days, exists; tier ≥ `good`; high anomaly component |
+| T2 | Owner's floor case | 2 consecutive days tMax 18 °C, rest 13 °C; dry, calm | exactly 1 window, 2 days, exists; tier ≥ `good`; high anomaly component; **score 86.67** |
 | T3 | One hot day only | 1 day 21 °C, rest 14 °C | no windows (`minDays` unmet) |
-| T4 | Excellent | 3 days 20–21 °C, dry, gusts ≤ 25 km/h, rest 14 °C | 1 window, tier `excellent` |
-| T5 | Warm but stormy | 3 days 21 °C with gusts 70 km/h, dry | window **exists** (floor is temp-only); gustScore 0; tier `marginal` |
-| T6 | Warm but soaked | 2 days 19 °C with 10 mm/day, calm | window exists; precipScore 0; tier `marginal` |
-| T7 | Uniformly warm | all 16 days 19 °C, dry, calm | 1 window spanning the horizon; anomalyScore ≈ 0.5 (no spike) but absolute/precip/gust components strong; `mayExtend: true`; window confidence `low` |
-| T8 | Relative spike, modest absolute | 3 days 18 °C among 10 °C neighbors, dry, calm | 1 window; anomaly component near max; score > T7's per-day score is NOT required — table pins exact tier `good` |
+| T4 | Excellent | 3 days 20–21 °C, dry, gusts ≤ 25 km/h, rest 14 °C | 1 window, tier `excellent`; **score 93.78** |
+| T5 | Warm but stormy | 3 days 21 °C with gusts 70 km/h, dry | window **exists** (floor is temp-only); gust gate 0 → **score 0**; tier `marginal` |
+| T6 | Warm but soaked | 2 days 19 °C with 10 mm/day, calm | window exists; precip gate 0 → **score 0**; tier `marginal` |
+| T7 | Uniformly warm | all 16 days 19 °C, dry, calm | 1 window spanning the horizon; anomalyScore ≈ 0.5 (no spike) but warmth/gate components strong; `mayExtend: true`; window confidence `low` |
+| T8 | Relative spike, modest absolute | 3 days 18 °C among 10 °C neighbors, dry, calm | 1 window; anomaly component near max; tier `good`; **score 86.67** |
 | T9 | Edge of horizon | days 15–16 at 19 °C | window exists, `confidence: low`, `mayExtend: true` |
 | T10 | Lead-time confidence | days 2–3 at 19 °C → `high`; days 5–6 → `medium`; days 10–11 → `low` | as stated |
 | T11 | Override floor | T1 input, override `minPeakTempC: 14` | 1 window spanning horizon; `policyVersion` ends `+custom` |
 | T12 | Invalid override | `minPeakTempC: 50` | `INVALID_PARAMS` error |
 
-(Exact expected scores for T2/T4/T8 are pinned numerically when tests are first written — the table commits to tiers and orderings up front, numbers are frozen at implementation time and become part of this table.)
+Exact scores for T2/T4/T8 were frozen when the tests were first written (S03, model version `2026-06.2`): **T2 = 86.67, T4 = 93.78, T8 = 86.67** (window means; T2/T8 are anomaly-maxed dry/calm days so they coincide). The table commits to tiers and orderings up front; these numbers are now part of the contract — changing them is a policy change (edit table + tests + `version` in one commit).
 
 ## Doors held open (explicitly not v1)
 
