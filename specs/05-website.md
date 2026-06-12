@@ -6,7 +6,7 @@ Status: accepted · Last updated: 2026-06-12
 
 | Decision | Choice | Rationale |
 |---|---|---|
-| Stack | Vite + TypeScript, no framework (vanilla TS + small components) | A map, a panel and three controls don't need React |
+| Stack | Vite + React + TypeScript (create-vite `react-ts` template) | Owner decision 2026-06-12 (supersedes "no framework"): React, kept deliberately simple — small components, no state library, no router |
 | Map | Leaflet + free OSM raster tiles | Lighter than MapLibre, no token; markers-on-a-map is the whole job |
 | Data access | `/api/*` only — the same public endpoints agents could use | No privileged path; proves the API is sufficient |
 | CSV parsing | Entirely client-side | The raw export (locations, dates) never leaves the browser |

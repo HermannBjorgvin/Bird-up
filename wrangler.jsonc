@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tjaldur",
+  "main": "src/index.ts",
+  // Must stay ≤ the workerd version shipped by @cloudflare/vitest-pool-workers (2026-06-03 for 0.16.13)
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/mcp", "/mcp/*"]
+  },
+  "kv_namespaces": [{ "binding": "KV", "id": "09be49343b8f4182af17c775bcda9acd" }],
+  "triggers": { "crons": ["0 */2 * * *", "0 3 * * 1"] },
+  "routes": [{ "pattern": "tjaldur.9z.is", "custom_domain": true }],
+  "vars": { "BASE_URL": "https://tjaldur.9z.is" }
+}

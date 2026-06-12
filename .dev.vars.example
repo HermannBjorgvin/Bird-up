@@ -1,0 +1,3 @@
+# Local dev secrets — copy to `.dev.vars` (git-ignored). Never commit real values.
+# Production secrets are set with `npx wrangler secret put <NAME>` (spec 08).
+EBIRD_API_KEY=

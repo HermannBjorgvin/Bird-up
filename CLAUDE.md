@@ -30,7 +30,8 @@ Iceland camping weather-window planner: finds warm/calm/dry windows in the 16-da
 ```sh
 npm run dev      # vite dev — site + Worker + KV in workerd, HMR
 npm test         # vitest run, both projects
-npm run check    # tsc --noEmit && vitest run  — must be green before any deploy
+npm run lint     # eslint . --max-warnings 4 (max-lines 500 is a warning — budgeted, not free)  [from S02]
+npm run check    # tsc --noEmit && eslint && vitest run  — must be green before any deploy
 npm run build    # vite build → dist/
 npx wrangler deploy   # manual deploy — there is deliberately no CI/CD
 ```

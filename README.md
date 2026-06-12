@@ -4,7 +4,19 @@
 
 *Tjaldur* is the Icelandic name of the Eurasian Oystercatcher, and a play on *tjald* — tent. Tjaldur watches the 16-day forecast for all of Iceland, finds the warm, calm, dry windows worth pitching a tent in, recommends campsites inside them, and (optionally) tells you which birds reported nearby you haven't seen yet this year.
 
-> **Status: specification phase.** No application code exists yet. The documents in [`specs/`](specs/) define what will be built and in what order.
+> **Status: in development** (S01 scaffold). The documents in [`specs/`](specs/) define what is being built and in what order.
+
+## Development
+
+Requires Node ≥ 22. `npm install`, then:
+
+```sh
+npm test         # vitest, both projects (unit + workers pool)
+npm run check    # tsc --noEmit && vitest run — must be green before any deploy
+npx wrangler deploy   # manual deploy (no CI/CD, deliberate) — see specs/08 runbook
+```
+
+Local secrets go in `.dev.vars` (git-ignored — copy [`.dev.vars.example`](.dev.vars.example)); production secrets via `npx wrangler secret put <NAME>`. Never in config or code.
 
 ## What it will be
 

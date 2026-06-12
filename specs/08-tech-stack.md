@@ -17,20 +17,25 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
 
 | Package | Version | Notes |
 |---|---|---|
-| `wrangler` | 4.100.0 | Needs **Node ≥ 22**; keep matched to the version the vitest pool ships to avoid miniflare skew |
+| `wrangler` | 4.98.0 | Needs **Node ≥ 22**; keep matched to the version the vitest pool ships to avoid miniflare skew (0.16.13 ships 4.98.0) |
 | `hono` | 4.12.x | Router |
 | `agents` | 0.15.0 | `createMcpHandler` from **`agents/mcp`**; peer-requires zod 4 |
 | `@modelcontextprotocol/sdk` | 1.29.0 | Install explicitly (also used by MCP tests as the client) |
 | `zod` | 4.4.x | |
-| `vite` | 8.0.x | Vanilla-ts app in `web/` |
+| `vite` | 8.0.x | React app in `web/` (create-vite `react-ts` template) |
+| `react` + `react-dom` | 19.x | Template defaults, pinned exact at S02 scaffold time |
+| `eslint` (+ template plugins) | 9.x flat config | From the `react-ts` template; see "Lint & agent guardrails" |
+| `react-doctor` | latest at S02 | React-specific scanner (millionco); `doctor.config.ts` committed |
 | `@cloudflare/vite-plugin` | 1.40.x | Peers: vite ^6.1‖^7‖^8, wrangler ^4.100 |
-| `vitest` | 4.1.x | |
-| `@cloudflare/vitest-pool-workers` | 0.16.x | **Post-0.13 API** — see warning below |
+| `vitest` | 4.1.8 | |
+| `@cloudflare/vitest-pool-workers` | 0.16.13 | **Post-0.13 API** — see warning below |
+
+> **npm release quarantine.** The owner's `~/.npmrc` sets `min-release-age=7` (+ a `before` date pin): packages published in the last week don't install. Pin to versions at least a week old; if an exact pin here fails with `ETARGET`, fall back to the newest version inside the cutoff and update this table — don't loosen the quarantine.
 | `leaflet` + `@types/leaflet` | 1.9.4 / 1.9.x | Leaflet ships no types |
 | `typescript` | 5.x | `moduleResolution: "bundler"`, lib ES2022+ |
 | Node | 22 LTS (≥22.12) or 24 LTS | |
 
-> **⚠ vitest-pool-workers post-0.13 API.** Most tutorials online show the old API. The current one: configure via the `cloudflareTest()` Vite plugin (NOT `defineWorkersConfig`, removed); access bindings and the worker via `import { env, exports } from "cloudflare:workers"` (NOT `SELF` from `cloudflare:test`, removed); `fetchMock`/`isolatedStorage`/`singleWorker` are gone (we inject fetch fakes ourselves — [07-testing.md](07-testing.md)). Cron testing: `createScheduledController` + `createExecutionContext` from `cloudflare:test`, then `exports.default.scheduled(ctrl, env, ctx)`. HTTP integration: `exports.default.fetch(new Request(…), env, ctx)`.
+> **⚠ vitest-pool-workers post-0.13 API.** Most tutorials online show the old API. The current one: configure via the `cloudflareTest()` Vite plugin (NOT `defineWorkersConfig`, removed); access bindings and the worker via `import { env, exports } from "cloudflare:workers"` (NOT `SELF` from `cloudflare:test`, removed); `fetchMock`/`isolatedStorage`/`singleWorker` are gone (we inject fetch fakes ourselves — [07-testing.md](07-testing.md)). Cron testing: `createScheduledController` + `createExecutionContext` from `cloudflare:test`, then call the handler on a **direct import of `src/index`** (`import worker from "../../src/index"; worker.scheduled(ctrl, env, ctx)`) — `ScheduledController` cannot serialize through the `exports.default` loopback binding (verified empirically, S01). HTTP integration: `exports.default.fetch(new Request(…))` — it's a loopback service binding, so no `env`/`ctx` args (the runtime supplies them) and Requests serialize fine.
 
 ## wrangler.jsonc shape
 
@@ -49,7 +54,8 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
   },
   "kv_namespaces": [{ "binding": "KV", "id": "<NAMESPACE_ID>" }],
   "triggers": { "crons": ["0 */2 * * *", "0 3 * * 1"] },  // weather 2h, campsites weekly
-  "vars": { "BASE_URL": "https://tjaldur.<account>.workers.dev" }
+  "routes": [{ "pattern": "tjaldur.9z.is", "custom_domain": true }],  // owner's project domain
+  "vars": { "BASE_URL": "https://tjaldur.9z.is" }
 }
 ```
 
@@ -81,7 +87,16 @@ test/unit/vitest.config.ts      # name "unit", plain node env — core/, web pur
 test/worker/vitest.config.ts    # name "worker", plugins: [cloudflareTest({ wrangler: { configPath } })]
 ```
 
-Project-level configs do not inherit root `test` options — each is configured fully. `npm test` = `vitest run` (both projects); `npm run check` = `tsc --noEmit && vitest run`.
+Project-level configs do not inherit root `test` options — each is configured fully. `npm test` = `vitest run` (both projects); `npm run check` = `tsc --noEmit && eslint . --max-warnings 4 && vitest run` (lint joins `check` when S02 lands it).
+
+## Lint & agent guardrails (added 2026-06-12, land in S02)
+
+Most stories after S02 will be delegated to agents; these are the deterministic rails they run on:
+
+- **ESLint flat config at the repo root** — the `react-ts` template's config (typescript-eslint, react-hooks, react-refresh) scoped to `web/**`, plus repo-wide `max-lines: ["warn", { "max": 500 }]` (skip blank lines/comments). 500 lines is the owner's split-this-file signal for web apps.
+- **`npm run lint`** = `eslint . --max-warnings 4` — warnings are budgeted, not free: a fifth file over 500 lines fails the gate. Part of `npm run check`.
+- **`react-doctor`** — React-specific scanner: `npm run doctor` (one-shot scan, `--no-telemetry`), `doctor.config.ts` committed, agent integration via `npx react-doctor@latest install`. Not part of `check` (advisory; run per story that touches `web/`).
+- **Write hook** — Claude Code `PostToolUse` hook in `.claude/settings.json` (checked in): every `Write`/`Edit` runs ESLint on the touched file, so agents get lint feedback at write time instead of at the `check` gate.
 
 ## Runbooks
 
@@ -104,5 +119,5 @@ npx wrangler tail             # optional: live logs
 2. `wrangler.jsonc` + `tsconfig.json` + `wrangler types`.
 3. `src/index.ts` with Hono + `/api/health` + empty scheduled dispatcher.
 4. vitest two-project setup; one unit test + one worker test (health route, KV round-trip) green.
-5. `web/` Vite vanilla-ts app + `@cloudflare/vite-plugin`; placeholder page; build feeds `assets.directory`.
+5. `web/` scaffolded with the Vite generator (`npm create vite@latest` → `react-ts`) + `@cloudflare/vite-plugin`; placeholder page; build feeds `assets.directory`; ESLint root config, `react-doctor`, and the write hook per "Lint & agent guardrails".
 6. KV namespace, secrets, first `wrangler deploy`; verify `/api/health` and the placeholder page on `*.workers.dev`.
