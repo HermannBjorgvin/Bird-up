@@ -5,6 +5,7 @@
   // Must stay ≤ the workerd version shipped by @cloudflare/vitest-pool-workers (2026-06-03 for 0.16.13)
   "compatibility_date": "2026-06-01",
   "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
   "assets": {
     "directory": "./dist/client",
     "binding": "ASSETS",
@@ -12,7 +13,22 @@
     "run_worker_first": ["/api/*", "/mcp", "/mcp/*"]
   },
   "kv_namespaces": [{ "binding": "KV", "id": "09be49343b8f4182af17c775bcda9acd" }],
-  "triggers": { "crons": ["0 */2 * * *", "0 3 * * 1"] },
+  // `schedules` is the intended trigger (cron-scheduled Workflows, GA 2026-06-02) but the API
+  // 403s the field for this account as of 2026-06-12 — re-enable in S04 (see story S01 notes).
+  "workflows": [
+    {
+      "name": "refresh-weather",
+      "binding": "REFRESH_WEATHER",
+      "class_name": "RefreshWeather"
+      // "schedules": ["0 */2 * * *"]
+    },
+    {
+      "name": "refresh-campsites",
+      "binding": "REFRESH_CAMPSITES",
+      "class_name": "RefreshCampsites"
+      // "schedules": ["0 3 * * 1"]
+    }
+  ],
   "routes": [{ "pattern": "tjaldur.9z.is", "custom_domain": true }],
   "vars": { "BASE_URL": "https://tjaldur.9z.is" }
 }

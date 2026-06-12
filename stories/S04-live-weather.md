@@ -6,17 +6,18 @@
 
 ## Description
 
-The Open-Meteo adapter (batched multi-point call, chunked ≤100 coordinates, digest math), the KV store adapter, and the 2-hourly `refresh-weather` cron writing `wx:digest:v1`. The read path switches from fixture to KV. Staleness handling lands. The campsite list is a hardcoded constant of ~10 real sites (Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar). First production deploy happens here.
+The Open-Meteo adapter (batched multi-point call, chunked ≤100 coordinates, digest math), the KV store adapter, and the steps of the 2-hourly `refresh-weather` workflow (read site list → one fetch+digest step per chunk, with retries → final step writes `wx:digest:v1`). The cron `schedules` for both bindings exist in `wrangler.jsonc` but are commented out: Cloudflare's API 403'd the field at S01 time (feature GA'd 2026-06-02, apparently not yet rolled out to this account — S01 notes); re-enabling them is part of this story. The read path switches from fixture to KV. Staleness handling lands. The campsite list is a hardcoded constant of ~10 real sites (Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar). First production data lands here.
 
 ## Acceptance criteria
 
 - [ ] Adapter contract test against a recorded multi-point Open-Meteo fixture: per-site splitting of the response array, units (°C, mm, km/h), `cloudMeanDaytimePct` = mean of hourly cloud cover over 09–21 UTC.
 - [ ] Chunking test: 250 fake coordinates → 3 upstream calls, results reassembled in input order.
-- [ ] Invoking the scheduled handler (vitest-pool-workers) writes a `wx:digest:v1` blob matching the spec shape with a fresh `fetchedAt`; on upstream failure the previous KV value is retained untouched.
+- [ ] Creating a `refresh-weather` instance in tests (`introspectWorkflowInstance` + the binding) completes and writes a `wx:digest:v1` blob matching the spec shape with a fresh `fetchedAt`; on persistent upstream failure the instance errors and the previous KV value is retained untouched.
 - [ ] Staleness: digest aged >6h → `dataAge.stale: true` + warning; >24h → the stronger warning string; KV key missing entirely → 503 `STALE_DATA_UNAVAILABLE`.
 - [ ] `/api/windows` responses are served from KV with **zero** weather subrequests at request time (assert via injected fetch fake).
-- [ ] Deployed to `*.workers.dev` with the cron trigger active; a real response after the first cron run shows live forecast dates.
-- [ ] The cron invocation's measured CPU time is recorded in this story's *Notes* section below (the spec-01 free-tier risk); if it exceeds ~5 ms at 10 sites, the mitigation plan in spec 01 is invoked before S06 scales to ~250 sites.
+- [ ] The `schedules` on both workflow bindings are uncommented and deploy cleanly (the S01-era API gate has lifted — if it still 403s, escalate with the `cf-ray` per the S01 research notes before falling back to a temporary `triggers.crons` → `create()` bridge).
+- [ ] Deployed; a real response after the first scheduled (or `wrangler workflows trigger`-ed) run shows live forecast dates; the instance's step history is visible via `wrangler workflows instances describe`.
+- [ ] The per-step measured CPU time is recorded in this story's *Notes* section below; if a single fetch+digest step exceeds ~5 ms at 10 sites, shrink the chunk size (spec 01) before S06 scales to ~250 sites.
 
 ## Demo
 
@@ -24,4 +25,4 @@ The deployed Worker answers with live 16-day windows for 10 real campsites, refr
 
 ## Notes
 
-(cron CPU measurement goes here at implementation time)
+(per-step CPU measurement goes here at implementation time)

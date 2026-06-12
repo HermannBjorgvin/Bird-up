@@ -22,6 +22,7 @@ Iceland camping weather-window planner: finds warm/calm/dry windows in the 16-da
 ## Toolchain gotchas (details in spec 08)
 
 - vitest is pinned to 4.1.x for `@cloudflare/vitest-pool-workers`; the pool uses the **post-0.13 API**: `cloudflareTest()` Vite plugin, `import { env, exports } from "cloudflare:workers"` — `SELF`, `defineWorkersConfig` and `fetchMock` no longer exist. Most online tutorials show the old API; trust spec 08.
+- Scheduled jobs are **cron-scheduled Workflows** (`schedules` on each binding — no `triggers.crons`, no `scheduled()` handler). Schedules never fire in tests: create instances via the binding and assert with `introspectWorkflowInstance` from `cloudflare:test`.
 - MCP: `createMcpHandler` from `agents/mcp` wrapping an `McpServer`; zod **v4** (forced by `agents`).
 - Two vitest projects (`test/unit` node, `test/worker` pool); project configs don't inherit root options.
 
@@ -31,7 +32,7 @@ Iceland camping weather-window planner: finds warm/calm/dry windows in the 16-da
 npm run dev      # vite dev — site + Worker + KV in workerd, HMR
 npm test         # vitest run, both projects
 npm run lint     # eslint . --max-warnings 4 (max-lines 500 is a warning — budgeted, not free)  [from S02]
-npm run check    # tsc --noEmit && eslint && vitest run  — must be green before any deploy
+npm run check    # tsc --noEmit && vitest run  — eslint joins in S02; must be green before any deploy
 npm run build    # vite build → dist/
 npx wrangler deploy   # manual deploy — there is deliberately no CI/CD
 ```

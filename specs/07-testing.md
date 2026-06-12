@@ -35,7 +35,7 @@ Recorded real responses in `test/fixtures/{openmeteo,ebird,osm,tjalda}/`, each w
 
 - KV seeded in test setup: `await env.KV.put('wx:digest:v1', JSON.stringify(fixtureDigest))` etc.
 - HTTP by invoking the Worker in-process: `exports.default.fetch(new Request('…/api/…'), env, ctx)` (post-0.13 pool API, [08-tech-stack.md](08-tech-stack.md)); every 200 body must parse with the zod `Recommendation` schema; every error with the envelope schema.
-- Crons by invoking the scheduled handler directly with a controlled `scheduledTime`, asserting KV effects (including the keep-old-value-on-failure path).
+- Workflows by creating instances through their bindings (`env.REFRESH_WEATHER.create({ id })`) and introspecting via `introspectWorkflowInstance` from `cloudflare:test` (`await using` for disposal; `waitForStatus` / `getOutput` / `waitForStepResult`; `modify` to disable sleeps or mock steps), asserting KV effects (including the keep-old-value-on-failure path). Schedules never fire in tests — creating the instance *is* the test's job.
 - Staleness scenarios by writing digests with back-dated `fetchedAt`.
 
 ### 4. MCP (workers project)
@@ -51,8 +51,8 @@ Recorded real responses in `test/fixtures/{openmeteo,ebird,osm,tjalda}/`, each w
 
 - External API liveness/latency (smoke script only).
 - Leaflet rendering, browser pixels, SVG appearance (structure-only SVG assertions + one golden string).
-- tjalda.is HTML/endpoint drift beyond its committed fixtures — drift is detected by the weekly cron failing, which by design keeps serving old data and surfaces staleness.
-- Load/performance: 200 requests/day does not get a load test. The one measured number that matters (cron CPU ms, [01-architecture.md](01-architecture.md)) is recorded in story S04's notes, not automated.
+- tjalda.is HTML/endpoint drift beyond its committed fixtures — drift is detected by the weekly `refresh-campsites` workflow erroring, which by design keeps serving old data and surfaces staleness.
+- Load/performance: 200 requests/day does not get a load test. The one measured number that matters (per-step CPU ms, [01-architecture.md](01-architecture.md)) is recorded in story S04's notes, not automated.
 
 ## No CI/CD (deliberate)
 

@@ -1,12 +1,6 @@
-import {
-  createExecutionContext,
-  createScheduledController,
-  waitOnExecutionContext,
-} from "cloudflare:test";
+import { introspectWorkflowInstance } from "cloudflare:test";
 import { env, exports } from "cloudflare:workers";
 import { describe, expect, it } from "vitest";
-import worker from "../../src/index";
-import { CRON_CAMPSITES, CRON_WEATHER } from "../../src/jobs/dispatch";
 
 describe("worker scaffold", () => {
   it("GET /api/health returns { ok: true }", async () => {
@@ -19,18 +13,23 @@ describe("worker scaffold", () => {
   it("KV binding round-trips", async () => {
     await env.KV.put("scaffold:probe", "ok");
     expect(await env.KV.get("scaffold:probe")).toBe("ok");
+    // no isolatedStorage in the post-0.13 pool — tests clean up their own KV state
+    await env.KV.delete("scaffold:probe");
   });
 
-  it("scheduled dispatcher runs for both cron expressions", async () => {
-    for (const cron of [CRON_WEATHER, CRON_CAMPSITES]) {
-      const ctrl = createScheduledController({
-        scheduledTime: new Date("2026-06-12T00:00:00Z"),
-        cron,
-      });
-      const ctx = createExecutionContext();
-      // direct module call: ScheduledController can't serialize through the exports.default binding
-      await worker.scheduled(ctrl, env, ctx);
-      await waitOnExecutionContext(ctx);
-    }
+  it("refresh-weather workflow skeleton runs to completion", async () => {
+    await using instance = await introspectWorkflowInstance(env.REFRESH_WEATHER, "test-wx-1");
+    await env.REFRESH_WEATHER.create({ id: "test-wx-1" });
+
+    await instance.waitForStatus("complete");
+    expect(await instance.getOutput()).toEqual({ ok: true });
+  });
+
+  it("refresh-campsites workflow skeleton runs to completion", async () => {
+    await using instance = await introspectWorkflowInstance(env.REFRESH_CAMPSITES, "test-camp-1");
+    await env.REFRESH_CAMPSITES.create({ id: "test-camp-1" });
+
+    await instance.waitForStatus("complete");
+    expect(await instance.getOutput()).toEqual({ ok: true });
   });
 });

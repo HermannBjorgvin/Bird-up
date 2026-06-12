@@ -26,16 +26,16 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
 | `react` + `react-dom` | 19.x | Template defaults, pinned exact at S02 scaffold time |
 | `eslint` (+ template plugins) | 9.x flat config | From the `react-ts` template; see "Lint & agent guardrails" |
 | `react-doctor` | latest at S02 | React-specific scanner (millionco); `doctor.config.ts` committed |
-| `@cloudflare/vite-plugin` | 1.40.x | Peers: vite ^6.1‖^7‖^8, wrangler ^4.100 |
+| `@cloudflare/vite-plugin` | 1.40.0 | Peers: vite ^6.1‖^7‖^8, wrangler ^4.98.0 — verified installable under the quarantine; later 1.40.x patches peer-require wrangler ^4.100 |
 | `vitest` | 4.1.8 | |
 | `@cloudflare/vitest-pool-workers` | 0.16.13 | **Post-0.13 API** — see warning below |
-
-> **npm release quarantine.** The owner's `~/.npmrc` sets `min-release-age=7` (+ a `before` date pin): packages published in the last week don't install. Pin to versions at least a week old; if an exact pin here fails with `ETARGET`, fall back to the newest version inside the cutoff and update this table — don't loosen the quarantine.
 | `leaflet` + `@types/leaflet` | 1.9.4 / 1.9.x | Leaflet ships no types |
-| `typescript` | 5.x | `moduleResolution: "bundler"`, lib ES2022+ |
+| `typescript` | 5.9.3 | `moduleResolution: "bundler"`, lib ES2022 + ESNext.Disposable (for `await using`), `noUncheckedIndexedAccess` |
 | Node | 22 LTS (≥22.12) or 24 LTS | |
 
-> **⚠ vitest-pool-workers post-0.13 API.** Most tutorials online show the old API. The current one: configure via the `cloudflareTest()` Vite plugin (NOT `defineWorkersConfig`, removed); access bindings and the worker via `import { env, exports } from "cloudflare:workers"` (NOT `SELF` from `cloudflare:test`, removed); `fetchMock`/`isolatedStorage`/`singleWorker` are gone (we inject fetch fakes ourselves — [07-testing.md](07-testing.md)). Cron testing: `createScheduledController` + `createExecutionContext` from `cloudflare:test`, then call the handler on a **direct import of `src/index`** (`import worker from "../../src/index"; worker.scheduled(ctrl, env, ctx)`) — `ScheduledController` cannot serialize through the `exports.default` loopback binding (verified empirically, S01). HTTP integration: `exports.default.fetch(new Request(…))` — it's a loopback service binding, so no `env`/`ctx` args (the runtime supplies them) and Requests serialize fine.
+> **npm release quarantine.** The owner's `~/.npmrc` sets `min-release-age=7` (+ a `before` date pin): packages published in the last week don't install. Pin to versions at least a week old; if an exact pin here fails with `ETARGET`, fall back to the newest version inside the cutoff and update this table — don't loosen the quarantine.
+
+> **⚠ vitest-pool-workers post-0.13 API.** Most tutorials online show the old API. The current one: configure via the `cloudflareTest()` Vite plugin (NOT `defineWorkersConfig`, removed); access bindings and the worker via `import { env, exports } from "cloudflare:workers"` (NOT `SELF` from `cloudflare:test`, removed); `fetchMock`/`isolatedStorage`/`singleWorker` are gone (we inject fetch fakes ourselves — [07-testing.md](07-testing.md)). Workflow testing: schedules never fire in tests — create instances through the binding and introspect: `await using instance = await introspectWorkflowInstance(env.REFRESH_WEATHER, id); await env.REFRESH_WEATHER.create({ id }); await instance.waitForStatus("complete")` (`introspectWorkflowInstance` from `cloudflare:test`; also `getOutput`, `waitForStepResult`, and `modify` for disabling sleeps/mocking steps). HTTP integration: `exports.default.fetch(new Request(…))` — it's a loopback service binding, so no `env`/`ctx` args (the runtime supplies them) and Requests serialize fine.
 
 ## wrangler.jsonc shape
 
@@ -44,8 +44,9 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "tjaldur",
   "main": "src/index.ts",
-  "compatibility_date": "2026-06-12",
+  "compatibility_date": "2026-06-01",   // must stay ≤ the vitest pool's workerd build date
   "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },  // Workflows dashboard + structured logs
   "assets": {
     "directory": "./dist/client",                      // Vite build output
     "binding": "ASSETS",
@@ -53,11 +54,16 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
     "run_worker_first": ["/api/*", "/mcp", "/mcp/*"]   // everything else served as static assets, free
   },
   "kv_namespaces": [{ "binding": "KV", "id": "<NAMESPACE_ID>" }],
-  "triggers": { "crons": ["0 */2 * * *", "0 3 * * 1"] },  // weather 2h, campsites weekly
+  "workflows": [
+    { "name": "refresh-weather",   "binding": "REFRESH_WEATHER",   "class_name": "RefreshWeather",   "schedules": ["0 */2 * * *"] },
+    { "name": "refresh-campsites", "binding": "REFRESH_CAMPSITES", "class_name": "RefreshCampsites", "schedules": ["0 3 * * 1"] }
+  ],
   "routes": [{ "pattern": "tjaldur.9z.is", "custom_domain": true }],  // owner's project domain
   "vars": { "BASE_URL": "https://tjaldur.9z.is" }
 }
 ```
+
+> **Schedules gate (2026-06-12):** the Workflows API currently 403s any PUT whose body contains `schedules` for this account (feature GA'd 2026-06-02). The field is commented out in the live `wrangler.jsonc`; re-enabling it is an S04 acceptance criterion. Everything else about Workflows deploys and runs fine.
 
 Secrets are never in config: `npx wrangler secret put EBIRD_API_KEY` for production, a git-ignored `.dev.vars` file locally. With array-form `run_worker_first`, static requests bypass the Worker entirely (and don't count against the request quota); the Hono `notFound → env.ASSETS.fetch` fallthrough is only a safety net.
 
@@ -71,10 +77,11 @@ app.all("/mcp", (c) =>
   createMcpHandler(buildMcpServer(c.env), { route: "/mcp" })(c.req.raw, c.env, c.executionCtx));
 app.notFound((c) => c.env.ASSETS.fetch(c.req.raw));
 
-export default {
-  fetch: app.fetch,
-  scheduled: (ctrl, env, ctx) => dispatchCron(ctrl.cron, env, ctx),  // jobs/, keyed by cron expression
-} satisfies ExportedHandler<Env>;
+export default { fetch: app.fetch } satisfies ExportedHandler<Env>;
+
+// Workflow classes — Cloudflare instantiates these on their bindings' schedules
+export { RefreshWeather } from "./workflows/refresh-weather";
+export { RefreshCampsites } from "./workflows/refresh-campsites";
 ```
 
 `buildMcpServer` constructs an `McpServer` (`@modelcontextprotocol/sdk/server/mcp.js`) and registers the two tools from [03-api.md](03-api.md) with zod input schemas; `createMcpHandler` gives stateless streamable HTTP per request — no Durable Objects.
@@ -100,14 +107,14 @@ Most stories after S02 will be delegated to agents; these are the deterministic 
 
 ## Runbooks
 
-**Dev:** `npx vite dev` — site with HMR, `/api/*` + `/mcp` + KV running in real workerd. Cron testing locally: `npx wrangler dev --test-scheduled` (when not using vite dev).
+**Dev:** `npx vite dev` — site with HMR, `/api/*` + `/mcp` + KV running in real workerd. Schedules never fire locally; run a workflow on demand against the deployed Worker with `npx wrangler workflows trigger refresh-weather`, inspect with `npx wrangler workflows instances describe refresh-weather <id>` (tests create instances directly via the binding).
 
 **Deploy (manual, no CI/CD — deliberate):**
 
 ```sh
 npm run check                 # typecheck + both test projects
 npm run build                 # vite build → dist/
-npx wrangler deploy           # crons + KV bindings + assets from wrangler.jsonc
+npx wrangler deploy           # workflows (+ schedules) + KV bindings + assets from wrangler.jsonc
 npx wrangler tail             # optional: live logs
 ```
 
@@ -117,7 +124,7 @@ npx wrangler tail             # optional: live logs
 
 1. `git init` repo layout per [01-architecture.md](01-architecture.md) · `npm init` · install pins above.
 2. `wrangler.jsonc` + `tsconfig.json` + `wrangler types`.
-3. `src/index.ts` with Hono + `/api/health` + empty scheduled dispatcher.
-4. vitest two-project setup; one unit test + one worker test (health route, KV round-trip) green.
+3. `src/index.ts` with Hono + `/api/health`; two skeleton Workflow classes in `src/workflows/`, schedules on their bindings.
+4. vitest two-project setup; one unit test + worker tests (health route, KV round-trip, both workflow skeletons complete via `introspectWorkflowInstance`) green.
 5. `web/` scaffolded with the Vite generator (`npm create vite@latest` → `react-ts`) + `@cloudflare/vite-plugin`; placeholder page; build feeds `assets.directory`; ESLint root config, `react-doctor`, and the write hook per "Lint & agent guardrails".
 6. KV namespace, secrets, first `wrangler deploy`; verify `/api/health` and the placeholder page on `*.workers.dev`.

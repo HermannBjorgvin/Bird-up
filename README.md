@@ -16,6 +16,8 @@ npm run check    # tsc --noEmit && vitest run — must be green before any deplo
 npx wrangler deploy   # manual deploy (no CI/CD, deliberate) — see specs/08 runbook
 ```
 
+Until S02's `vite build` exists, `wrangler deploy` needs the (git-ignored) assets directory to exist: `mkdir -p dist/client`.
+
 Local secrets go in `.dev.vars` (git-ignored — copy [`.dev.vars.example`](.dev.vars.example)); production secrets via `npx wrangler secret put <NAME>`. Never in config or code.
 
 ## What it will be

@@ -6,7 +6,7 @@
 
 ## Description
 
-The `CampsiteSource` port and its adapters: OSM Overpass (always built — fallback and contract proof) and tjalda.is (only if the S05 gate passed). A weekly cron normalizes into `camp:sites:v1`; a checked-in `data/campsite-overrides.json` merges camping-card flags, booking deep links and manual corrections; campsites are bucketed into the 8 regions; the weather cron switches from the hardcoded ten to the KV site list.
+The `CampsiteSource` port and its adapters: OSM Overpass (always built — fallback and contract proof) and tjalda.is (only if the S05 gate passed). The weekly `refresh-campsites` workflow normalizes into `camp:sites:v1` (schedule on its binding since S01); a checked-in `data/campsite-overrides.json` merges camping-card flags, booking deep links and manual corrections; campsites are bucketed into the 8 regions; the `refresh-weather` workflow switches from the hardcoded ten to the KV site list.
 
 ## Acceptance criteria
 
@@ -15,9 +15,9 @@ The `CampsiteSource` port and its adapters: OSM Overpass (always built — fallb
 - [ ] (Only if S05 gate = BUILD) tjalda fixture contract test in the same pattern; the adapter sends the polite identifying User-Agent and is wired to the weekly cadence only.
 - [ ] Region assignment: a test table of ≥8 known campsites (one per region) lands each in its correct `IS-n`.
 - [ ] Overrides merge: a campsite gains `campingCard: true` and `bookingUrl` from `campsite-overrides.json` without losing adapter-sourced fields; an override for an unknown id produces a logged warning, not a crash.
-- [ ] Weekly cron writes `camp:sites:v1` matching the spec shape; upstream failure retains the previous value.
+- [ ] A `refresh-campsites` instance (created in tests via the binding) writes `camp:sites:v1` matching the spec shape; persistent upstream failure errors the instance and retains the previous value.
 - [ ] `GET /api/campsites` returns the normalized list; `/api/windows` responses now rank real campsites (≈200 from OSM) inside windows by their per-site window scores.
-- [ ] The weather cron reads its site list from `camp:sites:v1` (hardcoded ten removed) and stays within the CPU budget recorded in S04.
+- [ ] The `refresh-weather` workflow reads its site list from `camp:sites:v1` (hardcoded ten removed) and stays within the per-step CPU budget recorded in S04.
 
 ## Demo
 

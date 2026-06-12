@@ -9,7 +9,8 @@ Status: accepted · Last updated: 2026-06-12
 | Deployment | One Cloudflare Worker, free plan | 200 req/day needs one deployable unit, not a fleet |
 | Repo shape | Single npm package (no workspaces) | One Worker, one deploy |
 | Router | Hono | Near-zero overhead, first-class Workers support, clean fallthrough to Static Assets |
-| Storage | Workers KV only — no D1, no Durable Objects | ~250 campsites filter fine in memory from one JSON blob |
+| Storage | Workers KV only — no D1, no hand-rolled Durable Objects | ~250 campsites filter fine in memory from one JSON blob |
+| Scheduled refresh | Cloudflare Workflows, cron `schedules` declared on each binding | Named jobs (no cron-string dispatch); per-step retries with backoff; each step gets its own free-plan CPU budget — the digest-CPU risk dissolves; per-step instance history in the dashboard |
 | MCP transport | `createMcpHandler()` from the `agents` npm package — stateless streamable HTTP | Official current recommendation; no Durable Objects needed; authless |
 | Read path | Serves from KV only; never calls weather/campsite APIs inline (eBird is the one on-demand exception, KV-cached 1h) | Fast, cheap, immune to upstream hiccups |
 | Map image | SVG templating at `/api/map`, linked by URL | PNG rasterization exceeds the free plan's 10 ms CPU; SVG is string building |
@@ -33,7 +34,7 @@ Status: accepted · Last updated: 2026-06-12
                             │ adapters (implementations)
               openmeteo.ts  tjalda.ts  osm-overpass.ts  ebird.ts  kv-store.ts
                             ▲
-              jobs/refresh-weather.ts (cron 2h)   jobs/refresh-campsites.ts (cron weekly)
+       workflows/refresh-weather.ts (2h schedule)   workflows/refresh-campsites.ts (weekly)
 ```
 
 Rules:
@@ -70,11 +71,11 @@ src/
 │   ├── rest.ts
 │   ├── mcp.ts
 │   └── map-svg.ts
-├── jobs/
-│   ├── refresh-weather.ts
-│   └── refresh-campsites.ts
+├── workflows/
+│   ├── refresh-weather.ts   # WorkflowEntrypoint, 2h schedule on its binding
+│   └── refresh-campsites.ts # WorkflowEntrypoint, weekly schedule on its binding
 └── index.ts                 # fetch: /mcp → mcp, /api/* → rest, else Static Assets
-                             # scheduled: dispatch by cron expression
+                             # re-exports the Workflow classes
 web/                         # Vite app, built into Static Assets (05-website.md)
 test/
 └── fixtures/                # recorded upstream responses (07-testing.md)
@@ -93,24 +94,26 @@ scripts/
 
 Zero external subrequests, except a cold eBird cache (≤2 subrequests, then KV-cached 1h).
 
-**Cron write path:**
+**Scheduled write path (Workflows):**
 
-- `refresh-weather` (every 2h): read campsite list from KV → batched Open-Meteo calls (chunked ≤100 coordinates per call) → digest into per-site `DailyDigest[16]` → overwrite `wx:digest:v1`.
-- `refresh-campsites` (weekly): run the active `CampsiteSource` adapter → normalize → overwrite `camp:sites:v1`.
-- On upstream failure: keep the previous KV value, log, exit. Staleness is surfaced on the read path ([03-api.md](03-api.md)), never a crash.
+Each refresh job is a cron-scheduled Workflow (`schedules` on its binding). Work is split into steps; every step has persisted results, automatic retries with backoff, and its own CPU budget:
+
+- `refresh-weather` (every 2 h): step *read site list* from KV → one step per ≤100-coordinate Open-Meteo chunk (fetch + digest into per-site `DailyDigest[16]`) → final step assembles and overwrites `wx:digest:v1`.
+- `refresh-campsites` (weekly): step *fetch* via the active `CampsiteSource` adapter → step *normalize* → final step overwrites `camp:sites:v1`.
+- Transient upstream hiccups heal inside the instance via step retries (seconds, not the next schedule). If an instance still errors out, the previous KV value is untouched and the read path surfaces staleness ([03-api.md](03-api.md)) — never a crash. KV is written only by the final step, so a partially failed run can never publish partial data.
 
 ## KV schema
 
 | Key | Value | Writer | TTL |
 |---|---|---|---|
-| `wx:digest:v1` | `{ fetchedAt, model, sites: { [campsiteId]: DailyDigest[16] } }` | weather cron (2h) | none (overwrite) |
-| `camp:sites:v1` | `{ fetchedAt, source, sites: Campsite[] }` | campsite cron (weekly) | none |
+| `wx:digest:v1` | `{ fetchedAt, model, sites: { [campsiteId]: DailyDigest[16] } }` | `refresh-weather` workflow (2h) | none (overwrite) |
+| `camp:sites:v1` | `{ fetchedAt, source, sites: Campsite[] }` | `refresh-campsites` workflow (weekly) | none |
 | `birds:tax:v{ver}` | `{ [sciNameLower]: { code, comName } }` | lazy, first need | none |
 | `birds:obs:{IS-n}` | recent observations array (`back=14`) | on-demand | 3600 s |
 
 `DailyDigest` = `{ date, tMaxC, tMinC, precipSumMm, gustMaxKmh, windMaxKmh, cloudMeanDaytimePct }` with "daytime" fixed at 09:00–21:00 UTC ([04-data-sources.md](04-data-sources.md)).
 
-Versioning discipline: bump the `:v1` suffix on any shape change — no migrations, caches rebuild themselves on the next cron. Same rule for the website's `tjaldur:seen:v1` localStorage key and `policyVersion`.
+Versioning discipline: bump the `:v1` suffix on any shape change — no migrations, caches rebuild themselves on the next scheduled run. Same rule for the website's `tjaldur:seen:v1` localStorage key and `policyVersion`.
 
 ## Shared `Recommendation` shape
 
@@ -154,7 +157,7 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 ## Cloudflare deployment
 
 - **Worker** with Static Assets: `web/dist` served for unmatched routes (asset requests are free and unlimited); `/mcp` and `/api/*` handled by the Worker.
-- **Cron Triggers**: 2 of the free plan's 5 (`0 */2 * * *` weather, `0 3 * * 1` campsites).
+- **Workflows**: `refresh-weather` (schedule `0 */2 * * *`) and `refresh-campsites` (`0 3 * * 1`), declared on their bindings; `observability.enabled` for per-step instance history in the dashboard.
 - **Secrets/vars**: `EBIRD_API_KEY` (secret); `BASE_URL` (var — MCP clients cannot resolve relative URLs, so `mapUrl` must be absolute).
 
 ### Free-tier budget (limits as of June 2026)
@@ -163,11 +166,12 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 |---|---|---|---|
 | Worker requests | 100,000/day | ~500 (200 searches + assets are free) | ~200× |
 | KV reads | 100,000/day | ~800 (≤4/request) | ~125× |
-| KV writes | 1,000/day | ~15 (12 weather crons + birds TTL writes + weekly) | ~65× |
-| Subrequests | 50/request | ≤4 (cron: ≤4 chunked Open-Meteo calls) | ample |
-| CPU | 10 ms/invocation | read path: trivial; **cron digest: at risk** | see below |
+| KV writes | 1,000/day | ~15 (12 weather runs + birds TTL writes + weekly) | ~65× |
+| Subrequests | 50/request | ≤4 per request; 1 Open-Meteo call per workflow step | ample |
+| Workflow instances | 100 concurrent (free) | ≤2 concurrent, ~13 starts/day | ample |
+| CPU | 10 ms/invocation **and per workflow step** | read path: trivial; digest: one ≤100-site chunk per step | see below |
 
-**Known risk — cron CPU.** Digesting a ~250-site × 16-day forecast JSON may approach the 10 ms CPU limit. Mitigations, in order: request daily aggregates from Open-Meteo (skip hourly except daytime cloud/wind stats), chunk both the fetch and the digest, measure in Slice 2 with 10 sites before scaling up. Escape hatch: the $5/mo Workers Paid plan (30 s CPU), which also unlocks inline PNG maps via resvg-wasm — an explicitly kept-open door, not a v1 requirement.
+**Dissolved risk — digest CPU.** Digesting a ~250-site × 16-day forecast in one invocation was the original design risk; the Workflows step model removes it structurally: each ≤100-coordinate chunk is fetched *and* digested in its own step with its own 10 ms CPU budget, so total work scales by adding steps, never by growing one invocation. S04 still measures per-step CPU at 10 sites and records it. If a single chunk's digest ever crowds 10 ms anyway: shrink the chunk size, or request daily aggregates only (skip hourly cloud stats). The $5/mo Workers Paid plan (30 s CPU/step) remains a kept-open door — also for inline PNG maps via resvg-wasm — not a v1 requirement.
 
 ## Future-alerts door (explicit non-feature)
 

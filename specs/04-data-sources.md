@@ -8,7 +8,7 @@ Status: accepted · Last updated: 2026-06-12
 |---|---|---|
 | Weather | Open-Meteo `best_match` | DMI HARMONIE 2 km covers Iceland + ECMWF to 10 d; gusts included; no key; batched multi-point; CC BY 4.0 |
 | Campsites | tjalda.is primary via a `CampsiteSource` adapter, **behind a discovery spike + legal gate**; OSM Overpass as the always-built fallback | Owner's choice (friendly with the CEO, will clear legal pre-launch); no public tjalda API exists today |
-| Birds | eBird API 2.0, on-demand with 1 h KV TTL — no cron | Tiny data volume; fresh-on-use; saves a cron trigger |
+| Birds | eBird API 2.0, on-demand with 1 h KV TTL — no scheduled job | Tiny data volume; fresh-on-use; one less workflow |
 | Time | All dates UTC `YYYY-MM-DD` | Iceland is UTC year-round (no DST) — declare it once, never do TZ math |
 | "Daytime" | 09:00–21:00 UTC for digest aggregates | Midnight sun makes astronomical daytime meaningless in summer |
 
@@ -16,7 +16,7 @@ Status: accepted · Last updated: 2026-06-12
 
 - **Encoding**: UTF-8 display names everywhere (Þórsmörk stays Þórsmörk). Machine ids/slugs are ASCII-folded: `Þ/þ→th`, `Ð/ð→d`, `Æ/æ→ae`, `Ö/ö→o`, acute accents stripped (`á→a`, `é→e`, `í→i`, `ó→o`, `ú→u`, `ý→y`). Example: `Þakgil → thakgil`.
 - **Regions**: every record is bucketed into the 8-region enum ([01-architecture.md](01-architecture.md)) by point-in-region assignment from a baked-in simplified region polygon set (same GeoJSON family as the map coastline).
-- **Failure handling**: crons keep the previous KV value on upstream failure; the read path surfaces staleness per [03-api.md](03-api.md).
+- **Failure handling**: refresh workflows retry failed steps with backoff and write KV only in their final step; an instance that still errors leaves the previous KV value untouched, and the read path surfaces staleness per [03-api.md](03-api.md).
 
 ---
 
@@ -32,8 +32,8 @@ Status: accepted · Last updated: 2026-06-12
 &forecast_days=16&wind_speed_unit=kmh&timezone=UTC&models=best_match
 ```
 
-- **Digest**: per site per day → `DailyDigest` ([01-architecture.md](01-architecture.md)). Daily fields map directly; `cloudMeanDaytimePct` = mean of hourly `cloud_cover` over 09–21 UTC. If hourly cloud digesting threatens the 10 ms cron CPU budget, drop `cloudMeanDaytimePct` to optional — it feeds no score component in policy `2026-06.1`.
-- **Cadence**: cron every 2 h → `wx:digest:v1` (~12 upstream batches/day — ~0.4% of Open-Meteo's free 10 k/day even with multi-point weighting).
+- **Digest**: per site per day → `DailyDigest` ([01-architecture.md](01-architecture.md)). Daily fields map directly; `cloudMeanDaytimePct` = mean of hourly `cloud_cover` over 09–21 UTC. If hourly cloud digesting threatens a step's 10 ms CPU budget, drop `cloudMeanDaytimePct` to optional — it feeds no score component in policy `2026-06.1`.
+- **Cadence**: `refresh-weather` workflow every 2 h → `wx:digest:v1` (~12 upstream batches/day — ~0.4% of Open-Meteo's free 10 k/day even with multi-point weighting).
 - **Attribution**: "Weather data by Open-Meteo.com" (CC BY 4.0).
 - **Notes**: `best_match` = DMI HARMONIE (2 km, ~2.5 days) spliced with ECMWF IFS (to 10 d) and global models (to 16 d). The ensemble API (`ensemble-api.open-meteo.com`) is the future confidence upgrade ([02-scoring-policy.md](02-scoring-policy.md), doors).
 
@@ -41,7 +41,7 @@ Status: accepted · Last updated: 2026-06-12
 
 ### The `CampsiteSource` port
 
-`list(): Promise<Campsite[]>` — implementations: `tjalda.ts`, `osm-overpass.ts`. The weekly cron runs the configured adapter; everything downstream sees only the normalized record:
+`list(): Promise<Campsite[]>` — implementations: `tjalda.ts`, `osm-overpass.ts`. The weekly `refresh-campsites` workflow runs the configured adapter; everything downstream sees only the normalized record:
 
 ```ts
 {

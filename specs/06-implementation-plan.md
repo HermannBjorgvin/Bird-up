@@ -12,7 +12,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 **Scope**: repo scaffolding (wrangler, TypeScript, vitest with the two test projects — stories S01–S02, [08-tech-stack.md](08-tech-stack.md)); `core/types.ts` (zod `Recommendation` et al.); `core/scoring/{policy,score,windows}.ts`; minimal `core/recommend.ts`; `service.ts`; Hono app with `GET/POST /api/windows`; a fake `WeatherSource` serving a checked-in digest fixture; campsite list hardcoded to one site (Reykjavík Eco Campsite).
 
-**Faked**: weather (fixture), campsites (1 hardcoded), no KV, no cron, no birds, no map (`mapUrl` placeholder).
+**Faked**: weather (fixture), campsites (1 hardcoded), no KV, no workflows, no birds, no map (`mapUrl` placeholder).
 
 **Tests first**:
 - The canonical table T1–T12 from [02-scoring-policy.md](02-scoring-policy.md) as table-driven tests over `scoreDay`/`findWindows` (node project). Freeze the exact T2/T4/T8 scores back into the spec table once green.
@@ -24,16 +24,16 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 ---
 
-## Slice 2 — Real weather: Open-Meteo adapter + KV + cron (deployed)
+## Slice 2 — Real weather: Open-Meteo adapter + KV + scheduled workflow (deployed)
 
-**Scope**: `adapters/openmeteo.ts` (batched multi-point call per [04](04-data-sources.md), chunking, digesting); `adapters/kv-store.ts`; `jobs/refresh-weather.ts` + cron trigger; read path now serves from `wx:digest:v1`; staleness fields + warnings per [03](03-api.md); seed list of ~10 real campsites (hardcoded constant: Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar); **first Cloudflare deploy**; measure cron CPU (the [01](01-architecture.md) risk) and record the number in story S04's notes.
+**Scope**: `adapters/openmeteo.ts` (batched multi-point call per [04](04-data-sources.md), chunking, digesting); `adapters/kv-store.ts`; `workflows/refresh-weather.ts` steps (read site list → one fetch+digest step per chunk → final KV write; schedule already on the binding); read path now serves from `wx:digest:v1`; staleness fields + warnings per [03](03-api.md); seed list of ~10 real campsites (hardcoded constant: Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar); **first production data**; measure per-step CPU ([01](01-architecture.md)) and record the number in story S04's notes.
 
 **Faked**: campsites (10 hardcoded), birds, map.
 
 **Tests first**:
 - Adapter contract test against a recorded multi-point Open-Meteo fixture: digest math (units kmh/mm/°C, daytime cloud mean over 09–21 UTC, per-site splitting of the response array).
 - Chunking: 250 fake coords → 3 calls, results reassembled in order.
-- Cron: invoke the scheduled handler in vitest-pool-workers, assert `wx:digest:v1` blob shape + `fetchedAt`; upstream-failure path keeps the old value.
+- Workflow: create a `refresh-weather` instance in vitest-pool-workers (`introspectWorkflowInstance`), assert `wx:digest:v1` blob shape + `fetchedAt`; upstream-failure path errors the instance and keeps the old KV value.
 - Staleness: digest aged 7 h → `stale: true` + warning; 25 h → stronger warning; missing key → 503 `STALE_DATA_UNAVAILABLE`.
 
 **Demo**: the deployed Worker answers with live 16-day forecasts, refreshing every 2 h. *Live weather windows for 10 real campsites.*
@@ -44,7 +44,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 **Spike (timeboxed ½ day, runs first)**: per the protocol in [04-data-sources.md](04-data-sources.md) — devtools capture of tjalda.is internal endpoints, ≥3 sample payloads committed as fixtures, bot-protection notes. Output: a findings note at `stories/S05-findings.md` + the **gate decision**: build `adapters/tjalda.ts` now, or ship OSM-only and demote tjalda to `bookingUrl` enrichment. (Launch blocker either way: no production tjalda fetching before the owner's clearance.)
 
-**Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); region bucketing via point-in-region polygons; `jobs/refresh-campsites.ts` + weekly cron → `camp:sites:v1`; weather cron now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
+**Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); region bucketing via point-in-region polygons; `workflows/refresh-campsites.ts` steps (weekly schedule already on the binding) → `camp:sites:v1`; the weather workflow now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
 
 **Tests first**:
 - OSM fixture contract test: Overpass JSON → normalized `Campsite[]`; tag→facilities mapping table-driven (yes/limited/no/missing); ASCII-folded id stability (`Þakgil → thakgil`).

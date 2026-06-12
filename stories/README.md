@@ -9,7 +9,7 @@ Workflow per story: write the tests from the acceptance criteria first (red), im
 | [S01](S01-project-scaffold.md) | Project scaffold | scaffolding | — | Typed, tested Worker skeleton; first manual deploy; `/api/health` live |
 | [S02](S02-website-scaffold.md) | Website scaffold | scaffolding | S01 | React (Vite) app served as Static Assets; one-command dev loop; lint + agent-hook guardrails |
 | [S03](S03-weather-windows-core.md) | Weather windows (fixture) | core value | S01 | Scoring core + `/api/windows`; the canonical policy test table passes |
-| [S04](S04-live-weather.md) | Live forecasts | core value | S03 | Open-Meteo + KV + 2h cron; staleness; deployed with real data |
+| [S04](S04-live-weather.md) | Live forecasts | core value | S03 | Open-Meteo + KV + 2h `refresh-weather` workflow; staleness; deployed with real data |
 | [S05](S05-tjalda-spike.md) | tjalda.is spike | campsites | — (anytime before S06) | Findings note + campsite-source gate decision |
 | [S06](S06-real-campsites.md) | Real campsites | campsites | S04, S05 | ~200 real sites with facilities/booking links in recommendations |
 | [S07](S07-mcp-server.md) | Public MCP server | agents | S04 | `/mcp` with both tools; agents can ask "when can I camp?" |
