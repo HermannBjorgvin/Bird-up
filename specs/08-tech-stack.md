@@ -22,10 +22,10 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
 | `agents` | 0.15.0 | `createMcpHandler` from **`agents/mcp`**; peer-requires zod 4 |
 | `@modelcontextprotocol/sdk` | 1.29.0 | Install explicitly (also used by MCP tests as the client) |
 | `zod` | 4.4.x | |
-| `vite` | 8.0.x | React app in `web/` (create-vite `react-ts` template) |
-| `react` + `react-dom` | 19.x | Template defaults, pinned exact at S02 scaffold time |
-| `eslint` (+ template plugins) | 9.x flat config | From the `react-ts` template; see "Lint & agent guardrails" |
-| `react-doctor` | latest at S02 | React-specific scanner (millionco); `doctor.config.ts` committed |
+| `vite` | 8.0.14 | React app in `web/` (create-vite 9.0.7 `react-ts` template) |
+| `react` + `react-dom` | 19.2.6 | Pinned exact at S02 scaffold time (+ `@vitejs/plugin-react` 6.0.2) |
+| `eslint` (+ template plugins) | 10.4.1 flat config | What the `react-ts` template ships as of S02; see "Lint & agent guardrails" |
+| `eslint-plugin-react-doctor` | 0.2.11 | react-doctor's rule set as ESLint flat configs (owner decision 2026-06-12, supersedes the standalone CLI — the CLI's extra dead-code/score scan stays available ad hoc via `npx react-doctor`); 0.5.x exists but is inside the quarantine window |
 | `@cloudflare/vite-plugin` | 1.40.0 | Peers: vite ^6.1‖^7‖^8, wrangler ^4.98.0 — verified installable under the quarantine; later 1.40.x patches peer-require wrangler ^4.100 |
 | `vitest` | 4.1.8 | |
 | `@cloudflare/vitest-pool-workers` | 0.16.13 | **Post-0.13 API** — see warning below |
@@ -94,20 +94,22 @@ test/unit/vitest.config.ts      # name "unit", plain node env — core/, web pur
 test/worker/vitest.config.ts    # name "worker", plugins: [cloudflareTest({ wrangler: { configPath } })]
 ```
 
-Project-level configs do not inherit root `test` options — each is configured fully. `npm test` = `vitest run` (both projects); `npm run check` = `tsc --noEmit && eslint . --max-warnings 4 && vitest run` (lint joins `check` when S02 lands it).
+Project-level configs do not inherit root `test` options — each is configured fully. `npm test` = `vitest run` (both projects); `npm run check` = `tsc --noEmit && tsc -b web && eslint . --max-warnings 4 && vitest run` (the worker and the website are separate TS projects — DOM lib vs workers types).
 
 ## Lint & agent guardrails (added 2026-06-12, land in S02)
 
 Most stories after S02 will be delegated to agents; these are the deterministic rails they run on:
 
-- **ESLint flat config at the repo root** — the `react-ts` template's config (typescript-eslint, react-hooks, react-refresh) scoped to `web/**`, plus repo-wide `max-lines: ["warn", { "max": 500 }]` (skip blank lines/comments). 500 lines is the owner's split-this-file signal for web apps.
+- **ESLint flat config at the repo root** — TS baseline (`@eslint/js` + typescript-eslint recommended) repo-wide; the React layer (react-hooks, react-refresh, `eslint-plugin-react-doctor` recommended) scoped to `web/**`; plus repo-wide `max-lines: ["warn", { "max": 500 }]` (skip blank lines/comments). 500 lines is the owner's split-this-file signal for web apps. Generated files (`worker-configuration.d.ts`, `dist`, `.wrangler`) are ignored so they can't eat the warning budget.
 - **`npm run lint`** = `eslint . --max-warnings 4` — warnings are budgeted, not free: a fifth file over 500 lines fails the gate. Part of `npm run check`.
-- **`react-doctor`** — React-specific scanner: `npm run doctor` (one-shot scan, `--no-telemetry`), `doctor.config.ts` committed, agent integration via `npx react-doctor@latest install`. Not part of `check` (advisory; run per story that touches `web/`).
-- **Write hook** — Claude Code `PostToolUse` hook in `.claude/settings.json` (checked in): every `Write`/`Edit` runs ESLint on the touched file, so agents get lint feedback at write time instead of at the `check` gate.
+- **react-doctor via ESLint** — the rule set ships as `eslint-plugin-react-doctor` flat configs, so it runs inside `lint`/`check`/the write hook rather than as a separate scanner (owner decision 2026-06-12). The standalone CLI's extras (dead-code analysis, scoring) stay available ad hoc: `npx react-doctor web`.
+- **Write hook** — Claude Code `PostToolUse` hook in `.claude/settings.json` (checked in): every `Write`/`Edit` runs ESLint (`--max-warnings 0`) on the touched file and feeds violations back to the agent at write time instead of at the `check` gate.
 
 ## Runbooks
 
-**Dev:** `npx vite dev` — site with HMR, `/api/*` + `/mcp` + KV running in real workerd. Schedules never fire locally; run a workflow on demand against the deployed Worker with `npx wrangler workflows trigger refresh-weather`, inspect with `npx wrangler workflows instances describe refresh-weather <id>` (tests create instances directly via the binding).
+**Dev:** `npm run dev` (= `vite dev web`) — site with HMR, `/api/*` + `/mcp` + KV + Workflows running in real workerd. Schedules never fire locally; run a workflow on demand against the deployed Worker with `npx wrangler workflows trigger refresh-weather`, inspect with `npx wrangler workflows instances describe refresh-weather <id>` (tests create instances directly via the binding).
+
+> **Vite layout (decided at S02).** The app keeps its `index.html` in `web/`, so the Vite root is `web/` (`vite dev web` / `vite build web`) and `web/vite.config.ts` passes `cloudflare({ configPath: "../wrangler.jsonc" })` with `build.outDir: "../dist"` — the client bundle lands in `dist/client`, exactly where `wrangler.jsonc`'s `assets.directory` points. Deploy stays plain `npx wrangler deploy` from the repo root reading the **raw** `wrangler.jsonc` (wrangler bundles `src/index.ts` itself); the plugin's own worker build in `dist/tjaldur/` and its config redirect under `web/.wrangler/` are unused build artifacts. The documented zero-flag redirect flow only works with `index.html` at the repo root, which we deliberately don't do.
 
 **Deploy (manual, no CI/CD — deliberate):**
 
@@ -126,5 +128,5 @@ npx wrangler tail             # optional: live logs
 2. `wrangler.jsonc` + `tsconfig.json` + `wrangler types`.
 3. `src/index.ts` with Hono + `/api/health`; two skeleton Workflow classes in `src/workflows/`, schedules on their bindings.
 4. vitest two-project setup; one unit test + worker tests (health route, KV round-trip, both workflow skeletons complete via `introspectWorkflowInstance`) green.
-5. `web/` scaffolded with the Vite generator (`npm create vite@latest` → `react-ts`) + `@cloudflare/vite-plugin`; placeholder page; build feeds `assets.directory`; ESLint root config, `react-doctor`, and the write hook per "Lint & agent guardrails".
-6. KV namespace, secrets, first `wrangler deploy`; verify `/api/health` and the placeholder page on `*.workers.dev`.
+5. `web/` scaffolded with the Vite generator (create-vite `react-ts`) + `@cloudflare/vite-plugin`; template's own package.json/eslint config dissolved into the root (single npm package); placeholder page; build feeds `assets.directory`; ESLint root config (incl. `eslint-plugin-react-doctor`) and the write hook per "Lint & agent guardrails".
+6. KV namespace, secrets, first `wrangler deploy`; verify `/api/health` and the placeholder page on tjaldur.9z.is.

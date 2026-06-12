@@ -1,0 +1,78 @@
+:root {
+  --text: #3b3645;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --ok: #1a7f37;
+  --error: #cf222e;
+
+  font: 18px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --ok: #3fb950;
+    --error: #f85149;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+main {
+  flex: 1;
+}
+
+h1 {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.pitch {
+  font-size: 1.1rem;
+}
+
+.health .ok {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.health .error {
+  color: var(--error);
+  font-weight: 600;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fineprint {
+  font-size: 0.75rem;
+}

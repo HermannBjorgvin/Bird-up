@@ -3,3 +3,5 @@ dist/
 .wrangler/
 .dev.vars
 *.log
+.claude/settings.local.json
+.playwright-mcp/
