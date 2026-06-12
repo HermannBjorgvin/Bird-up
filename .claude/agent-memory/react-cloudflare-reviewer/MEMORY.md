@@ -1,1 +1,1 @@
-- [S01 review open risks](project_s01-open-risks.md) — S02 wrangler/vite-plugin peer conflict; cron-string drift; /api SPA fallthrough returns 200 HTML
+- [S01 review open risks](project_s01-open-risks.md) — post-pivot ledger: /api 404 untracked; S04 schedules-gate verification gap; spec 07 stale fetch snippet

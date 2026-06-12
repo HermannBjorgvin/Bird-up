@@ -71,6 +71,7 @@ Caching headers: `/api/windows*` and `/api/next-windows` `Cache-Control: public,
 | Code | HTTP | When |
 |---|---|---|
 | `INVALID_PARAMS` | 400 | zod validation failure, incl. out-of-bounds threshold overrides |
+| `NOT_FOUND` | 404 | unknown `/api/*` path — JSON envelope, never the SPA shell (lands in S03) |
 | `STALE_DATA_UNAVAILABLE` | 503 | KV has *no* weather digest at all (pre-first-refresh only) |
 | `UPSTREAM_DOWN` | 502 | live eBird fetch failed **and** no cache exists — only when `include_birds`; weather answers never throw this |
 | `INTERNAL` | 500 | bug |

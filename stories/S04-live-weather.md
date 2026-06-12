@@ -15,8 +15,9 @@ The Open-Meteo adapter (batched multi-point call, chunked ≤100 coordinates, di
 - [ ] Creating a `refresh-weather` instance in tests (`introspectWorkflowInstance` + the binding) completes and writes a `wx:digest:v1` blob matching the spec shape with a fresh `fetchedAt`; on persistent upstream failure the instance errors and the previous KV value is retained untouched.
 - [ ] Staleness: digest aged >6h → `dataAge.stale: true` + warning; >24h → the stronger warning string; KV key missing entirely → 503 `STALE_DATA_UNAVAILABLE`.
 - [ ] `/api/windows` responses are served from KV with **zero** weather subrequests at request time (assert via injected fetch fake).
-- [ ] The `schedules` on both workflow bindings are uncommented and deploy cleanly (the S01-era API gate has lifted — if it still 403s, escalate with the `cf-ray` per the S01 research notes before falling back to a temporary `triggers.crons` → `create()` bridge).
-- [ ] Deployed; a real response after the first scheduled (or `wrangler workflows trigger`-ed) run shows live forecast dates; the instance's step history is visible via `wrangler workflows instances describe`.
+- [ ] The `schedules` on both workflow bindings are uncommented and deploy cleanly (the S01-era API gate has lifted — if it still 403s, capture a fresh `cf-ray` from the failing PUT via `WRANGLER_LOG=debug WRANGLER_LOG_SANITIZE=false npx wrangler deploy` and escalate, before falling back to a temporary `triggers.crons` → `create()` bridge).
+- [ ] Both workflows set explicit per-step `retries`/`timeout` so the worst-case instance lifetime stays under the 2 h cadence (spec 01 overlap caveat).
+- [ ] Deployed; at least one **schedule-initiated** instance is evidenced (its `WorkflowEvent.schedule` is set / `wrangler workflows instances list` shows the cron trigger source — a manual `wrangler workflows trigger` does **not** satisfy this) and a real response after it shows live forecast dates; the instance's step history is visible via `wrangler workflows instances describe`.
 - [ ] The per-step measured CPU time is recorded in this story's *Notes* section below; if a single fetch+digest step exceeds ~5 ms at 10 sites, shrink the chunk size (spec 01) before S06 scales to ~250 sites.
 
 ## Demo

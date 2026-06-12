@@ -34,7 +34,7 @@ Recorded real responses in `test/fixtures/{openmeteo,ebird,osm,tjalda}/`, each w
 ### 3. Worker integration (workers project)
 
 - KV seeded in test setup: `await env.KV.put('wx:digest:v1', JSON.stringify(fixtureDigest))` etc.
-- HTTP by invoking the Worker in-process: `exports.default.fetch(new Request('…/api/…'), env, ctx)` (post-0.13 pool API, [08-tech-stack.md](08-tech-stack.md)); every 200 body must parse with the zod `Recommendation` schema; every error with the envelope schema.
+- HTTP by invoking the Worker in-process: `exports.default.fetch(new Request('…/api/…'))` (post-0.13 pool API, [08-tech-stack.md](08-tech-stack.md)); every 200 body must parse with the zod `Recommendation` schema; every error with the envelope schema.
 - Workflows by creating instances through their bindings (`env.REFRESH_WEATHER.create({ id })`) and introspecting via `introspectWorkflowInstance` from `cloudflare:test` (`await using` for disposal; `waitForStatus` / `getOutput` / `waitForStepResult`; `modify` to disable sleeps or mock steps), asserting KV effects (including the keep-old-value-on-failure path). Schedules never fire in tests — creating the instance *is* the test's job.
 - Staleness scenarios by writing digests with back-dated `fetchedAt`.
 

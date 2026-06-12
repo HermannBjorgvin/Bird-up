@@ -12,9 +12,12 @@ describe("worker scaffold", () => {
 
   it("KV binding round-trips", async () => {
     await env.KV.put("scaffold:probe", "ok");
-    expect(await env.KV.get("scaffold:probe")).toBe("ok");
-    // no isolatedStorage in the post-0.13 pool — tests clean up their own KV state
-    await env.KV.delete("scaffold:probe");
+    try {
+      expect(await env.KV.get("scaffold:probe")).toBe("ok");
+    } finally {
+      // no isolatedStorage in the post-0.13 pool — tests clean up their own KV state
+      await env.KV.delete("scaffold:probe");
+    }
   });
 
   it("refresh-weather workflow skeleton runs to completion", async () => {

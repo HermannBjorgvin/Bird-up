@@ -6,7 +6,7 @@
 
 ## Description
 
-The `CampsiteSource` port and its adapters: OSM Overpass (always built — fallback and contract proof) and tjalda.is (only if the S05 gate passed). The weekly `refresh-campsites` workflow normalizes into `camp:sites:v1` (schedule on its binding since S01); a checked-in `data/campsite-overrides.json` merges camping-card flags, booking deep links and manual corrections; campsites are bucketed into the 8 regions; the `refresh-weather` workflow switches from the hardcoded ten to the KV site list.
+The `CampsiteSource` port and its adapters: OSM Overpass (always built — fallback and contract proof) and tjalda.is (only if the S05 gate passed). The weekly `refresh-campsites` workflow normalizes into `camp:sites:v1` (its cron schedule activates with the S04 gate work); a checked-in `data/campsite-overrides.json` merges camping-card flags, booking deep links and manual corrections; campsites are bucketed into the 8 regions; the `refresh-weather` workflow switches from the hardcoded ten to the KV site list.
 
 ## Acceptance criteria
 

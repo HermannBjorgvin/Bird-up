@@ -101,6 +101,8 @@ Each refresh job is a cron-scheduled Workflow (`schedules` on its binding). Work
 - `refresh-weather` (every 2 h): step *read site list* from KV → one step per ≤100-coordinate Open-Meteo chunk (fetch + digest into per-site `DailyDigest[16]`) → final step assembles and overwrites `wx:digest:v1`.
 - `refresh-campsites` (weekly): step *fetch* via the active `CampsiteSource` adapter → step *normalize* → final step overwrites `camp:sites:v1`.
 - Transient upstream hiccups heal inside the instance via step retries (seconds, not the next schedule). If an instance still errors out, the previous KV value is untouched and the read path surfaces staleness ([03-api.md](03-api.md)) — never a crash. KV is written only by the final step, so a partially failed run can never publish partial data.
+- **Determinism rule**: every side effect and every nondeterministic read (`fetch`, KV, `Date.now()`, randomness) lives *inside* a `step.do` callback. Code in `run()` outside steps re-executes on every wake/replay and must be pure and deterministic — step results are the only durable state.
+- **Overlap caveat**: the final-step-write protects against *partial* data, not *overlapping instances* — with default retry settings a pathological instance could outlive the 2 h cadence and overwrite a fresher digest with older data (impact is bounded: full-blob overwrite, `fetchedAt` travels with it so staleness stays honest). S04 sets explicit per-step `retries`/`timeout` so the worst-case instance lifetime stays under the schedule interval.
 
 ## KV schema
 
@@ -157,7 +159,7 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 ## Cloudflare deployment
 
 - **Worker** with Static Assets: `web/dist` served for unmatched routes (asset requests are free and unlimited); `/mcp` and `/api/*` handled by the Worker.
-- **Workflows**: `refresh-weather` (schedule `0 */2 * * *`) and `refresh-campsites` (`0 3 * * 1`), declared on their bindings; `observability.enabled` for per-step instance history in the dashboard.
+- **Workflows**: `refresh-weather` (schedule `0 */2 * * *`) and `refresh-campsites` (`0 3 * * 1`), declared on their bindings (currently commented out behind the schedules-API 403 gate — spec 08, re-enabled in S04); `observability.enabled` for per-step instance history in the dashboard.
 - **Secrets/vars**: `EBIRD_API_KEY` (secret); `BASE_URL` (var — MCP clients cannot resolve relative URLs, so `mapUrl` must be absolute).
 
 ### Free-tier budget (limits as of June 2026)

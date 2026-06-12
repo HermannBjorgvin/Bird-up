@@ -26,7 +26,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 ## Slice 2 — Real weather: Open-Meteo adapter + KV + scheduled workflow (deployed)
 
-**Scope**: `adapters/openmeteo.ts` (batched multi-point call per [04](04-data-sources.md), chunking, digesting); `adapters/kv-store.ts`; `workflows/refresh-weather.ts` steps (read site list → one fetch+digest step per chunk → final KV write; schedule already on the binding); read path now serves from `wx:digest:v1`; staleness fields + warnings per [03](03-api.md); seed list of ~10 real campsites (hardcoded constant: Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar); **first production data**; measure per-step CPU ([01](01-architecture.md)) and record the number in story S04's notes.
+**Scope**: `adapters/openmeteo.ts` (batched multi-point call per [04](04-data-sources.md), chunking, digesting); `adapters/kv-store.ts`; `workflows/refresh-weather.ts` steps (read site list → one fetch+digest step per chunk → final KV write; the binding's cron `schedules` get uncommented here — 403-gated at S01, see that story's notes); read path now serves from `wx:digest:v1`; staleness fields + warnings per [03](03-api.md); seed list of ~10 real campsites (hardcoded constant: Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar); **first production data**; measure per-step CPU ([01](01-architecture.md)) and record the number in story S04's notes.
 
 **Faked**: campsites (10 hardcoded), birds, map.
 
@@ -44,7 +44,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 **Spike (timeboxed ½ day, runs first)**: per the protocol in [04-data-sources.md](04-data-sources.md) — devtools capture of tjalda.is internal endpoints, ≥3 sample payloads committed as fixtures, bot-protection notes. Output: a findings note at `stories/S05-findings.md` + the **gate decision**: build `adapters/tjalda.ts` now, or ship OSM-only and demote tjalda to `bookingUrl` enrichment. (Launch blocker either way: no production tjalda fetching before the owner's clearance.)
 
-**Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); region bucketing via point-in-region polygons; `workflows/refresh-campsites.ts` steps (weekly schedule already on the binding) → `camp:sites:v1`; the weather workflow now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
+**Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); region bucketing via point-in-region polygons; `workflows/refresh-campsites.ts` steps (weekly schedule on the binding, active once the S04 gate work is done) → `camp:sites:v1`; the weather workflow now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
 
 **Tests first**:
 - OSM fixture contract test: Overpass JSON → normalized `Campsite[]`; tag→facilities mapping table-driven (yes/limited/no/missing); ASCII-folded id stability (`Þakgil → thakgil`).
