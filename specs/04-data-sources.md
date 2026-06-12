@@ -71,7 +71,7 @@ tjalda.is is Iceland's campsite directory + booking platform (booking backend: P
 3. Response payloads for ≥3 campsites across regions → committed as fixtures (`test/fixtures/tjalda/`), with coordinates, facilities, opening dates, booking URL fields identified.
 4. Bot-protection behavior at one-request-per-week-per-page politeness levels.
 
-**Decision gate** (recorded in the PR): usable JSON endpoints **and** plausible CEO/legal clearance → build `tjalda.ts` against the fixtures. Otherwise → **OSM-only v1**, tjalda relegated to manually-curated `bookingUrl` enrichment.
+**Decision gate** (recorded in `stories/S05-findings.md`): usable JSON endpoints **and** plausible CEO/legal clearance → build `tjalda.ts` against the fixtures. Otherwise → **OSM-only v1**, tjalda relegated to manually-curated `bookingUrl` enrichment.
 
 **Launch blocker**: the tjalda adapter must not run in production until the owner confirms clearance with tjalda.is. This is a release-checklist item, not a code concern. The adapter must be polite regardless: weekly cadence, identifying User-Agent (`tjaldur/x.y (hermann3646@gmail.com)`), no availability polling in v1.
 

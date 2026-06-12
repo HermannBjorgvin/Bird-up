@@ -34,13 +34,13 @@ Recorded real responses in `test/fixtures/{openmeteo,ebird,osm,tjalda}/`, each w
 ### 3. Worker integration (workers project)
 
 - KV seeded in test setup: `await env.KV.put('wx:digest:v1', JSON.stringify(fixtureDigest))` etc.
-- HTTP via `SELF.fetch('/api/…')`; every 200 body must parse with the zod `Recommendation` schema; every error with the envelope schema.
+- HTTP by invoking the Worker in-process: `exports.default.fetch(new Request('…/api/…'), env, ctx)` (post-0.13 pool API, [08-tech-stack.md](08-tech-stack.md)); every 200 body must parse with the zod `Recommendation` schema; every error with the envelope schema.
 - Crons by invoking the scheduled handler directly with a controlled `scheduledTime`, asserting KV effects (including the keep-old-value-on-failure path).
 - Staleness scenarios by writing digests with back-dated `fetchedAt`.
 
 ### 4. MCP (workers project)
 
-`@modelcontextprotocol/sdk` `Client` with a custom fetch-based streamable-HTTP transport bound to `SELF.fetch` — exercises the real `/mcp` handler in-process, no network: `tools/list` schema assertions, no-arg `next_weather_windows`, override and `isError` paths (full list in [06-implementation-plan.md](06-implementation-plan.md), Slice 4).
+`@modelcontextprotocol/sdk` `Client` with a custom fetch-based streamable-HTTP transport bound to the Worker's in-process `exports.default.fetch` — exercises the real `/mcp` handler, no network: `tools/list` schema assertions, no-arg `next_weather_windows`, override and `isError` paths (full list in [06-implementation-plan.md](06-implementation-plan.md), Slice 4).
 
 ### 5. Manual / live (never CI)
 
@@ -52,8 +52,8 @@ Recorded real responses in `test/fixtures/{openmeteo,ebird,osm,tjalda}/`, each w
 - External API liveness/latency (smoke script only).
 - Leaflet rendering, browser pixels, SVG appearance (structure-only SVG assertions + one golden string).
 - tjalda.is HTML/endpoint drift beyond its committed fixtures — drift is detected by the weekly cron failing, which by design keeps serving old data and surfaces staleness.
-- Load/performance: 200 requests/day does not get a load test. The one measured number that matters (cron CPU ms, [01-architecture.md](01-architecture.md)) is recorded in Slice 2's PR, not automated.
+- Load/performance: 200 requests/day does not get a load test. The one measured number that matters (cron CPU ms, [01-architecture.md](01-architecture.md)) is recorded in story S04's notes, not automated.
 
-## CI
+## No CI/CD (deliberate)
 
-GitHub Actions on every push/PR: typecheck (`tsc --noEmit`), `vitest run` (both projects), `wrangler deploy --dry-run`. Deploys stay manual in v1 (`wrangler deploy`) — a deliberate non-feature until the project outgrows it.
+There is no pipeline. The gate is local and human: `npm run check` (typecheck + both vitest projects) must be green before any manual `wrangler deploy` ([08-tech-stack.md](08-tech-stack.md) runbook). Revisit only if the project outgrows a single contributor.

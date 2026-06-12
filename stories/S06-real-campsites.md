@@ -1,0 +1,24 @@
+# S06 — Real campsites in recommendations
+
+**Epic:** campsites · **Depends on:** S04, S05 · **Spec refs:** [04-data-sources](../specs/04-data-sources.md), [01-architecture](../specs/01-architecture.md), [06 Slice 3](../specs/06-implementation-plan.md)
+
+> As a camper, I want recommendations to name real Icelandic campsites with their facilities and a booking link, so that a good window comes with somewhere concrete to pitch.
+
+## Description
+
+The `CampsiteSource` port and its adapters: OSM Overpass (always built — fallback and contract proof) and tjalda.is (only if the S05 gate passed). A weekly cron normalizes into `camp:sites:v1`; a checked-in `data/campsite-overrides.json` merges camping-card flags, booking deep links and manual corrections; campsites are bucketed into the 8 regions; the weather cron switches from the hardcoded ten to the KV site list.
+
+## Acceptance criteria
+
+- [ ] OSM fixture contract test: recorded Overpass JSON → normalized `Campsite[]`; the tag→facilities mapping is table-driven (`yes`/`limited` → true, `no` → false, missing → absent) per the spec-04 table.
+- [ ] ASCII-folded ids are stable and correct (`Þakgil → thakgil`, `Húsafell → husafell`); re-running the adapter on the same input yields identical ids.
+- [ ] (Only if S05 gate = BUILD) tjalda fixture contract test in the same pattern; the adapter sends the polite identifying User-Agent and is wired to the weekly cadence only.
+- [ ] Region assignment: a test table of ≥8 known campsites (one per region) lands each in its correct `IS-n`.
+- [ ] Overrides merge: a campsite gains `campingCard: true` and `bookingUrl` from `campsite-overrides.json` without losing adapter-sourced fields; an override for an unknown id produces a logged warning, not a crash.
+- [ ] Weekly cron writes `camp:sites:v1` matching the spec shape; upstream failure retains the previous value.
+- [ ] `GET /api/campsites` returns the normalized list; `/api/windows` responses now rank real campsites (≈200 from OSM) inside windows by their per-site window scores.
+- [ ] The weather cron reads its site list from `camp:sites:v1` (hardcoded ten removed) and stays within the CPU budget recorded in S04.
+
+## Demo
+
+A window response names real campsites with shower/toilet/water flags and booking links.

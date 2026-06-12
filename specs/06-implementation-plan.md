@@ -2,7 +2,7 @@
 
 Status: accepted · Last updated: 2026-06-12
 
-Each slice is end-to-end (delivers something a user or agent can see), test-driven (its tests are written first and listed below), and deployable. Order matters: weather-only value lands by Slice 2, agents by Slice 4, birds by Slice 6. Within every slice: red → green → refactor; the slice is done when its **Demo** line is true and CI is green.
+Each slice is end-to-end (delivers something a user or agent can see), test-driven (its tests are written first and listed below), and deployable. Order matters: weather-only value lands by Slice 2, agents by Slice 4, birds by Slice 6. Within every slice: red → green → refactor; the slice is done when its **Demo** line is true and `npm run check` is green. Slices map 1:1 onto the user stories in [`stories/`](../stories/README.md) (slice N = story S0(N+2); scaffolding is stories S01–S02), which carry the granular acceptance criteria.
 
 Cross-cutting references: architecture & shapes [01](01-architecture.md), scoring [02](02-scoring-policy.md), API [03](03-api.md), sources [04](04-data-sources.md), website [05](05-website.md), test tooling [07](07-testing.md).
 
@@ -10,7 +10,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 ## Slice 1 — Scoring core + first REST endpoint (fixture weather, one campsite)
 
-**Scope**: repo scaffolding (wrangler, TypeScript, vitest with the two test projects, CI); `core/types.ts` (zod `Recommendation` et al.); `core/scoring/{policy,score,windows}.ts`; minimal `core/recommend.ts`; `service.ts`; Hono app with `GET/POST /api/windows`; a fake `WeatherSource` serving a checked-in digest fixture; campsite list hardcoded to one site (Reykjavík Eco Campsite).
+**Scope**: repo scaffolding (wrangler, TypeScript, vitest with the two test projects — stories S01–S02, [08-tech-stack.md](08-tech-stack.md)); `core/types.ts` (zod `Recommendation` et al.); `core/scoring/{policy,score,windows}.ts`; minimal `core/recommend.ts`; `service.ts`; Hono app with `GET/POST /api/windows`; a fake `WeatherSource` serving a checked-in digest fixture; campsite list hardcoded to one site (Reykjavík Eco Campsite).
 
 **Faked**: weather (fixture), campsites (1 hardcoded), no KV, no cron, no birds, no map (`mapUrl` placeholder).
 
@@ -18,7 +18,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 - The canonical table T1–T12 from [02-scoring-policy.md](02-scoring-policy.md) as table-driven tests over `scoreDay`/`findWindows` (node project). Freeze the exact T2/T4/T8 scores back into the spec table once green.
 - `findWindows` edges: empty digest, run touching horizon (`mayExtend`), two separate runs, run shorter than `minDays`.
 - Override merge/validation: bounds table, weight renormalization, `+custom` version suffix.
-- Integration (workers project): `SELF.fetch('/api/windows?start=…&end=…')` → 200, body parses against the zod `Recommendation` schema; invalid params → 400 `INVALID_PARAMS`.
+- Integration (workers project): in-process `exports.default.fetch` of `/api/windows?start=…&end=…` → 200, body parses against the zod `Recommendation` schema; invalid params → 400 `INVALID_PARAMS`.
 
 **Demo**: `curl localhost:8787/api/windows?...` returns scored windows for Reykjavík from fixture weather. *You can now ask Tjaldur for weather windows.*
 
@@ -26,7 +26,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 ## Slice 2 — Real weather: Open-Meteo adapter + KV + cron (deployed)
 
-**Scope**: `adapters/openmeteo.ts` (batched multi-point call per [04](04-data-sources.md), chunking, digesting); `adapters/kv-store.ts`; `jobs/refresh-weather.ts` + cron trigger; read path now serves from `wx:digest:v1`; staleness fields + warnings per [03](03-api.md); seed list of ~10 real campsites (hardcoded constant: Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar); **first Cloudflare deploy**; measure cron CPU (the [01](01-architecture.md) risk) and record the number in the PR.
+**Scope**: `adapters/openmeteo.ts` (batched multi-point call per [04](04-data-sources.md), chunking, digesting); `adapters/kv-store.ts`; `jobs/refresh-weather.ts` + cron trigger; read path now serves from `wx:digest:v1`; staleness fields + warnings per [03](03-api.md); seed list of ~10 real campsites (hardcoded constant: Reykjavík, Þakgil, Húsafell, Akureyri, Mývatn, Egilsstaðir, Höfn, Skaftafell, Ísafjörður, Vestmannaeyjar); **first Cloudflare deploy**; measure cron CPU (the [01](01-architecture.md) risk) and record the number in story S04's notes.
 
 **Faked**: campsites (10 hardcoded), birds, map.
 
@@ -42,7 +42,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 ## Slice 3 — Campsites: tjalda.is spike, OSM adapter, decision gate
 
-**Spike (timeboxed ½ day, runs first)**: per the protocol in [04-data-sources.md](04-data-sources.md) — devtools capture of tjalda.is internal endpoints, ≥3 sample payloads committed as fixtures, bot-protection notes. Output: a findings note in the PR + the **gate decision**: build `adapters/tjalda.ts` now, or ship OSM-only and demote tjalda to `bookingUrl` enrichment. (Launch blocker either way: no production tjalda fetching before the owner's clearance.)
+**Spike (timeboxed ½ day, runs first)**: per the protocol in [04-data-sources.md](04-data-sources.md) — devtools capture of tjalda.is internal endpoints, ≥3 sample payloads committed as fixtures, bot-protection notes. Output: a findings note at `stories/S05-findings.md` + the **gate decision**: build `adapters/tjalda.ts` now, or ship OSM-only and demote tjalda to `bookingUrl` enrichment. (Launch blocker either way: no production tjalda fetching before the owner's clearance.)
 
 **Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); region bucketing via point-in-region polygons; `jobs/refresh-campsites.ts` + weekly cron → `camp:sites:v1`; weather cron now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
 
@@ -61,7 +61,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 **Scope**: `delivery/mcp.ts` — `createMcpHandler` mounted at `/mcp`; both tools per [03-api.md](03-api.md) wrapping `service.ts`; full threshold-override plumbing; absolute `mapUrl` from `BASE_URL` (placeholder target until Slice 8); tool descriptions with the agent-ergonomics text.
 
-**Tests first** (MCP SDK Client over `SELF.fetch` transport, per [07](07-testing.md)):
+**Tests first** (MCP SDK Client over the Worker's in-process fetch, per [07](07-testing.md)):
 - `tools/list` → exactly 2 tools, schemas match the spec.
 - `next_weather_windows` with **no arguments** → valid `Recommendation`.
 - `find_weather_windows` with a `thresholds` override → `policyVersion` ends `+custom`; with out-of-bounds override → `isError: true` + `INVALID_PARAMS` envelope.

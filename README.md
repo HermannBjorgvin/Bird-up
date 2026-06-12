@@ -26,6 +26,11 @@ Everything runs in a single Cloudflare Worker on the free tier, sized honestly f
 | [05-website.md](specs/05-website.md) | Map UI, seen-list handling (localStorage, client-side CSV parsing), stack |
 | [06-implementation-plan.md](specs/06-implementation-plan.md) | Eight vertical slices, each TDD-driven and demoable |
 | [07-testing.md](specs/07-testing.md) | Test layers, fixture recording protocol, what is deliberately not tested |
+| [08-tech-stack.md](specs/08-tech-stack.md) | Version pins, wrangler/vitest/MCP setup shapes, manual deploy runbook |
+
+## Stories
+
+The specs are broken down into vertically sliced user stories with acceptance criteria in [`stories/`](stories/) — [`stories/README.md`](stories/README.md) is the index and build order (S01 scaffold → S12 launch readiness). [`CLAUDE.md`](CLAUDE.md) carries the working context and hard rules for anyone (human or agent) implementing them.
 
 ## Data sources & attribution
 
