@@ -9,3 +9,10 @@ import type { Campsite } from "../core/types";
 export interface CampsiteSource {
   list(): Promise<Campsite[]>;
 }
+
+/** The `camp:sites:v1` KV blob (spec 01): the normalized list + provenance. */
+export interface CampsiteBlob {
+  fetchedAt: string; // ISO instant
+  source: string; // "osm" (v1)
+  sites: Campsite[];
+}

@@ -1,9 +1,12 @@
 import { Hono } from "hono";
 import type { Context } from "hono";
+import { CAMP_SITES_KEY } from "../adapters/kv-campsites";
 import { KvStore } from "../adapters/kv-store";
 import { KvWeatherSource } from "../adapters/kv-weather";
 import { SEED_CAMPSITES, SEED_CAMPSITES_FETCHED_AT } from "../adapters/seed-campsites";
 import { InvalidParamsError, StaleDataUnavailableError } from "../core/errors";
+import { OSM_ATTRIBUTION } from "../core/recommend";
+import type { CampsiteBlob } from "../ports/campsites";
 import { getWindows, type ServiceDeps, type WindowsParams } from "../service";
 
 type AppContext = Context<{ Bindings: Env }>;
@@ -39,6 +42,23 @@ restRoutes.post("/windows", async (c) => {
     start_date: typeof b.start_date === "string" ? b.start_date : undefined,
     end_date: typeof b.end_date === "string" ? b.end_date : undefined,
     thresholds: b.thresholds,
+  });
+});
+
+// The normalized campsite list from KV (spec 03: debug/website bootstrap). Served from KV only —
+// 503 until refresh-campsites has populated it.
+restRoutes.get("/campsites", async (c) => {
+  const blob = await new KvStore(c.env.KV).getJson<CampsiteBlob>(CAMP_SITES_KEY);
+  if (!blob) {
+    return errorEnvelope(c, "STALE_DATA_UNAVAILABLE", "campsite list not populated yet", 503);
+  }
+  c.header("Cache-Control", "public, max-age=3600");
+  return c.json({
+    fetchedAt: blob.fetchedAt,
+    source: blob.source,
+    count: blob.sites.length,
+    sites: blob.sites,
+    attribution: [OSM_ATTRIBUTION],
   });
 });
 
