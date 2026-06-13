@@ -1,8 +1,11 @@
 import { env, exports } from "cloudflare:workers";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { FIXTURE_DIGEST } from "../../src/adapters/fixture-weather";
+import { CAMP_SITES_KEY } from "../../src/adapters/kv-campsites";
 import { WX_DIGEST_KEY } from "../../src/adapters/kv-weather";
+import { REYKJAVIK_ECO } from "../../src/adapters/seed-campsites";
 import { Recommendation } from "../../src/core/types";
+import type { CampsiteBlob } from "../../src/ports/campsites";
 
 const ORIGIN = "https://tjaldur.test";
 const RANGE = "start_date=2026-06-12&end_date=2026-06-27";
@@ -10,12 +13,16 @@ const RANGE = "start_date=2026-06-12&end_date=2026-06-27";
 // The S03 fixture digest, served from KV now (S04): one site, one clear window. A fresh
 // `fetchedAt` keeps the staleness rules quiet — staleness.test.ts exercises them.
 const FRESH_DIGEST = { ...FIXTURE_DIGEST, fetchedAt: new Date().toISOString() };
+// The read path scores campsites from camp:sites:v1 (S06); seed the one matching the digest's id.
+const CAMP_BLOB: CampsiteBlob = { fetchedAt: "2026-06-13T00:00:00Z", source: "osm", sites: [REYKJAVIK_ECO] };
 
 beforeAll(async () => {
   await env.KV.put(WX_DIGEST_KEY, JSON.stringify(FRESH_DIGEST));
+  await env.KV.put(CAMP_SITES_KEY, JSON.stringify(CAMP_BLOB));
 });
 afterAll(async () => {
   await env.KV.delete(WX_DIGEST_KEY);
+  await env.KV.delete(CAMP_SITES_KEY);
 });
 
 async function getWindows(query: string): Promise<Response> {

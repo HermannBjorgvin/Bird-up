@@ -2,12 +2,11 @@ import { assignRegion } from "../core/regions";
 import type { Campsite } from "../core/types";
 
 /**
- * S04 hardcodes ten real campsites spread across Iceland (spec 06 Slice 2) — the site list the
- * `refresh-weather` workflow fetches forecasts for, and the read path's campsite candidates.
- * Coordinates are approximate (within ~1 km — ample for a 2 km weather model) and facilities are
- * a coarse "serviced campsite" guess; S06 replaces all of this with the OSM/tjalda adapter + KV.
- * Each site's camping area is derived from its coordinates via `assignRegion` (regions.ts), the
- * same nearest-anchor function the OSM adapter will use — no hand-bucketed regions here.
+ * Ten real campsites spread across Iceland. As of S06 these are NO LONGER the production site list —
+ * both `refresh-weather` and the read path now use the OSM list in `camp:sites:v1`. This set is
+ * retained only as the fixed sample behind the Open-Meteo fixture (`scripts/record-fixtures.ts`
+ * records forecasts for exactly these ids; `openmeteo.test.ts` + `fixture-weather.ts` assert against
+ * them). Coordinates are ~1 km accurate; regions are derived via `assignRegion` (regions.ts).
  */
 type SeedSite = Omit<Campsite, "region">;
 

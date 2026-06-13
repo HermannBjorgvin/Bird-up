@@ -3,7 +3,6 @@ import type { Context } from "hono";
 import { CAMP_SITES_KEY } from "../adapters/kv-campsites";
 import { KvStore } from "../adapters/kv-store";
 import { KvWeatherSource } from "../adapters/kv-weather";
-import { SEED_CAMPSITES, SEED_CAMPSITES_FETCHED_AT } from "../adapters/seed-campsites";
 import { InvalidParamsError, StaleDataUnavailableError } from "../core/errors";
 import { OSM_ATTRIBUTION } from "../core/recommend";
 import type { CampsiteBlob } from "../ports/campsites";
@@ -65,19 +64,21 @@ restRoutes.get("/campsites", async (c) => {
 // Unknown /api/* path → JSON 404 envelope, never the SPA shell (spec 03; carried over from S01 review).
 restRoutes.all("*", (c) => errorEnvelope(c, "NOT_FOUND", `no such endpoint: ${c.req.path}`, 404));
 
-/** S04 deps: the KV-backed digest written by refresh-weather + the ten-site seed list (Slice 3 swaps in real campsites). */
-function deps(c: AppContext): ServiceDeps {
+/** Both KV-backed (S06): the digest from refresh-weather + the real campsite list from refresh-campsites. */
+async function deps(c: AppContext): Promise<ServiceDeps> {
+  const store = new KvStore(c.env.KV);
+  const campsites = await store.getJson<CampsiteBlob>(CAMP_SITES_KEY);
   return {
-    weather: new KvWeatherSource(new KvStore(c.env.KV)),
-    campsites: SEED_CAMPSITES,
-    campsitesFetchedAt: SEED_CAMPSITES_FETCHED_AT,
+    weather: new KvWeatherSource(store),
+    campsites: campsites?.sites ?? [],
+    campsitesFetchedAt: campsites?.fetchedAt ?? "",
     baseUrl: c.env.BASE_URL,
   };
 }
 
 async function handleWindows(c: AppContext, params: WindowsParams): Promise<Response> {
   try {
-    const recommendation = await getWindows(params, deps(c));
+    const recommendation = await getWindows(params, await deps(c));
     if (c.req.method === "GET") c.header("Cache-Control", "public, max-age=300"); // GETs are cacheable; POSTs aren't
     return c.json(recommendation);
   } catch (err) {
