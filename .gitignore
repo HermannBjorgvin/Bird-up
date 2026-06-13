@@ -5,3 +5,7 @@ dist/
 *.log
 .claude/settings.local.json
 .playwright-mcp/
+
+# local browser profile for launch-chrome.sh (verification helper)
+.chrome-profile/
+launch-chrome.sh
