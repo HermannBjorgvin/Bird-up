@@ -2,7 +2,7 @@
 name: "react-cloudflare-reviewer"
 description: "Use this agent when code has just been written or modified and needs review — especially frontend (React/UI) code or backend code targeting Cloudflare Workers, KV, or related services. Review recently changed code, not the whole codebase, unless explicitly asked otherwise.\\n\\n<example>\\nContext: The user just had the assistant implement a new API route handler in a Cloudflare Worker.\\nuser: \"Add a /api/windows endpoint that returns the scored weather windows\"\\nassistant: \"Here's the new endpoint implementation:\"\\n<function call omitted for brevity only for this example>\\n<commentary>\\nA significant chunk of Worker backend code was just written, so use the Agent tool to launch the react-cloudflare-reviewer agent to review it.\\n</commentary>\\nassistant: \"Now let me use the react-cloudflare-reviewer agent to review this change\"\\n</example>\\n\\n<example>\\nContext: The user just finished a React component refactor.\\nuser: \"Can you review the component changes I just made?\"\\nassistant: \"I'll use the react-cloudflare-reviewer agent to review your recent component changes\"\\n<commentary>\\nThe user explicitly asked for a review of recent frontend code, so launch the react-cloudflare-reviewer agent.\\n</commentary>\\n</example>"
 tools: Agent, Read, TaskCreate, TaskGet, TaskList, TaskStop, TaskUpdate, WebFetch, WebSearch
-model: fable
+model: opus
 color: blue
 memory: project
 ---

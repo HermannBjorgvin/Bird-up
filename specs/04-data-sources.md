@@ -80,7 +80,7 @@ tjalda.is is Iceland's campsite directory + booking platform (booking backend: P
 - **Endpoint**: `https://overpass-api.de/api/interpreter`, query:
   `[out:json];area["ISO3166-1"="IS"];nwr["tourism"="camp_site"](area);out center;`
 - **Tag mapping**: `name`→name (fallback `name:en`); `center`/node coords→lat/lng; `toilets`→facilities.toilets; `shower`→showers; `drinking_water`→water; `power_supply`→power; `kitchen`→kitchen; `opening_hours`→openingHours; `fee`→fee; `website`→website. Yes-ish values (`yes`/`limited`) → true; `no` → false; missing → absent.
-- ~200+ Icelandic sites expected. **Attribution**: "Campsite data © OpenStreetMap contributors (ODbL)".
+- ~200+ Icelandic sites expected (244 in the recorded fixture). Data is licensed ODbL. **Attribution** (the string carried in every response, verbatim): "Campsite data © OpenStreetMap contributors".
 - Built unconditionally in Slice 3: it proves the `CampsiteSource` contract and is the sanctioned fallback if the gate fails.
 
 ### Enrichment (either adapter)

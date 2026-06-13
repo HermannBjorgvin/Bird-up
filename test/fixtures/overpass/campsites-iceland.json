@@ -1,0 +1,8559 @@
+{
+ "version": 0.6,
+ "generator": "Overpass API 0.7.62.11 87bfad18",
+ "osm3s": {
+  "timestamp_osm_base": "2026-06-13T02:57:09Z",
+  "timestamp_areas_base": "2026-06-12T14:06:05Z",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+ },
+ "elements": [
+  {
+   "type": "node",
+   "id": 60714223,
+   "lat": 64.6092221,
+   "lon": -19.7036184,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Árbúðir"
+   }
+  },
+  {
+   "type": "node",
+   "id": 456327083,
+   "lat": 64.0833544,
+   "lon": -21.0551546,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 460436747,
+   "lat": 65.193181,
+   "lon": -16.2222529,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Herðubreiðarlindir"
+   }
+  },
+  {
+   "type": "node",
+   "id": 477368841,
+   "lat": 63.6912484,
+   "lon": -19.5400794,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camping Volcano Huts"
+   }
+  },
+  {
+   "type": "node",
+   "id": 610811381,
+   "lat": 66.3414149,
+   "lon": -23.0972838,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Sæból",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 610811389,
+   "lat": 66.3920845,
+   "lon": -23.0306885,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Látrum",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 685898655,
+   "lat": 63.6776369,
+   "lon": -19.4812849,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Básar",
+    "fee": "yes",
+    "website": "https://www.utivist.is"
+   }
+  },
+  {
+   "type": "node",
+   "id": 836158969,
+   "lat": 66.4145014,
+   "lon": -22.6708092,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hlöðuvík",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 836159108,
+   "lat": 66.4259282,
+   "lon": -22.4903527,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hornvík",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 910847689,
+   "lat": 65.5685987,
+   "lon": -19.4313398,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 910847719,
+   "lat": 65.148948,
+   "lon": -19.7292404,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Áfangi",
+    "name:en": "Tjaldsvæði Camping",
+    "opening_hours": "Jun 15-Sep 1"
+   }
+  },
+  {
+   "type": "node",
+   "id": 1518196845,
+   "lat": 65.6072014,
+   "lon": -20.8779965,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 1604973950,
+   "lat": 65.042369,
+   "lon": -16.5955905,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Drekaskáli Warden Cabin",
+    "drinking_water": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 1721145993,
+   "lat": 63.6775568,
+   "lon": -19.468735,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 1906829759,
+   "lat": 64.0953233,
+   "lon": -21.0436203,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Útilífsmiðstöð skáta Úlfljótsvatni",
+    "fee": "yes",
+    "website": "https://ulfljotsvatn.is/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2260042976,
+   "lat": 63.9805886,
+   "lon": -18.5223326,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Skælingar"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2397288400,
+   "lat": 64.7473385,
+   "lon": -16.6314093,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Kverkfjöll / Sigurðarskáli",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2441846831,
+   "lat": 65.6911665,
+   "lon": -21.4421109,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2840039478,
+   "lat": 66.1821094,
+   "lon": -23.4748517,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2931428970,
+   "lat": 63.7236749,
+   "lon": -20.0133143,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Fljótshlíð",
+    "toilets": "yes",
+    "shower": "hot",
+    "kitchen": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 3010084874,
+   "lat": 64.444359,
+   "lon": -14.9656206,
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 3063163142,
+   "lat": 65.4638808,
+   "lon": -13.6710204,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 3778792862,
+   "lat": 65.643226,
+   "lon": -16.1142553,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 3778792863,
+   "lat": 65.6437786,
+   "lon": -16.1200785,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 3785134675,
+   "lat": 65.1262779,
+   "lon": -14.5403311,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4305203589,
+   "lat": 64.0896841,
+   "lon": -18.110116,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Blágil"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4328444297,
+   "lat": 65.2597023,
+   "lon": -21.1096453,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Saeberg Camping",
+    "toilets": "yes",
+    "shower": "hot",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "kitchen": "yes",
+    "opening_hours": "24/7",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4336206392,
+   "lat": 66.1010313,
+   "lon": -22.5718851,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Dalbær"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4370113492,
+   "lat": 63.9664432,
+   "lon": -18.3214532,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Blagil",
+    "name:en": "Blagil"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393973721,
+   "lat": 66.4422644,
+   "lon": -22.4379061,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Horn"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393976299,
+   "lat": 66.4546649,
+   "lon": -22.9283127,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393980657,
+   "lat": 66.4104351,
+   "lon": -22.3805454,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hornbjargsviti",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393980658,
+   "lat": 66.3645319,
+   "lon": -22.6230996,
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393980659,
+   "lat": 66.3618761,
+   "lon": -22.6508483,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393992357,
+   "lat": 66.3628622,
+   "lon": -22.2781557,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Smiðjuvík"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393992411,
+   "lat": 66.3913021,
+   "lon": -22.353015,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bjarnarnes",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393994966,
+   "lat": 66.2679026,
+   "lon": -22.3625423,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4393994970,
+   "lat": 66.270156,
+   "lon": -22.2364345,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Furufjörður",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4778641920,
+   "lat": 63.9418993,
+   "lon": -20.8214465,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þingborg",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4836273922,
+   "lat": 64.8275803,
+   "lon": -23.1903001,
+   "tags": {
+    "tourism": "camp_site",
+    "name:en": "Eyrunum"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4876526302,
+   "lat": 65.2049134,
+   "lon": -13.798961,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Sólbrekka",
+    "fee": "yes",
+    "website": "https://mjoifjordur.weebly.com/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4954364358,
+   "lat": 66.1309379,
+   "lon": -23.529287,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Suðureyri"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4997759823,
+   "lat": 65.9237901,
+   "lon": -18.3059273,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Hauganesi",
+    "name:en": "Hauganes Camping Area",
+    "website": "https://www.ektafiskur.is/en/hauganes-camping-area/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5022875027,
+   "lat": 65.0056118,
+   "lon": -22.7601921,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5039686322,
+   "lat": 65.0275151,
+   "lon": -18.330839,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugafell",
+    "name:en": "Laugafell"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5041029721,
+   "lat": 65.7813363,
+   "lon": -21.5163931,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugarhóll",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes",
+    "power_supply": "no",
+    "kitchen": "no",
+    "website": "https://parka.is/camping/?date_from=&date_to=&region=&search=Laugarh%C3%B3ll+"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5046860736,
+   "lat": 63.8327837,
+   "lon": -19.2102994,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5776372647,
+   "lat": 66.200038,
+   "lon": -17.1029873,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camping 66.12° North",
+    "toilets": "yes",
+    "website": "https://www.facebook.com/camping66.12"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5777739338,
+   "lat": 63.8754598,
+   "lon": -18.9444852,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Strútslaug",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5779074790,
+   "lat": 65.1882352,
+   "lon": -16.5388442,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5894882906,
+   "lat": 65.7360414,
+   "lon": -19.4786032,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hegranes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5895255385,
+   "lat": 65.4671244,
+   "lon": -22.2962785,
+   "tags": {
+    "tourism": "camp_site",
+    "name:en": "Midjanes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5900941585,
+   "lat": 65.2302837,
+   "lon": -22.4579684,
+   "tags": {
+    "tourism": "camp_site",
+    "name:en": "Skardsstrond"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5918944685,
+   "lat": 64.7008615,
+   "lon": -20.8705636,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 6441621029,
+   "lat": 64.1111397,
+   "lon": -18.4436041,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Langisjór Campground"
+   }
+  },
+  {
+   "type": "node",
+   "id": 6655030457,
+   "lat": 64.6941344,
+   "lon": -15.3608009,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Geldingafell",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 6805700086,
+   "lat": 65.2625141,
+   "lon": -15.5168954,
+   "tags": {
+    "tourism": "camp_site",
+    "name:en": "Sænautasel"
+   }
+  },
+  {
+   "type": "node",
+   "id": 7834482177,
+   "lat": 64.8294021,
+   "lon": -17.6312204,
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 8460237956,
+   "lat": 63.6763559,
+   "lon": -19.4814858,
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 8926639534,
+   "lat": 65.7301789,
+   "lon": -17.7869612,
+   "tags": {
+    "tourism": "camp_site",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 8977990680,
+   "lat": 64.9033263,
+   "lon": -22.1505044,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hallkelsstaðahlíð",
+    "toilets": "yes",
+    "drinking_water": "yes",
+    "website": "https://www.hallkelsstadahlid.is/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 9003585518,
+   "lat": 65.4876623,
+   "lon": -23.2664165,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 9896956630,
+   "lat": 64.3481328,
+   "lon": -15.2586709,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Myllulækur"
+   }
+  },
+  {
+   "type": "node",
+   "id": 9965622384,
+   "lat": 65.0196027,
+   "lon": -21.6471146,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Sælureiturinn Árblik",
+    "toilets": "yes",
+    "shower": "hot",
+    "drinking_water": "yes",
+    "power_supply": "cee_17_blue",
+    "kitchen": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 11011615070,
+   "lat": 66.1142951,
+   "lon": -17.8858334,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 11024012205,
+   "lat": 64.8124227,
+   "lon": -23.1430058,
+   "tags": {
+    "tourism": "camp_site",
+    "opening_hours": "24/7"
+   }
+  },
+  {
+   "type": "node",
+   "id": 11233980212,
+   "lat": 64.0028105,
+   "lon": -20.7547739,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 11373186992,
+   "lat": 65.7009177,
+   "lon": -21.5620098,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hveravík",
+    "website": "http://hveravik.is/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12063701475,
+   "lat": 65.8152362,
+   "lon": -16.4030271,
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12078203928,
+   "lat": 64.6084647,
+   "lon": -19.1399463,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12083560648,
+   "lat": 63.9803851,
+   "lon": -18.5248927,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12097315901,
+   "lat": 64.8208205,
+   "lon": -22.2568508,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Lindartunga"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12119051101,
+   "lat": 66.0517684,
+   "lon": -17.3438085,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Húsavík"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12222002620,
+   "lat": 64.8662798,
+   "lon": -19.5527498,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hveravellir",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://hveravellir.is/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12875022446,
+   "lat": 64.8853445,
+   "lon": -15.3515616,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugarfell Campsite",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12909134201,
+   "lat": 64.1022714,
+   "lon": -19.5775977,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Áfangagil",
+    "website": "https://www.afangagil.is/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12968980403,
+   "lat": 66.149184,
+   "lon": -18.9051374,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Rammalóðin",
+    "website": "https://utilegukortid.is/siglufjoerdur/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 12985225409,
+   "lat": 65.6833806,
+   "lon": -23.603668,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bíldudalur Camping Ground"
+   }
+  },
+  {
+   "type": "node",
+   "id": 13068615726,
+   "lat": 65.1514779,
+   "lon": -14.6338499,
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camping Mjóanes",
+    "website": "https://mjoanes.is/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 13617769661,
+   "lat": 63.4195772,
+   "lon": -18.9964427,
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 25469557,
+   "center": {
+    "lat": 63.9906329,
+    "lon": -19.0591757
+   },
+   "nodes": [
+    277537452,
+    277537454,
+    277537455,
+    277537463,
+    3837475796,
+    3837475797,
+    277537468,
+    13084851939,
+    4044340227,
+    277537481,
+    277537499,
+    3837475854,
+    277537510,
+    277537511,
+    277537512,
+    277537452
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Landmannalaugar",
+    "drinking_water": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 26159510,
+   "center": {
+    "lat": 65.0992917,
+    "lon": -14.7399185
+   },
+   "nodes": [
+    2571522240,
+    6610924780,
+    6610924779,
+    286454107,
+    6610924781,
+    2571522238,
+    6610924782,
+    2571522229,
+    2571522201,
+    6610924769,
+    2571522186,
+    6610924783,
+    2571522175,
+    6610924784,
+    2571522174,
+    2571522172,
+    2571522167,
+    2571522164,
+    6610957985,
+    6610957986,
+    2571522176,
+    2571522178,
+    2571522183,
+    2571522195,
+    286454109,
+    2571522206,
+    6610957987,
+    6610924770,
+    2571522203,
+    2571522211,
+    6610924771,
+    286454112,
+    6610924772,
+    6610924777,
+    2571522236,
+    6610924778,
+    2571522230,
+    2571522218,
+    286454113,
+    6610957988,
+    6610924763,
+    2571522188,
+    6610924773,
+    286454114,
+    6610924774,
+    2571522143,
+    2571522136,
+    6610924764,
+    286454104,
+    286454105,
+    6610957989,
+    2571522151,
+    6610957990,
+    6610957991,
+    6610957992,
+    6610957993,
+    6610957994,
+    6610957995,
+    6610924765,
+    6610957996,
+    286454106,
+    6610924775,
+    2571522204,
+    6610924776,
+    2571522214,
+    2571522220,
+    2571522224,
+    6610924766,
+    6610924767,
+    6610924768,
+    2571522240
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Höfðavík"
+   }
+  },
+  {
+   "type": "way",
+   "id": 28310678,
+   "center": {
+    "lat": 64.2817912,
+    "lon": -21.0913546
+   },
+   "nodes": [
+    310877340,
+    310877440,
+    310877441,
+    310877442,
+    310877342,
+    310877344,
+    310877346,
+    310877348,
+    310877350,
+    310877352,
+    310877383,
+    310877353,
+    310877356,
+    310877358,
+    310877360,
+    310877361,
+    310877364,
+    310877366,
+    310877367,
+    310877391,
+    310877369,
+    310877371,
+    310877340
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hvannabrekka"
+   }
+  },
+  {
+   "type": "way",
+   "id": 37918398,
+   "center": {
+    "lat": 63.4380346,
+    "lon": -20.2899952
+   },
+   "nodes": [
+    445065536,
+    445065537,
+    445065538,
+    9950921212,
+    9950921211,
+    9950921210,
+    9950921209,
+    9950921208,
+    9950921207,
+    9950921206,
+    9950921205,
+    9950921204,
+    9950921194,
+    9950921193,
+    9950921192,
+    9950921191,
+    9950921203,
+    9950921202,
+    9950921201,
+    9950921200,
+    9950921199,
+    9950921198,
+    9950921197,
+    9950921196,
+    9950921195,
+    9950921190,
+    9950921213,
+    9950921214,
+    9950921215,
+    9950921216,
+    9950921217,
+    9950921218,
+    9950921219,
+    9950921220,
+    445065550,
+    9950921221,
+    9950921222,
+    9950921223,
+    9950921224,
+    9950921225,
+    9950921226,
+    9950921227,
+    445065536
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þórsheimilið",
+    "fee": "yes",
+    "website": "https://tjalda.is/en/vestmannaeyjar/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 37921519,
+   "center": {
+    "lat": 63.4424968,
+    "lon": -20.2979915
+   },
+   "nodes": [
+    445108509,
+    6662865025,
+    3668584022,
+    6662865024,
+    6662865023,
+    6662864989,
+    6662865022,
+    3668584021,
+    6662865021,
+    445108511,
+    6662865020,
+    6662865019,
+    6662865018,
+    6662864988,
+    12061625442,
+    6662864987,
+    6662864986,
+    6662864985,
+    6662856784,
+    6662856783,
+    6662856782,
+    6662856781,
+    6662856780,
+    12061625440,
+    3668584020,
+    6662865012,
+    12061625441,
+    3668584019,
+    6662856779,
+    6662864990,
+    445108514,
+    3668584012,
+    5878004099,
+    5878004098,
+    6275082593,
+    3668584018,
+    12088711824,
+    6662865010,
+    6662865009,
+    6662864991,
+    6662865008,
+    6662864992,
+    6662865007,
+    6662864993,
+    6662865006,
+    6662864995,
+    6662864994,
+    6662865005,
+    6662864996,
+    6662864997,
+    12088711826,
+    6662864998,
+    6662864999,
+    6662865000,
+    6662865001,
+    6662865002,
+    6662865003,
+    6662865004,
+    6662865011,
+    6662865013,
+    6662865014,
+    6662865015,
+    6662865016,
+    6662865017,
+    445108509
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Herjólfsdalur",
+    "website": "https://www.glampingandcamping.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 38081955,
+   "center": {
+    "lat": 64.3456559,
+    "lon": -15.5039575
+   },
+   "nodes": [
+    447899759,
+    447899809,
+    447899822,
+    447899833,
+    447899842,
+    447899850,
+    447899759
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Haukafell",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 38515213,
+   "center": {
+    "lat": 64.6838264,
+    "lon": -19.3034817
+   },
+   "nodes": [
+    455701883,
+    12078185383,
+    12078185382,
+    455701884,
+    12086027588,
+    455701885,
+    7980918082,
+    7980918081,
+    7980918080,
+    7980918083,
+    5800811530,
+    5800811531,
+    455701891,
+    12078185385,
+    12078185384,
+    5800811529,
+    455701892,
+    5800811528,
+    455701893,
+    12086027589,
+    5800811527,
+    12078193833,
+    12078193832,
+    12078193831,
+    5800811526,
+    12078193830,
+    455701883
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Kerlingarfjöll",
+    "fee": "yes",
+    "website": "https://www.kerlingarfjoll.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 39690000,
+   "center": {
+    "lat": 66.0246592,
+    "lon": -16.4965797
+   },
+   "nodes": [
+    475871562,
+    3760569544,
+    3760569545,
+    7150889693,
+    475871564,
+    3698543355,
+    1357771508,
+    560468994,
+    7150889697,
+    475871565,
+    475871561,
+    7150889696,
+    7150889695,
+    7150889694,
+    475871562
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Ásbyrgi",
+    "fee": "yes",
+    "website": "http://www.vjp.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 40167535,
+   "center": {
+    "lat": 65.1508467,
+    "lon": -13.6791794
+   },
+   "nodes": [
+    483740458,
+    483740459,
+    483740460,
+    483740464,
+    483740458
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Norðfjarðar",
+    "name:en": "Norðfjörður Camping",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "Jun 01-Sep 15",
+    "fee": "yes",
+    "website": "https://www.visitfjardabyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 67629319,
+   "center": {
+    "lat": 64.3042951,
+    "lon": -21.5422789
+   },
+   "nodes": [
+    817186609,
+    817186531,
+    13823294793,
+    13823294794,
+    817186561,
+    817186566,
+    817186609
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hjalli",
+    "toilets": "yes",
+    "shower": "yes",
+    "power_supply": "yes",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "https://www.campsire.com/is/campsites-west-iceland/hjalli-kjos-campsite"
+   }
+  },
+  {
+   "type": "way",
+   "id": 126277392,
+   "center": {
+    "lat": 65.0415752,
+    "lon": -16.5940429
+   },
+   "nodes": [
+    1400315495,
+    1400315513,
+    3699133286,
+    1400315515,
+    1400315529,
+    1400315537,
+    1400315592,
+    1400315415,
+    1400315469,
+    1400315550,
+    1400315495
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Drekaskáli"
+   }
+  },
+  {
+   "type": "way",
+   "id": 132253301,
+   "center": {
+    "lat": 64.2555587,
+    "lon": -20.5003443
+   },
+   "nodes": [
+    1455267867,
+    1455267872,
+    1455267909,
+    1455267906,
+    1455267867
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Starfsmannafélags ÍSAL"
+   }
+  },
+  {
+   "type": "way",
+   "id": 167411303,
+   "center": {
+    "lat": 64.0745464,
+    "lon": -21.964755
+   },
+   "nodes": [
+    1788009051,
+    1788009049,
+    1788009048,
+    1788009044,
+    1788009040,
+    1788009031,
+    1788009026,
+    1746104430,
+    1788009036,
+    1746104796,
+    1746104859,
+    1746104916,
+    1788009059,
+    1788009051
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Viðistaðatúni",
+    "toilets": "yes",
+    "shower": "hot",
+    "drinking_water": "yes",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "http://www.lavahostel.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 168916937,
+   "center": {
+    "lat": 63.7924393,
+    "lon": -18.0508593
+   },
+   "nodes": [
+    2932404161,
+    1801007222,
+    1801007246,
+    12123282714,
+    1801007253,
+    1801007152,
+    1801007161,
+    2932404148,
+    6659258543,
+    5002245314,
+    5002245313,
+    1801007182,
+    6323869185,
+    6323869186,
+    6659258541,
+    6659258542,
+    2932404159,
+    4905581289,
+    2932404160,
+    2932404165,
+    2932404161
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Kirkjubær II",
+    "fee": "yes",
+    "website": "https://kirkjubaer.com/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 169545287,
+   "center": {
+    "lat": 64.2768434,
+    "lon": -21.0958332
+   },
+   "nodes": [
+    1807100817,
+    1807100849,
+    1807100861,
+    1807100883,
+    1807100887,
+    1807100879,
+    1807100862,
+    1807100859,
+    1807100822,
+    1807100824,
+    1807100816,
+    1807100812,
+    1807100814,
+    1807100817
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Fagrabrekka",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "way",
+   "id": 169545288,
+   "center": {
+    "lat": 64.2767118,
+    "lon": -21.091957
+   },
+   "nodes": [
+    1807100871,
+    1807100875,
+    1807100881,
+    1807100877,
+    1807100857,
+    3028919675,
+    3028919678,
+    3028919681,
+    3028919680,
+    3028919683,
+    3028919684,
+    3028919695,
+    3028919697,
+    3028919687,
+    3028919689,
+    3028919693,
+    3028919700,
+    3028919703,
+    3028919702,
+    3028919699,
+    3028919690,
+    3028919696,
+    3028919691,
+    3028919682,
+    3028919677,
+    3028919679,
+    3028919676,
+    3028919674,
+    1807100843,
+    1807100833,
+    1807100830,
+    1807100797,
+    1807100799,
+    1807100802,
+    1807100807,
+    1807100805,
+    1807100810,
+    1807100820,
+    1807100832,
+    1807100835,
+    1807100839,
+    1807100864,
+    1807100860,
+    1807100870,
+    1807100871
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 169885062,
+   "center": {
+    "lat": 64.0159565,
+    "lon": -16.9729396
+   },
+   "nodes": [
+    1810525100,
+    1810525111,
+    1810525117,
+    1810525121,
+    1810525128,
+    4335519164,
+    2932440977,
+    1810525392,
+    4335519173,
+    4335519172,
+    1810525365,
+    1810525327,
+    1810525319,
+    11830263964,
+    1810525226,
+    4336582796,
+    1810525236,
+    1810525385,
+    4335519171,
+    2932440952,
+    2932440978,
+    1810525449,
+    1810525533,
+    1810525558,
+    1810525554,
+    1810525514,
+    1810525498,
+    1810525494,
+    1810525502,
+    4335498315,
+    4335498317,
+    1810525617,
+    1810525661,
+    1810525747,
+    3053296307,
+    1810525629,
+    1810525582,
+    1810525587,
+    9513742923,
+    1810525529,
+    1810525397,
+    2932440975,
+    2932440976,
+    1810525103,
+    1810525100
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Skaftafell",
+    "name:en": "Skaftafell Campground",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "open \"All year\"",
+    "fee": "yes",
+    "website": "https://www.vatnajokulsthjodgardur.is/en/areas/skaftafell/tjaldsvaedid-i-skaftafelli"
+   }
+  },
+  {
+   "type": "way",
+   "id": 175408869,
+   "center": {
+    "lat": 63.6904317,
+    "lon": -19.5412624
+   },
+   "nodes": [
+    4998681337,
+    7835076469,
+    3363173835,
+    7835076468,
+    7835076467,
+    1859999046,
+    1859999044,
+    4998681337
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 176717600,
+   "center": {
+    "lat": 63.7498425,
+    "lon": -20.2386001
+   },
+   "nodes": [
+    1871945391,
+    1871945431,
+    1871945392,
+    1871945395,
+    1871945391
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Hvolsvelli",
+    "name:en": "Hvolsvöllur Camping Grounds",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 178845446,
+   "center": {
+    "lat": 63.5287251,
+    "lon": -19.5124445
+   },
+   "nodes": [
+    912416468,
+    1891967683,
+    1891967701,
+    1891967700,
+    9891793646,
+    9891793647,
+    9891793648,
+    9891793649,
+    9891793650,
+    912416468
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið við Skógafoss",
+    "name:en": "Camping Skógafoss",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "kitchen": "no",
+    "opening_hours": "24/7",
+    "fee": "yes",
+    "website": "https://tjalda.is/en/skogafoss/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 181868067,
+   "center": {
+    "lat": 66.0730392,
+    "lon": -16.4309362
+   },
+   "nodes": [
+    1922309551,
+    5024747964,
+    1922317248,
+    1922309595,
+    1922317246,
+    1922309571,
+    1922309590,
+    5024747965,
+    1922309557,
+    5024747966,
+    1922317249,
+    1922309566,
+    1922309563,
+    1922309568,
+    1922309551
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Lundi",
+    "name:en": "Camping Lundur",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 181891493,
+   "center": {
+    "lat": 65.4679558,
+    "lon": -19.3545752
+   },
+   "nodes": [
+    1922403283,
+    1922403285,
+    2367897460,
+    2367897364,
+    1922403286,
+    2367897612,
+    2367897371,
+    1922403281,
+    2367897524,
+    2367897370,
+    2367897567,
+    2367897365,
+    1922403276,
+    2367897557,
+    2367897465,
+    2367897379,
+    2367897445,
+    1922403283
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Steinsstöðum",
+    "website": "http://www.steinsstadir.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 182751315,
+   "center": {
+    "lat": 64.0110012,
+    "lon": -20.9768125
+   },
+   "nodes": [
+    1931071105,
+    1931071092,
+    6178976301,
+    6178976300,
+    1931071157,
+    6178976291,
+    1931071107,
+    1931071105
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið í Þrastaskógi"
+   }
+  },
+  {
+   "type": "way",
+   "id": 182765543,
+   "center": {
+    "lat": 64.0859967,
+    "lon": -20.4233193
+   },
+   "nodes": [
+    1931197505,
+    1931197478,
+    1931197502,
+    1931197507,
+    1931197503,
+    6925267601,
+    4778063523,
+    4778063522,
+    4778063521,
+    8112380288,
+    3269361631,
+    3269361632,
+    4778062920,
+    4778062919,
+    4778062918,
+    4778062917,
+    4778062916,
+    4778062915,
+    4778062914,
+    4778062913,
+    4778062912,
+    4778062911,
+    4778062910,
+    1931197505
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Álfaskeið",
+    "fee": "yes",
+    "website": "sydralangholt.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 182919341,
+   "center": {
+    "lat": 65.5129964,
+    "lon": -14.5650615
+   },
+   "nodes": [
+    1932749144,
+    7005925486,
+    1932749091,
+    1932749127,
+    1932749096,
+    1932749106,
+    1932749098,
+    1932749139,
+    1932749135,
+    1932749144
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið við Hótel Svartaskóg",
+    "name:en": "Camping Svartiskogur",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 182970919,
+   "center": {
+    "lat": 65.9067975,
+    "lon": -18.0682316
+   },
+   "nodes": [
+    4781222557,
+    1933336285,
+    1933336297,
+    1933336296,
+    4781222557
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Ártún",
+    "website": "https://artun.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 183039802,
+   "center": {
+    "lat": 63.8013244,
+    "lon": -18.057609
+   },
+   "nodes": [
+    1934003857,
+    1934003838,
+    1934003821,
+    1934003827,
+    6649577422,
+    6649577423,
+    1934003823,
+    1934003845,
+    1934003846,
+    1934003828,
+    1934003857
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Kleifar",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 192491197,
+   "center": {
+    "lat": 64.1049496,
+    "lon": -19.9524229
+   },
+   "nodes": [
+    2030436498,
+    2030436454,
+    2030436529,
+    2030436752,
+    2030437424,
+    2030437441,
+    2030437591,
+    2030437322,
+    2030437022,
+    2030436805,
+    2030436707,
+    2030436662,
+    2030436593,
+    2030436498
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Sandártunga",
+    "opening_hours": "summer",
+    "fee": "yes",
+    "website": "https://tjalda.is/thjorsardalur/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 196660982,
+   "center": {
+    "lat": 65.8261442,
+    "lon": -20.2918905
+   },
+   "nodes": [
+    2069650154,
+    2069650146,
+    2069650159,
+    2069650144,
+    2069650145,
+    2069650160,
+    2069650149,
+    2069650157,
+    2069650151,
+    2069650156,
+    2069650152,
+    2069650150,
+    2069650154
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Skagaströnd",
+    "name:en": "Skagaströnd Camping",
+    "fee": "yes",
+    "website": "https://www.skagastrond.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 197586725,
+   "center": {
+    "lat": 65.2604411,
+    "lon": -14.0118345
+   },
+   "nodes": [
+    2572281113,
+    2078038481,
+    2572281136,
+    2078018238,
+    2078018346,
+    13744473311,
+    13744473312,
+    2572281138,
+    6587494356,
+    6587494355,
+    2078038487,
+    2078018281,
+    6587494358,
+    6587494357,
+    2077880119,
+    2078018233,
+    2078018351,
+    2572281113
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Seyðisfjarðar",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "May-Sep 0:00-24:00",
+    "fee": "yes",
+    "website": "https://www.visitseydisfjordur.com/project/camping-and-caravan-site/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 197595763,
+   "center": {
+    "lat": 64.039812,
+    "lon": -22.6969002
+   },
+   "nodes": [
+    2078094349,
+    2078094306,
+    2078094332,
+    2078094354,
+    8258062242,
+    2078094355,
+    2078094347,
+    2078094348,
+    2078094312,
+    2078094344,
+    2078094337,
+    4778807073,
+    2078094349
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Sandgerðis",
+    "name:en": "Sandgerði Campsite",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://istay.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 202178652,
+   "center": {
+    "lat": 66.1987572,
+    "lon": -15.3270454
+   },
+   "nodes": [
+    2121586406,
+    11145691053,
+    11145691051,
+    11145691050,
+    11145691058,
+    2121586485,
+    2121586405,
+    2121586482,
+    2121586478,
+    2121586411,
+    2121586404,
+    2121586420,
+    2121586412,
+    2121586393,
+    2121586451,
+    2121586445,
+    2121586453,
+    2121586433,
+    2121586429,
+    2121586431,
+    2121586406
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Þórshöfn",
+    "name:en": "Þórshöfn Camping",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.langanesbyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 203775845,
+   "center": {
+    "lat": 64.9205928,
+    "lon": -23.2586173
+   },
+   "nodes": [
+    2137704554,
+    2137704606,
+    2137704551,
+    2137704609,
+    2137704597,
+    2137704592,
+    2137704571,
+    2137704570,
+    2137704607,
+    2137704509,
+    2137704653,
+    2137704562,
+    2137704578,
+    2137704672,
+    2137704657,
+    2137704527,
+    2137704561,
+    2137704525,
+    2137704659,
+    2137704604,
+    8772944741,
+    2137704615,
+    2137704554
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Grundarfjörður",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "Jun 1-Sep 15: 0:00-24:00",
+    "website": "https://www.grundarfjordur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 207925876,
+   "center": {
+    "lat": 66.1550919,
+    "lon": -23.2535935
+   },
+   "nodes": [
+    2181788633,
+    6698048416,
+    6698048406,
+    6698048405,
+    6698048404,
+    6698048403,
+    2181788495,
+    2181788555,
+    6698048415,
+    6698048414,
+    6698048413,
+    6698048412,
+    6698048411,
+    2181788432,
+    6698048410,
+    6698048409,
+    6698048408,
+    6698048407,
+    2181788316,
+    2181788319,
+    2181788330,
+    2181788467,
+    2181788324,
+    2181788633
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Bolungarvíkur",
+    "name:en": "Camping Bolungarvík",
+    "fee": "yes",
+    "website": "https://www.bolungarvik.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 208260949,
+   "center": {
+    "lat": 65.2808414,
+    "lon": -14.4338842
+   },
+   "nodes": [
+    2185742296,
+    2185742344,
+    2185742332,
+    2185742308,
+    2185742439,
+    2185742307,
+    2185742282,
+    2185742346,
+    2185742317,
+    2185742351,
+    2185742331,
+    2185742280,
+    2185742342,
+    2185742347,
+    2185742349,
+    2185742440,
+    2185742383,
+    2185742390,
+    2185742380,
+    2185742389,
+    2185742378,
+    2185742374,
+    2185742372,
+    2185742362,
+    2185742296
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Skipalæk",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://tjalda.is/skipalaekur"
+   }
+  },
+  {
+   "type": "way",
+   "id": 208682910,
+   "center": {
+    "lat": 66.4479263,
+    "lon": -15.9419534
+   },
+   "nodes": [
+    2189555742,
+    2549784332,
+    2189555726,
+    2189555642,
+    2189555677,
+    2189555711,
+    2189555613,
+    2189555826,
+    2189555733,
+    2189555666,
+    2189555648,
+    2189555627,
+    2189555853,
+    2189555836,
+    2189555811,
+    2189555729,
+    2189555684,
+    2189555721,
+    2189555632,
+    2189555703,
+    2189555618,
+    2189555655,
+    2189555715,
+    2189555793,
+    2189555794,
+    2189555742
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæði Raufarhafnar",
+    "name:en": "Raufarhöfn Camping",
+    "fee": "yes",
+    "website": "https://www.nordurthing.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 213141935,
+   "center": {
+    "lat": 64.8326364,
+    "lon": -13.8616837
+   },
+   "nodes": [
+    2228898911,
+    2228898998,
+    2228898891,
+    2228898857,
+    2228898936,
+    2228898904,
+    2228898925,
+    2228898938,
+    2228898977,
+    2228898911
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæði Stöðvarfjarðar",
+    "name:en": "Stöðvarfjörður Camping",
+    "fee": "yes",
+    "website": "https://www.visitfjardabyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 213907457,
+   "center": {
+    "lat": 64.552276,
+    "lon": -21.9077729
+   },
+   "nodes": [
+    2235551755,
+    7681138859,
+    2235551758,
+    2235551769,
+    7687684538,
+    2235551773,
+    7681138936,
+    2235551778,
+    2235551777,
+    2235551767,
+    2235551770,
+    7681138939,
+    2235551776,
+    2235551780,
+    2235551772,
+    2235551747,
+    2235551749,
+    2235551742,
+    2235551743,
+    2235551741,
+    7681138897,
+    7681138860,
+    2235551751,
+    2235551744,
+    2235551748,
+    2235551746,
+    2235551750,
+    2235551754,
+    2235551766,
+    2235551752,
+    7681138865,
+    7681138913,
+    2235551756,
+    2235551755
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Borgarnesi",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 217543815,
+   "center": {
+    "lat": 65.4454906,
+    "lon": -22.2015881
+   },
+   "nodes": [
+    8621783323,
+    8621783322,
+    2268243214,
+    2268243153,
+    8621783321,
+    2268243166,
+    2268243206,
+    8621783320,
+    8621783319,
+    8621783318,
+    8621783317,
+    8621783323
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið á Reykhólum",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://www.reykholar.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 220753597,
+   "center": {
+    "lat": 65.7573856,
+    "lon": -14.8273038
+   },
+   "nodes": [
+    2298442575,
+    2298442503,
+    2298442466,
+    8772821963,
+    2298442464,
+    2298442552,
+    2298442556,
+    2298442564,
+    2298602479,
+    2298442575
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Vopnafjarðar",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "website": "https://www.vopnafjardarhreppur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 222003125,
+   "center": {
+    "lat": 64.1797567,
+    "lon": -21.6166298
+   },
+   "nodes": [
+    2309766595,
+    2309766732,
+    2309766709,
+    2309766598,
+    2309766586,
+    2309766541,
+    2309766621,
+    2309766537,
+    2309766595
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Mosskógar",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 223572826,
+   "center": {
+    "lat": 65.0781576,
+    "lon": -14.031266
+   },
+   "nodes": [
+    2324543817,
+    2324543816,
+    2324543855,
+    2324543773,
+    2324543919,
+    2324543870,
+    2324543841,
+    2324543793,
+    2324543797,
+    1880180136,
+    1880180134,
+    1880180132,
+    2324543742,
+    2324543809,
+    2324543752,
+    2324543759,
+    2324543763,
+    2324543775,
+    2324543795,
+    2324543817
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið við Bleiksána",
+    "fee": "yes",
+    "website": "https://fjardabyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 225558183,
+   "center": {
+    "lat": 63.8321286,
+    "lon": -20.4075931
+   },
+   "nodes": [
+    2343266434,
+    2343266401,
+    2343266145,
+    2343266027,
+    2343265779,
+    2343265662,
+    2343266042,
+    2343265964,
+    2343266688,
+    2343265634,
+    2343265820,
+    2343265769,
+    2343265633,
+    2343266496,
+    2343266706,
+    2343253047,
+    2343253096,
+    2343253070,
+    2343253071,
+    2343252985,
+    2343253004,
+    2343252990,
+    2343252993,
+    2343253209,
+    2343253227,
+    2343253275,
+    2343253242,
+    2343252982,
+    2343253273,
+    2343253112,
+    2343253086,
+    2343253246,
+    2343253151,
+    2343253120,
+    2343253126,
+    2343253182,
+    2343253187,
+    2343253285,
+    2343253012,
+    2343253026,
+    2343253015,
+    2343253046,
+    2343253258,
+    2343253084,
+    2343253024,
+    2343253005,
+    2343253251,
+    2343266434
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Árhús",
+    "fee": "yes",
+    "website": "https://www.arhus.is/camping"
+   }
+  },
+  {
+   "type": "way",
+   "id": 228249502,
+   "center": {
+    "lat": 65.4633307,
+    "lon": -19.3458458
+   },
+   "nodes": [
+    2368803085,
+    2368803207,
+    2368803106,
+    2368803116,
+    2368803129,
+    2368803140,
+    2368803148,
+    2368803160,
+    2368803168,
+    2368803184,
+    2368803196,
+    2368803211,
+    2368803220,
+    2368803230,
+    2368803245,
+    2368803248,
+    2368803251,
+    2368803104,
+    2368803103,
+    2368803100,
+    2368803098,
+    2368803096,
+    2368803232,
+    2368803282,
+    2368803277,
+    2368803242,
+    2368803270,
+    2368803266,
+    2368803262,
+    2368803258,
+    2368803085
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bakkaflöt",
+    "website": "https://bakkaflot.is/accommodation/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 231337414,
+   "center": {
+    "lat": 64.7468801,
+    "lon": -16.6310191
+   },
+   "nodes": [
+    2397288425,
+    5826115985,
+    2397288433,
+    3632700397,
+    5826115984,
+    3632700398,
+    3632700400,
+    5826115986,
+    3632700399,
+    3632700396,
+    2397288425
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 231337416,
+   "center": {
+    "lat": 64.7476418,
+    "lon": -16.6313744
+   },
+   "nodes": [
+    2397288439,
+    3632700401,
+    2397288431,
+    2397288437,
+    5826115987,
+    3632700402,
+    2397288439
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 233309453,
+   "center": {
+    "lat": 65.5496934,
+    "lon": -24.352804
+   },
+   "nodes": [
+    2416939833,
+    12101344475,
+    12101344500,
+    7244642253,
+    7244642254,
+    2416939823,
+    2416939805,
+    7244642252,
+    2549886254,
+    2416939818,
+    2416939833
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Breiðavík við Latrabjarg",
+    "toilets": "yes",
+    "shower": "hot",
+    "power_supply": "cee_17_blue",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "https://breidavik.is/accommodation/camping/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 233318335,
+   "center": {
+    "lat": 64.0534434,
+    "lon": -19.2419544
+   },
+   "nodes": [
+    2417037494,
+    2417037497,
+    2417037493,
+    2417037491,
+    2417037485,
+    5061942062,
+    7114654464,
+    2417037495,
+    2417037498,
+    2417037494
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Landmannahellir",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 236016857,
+   "center": {
+    "lat": 65.3726616,
+    "lon": -22.9170551
+   },
+   "nodes": [
+    2440903008,
+    2440903027,
+    2440903029,
+    2440903054,
+    2440903047,
+    2440903059,
+    2440903008
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Krákuvör"
+   }
+  },
+  {
+   "type": "way",
+   "id": 241958700,
+   "center": {
+    "lat": 64.1382954,
+    "lon": -20.3298222
+   },
+   "nodes": [
+    2958903052,
+    2495271934,
+    3413190748,
+    2958903053,
+    2495271935,
+    2958903054,
+    2958903055,
+    2958903056,
+    2958903057,
+    2958903058,
+    2495271936,
+    5611823671,
+    2958903052
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldmiðstöðin Flúðum",
+    "shower": "yes",
+    "fee": "yes",
+    "website": "https://www.tjaldmidstod.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 243497921,
+   "center": {
+    "lat": 63.9328192,
+    "lon": -20.9887077
+   },
+   "nodes": [
+    2508946129,
+    2508946127,
+    3703708288,
+    3703708292,
+    2508946086,
+    2508946096,
+    2508946110,
+    4343885504,
+    4343885502,
+    4343885503,
+    2508946112,
+    6630007670,
+    2508946106,
+    3841794300,
+    2508946108,
+    3841794193,
+    2508946114,
+    3697429176,
+    2508946133,
+    2508946131,
+    2508946125,
+    2508946123,
+    2508946129
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Gesthús Selfoss",
+    "name:en": "Guesthouse Sellfoss",
+    "fee": "yes",
+    "website": "https://www.gesthus.is/english/campsite/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 243658175,
+   "center": {
+    "lat": 64.5270135,
+    "lon": -21.5787003
+   },
+   "nodes": [
+    2510380239,
+    2510380211,
+    2510380176,
+    2510380179,
+    2510380197,
+    2510380221,
+    2510380228,
+    2510380230,
+    2510380232,
+    2510380233,
+    2510380235,
+    2510380237,
+    2510380243,
+    2510380241,
+    2510380239
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Selsskógur"
+   }
+  },
+  {
+   "type": "way",
+   "id": 243708902,
+   "center": {
+    "lat": 66.3315362,
+    "lon": -22.8761734
+   },
+   "nodes": [
+    2510818755,
+    13073105578,
+    2510818756,
+    13073105577,
+    2510818757,
+    603226617,
+    2510818758,
+    2510818759,
+    2510818760,
+    2510818761,
+    13073105580,
+    13073105581,
+    6620447953,
+    13073105579,
+    2510818762,
+    2510818755
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 244172704,
+   "center": {
+    "lat": 65.5221837,
+    "lon": -19.8002461
+   },
+   "nodes": [
+    2512160050,
+    2515181136,
+    2515181152,
+    2515181123,
+    2515181146,
+    2515181157,
+    2515181132,
+    2512160046,
+    2512160050
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæði Húnaveri",
+    "website": "http://www.northwest.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 249836961,
+   "center": {
+    "lat": 65.2582325,
+    "lon": -14.4087294
+   },
+   "nodes": [
+    2563855368,
+    2563855376,
+    6907155995,
+    2563855369,
+    2563855366,
+    2563855357,
+    2563855333,
+    2563855343,
+    9949144456,
+    9949144455,
+    9949144454,
+    9949144453,
+    9949144452,
+    9949144451,
+    9949144450,
+    9949144446,
+    9949144447,
+    9949144448,
+    9949144449,
+    9949144457,
+    2563855368
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camp Egilsstaðir",
+    "opening_hours": "Jun-Aug 07:00-23:00; Sep 08:00-14:00, 16:00-23:00; Oct-May Mo-Su 08:30-12:30",
+    "fee": "yes",
+    "website": "https://campegilsstadir.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 253768962,
+   "center": {
+    "lat": 64.3263056,
+    "lon": -22.0672076
+   },
+   "nodes": [
+    2596498788,
+    2596498785,
+    2596498791,
+    2596498793,
+    2596498794,
+    2596498797,
+    2596498809,
+    2596498825,
+    2596498827,
+    2596498829,
+    2596498819,
+    2596498800,
+    2596498796,
+    2596498795,
+    2596498792,
+    2596498788
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Akranesi",
+    "name:en": "Akranes Camp Site",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "May 1-Sep 30",
+    "fee": "yes",
+    "website": "https://www.west.is/en/inspiration/services/akranes-camping-site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 280922349,
+   "center": {
+    "lat": 65.8811191,
+    "lon": -23.4929042
+   },
+   "nodes": [
+    2849475893,
+    6698104682,
+    6698104681,
+    6698104680,
+    6698104678,
+    2849474454,
+    2849474456,
+    6698104676,
+    6698104677,
+    6698104675,
+    2849474492,
+    11337965278,
+    2849475898,
+    2849474474,
+    11178399599,
+    2849474460,
+    2849475849,
+    2849475893
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Þingeyrarodda",
+    "shower": "yes",
+    "power_supply": "yes",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "https://www.isafjordur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 289028383,
+   "center": {
+    "lat": 66.1404895,
+    "lon": -18.9256466
+   },
+   "nodes": [
+    2925778673,
+    2925778674,
+    2925778675,
+    2925778676,
+    2925778677,
+    2925778673
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 295074392,
+   "center": {
+    "lat": 65.6490931,
+    "lon": -16.9162779
+   },
+   "nodes": [
+    2987454817,
+    2987454818,
+    2987454819,
+    2987454820,
+    2987454821,
+    4781399347,
+    4781399346,
+    4781399345,
+    4781399344,
+    4781399343,
+    4781399342,
+    4781399341,
+    4781399340,
+    2987454822,
+    2987454823,
+    4781399339,
+    4781399370,
+    4781399369,
+    4781399368,
+    4781399367,
+    4781399366,
+    4781399365,
+    4781399364,
+    4781399363,
+    4781399362,
+    4781399361,
+    4781399360,
+    4781399359,
+    4781399358,
+    4781399357,
+    4781399356,
+    4781399355,
+    4781399354,
+    4781399353,
+    4781399352,
+    4781399351,
+    4781399350,
+    6635643666,
+    4781399338,
+    6635643665,
+    4781399336,
+    4781399349,
+    4781399348,
+    4781399335,
+    4781399334,
+    4781399333,
+    4781399332,
+    4781399331,
+    4781399330,
+    4781399329,
+    2783652338,
+    2783652342,
+    2783652349,
+    2783652351,
+    2783652319,
+    2987454817
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hlíð",
+    "fee": "yes",
+    "website": "https://www.myvatnaccommodation.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 295527746,
+   "center": {
+    "lat": 65.5234897,
+    "lon": -13.8081933
+   },
+   "nodes": [
+    2992601291,
+    2992601292,
+    2992601293,
+    2992601294,
+    2992601295,
+    2992601296,
+    8190341139,
+    2992601297,
+    4324029505,
+    8190341141,
+    8190341140,
+    2992601298,
+    8190341142,
+    2992601299,
+    2992601300,
+    8190341148,
+    8190341147,
+    8190341146,
+    8190341145,
+    2992601301,
+    8190341144,
+    8190341143,
+    2992601302,
+    2992601303,
+    2992601304,
+    2992601305,
+    2992601306,
+    2992601307,
+    2992601308,
+    2992601309,
+    2992601291
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Borgarfirði eystra",
+    "name:en": "Borgarfjörður eystri Campsite",
+    "shower": "yes",
+    "kitchen": "yes",
+    "opening_hours": "May 15 - Oct 15",
+    "website": "https://www.borgarfjordureystri.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 295811364,
+   "center": {
+    "lat": 65.6237809,
+    "lon": -16.9175371
+   },
+   "nodes": [
+    2873571349,
+    6662550180,
+    6662550181,
+    6662550182,
+    6662550183,
+    2873571351,
+    2995724184,
+    6662574829,
+    6662574830,
+    6662574831,
+    6662574832,
+    6662574833,
+    6662574814,
+    2995724185,
+    6662574815,
+    2995724186,
+    2995724187,
+    2995724188,
+    6662574816,
+    6662574817,
+    6662574818,
+    6662574813,
+    6662574819,
+    6662574820,
+    6662574809,
+    6662574811,
+    6662574810,
+    6662574812,
+    6662574870,
+    2873571340,
+    6662574894,
+    6662574895,
+    2995724202,
+    2873571338,
+    6662574891,
+    6662574892,
+    6662574893,
+    6662574896,
+    6662574897,
+    6662574890,
+    6662574898,
+    2995724199,
+    2995724200,
+    2995724192,
+    6662574873,
+    6662574808,
+    6662574907,
+    6662574906,
+    6662574905,
+    2873571343,
+    6662574910,
+    6662574912,
+    6662574911,
+    6662574909,
+    6662574919,
+    2873571341,
+    6662574918,
+    6662574804,
+    6662574917,
+    6662574807,
+    6662574916,
+    6662574806,
+    6662574915,
+    6662574805,
+    6662574914,
+    6662574913,
+    2995724138,
+    2995724141,
+    2873571346,
+    6662574785,
+    6662550173,
+    6662550174,
+    6662550175,
+    6662574859,
+    6662550176,
+    6662550177,
+    6662574786,
+    6662550179,
+    6662574858,
+    6662550171,
+    6662550178,
+    6662550184,
+    6662550172,
+    2873571349
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Vogar",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.vogartravelservice.com/camping"
+   }
+  },
+  {
+   "type": "way",
+   "id": 298276919,
+   "center": {
+    "lat": 65.8806547,
+    "lon": -19.7368416
+   },
+   "nodes": [
+    3021854314,
+    3021854315,
+    3021854316,
+    3021854317,
+    3021854318,
+    3021854319,
+    3021854320,
+    12942513325,
+    12942513326,
+    3021854314
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið Grettislaug",
+    "name:en": "Grettislaug Camping",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "Mo-Su 07:00-24:00; PH unknown",
+    "fee": "2000kr",
+    "website": "https://www.drangey.net/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 298941672,
+   "center": {
+    "lat": 64.5945436,
+    "lon": -21.5745091
+   },
+   "nodes": [
+    3028937718,
+    7741524194,
+    3028937712,
+    3028937711,
+    7765014898,
+    7765014899,
+    3028937719,
+    3028937718
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Fossatún",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 300366520,
+   "center": {
+    "lat": 64.7562096,
+    "lon": -14.4979363
+   },
+   "nodes": [
+    3044538484,
+    3044538492,
+    1758980335,
+    3044538464,
+    3044538453,
+    3044538447,
+    3044538441,
+    3044538446,
+    6816060017,
+    3044538462,
+    3044538467,
+    3044538484
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Eyjólfsstaðir",
+    "fee": "yes",
+    "website": "https://fossardalur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 305483199,
+   "center": {
+    "lat": 64.0766273,
+    "lon": -20.7709727
+   },
+   "nodes": [
+    3101141425,
+    3729469546,
+    3101141426,
+    3729469545,
+    3101141427,
+    3101141428,
+    3101142429,
+    3101142430,
+    3101142431,
+    8116782039,
+    3101142432,
+    3101142433,
+    3101142434,
+    3101142435,
+    3729469553,
+    3729469552,
+    3729469551,
+    3729469532,
+    3729469533,
+    3729469534,
+    3729469535,
+    3729469536,
+    3101142436,
+    3101142437,
+    3729469537,
+    3729469538,
+    3101142438,
+    7989096844,
+    7989096843,
+    12536370308,
+    12536370309,
+    3101142439,
+    12536370311,
+    3101141425
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Borg í Grimsnesi",
+    "fee": "yes",
+    "website": "https://www.gogg.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 320851773,
+   "center": {
+    "lat": 64.042315,
+    "lon": -20.2542035
+   },
+   "nodes": [
+    3275014520,
+    3275014496,
+    3275014558,
+    6715551953,
+    6715551951,
+    6715551952,
+    6715551950,
+    3275014505,
+    6715551954,
+    3275014475,
+    6715551946,
+    6715551955,
+    7009745202,
+    3275014528,
+    6715551956,
+    6715551957,
+    6715551958,
+    3275014535,
+    6715551949,
+    3275014662,
+    6715551966,
+    6715551965,
+    6715551959,
+    6715551960,
+    6715551961,
+    6715551962,
+    6715551964,
+    6715551963,
+    3275014520
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Árnesi",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 326993700,
+   "center": {
+    "lat": 63.8366809,
+    "lon": -21.0552844
+   },
+   "nodes": [
+    3337023660,
+    3337024143,
+    3337023679,
+    3337024118,
+    3337023670,
+    3337024096,
+    3337023675,
+    3337023660
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Stokkseyri",
+    "shower": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 333123344,
+   "center": {
+    "lat": 63.7664806,
+    "lon": -19.3732764
+   },
+   "nodes": [
+    3402333487,
+    3402333488,
+    3402333489,
+    3402333490,
+    3402333491,
+    3402333492,
+    3402337994,
+    3402337995,
+    3402337999,
+    3402333487
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Emstrur"
+   }
+  },
+  {
+   "type": "way",
+   "id": 333123346,
+   "center": {
+    "lat": 63.7657884,
+    "lon": -19.3727686
+   },
+   "nodes": [
+    3402338001,
+    3402338002,
+    3402338006,
+    3402338015,
+    11107571197,
+    11107571196,
+    11107571195,
+    3402338016,
+    1779262625,
+    3402338001
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 357813328,
+   "center": {
+    "lat": 65.8981785,
+    "lon": -19.4039823
+   },
+   "nodes": [
+    3629348684,
+    7044904121,
+    3629348685,
+    3629348686,
+    3629348687,
+    7044904119,
+    7044904120,
+    7044904133,
+    7044904122,
+    7044904125,
+    7044904124,
+    7044904126,
+    7044904127,
+    7044904123,
+    7044904129,
+    7044904130,
+    7044904128,
+    7044904131,
+    7044904132,
+    3629348684
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hofsós",
+    "fee": "yes",
+    "website": "https://tjoldumiskagafirdi.is/is/hofsos/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 358562074,
+   "center": {
+    "lat": 64.3106551,
+    "lon": -20.2318326
+   },
+   "nodes": [
+    3634663101,
+    3634663111,
+    3634663098,
+    3634663095,
+    3634663101
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Skjól",
+    "fee": "yes",
+    "website": "http://www.skjolcamping.com/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 362555481,
+   "center": {
+    "lat": 63.5304968,
+    "lon": -18.8876129
+   },
+   "nodes": [
+    3668333787,
+    11151767700,
+    8980122192,
+    3668331411,
+    1385831100,
+    6695154899,
+    6695154893,
+    6695154894,
+    6695154895,
+    6695154896,
+    6695154897,
+    6695154898,
+    3668331414,
+    3668331415,
+    8980122191,
+    8980122190,
+    8980122189,
+    6695154906,
+    3668331416,
+    8980122188,
+    6695154907,
+    3668331417,
+    6695154900,
+    8980122187,
+    3668331418,
+    6695154908,
+    3668331419,
+    3668331420,
+    8980122186,
+    6695154909,
+    6695154910,
+    3668331421,
+    6695154911,
+    3668331422,
+    3668331423,
+    3668331424,
+    3668335825,
+    3668335826,
+    5810305318,
+    5810305319,
+    3668335827,
+    4998727370,
+    3668333795,
+    3668333796,
+    3668333800,
+    4778570917,
+    4778570916,
+    8980122194,
+    3668333785,
+    4778570918,
+    8980122195,
+    8980122196,
+    4998727372,
+    8980122193,
+    4998727373,
+    11151767701,
+    3668333787
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þakgil",
+    "fee": "yes",
+    "website": "http://www.thakgil.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 368848611,
+   "center": {
+    "lat": 64.4106247,
+    "lon": -21.6116847
+   },
+   "nodes": [
+    3726899315,
+    3726899316,
+    3726899317,
+    3726899318,
+    3726899319,
+    3726899320,
+    3726899321,
+    3726899322,
+    3726899323,
+    3726899324,
+    3726899625,
+    3726899626,
+    3726899627,
+    3726899628,
+    3726899629,
+    3726899630,
+    3726899631,
+    3726899632,
+    3726899633,
+    3726899634,
+    3726899635,
+    3726899636,
+    3726899315
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hlaðir",
+    "fee": "yes",
+    "website": "https://www.hladir.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 403279760,
+   "center": {
+    "lat": 66.2586819,
+    "lon": -22.0875372
+   },
+   "nodes": [
+    4056405013,
+    4056405014,
+    4056405015,
+    4056405016,
+    4726150753,
+    5910391320,
+    4056405017,
+    4056405018,
+    4056405019,
+    4056405020,
+    4056405021,
+    4056405022,
+    4056405023,
+    4056405024,
+    4056405025,
+    4056405026,
+    4056405027,
+    4056405028,
+    4056405029,
+    4056405013
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæði í Reykjarfirði",
+    "website": "http://www.reykjarfjordur.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 423709326,
+   "center": {
+    "lat": 64.6545531,
+    "lon": -21.4062019
+   },
+   "nodes": [
+    4232812431,
+    4232812432,
+    4232812433,
+    4232812434,
+    4232812435,
+    4232812436,
+    4232812437,
+    4232812438,
+    4232812439,
+    4232812440,
+    4232812431
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hverinn",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.hverinn.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 436501046,
+   "center": {
+    "lat": 63.9669815,
+    "lon": -18.3243628
+   },
+   "nodes": [
+    4343878867,
+    4343878865,
+    4343878864,
+    8942149884,
+    4343878846,
+    4343878844,
+    4343878842,
+    4343878849,
+    4343878852,
+    4343878863,
+    4343878866,
+    4343878867
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Blágil"
+   }
+  },
+  {
+   "type": "way",
+   "id": 436504168,
+   "center": {
+    "lat": 65.9247557,
+    "lon": -18.5677636
+   },
+   "nodes": [
+    4343915696,
+    4343915697,
+    4343915693,
+    5278109304,
+    5278109305,
+    4343915692,
+    4343915696
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið á Húsabakka",
+    "fee": "yes",
+    "website": "http://www.husabakki.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 442013614,
+   "center": {
+    "lat": 63.9788239,
+    "lon": -16.8527189
+   },
+   "nodes": [
+    4397059728,
+    4397059740,
+    4397059738,
+    4397059736,
+    4397059725,
+    4397059724,
+    4397059692,
+    4397059702,
+    600879777,
+    6662575171,
+    4397059728
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Svinafell",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://svinafell.com/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 444650162,
+   "center": {
+    "lat": 64.7678875,
+    "lon": -23.6335367
+   },
+   "nodes": [
+    4421140274,
+    4421141195,
+    4421140277,
+    4421141247,
+    6441670018,
+    6441670017,
+    4421141244,
+    4421141267,
+    4421141265,
+    4421141262,
+    4421141242,
+    6319861111,
+    4421141252,
+    4421140274
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Arnastapa",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://arnarstapicenter.is/camping/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 445082473,
+   "center": {
+    "lat": 64.0724781,
+    "lon": -22.6569321
+   },
+   "nodes": [
+    13469645947,
+    4425372513,
+    4425372519,
+    4425372535,
+    4425372516,
+    4425372574,
+    4425372564,
+    4425371481,
+    4425372512,
+    4425371428,
+    4425371445,
+    13469645954,
+    13469645950,
+    13469645949,
+    13469645947
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið við Íþróttamiðstöðina Garði"
+   }
+  },
+  {
+   "type": "way",
+   "id": 445504932,
+   "center": {
+    "lat": 64.082063,
+    "lon": -22.6901979
+   },
+   "nodes": [
+    4429229454,
+    4429229314,
+    4429229383,
+    4429229460,
+    4429229326,
+    4429229395,
+    4429229328,
+    4429229363,
+    4429229451,
+    4429229443,
+    4429229402,
+    4429229410,
+    4429229409,
+    4429229403,
+    4429229319,
+    4429229351,
+    4429229333,
+    4429229368,
+    4429229323,
+    4429229459,
+    4429229327,
+    4429229417,
+    4429229366,
+    4429229400,
+    4429229462,
+    4429229435,
+    4429229404,
+    4429229393,
+    4429229331,
+    4429229429,
+    4429229408,
+    4429229390,
+    4429229370,
+    4429229413,
+    4429229311,
+    4429229426,
+    4429229454
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Garðskagi",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://www.gardskagi.com/campsite"
+   }
+  },
+  {
+   "type": "way",
+   "id": 466609566,
+   "center": {
+    "lat": 64.3101986,
+    "lon": -20.3056028
+   },
+   "nodes": [
+    4613748934,
+    4613748933,
+    7653687948,
+    7653687949,
+    4613748932,
+    4613748931,
+    4613748930,
+    815740274,
+    7653687947,
+    4613748934
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið við Geysi",
+    "name:en": "Campingsite Geysir",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "http://www.geysircenter.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 481195992,
+   "center": {
+    "lat": 63.9849973,
+    "lon": -22.3801767
+   },
+   "nodes": [
+    6828822667,
+    4741333589,
+    4741333590,
+    6828822668,
+    6828822669,
+    6828822667
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Vogum",
+    "toilets": "yes",
+    "fee": "no"
+   }
+  },
+  {
+   "type": "way",
+   "id": 481201377,
+   "center": {
+    "lat": 65.3174141,
+    "lon": -15.1144419
+   },
+   "nodes": [
+    4741378707,
+    4741378708,
+    4741378709,
+    6806586589,
+    4741378711,
+    4741378712,
+    4741378713,
+    4741378707
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Skjöldólfsstaðir",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 481202141,
+   "center": {
+    "lat": 64.9365574,
+    "lon": -14.0362385
+   },
+   "nodes": [
+    4741382864,
+    4741382865,
+    4741382866,
+    4741382867,
+    4741382868,
+    4741382869,
+    4741382870,
+    4741382871,
+    4741382872,
+    4741382873,
+    4741382874,
+    4741382875,
+    4741382864
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæði Fáskrúðsfjarðar",
+    "name:en": "Fáskrúðsfjörður Camping",
+    "fee": "yes",
+    "website": "https://www.visitfjardabyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 481204125,
+   "center": {
+    "lat": 63.8525157,
+    "lon": -21.3800356
+   },
+   "nodes": [
+    4741401414,
+    4741401415,
+    4741401416,
+    4741401417,
+    4741401418,
+    4741401419,
+    4741401420,
+    4741401521,
+    4741401522,
+    4741401523,
+    4741401524,
+    4741401525,
+    4741401526,
+    4741401527,
+    4741401528,
+    4741401414
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Þorlákshafnar",
+    "fee": "yes",
+    "website": "https://www.olfus.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 481204276,
+   "center": {
+    "lat": 63.8432492,
+    "lon": -22.4218604
+   },
+   "nodes": [
+    4741403256,
+    4741403257,
+    4741403258,
+    4741403259,
+    4741403260,
+    10964220385,
+    10964220384,
+    10964220386,
+    4741403261,
+    4741403262,
+    4741403263,
+    4741403264,
+    4741403265,
+    4741403266,
+    4741403267,
+    4741403256
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið í Grindavík",
+    "name:en": "Grindavík Campground",
+    "opening_hours": "Mar-Nov:Mo-Su 08:00-22:00",
+    "fee": "yes",
+    "website": "https://grindavikcampsite.com/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 482486028,
+   "center": {
+    "lat": 64.3979918,
+    "lon": -21.5099637
+   },
+   "nodes": [
+    4753076549,
+    3603555621,
+    3603555622,
+    4753076550,
+    4753076551,
+    12091794557,
+    4753076552,
+    4753076553,
+    4753076554,
+    12091794566,
+    4753076549
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bjarteyjarsandur",
+    "shower": "yes",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "https://www.bjarteyjarsandur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484502918,
+   "center": {
+    "lat": 65.4022626,
+    "lon": -20.9267885
+   },
+   "nodes": [
+    4772513289,
+    4772513290,
+    4772513291,
+    4772513292,
+    4782403836,
+    4782403837,
+    4782403838,
+    4782403839,
+    4782403840,
+    4782403841,
+    4782403842,
+    4782403843,
+    4782403856,
+    4782403844,
+    4782403857,
+    4782403845,
+    4782403846,
+    4782403847,
+    4782403848,
+    4782403849,
+    4782403850,
+    4782403851,
+    4782403852,
+    11889919309,
+    11889919295,
+    4772513293,
+    11889919300,
+    11889919312,
+    4772513294,
+    4772513289
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hvammstangi",
+    "name:en": "Hvammstangi Camping",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "May 15-Oct 15 0:00-24:00",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484505986,
+   "center": {
+    "lat": 65.2468827,
+    "lon": -21.8023916
+   },
+   "nodes": [
+    4772531824,
+    4772531825,
+    4772531826,
+    4772531827,
+    4772531828,
+    4772531829,
+    4772531830,
+    4772531831,
+    4772531832,
+    4772531833,
+    4772531824
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugar í Sælingsdal",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.hoteledda.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484507027,
+   "center": {
+    "lat": 64.6919494,
+    "lon": -21.5949908
+   },
+   "nodes": [
+    4772545615,
+    4772545616,
+    6548017643,
+    4772545617,
+    4772545618,
+    4772545619,
+    6548017644,
+    4772545620,
+    6617905860,
+    6617905850,
+    4772546121,
+    6617905848,
+    6617905851,
+    4772545615
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Varmaland",
+    "toilets": "yes",
+    "shower": "no",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://www.visitakranes.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484517843,
+   "center": {
+    "lat": 65.69129,
+    "lon": -21.4385933
+   },
+   "nodes": [
+    4772651445,
+    4772651446,
+    4772651447,
+    4772651448,
+    4772651449,
+    4772651450,
+    4772651451,
+    4772651452,
+    4772651453,
+    4772651454,
+    4772651455,
+    4772651456,
+    4772651457,
+    4772651458,
+    4772651445
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið Drangsnesi",
+    "fee": "yes",
+    "website": "https://www.drangsnes.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484519126,
+   "center": {
+    "lat": 65.5773331,
+    "lon": -23.1724483
+   },
+   "nodes": [
+    4772669653,
+    4772669654,
+    4772669655,
+    4772669656,
+    4772669657,
+    4772669658,
+    4772669659,
+    4772669660,
+    4772669661,
+    4772669662,
+    4772669663,
+    4772669664,
+    4772669665,
+    4772669666,
+    4772669667,
+    4772669653
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Flókalundur",
+    "fee": "yes",
+    "website": "http://www.flokalundur.is/tjaldsvaedi/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484521228,
+   "center": {
+    "lat": 65.6290593,
+    "lon": -23.8462748
+   },
+   "nodes": [
+    5386287726,
+    4772689072,
+    4772689073,
+    4772689074,
+    4772689075,
+    4772689076,
+    5386287726
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Tálknafirði",
+    "shower": "yes",
+    "fee": "yes",
+    "website": "https://www.talknafjordur.is/ferdamadurinn/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484522631,
+   "center": {
+    "lat": 66.0598409,
+    "lon": -23.2048657
+   },
+   "nodes": [
+    4772704621,
+    4772704622,
+    4772704623,
+    4772704624,
+    4772704625,
+    4772704626,
+    4772704627,
+    4772704628,
+    4772704629,
+    2184903723,
+    2184903722,
+    2184903724,
+    2184904054,
+    4772704631,
+    4772704632,
+    4772704633,
+    4772704621
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tungudalur",
+    "fee": "yes",
+    "website": "http://www.gih.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484569756,
+   "center": {
+    "lat": 65.372946,
+    "lon": -15.8826303
+   },
+   "nodes": [
+    4773187711,
+    4773187712,
+    8962812083,
+    4773187713,
+    7036520644,
+    7036520645,
+    7036520646,
+    7036520647,
+    7036520650,
+    4773187719,
+    4773187720,
+    4773189321,
+    8962812082,
+    4773187711
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið á Möðrudal",
+    "name:en": "Möðrudalur Camping",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.fjalladyrd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484570665,
+   "center": {
+    "lat": 65.8888932,
+    "lon": -17.32009
+   },
+   "nodes": [
+    4773196731,
+    4773196732,
+    6647608829,
+    4773196733,
+    4773196734,
+    4773196735,
+    6647608830,
+    6647608831,
+    4773196731
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Heiðarbær",
+    "name:en": "Heiðarbær Camping",
+    "power_supply": "no",
+    "fee": "yes",
+    "website": "https://www.heidarbaer.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484572426,
+   "center": {
+    "lat": 66.3009769,
+    "lon": -16.4427476
+   },
+   "nodes": [
+    4773212384,
+    11190071542,
+    4773212385,
+    11190071544,
+    4773212386,
+    4773212387,
+    4773212388,
+    4773212389,
+    4773212390,
+    4773212391,
+    11190071545,
+    4773212392,
+    4773212393,
+    4773212394,
+    4773212384
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Kópasker",
+    "kitchen": "no",
+    "fee": "yes",
+    "website": "https://www.nordurthing.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484881021,
+   "center": {
+    "lat": 63.7320694,
+    "lon": -20.0371492
+   },
+   "nodes": [
+    4776297703,
+    4776297704,
+    4776297705,
+    4776297706,
+    4776297707,
+    4776297708,
+    4776297709,
+    4776297710,
+    4776297711,
+    4776297712,
+    4776297713,
+    4776297714,
+    4776297715,
+    4776297716,
+    4776297717,
+    4776297718,
+    4776297719,
+    4776297720,
+    4776297703
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið Langbrók",
+    "name:en": "Langbrók Camping",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484882324,
+   "center": {
+    "lat": 63.832768,
+    "lon": -21.6875835
+   },
+   "nodes": [
+    4776306310,
+    4776306311,
+    4776306312,
+    4776306313,
+    4776306314,
+    4776306315,
+    4776306310
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "T-bær",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484902379,
+   "center": {
+    "lat": 64.1756947,
+    "lon": -20.4511077
+   },
+   "nodes": [
+    4776498983,
+    4776498984,
+    4776498985,
+    9315732951,
+    9315732952,
+    6932675276,
+    6932675267,
+    4776498987,
+    4776498983
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Reykholti",
+    "name:en": "Camping Reykholt",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "May 01-Sep 30",
+    "fee": "yes",
+    "website": "https://reykholtcampsite.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484903624,
+   "center": {
+    "lat": 64.275577,
+    "lon": -20.4413446
+   },
+   "nodes": [
+    4776510160,
+    4776510161,
+    4776510162,
+    4776510163,
+    4776510164,
+    4776510160
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Úthlíð",
+    "name:en": "Camping Úthlíð",
+    "toilets": "yes",
+    "shower": "hot",
+    "kitchen": "no",
+    "opening_hours": "24/7",
+    "fee": "yes",
+    "website": "https://www.uthlid.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484904679,
+   "center": {
+    "lat": 63.9164607,
+    "lon": -20.4144876
+   },
+   "nodes": [
+    4776516361,
+    4776516362,
+    4776516363,
+    4776516364,
+    4776516365,
+    4776516366,
+    4776516367,
+    4776516368,
+    4776516369,
+    4886740811,
+    4886740812,
+    4776516361
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugaland",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484905736,
+   "center": {
+    "lat": 63.9929834,
+    "lon": -20.0125318
+   },
+   "nodes": [
+    4776529535,
+    4776529536,
+    4776529537,
+    4776529538,
+    4776529539,
+    4776529540,
+    4776529541,
+    4776529542,
+    4776529543,
+    4776529544,
+    4776529545,
+    4776529546,
+    4776529547,
+    4776529548,
+    4776529549,
+    4776529550,
+    4776529551,
+    4776529552,
+    4776529553,
+    4776529554,
+    4776529555,
+    4776529556,
+    4776529557,
+    4776529558,
+    4776529559,
+    4776529560,
+    4776529561,
+    4776529562,
+    4776529563,
+    4776529535
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Leirubakki",
+    "fee": "yes",
+    "website": "https://www.leirubakki.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484907346,
+   "center": {
+    "lat": 63.8806228,
+    "lon": -20.7550872
+   },
+   "nodes": [
+    4776536098,
+    4776536099,
+    4776536100,
+    4776536101,
+    4776536109,
+    4776536108,
+    4776536107,
+    6488071341,
+    4776536106,
+    4776536105,
+    4776536104,
+    4776536103,
+    4776536102,
+    4776536098
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þjórsárver",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 484908052,
+   "center": {
+    "lat": 63.7262949,
+    "lon": -20.0394283
+   },
+   "nodes": [
+    4776552452,
+    4776552453,
+    4776552454,
+    4776552455,
+    4776552456,
+    4776552457,
+    4776552458,
+    4776552459,
+    4776552460,
+    4776552461,
+    4776552462,
+    4776552463,
+    6997008361,
+    4776552464,
+    4776552465,
+    6997008364,
+    4776552466,
+    6997008360,
+    4776552467,
+    4776552468,
+    4776552469,
+    4776552470,
+    4776552471,
+    4776552472,
+    4776552473,
+    4776552474,
+    4776552452
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hellishólar",
+    "fee": "yes",
+    "website": "https://www.hellisholar.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485054825,
+   "center": {
+    "lat": 63.9070586,
+    "lon": -18.6041765
+   },
+   "nodes": [
+    4778163625,
+    4778163626,
+    4778163627,
+    4778163628,
+    3724081670,
+    3724081669,
+    3724081668,
+    3724081667,
+    4778163621,
+    4778163629,
+    3724081665,
+    3724081664,
+    4778163630,
+    4778163631,
+    4778163632,
+    4778163633,
+    4778163634,
+    4778163635,
+    4778163636,
+    4778163637,
+    4778163638,
+    4778163639,
+    4778163640,
+    4778163641,
+    4778163625
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hólaskjól",
+    "toilets": "yes",
+    "shower": "yes",
+    "fee": "yes",
+    "website": "https://www.eldgja.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485056196,
+   "center": {
+    "lat": 63.8426989,
+    "lon": -17.9508377
+   },
+   "nodes": [
+    4778173061,
+    4778173062,
+    4778173063,
+    6320872693,
+    4778173064,
+    4778173065,
+    4778173066,
+    4778173067,
+    4778173068,
+    4778173061
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hörgsland",
+    "fee": "yes",
+    "website": "https://www.horgsland.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485057090,
+   "center": {
+    "lat": 64.0321305,
+    "lon": -20.8143985
+   },
+   "nodes": [
+    4778187318,
+    4778187319,
+    4778187320,
+    4778187721,
+    4778187722,
+    4778187723,
+    4778187724,
+    4778187725,
+    4778187726,
+    4778187727,
+    4778187728,
+    4778187729,
+    4778187730,
+    4778187731,
+    4778187732,
+    4778187733,
+    4778187734,
+    4778187735,
+    4778187736,
+    4778187737,
+    4778187738,
+    4778187739,
+    4778187740,
+    4778187741,
+    4778187742,
+    4778187318
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hraunborgir",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485061519,
+   "center": {
+    "lat": 64.2218087,
+    "lon": -20.7311329
+   },
+   "nodes": [
+    4778235843,
+    4778235844,
+    4778235845,
+    4778235846,
+    4778235847,
+    4778235843
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugarvatn",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485083920,
+   "center": {
+    "lat": 63.8297872,
+    "lon": -21.6786183
+   },
+   "nodes": [
+    9039924545,
+    12090657340,
+    9039924543,
+    9039924546,
+    9039924541,
+    9039924540,
+    9039924539,
+    4778537490,
+    4778537491,
+    4778537492,
+    4778537493,
+    4778537494,
+    4778537495,
+    9039924545
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Gata Free Camping",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "opening_hours": "24/7",
+    "fee": "no",
+    "website": "https://www.facebook.com/pages/Free-Camping/98659333547"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485091591,
+   "center": {
+    "lat": 64.2272557,
+    "lon": -20.3339309
+   },
+   "nodes": [
+    4778599555,
+    4778599556,
+    6622499255,
+    4778599557,
+    4778599558,
+    4778599559,
+    4778599560,
+    4778599561,
+    4778599562,
+    4778599563,
+    4778599564,
+    4778599565,
+    4778599566,
+    4778599567,
+    4778599568,
+    4778599569,
+    4778599570,
+    4778599571,
+    4778599572,
+    4778599555
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið við Faxa",
+    "name:en": "Faxi Campground",
+    "shower": "no",
+    "power_supply": "yes",
+    "kitchen": "no",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485347177,
+   "center": {
+    "lat": 65.6591006,
+    "lon": -20.2752939
+   },
+   "nodes": [
+    4781212660,
+    4781212659,
+    4781212658,
+    4781212657,
+    4781212661,
+    4781212662,
+    4781212663,
+    4781212664,
+    4781212665,
+    4781212666,
+    4781212667,
+    4781212668,
+    4781212669,
+    4781212670,
+    4781212671,
+    4781212672,
+    8421641049,
+    4781212660
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Blönduós",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.gladheimar.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485351115,
+   "center": {
+    "lat": 66.0371184,
+    "lon": -14.8021178
+   },
+   "nodes": [
+    4781248799,
+    4781248800,
+    4781248801,
+    4781248802,
+    4781248803,
+    4781248804,
+    4781248805,
+    4781248806,
+    4781248795,
+    4781248807,
+    4781248808,
+    4781248809,
+    4781248810,
+    4781248811,
+    4781248812,
+    4781248813,
+    4781248814,
+    4781248815,
+    4781248816,
+    4781248817,
+    4781248818,
+    4781248819,
+    4781248820,
+    4781248799
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bakkafjörður",
+    "shower": "no",
+    "kitchen": "no",
+    "opening_hours": "Jun 1-Sep 15",
+    "fee": "yes",
+    "website": "https://www.langanesbyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485352747,
+   "center": {
+    "lat": 65.6402522,
+    "lon": -16.9139702
+   },
+   "nodes": [
+    4781264250,
+    11432154193,
+    5010348231,
+    5010348356,
+    5010348357,
+    5010348358,
+    5010348359,
+    5010348360,
+    5010348361,
+    5010348362,
+    5010348363,
+    5010348364,
+    5010348365,
+    5010348366,
+    5010348367,
+    5010348368,
+    5010348369,
+    5010348370,
+    5010348371,
+    5010348372,
+    5010348373,
+    5010348374,
+    5010348375,
+    5010348376,
+    5010348377,
+    5010348378,
+    5010348379,
+    5010348380,
+    5010348381,
+    5010348382,
+    5010348383,
+    5010348384,
+    5010348385,
+    5010348386,
+    5010348387,
+    5010348388,
+    5010348389,
+    5010348390,
+    5010348391,
+    5010348392,
+    5010348393,
+    4781264261,
+    4781264260,
+    4781264259,
+    5010348228,
+    5010348229,
+    5010348230,
+    4781264258,
+    5010348227,
+    4781264257,
+    4781264255,
+    4781264252,
+    4781264251,
+    4781264250
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bjarg",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "Mo-Su 10:00-10:30, 18:00-21:00",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485355020,
+   "center": {
+    "lat": 65.9679227,
+    "lon": -18.5344195
+   },
+   "nodes": [
+    4781284881,
+    8340107197,
+    6740268325,
+    6740268326,
+    8340107196,
+    4781284887,
+    4781284886,
+    11154528499,
+    11154528502,
+    4781284885,
+    11154528500,
+    11154528501,
+    11155598501,
+    4781284884,
+    6740268327,
+    6740268328,
+    4781284883,
+    6740268323,
+    8340107198,
+    6740268324,
+    4781284881
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði á Dalvík",
+    "name:en": "Dalvík Camping",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.dalvik.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485357133,
+   "center": {
+    "lat": 65.9496883,
+    "lon": -18.1731446
+   },
+   "nodes": [
+    4781304485,
+    6758001578,
+    6758001577,
+    6758001579,
+    4781304486,
+    4781304487,
+    6758001576,
+    4781304488,
+    4781304489,
+    4781304491,
+    4781304494,
+    4781304485
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Grenivík"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485371939,
+   "center": {
+    "lat": 65.5738599,
+    "lon": -18.0901922
+   },
+   "nodes": [
+    4781430516,
+    4781430517,
+    6702921225,
+    6702921224,
+    6702921223,
+    6153559708,
+    6702921222,
+    6702921221,
+    6702921220,
+    6702921219,
+    6702921218,
+    6702921217,
+    4781430520,
+    6702921226,
+    4781430621,
+    6702921242,
+    4781430622,
+    6702921241,
+    6702921240,
+    6702921239,
+    6702921238,
+    6702921237,
+    6702921236,
+    6702921325,
+    6702921235,
+    6702921234,
+    6702921233,
+    6702921232,
+    6702921231,
+    6702921230,
+    4781430625,
+    4781430626,
+    6702921229,
+    6702921228,
+    6702921227,
+    4781430627,
+    4781430516
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Eyjafjarðarsveitar",
+    "fee": "yes",
+    "website": "https://www.eyjafjardarsveit.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485373297,
+   "center": {
+    "lat": 65.9781843,
+    "lon": -18.3736288
+   },
+   "nodes": [
+    4781440823,
+    4781440824,
+    4781440825,
+    6477832479,
+    4781440828,
+    4781440829,
+    4781440823
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Hríseyjar",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.visitakureyri.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485374065,
+   "center": {
+    "lat": 65.5404259,
+    "lon": -20.2061382
+   },
+   "nodes": [
+    4781445909,
+    4781445902,
+    4781445903,
+    4781445899,
+    4781445900,
+    6239666430,
+    6239666433,
+    6239666432,
+    6239666431,
+    4781445909
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Húnavellir",
+    "website": "https://hunavellir.is/campsite/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485463654,
+   "center": {
+    "lat": 65.5016134,
+    "lon": -17.4590781
+   },
+   "nodes": [
+    4782379745,
+    4782379746,
+    4782379750,
+    4782379747,
+    4782379748,
+    4782379749,
+    4782379745
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Kidagil",
+    "fee": "yes",
+    "website": "https://www.kidagil.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485467880,
+   "center": {
+    "lat": 65.7217939,
+    "lon": -17.362383
+   },
+   "nodes": [
+    4782435141,
+    4782435142,
+    4782435143,
+    4782435144,
+    4782435145,
+    4782435146,
+    4782435147,
+    4782435148,
+    6788487659,
+    4782435149,
+    6788487660,
+    4782435150,
+    4782435151,
+    4782435141
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Laugar Camping",
+    "fee": "yes",
+    "website": "https://reisa.is/en/laugar/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485468438,
+   "center": {
+    "lat": 65.7026979,
+    "lon": -17.348607
+   },
+   "nodes": [
+    4782448918,
+    11889175879,
+    11889160035,
+    11889160018,
+    4782448919,
+    4782448920,
+    4782450021,
+    4782450022,
+    11888576119,
+    11887752804,
+    11887752803,
+    11887752802,
+    4782450023,
+    4782450024,
+    11888576127,
+    11888576148,
+    4782450025,
+    4782450026,
+    11888579286,
+    11888576137,
+    4782450027,
+    11888576154,
+    11888579293,
+    11888579290,
+    11888576142,
+    11888579276,
+    11888579285,
+    11888576135,
+    4782450028,
+    11889175880,
+    4782450029,
+    11889160022,
+    11889160020,
+    11889160064,
+    11889160039,
+    11889160030,
+    11889160058,
+    11889160061,
+    11889175882,
+    11889160023,
+    11889176809,
+    11889160021,
+    4782448918
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "CJA Campsite",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485487044,
+   "center": {
+    "lat": 66.0713417,
+    "lon": -18.6490655
+   },
+   "nodes": [
+    4782695615,
+    4782695616,
+    4782695617,
+    4782695618,
+    4782695619,
+    4782695620,
+    4782696421,
+    4782695615
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið í Ólafsfirði",
+    "fee": "yes",
+    "website": "https://www.fjallabyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485489034,
+   "center": {
+    "lat": 66.1497032,
+    "lon": -18.9100515
+   },
+   "nodes": [
+    4782720667,
+    4782720668,
+    4782720669,
+    4782720664,
+    4782720663,
+    4782720666,
+    4782720665,
+    4782720670,
+    4782720671,
+    4782720672,
+    4782720673,
+    4782720674,
+    4782720675,
+    4782720676,
+    4782720677,
+    4782720667
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Siglufjarðar",
+    "fee": "yes",
+    "website": "https://www.fjallabyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485491137,
+   "center": {
+    "lat": 65.7070997,
+    "lon": -17.8982628
+   },
+   "nodes": [
+    4782745474,
+    6662910785,
+    4782745475,
+    6662878884,
+    4782745477,
+    6662910799,
+    4782745478,
+    4782745479,
+    4782745480,
+    4782745481,
+    4782745482,
+    4782745483,
+    6662910800,
+    4782745485,
+    4782745486,
+    4782745487,
+    4782745488,
+    4782745489,
+    4782745490,
+    4782745491,
+    6662910801,
+    6662910802,
+    4782745492,
+    6662910793,
+    6662910792,
+    6662910791,
+    6662910790,
+    4782745494,
+    4782745495,
+    4782745496,
+    6662910789,
+    4782745497,
+    6662910788,
+    4782745498,
+    4782745499,
+    6662910794,
+    6662878883,
+    4782745500,
+    6662910787,
+    4782745501,
+    6662910796,
+    6662910795,
+    4782745502,
+    6662910797,
+    6662910798,
+    4782745503,
+    4782745474
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Systragil",
+    "website": "https://www.systragil.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485493050,
+   "center": {
+    "lat": 65.7008439,
+    "lon": -17.8857609
+   },
+   "nodes": [
+    4782765254,
+    4782765255,
+    4782765256,
+    4782765257,
+    4782765258,
+    4782765259,
+    4782765260,
+    4782765261,
+    4782765262,
+    4782765263,
+    4782765264,
+    4782765265,
+    4782765266,
+    4782765267,
+    4782765268,
+    4782765269,
+    8078238966,
+    8078238965,
+    9741853677,
+    9741853676,
+    9741853675,
+    9741853674,
+    9741853673,
+    8078238964,
+    4782765270,
+    4782765254
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Vaglaskógur",
+    "fee": "yes",
+    "website": "https://www.skogur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 485494007,
+   "center": {
+    "lat": 65.5517114,
+    "lon": -19.4558386
+   },
+   "nodes": [
+    4782773821,
+    6612380530,
+    6612380522,
+    6612380531,
+    6612380529,
+    4782773822,
+    4782773823,
+    4782773824,
+    4782773825,
+    2441431198,
+    2441431197,
+    4782773826,
+    4782773827,
+    4782773828,
+    4782773829,
+    4782773830,
+    4782773821
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Varmahlíð",
+    "shower": "yes",
+    "fee": "yes",
+    "website": "https://tjoldumiskagafirdi.is/is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 486518346,
+   "center": {
+    "lat": 64.6556677,
+    "lon": -14.2846424
+   },
+   "nodes": [
+    929513198,
+    6737189385,
+    6737180779,
+    4791223966,
+    4791223967,
+    4791223968,
+    4791223969,
+    4791223970,
+    6737180783,
+    6737180784,
+    4791223972,
+    6737180780,
+    6737180781,
+    6737180782,
+    6737189386,
+    929513198
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Djupivogur",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://www.hotelframtid.com/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 486524008,
+   "center": {
+    "lat": 65.0258209,
+    "lon": -14.9719778
+   },
+   "nodes": [
+    4791261953,
+    4791261954,
+    4791261955,
+    9993741483,
+    9993741482,
+    9993741481,
+    9993741480,
+    9993741479,
+    4791261957,
+    4791261958,
+    4791261959,
+    4791261960,
+    4791261961,
+    4791261962,
+    4791261953
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hengifoss",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://hengifossguest.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 493382103,
+   "center": {
+    "lat": 64.8042016,
+    "lon": -15.6415117
+   },
+   "nodes": [
+    4853051235,
+    4853051236,
+    4853051237,
+    4853051238,
+    4853051239,
+    4853051240,
+    4853051241,
+    4853051242,
+    4853051243,
+    4853051244,
+    4853051245,
+    4853051246,
+    4853051247,
+    4853051248,
+    4853051249,
+    4853051235
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Snæfell",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "http://www.vjp.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 493382525,
+   "center": {
+    "lat": 63.8386512,
+    "lon": -18.9758444
+   },
+   "nodes": [
+    4853054743,
+    4853054744,
+    4853054745,
+    4853054749,
+    4853054750,
+    4853054751,
+    4853054752,
+    4853054753,
+    4853054754,
+    4853054755,
+    4853054756,
+    4853054757,
+    9155623937,
+    4853054743
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Strútur á Mælifellssandi",
+    "fee": "yes",
+    "website": "https://www.utivist.is/skalar/strutur-a-maelifellssandi"
+   }
+  },
+  {
+   "type": "way",
+   "id": 494269431,
+   "center": {
+    "lat": 65.1079662,
+    "lon": -21.764773
+   },
+   "nodes": [
+    4860491828,
+    4860491825,
+    6260921162,
+    4860491829,
+    4860491830,
+    4860491831,
+    4860489818,
+    4860489819,
+    4860491824,
+    4860489820,
+    4860491821,
+    4860491822,
+    4860491823,
+    6260921163,
+    7832436502,
+    7832436501,
+    7832436500,
+    9950762039,
+    9950762038,
+    9950762037,
+    9950762036,
+    9950762035,
+    7832436499,
+    7832436498,
+    7832436505,
+    7832436504,
+    7832436503,
+    4860491827,
+    4860491826,
+    4860491828
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Búðardalur",
+    "fee": "yes",
+    "website": "https://www.visitdalir.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 494270118,
+   "center": {
+    "lat": 64.7482627,
+    "lon": -20.84568
+   },
+   "nodes": [
+    4860495675,
+    4860495676,
+    4860495677,
+    4860495678,
+    4860495679,
+    4860495680,
+    4860495681,
+    4860495682,
+    4860495683,
+    4860495684,
+    4860495685,
+    4860495686,
+    4860495687,
+    4860495688,
+    4860495689,
+    4860495690,
+    4860495675
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Fljótstunga",
+    "fee": "yes",
+    "website": "http://www.fljotstunga.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496133563,
+   "center": {
+    "lat": 64.4364583,
+    "lon": -21.5621219
+   },
+   "nodes": [
+    4878623650,
+    4878623651,
+    4878623652,
+    4878623653,
+    4878623654,
+    4878623655,
+    4878623656,
+    4878623657,
+    4878623658,
+    4878623659,
+    4878623660,
+    4878623661,
+    4878623662,
+    4878623663,
+    4878623664,
+    4878623665,
+    4878623666,
+    4878623667,
+    4878623668,
+    4878623669,
+    4878623670,
+    4878623671,
+    4878623672,
+    4878623673,
+    4878623674,
+    4878623675,
+    4878623677,
+    4878623676,
+    4878623650
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þórisstaðir",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496339866,
+   "center": {
+    "lat": 65.5560425,
+    "lon": -22.101598
+   },
+   "nodes": [
+    4880444997,
+    4880444998,
+    4880444999,
+    4880445000,
+    4880445001,
+    4880445002,
+    4880445003,
+    4880445004,
+    4880445005,
+    4880445006,
+    4880445007,
+    4880445008,
+    4880445009,
+    4880445010,
+    4880444997
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bjarkarlundur",
+    "fee": "yes",
+    "website": "http://www.bjarkalundur.com"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496419764,
+   "center": {
+    "lat": 65.8423031,
+    "lon": -22.6754985
+   },
+   "nodes": [
+    4881297980,
+    4881297981,
+    9052946936,
+    4881297982,
+    4881297983,
+    5026244106,
+    4881297984,
+    4881297985,
+    4881297986,
+    9052946935,
+    4881297987,
+    4881297988,
+    4881297980
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Heydalur",
+    "toilets": "yes",
+    "shower": "hot",
+    "drinking_water": "yes",
+    "power_supply": "cee_17_blue",
+    "kitchen": "no",
+    "fee": "yes",
+    "website": "https://www.heydalur.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496422849,
+   "center": {
+    "lat": 65.983829,
+    "lon": -23.3391545
+   },
+   "nodes": [
+    4881313550,
+    4881313551,
+    4881313552,
+    4881313553,
+    4881313554,
+    4881313555,
+    4881313556,
+    4881313550
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Korpudalur",
+    "fee": "yes",
+    "website": "http://www.korpudalur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496423588,
+   "center": {
+    "lat": 65.4458207,
+    "lon": -23.9543741
+   },
+   "nodes": [
+    4881329457,
+    4881329468,
+    4881329458,
+    4881329469,
+    8938960043,
+    4881329459,
+    4881329470,
+    4881329460,
+    4881329461,
+    4881329471,
+    4881329472,
+    4881329462,
+    4881329463,
+    4881329464,
+    4881329473,
+    4881329465,
+    4881329466,
+    4881329467,
+    4881329457
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Melanes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496426811,
+   "center": {
+    "lat": 65.9295082,
+    "lon": -23.5871486
+   },
+   "nodes": [
+    4881364532,
+    4881364533,
+    4881364534,
+    4881364535,
+    4881364536,
+    4881364537,
+    4881364538,
+    4881364539,
+    4881364540,
+    4881364541,
+    4881364542,
+    4881364532
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Núpur í Dýrafirði",
+    "fee": "yes",
+    "website": "http://www.hotelnupur.is"
+   }
+  },
+  {
+   "type": "way",
+   "id": 496431594,
+   "center": {
+    "lat": 66.049848,
+    "lon": -21.5671885
+   },
+   "nodes": [
+    4881406998,
+    4881406999,
+    4881407000,
+    4881407001,
+    4881407002,
+    4881407003,
+    4881407004,
+    4881407005,
+    4881407006,
+    4881407007,
+    4881407008,
+    5658903810,
+    4881406998
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Urðartindur",
+    "fee": "yes",
+    "website": "https://www.urdartindur.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 520826919,
+   "center": {
+    "lat": 64.7734746,
+    "lon": -22.3010803
+   },
+   "nodes": [
+    5075636738,
+    5075636739,
+    5075636740,
+    5075636741,
+    5075636742,
+    5075636743,
+    5075636744,
+    5075636738
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Snorrastaðir",
+    "name:en": "Snorrastadir Farm Holidays",
+    "toilets": "yes",
+    "shower": "yes",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "https://www.snorrastadir.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 545060271,
+   "center": {
+    "lat": 66.052142,
+    "lon": -23.5098919
+   },
+   "nodes": [
+    4954364357,
+    5268353171,
+    5268353170,
+    5268353169,
+    5268353168,
+    2083996329,
+    5268353167,
+    5268353166,
+    5268353165,
+    8576490235,
+    5268353164,
+    5268353163,
+    5268353162,
+    4954364357
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Flateyrar"
+   }
+  },
+  {
+   "type": "way",
+   "id": 604751560,
+   "center": {
+    "lat": 64.4212572,
+    "lon": -14.8464889
+   },
+   "nodes": [
+    5737565577,
+    5737565578,
+    5737565579,
+    7710358367,
+    5737565551,
+    9081200680,
+    9081200681,
+    9081200682,
+    9081200683,
+    9081200684,
+    9081200685,
+    9081200686,
+    9081200687,
+    5737565580,
+    5737565581,
+    5737565577
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Stafafell",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 700962341,
+   "center": {
+    "lat": 64.6167344,
+    "lon": -19.7569203
+   },
+   "nodes": [
+    6580755602,
+    6582877648,
+    6582877641,
+    6582877646,
+    6582877645,
+    6582877649,
+    6582877643,
+    6582877647,
+    6582877642,
+    6580755603,
+    6580755602
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hvítárnes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 708231840,
+   "center": {
+    "lat": 64.5519199,
+    "lon": -15.1495995
+   },
+   "nodes": [
+    6654945715,
+    6654945716,
+    6654945717,
+    6654945718,
+    6654945715
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Múlaskáli",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 712155124,
+   "center": {
+    "lat": 64.1468785,
+    "lon": -21.8098319
+   },
+   "nodes": [
+    6695947975,
+    6695947974,
+    6695947973,
+    6695947972,
+    6695947971,
+    6695947970,
+    6695947975
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camper Resort Reykjavík"
+   }
+  },
+  {
+   "type": "way",
+   "id": 712281091,
+   "center": {
+    "lat": 64.2798619,
+    "lon": -20.5088675
+   },
+   "nodes": [
+    6697131393,
+    6697131392,
+    6697112871,
+    6697131391,
+    6697112870,
+    6697131390,
+    6697112869,
+    6697112868,
+    6697112867,
+    6697131389,
+    6697131388,
+    6697131387,
+    6697131386,
+    6697131385,
+    6697112884,
+    6697112883,
+    6697112882,
+    6697112881,
+    6697112880,
+    6697112879,
+    6697112874,
+    6697112878,
+    6697112873,
+    6697112875,
+    6697112877,
+    6697112876,
+    6697112872,
+    6697131393
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði VR"
+   }
+  },
+  {
+   "type": "way",
+   "id": 713664783,
+   "center": {
+    "lat": 66.0365764,
+    "lon": -22.990784
+   },
+   "nodes": [
+    6709929975,
+    6709929974,
+    6709929973,
+    6709929972,
+    6709929971,
+    6709929970,
+    6709929969,
+    6709929968,
+    6709929967,
+    6709929966,
+    6709929975
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði Súðavíkur",
+    "toilets": "yes",
+    "shower": "yes",
+    "power_supply": "yes",
+    "kitchen": "no"
+   }
+  },
+  {
+   "type": "way",
+   "id": 727899485,
+   "center": {
+    "lat": 64.79285,
+    "lon": -14.007386
+   },
+   "nodes": [
+    6821256897,
+    6821256896,
+    6821256895,
+    6821256894,
+    6821256893,
+    6821256889,
+    6821256888,
+    6821256892,
+    6821256891,
+    6821256890,
+    6821256897
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Breiðdalsvík",
+    "name:en": "Breiddalsvik Camping Ground",
+    "fee": "no",
+    "website": "https://en.visitfjardabyggd.is/where-to-stay/camping"
+   }
+  },
+  {
+   "type": "way",
+   "id": 751539432,
+   "center": {
+    "lat": 63.8286013,
+    "lon": -20.3988087
+   },
+   "nodes": [
+    7025783079,
+    7025783080,
+    7025783081,
+    7025783082,
+    7025783079
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hella Gaddstaðaflatir",
+    "toilets": "yes",
+    "drinking_water": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 771319047,
+   "center": {
+    "lat": 64.6944992,
+    "lon": -20.9428811
+   },
+   "nodes": [
+    7200456279,
+    7200456278,
+    7200456277,
+    7200456276,
+    7200456275,
+    7200456274,
+    7200456273,
+    7200456272,
+    7200456271,
+    7200456270,
+    7200456269,
+    7200456268,
+    7200456267,
+    7200456266,
+    7200456265,
+    7200456264,
+    7200456263,
+    7200456262,
+    7200456261,
+    7200456260,
+    7200456259,
+    7200456258,
+    7200456257,
+    7200456256,
+    7200456255,
+    7200456254,
+    7200456253,
+    7200456252,
+    7200456251,
+    7200456250,
+    7200456249,
+    7200456248,
+    7200456247,
+    7200456246,
+    7200456279
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Reyðarfellsskógur"
+   }
+  },
+  {
+   "type": "way",
+   "id": 823821729,
+   "center": {
+    "lat": 65.2647412,
+    "lon": -22.342116
+   },
+   "nodes": [
+    7691683393,
+    7691683394,
+    7691683403,
+    7691683404,
+    7691683393
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Á"
+   }
+  },
+  {
+   "type": "way",
+   "id": 839648785,
+   "center": {
+    "lat": 63.6850139,
+    "lon": -19.5131452
+   },
+   "nodes": [
+    7835076472,
+    7835115789,
+    7835076473,
+    7835076474,
+    7835076475,
+    7835076476,
+    7835076477,
+    7835076478,
+    7835076479,
+    7835076480,
+    7835076481,
+    7835076482,
+    7835076483,
+    7835076484,
+    7835115785,
+    7835115786,
+    7835115787,
+    7835115788,
+    7835076472
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þórsmörk Langidalur"
+   }
+  },
+  {
+   "type": "way",
+   "id": 839648786,
+   "center": {
+    "lat": 63.8316115,
+    "lon": -19.2053299
+   },
+   "nodes": [
+    7835115790,
+    7835115791,
+    7835115792,
+    7835115793,
+    7835115794,
+    7835115795,
+    7835115796,
+    7835115797,
+    7835115798,
+    7835115799,
+    7835115800,
+    7835115790
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hvanngil"
+   }
+  },
+  {
+   "type": "way",
+   "id": 839657803,
+   "center": {
+    "lat": 63.9327709,
+    "lon": -19.1652922
+   },
+   "nodes": [
+    7835129211,
+    7835129212,
+    7835129213,
+    7835129214,
+    7835129215,
+    7835129216,
+    12242566398,
+    7835129217,
+    13084836000,
+    12242566397,
+    13084851801,
+    13084835998,
+    13084835999,
+    12242566396,
+    7835129218,
+    12242566395,
+    12242566394,
+    7835129211
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Höskuldsskáli"
+   }
+  },
+  {
+   "type": "way",
+   "id": 911130491,
+   "center": {
+    "lat": 63.677745,
+    "lon": -19.4828861
+   },
+   "nodes": [
+    8460281818,
+    8460281819,
+    8460281820,
+    8460281821,
+    12068299742,
+    8460281822,
+    8460281823,
+    12068299743,
+    8460281818
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Brúðkaupflöt"
+   }
+  },
+  {
+   "type": "way",
+   "id": 911130492,
+   "center": {
+    "lat": 63.677578,
+    "lon": -19.4826498
+   },
+   "nodes": [
+    8460281824,
+    8460281825,
+    8460281826,
+    12068299739,
+    12068299740,
+    12068299741,
+    8460281827,
+    8460281824
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bjargaflöt"
+   }
+  },
+  {
+   "type": "way",
+   "id": 911130493,
+   "center": {
+    "lat": 63.6784583,
+    "lon": -19.480852
+   },
+   "nodes": [
+    8460281828,
+    8460281829,
+    12068007361,
+    12068007362,
+    8460281830,
+    8460281831,
+    8460281832,
+    12068007360,
+    8460281833,
+    8460281828
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 978998334,
+   "center": {
+    "lat": 64.7359252,
+    "lon": -18.0744117
+   },
+   "nodes": [
+    9058437199,
+    9058437200,
+    9058437201,
+    9058437202,
+    9058437203,
+    9058437204,
+    9058437205,
+    9058437199
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Nýidalur"
+   }
+  },
+  {
+   "type": "way",
+   "id": 980883137,
+   "center": {
+    "lat": 65.7042024,
+    "lon": -14.9190286
+   },
+   "nodes": [
+    9073489687,
+    9073489686,
+    9073489685,
+    9073489681,
+    9069556336,
+    9073489680,
+    9073489679,
+    9073489678,
+    9073489677,
+    9073489676,
+    9073489684,
+    9073489683,
+    9073489682,
+    9073489687
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Ásbrandsstaðir",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "website": "https://www.visitvopnafjordur.com/en/where-to-stay/asbrandsstadir"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1072059928,
+   "center": {
+    "lat": 63.970581,
+    "lon": -22.5085993
+   },
+   "nodes": [
+    9836917521,
+    9836917522,
+    9836917523,
+    9836917524,
+    9836917525,
+    9836917526,
+    9836917527,
+    9836917528,
+    9836917529,
+    2386817250,
+    9836917521
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Happy Campsite Keflavík"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1080246473,
+   "center": {
+    "lat": 65.164322,
+    "lon": -15.310887
+   },
+   "nodes": [
+    9901616941,
+    9901616942,
+    9901616943,
+    9901616944,
+    9901616941
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Stuðlagil",
+    "website": "https://studlagil.is/camping/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1080730985,
+   "center": {
+    "lat": 63.6851431,
+    "lon": -19.5056253
+   },
+   "nodes": [
+    9905722558,
+    9905722559,
+    9905722560,
+    9905722561,
+    9905722558
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1080918601,
+   "center": {
+    "lat": 65.2112499,
+    "lon": -21.0965925
+   },
+   "nodes": [
+    9907338831,
+    9907338832,
+    9907338833,
+    5890808500,
+    5890808496,
+    9907338831
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camping Borðeyri",
+    "toilets": "yes",
+    "shower": "no",
+    "power_supply": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1085764612,
+   "center": {
+    "lat": 65.5828513,
+    "lon": -22.2834893
+   },
+   "nodes": [
+    9948869136,
+    9948869135,
+    9948869134,
+    9948869133,
+    9948869132,
+    9948869131,
+    9948869130,
+    9948869129,
+    9948869128,
+    9948869136
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Djúpadal",
+    "fee": "yes",
+    "website": "https://tjalda.is/en/tjaldsvaedid_djupadal/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1118290426,
+   "center": {
+    "lat": 63.7452234,
+    "lon": -20.6105729
+   },
+   "nodes": [
+    10227877541,
+    10227877540,
+    10227877539,
+    10227877538,
+    9896947047,
+    10227877537,
+    10227877536,
+    10227877535,
+    10227877541
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Þykkvabæ"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1200333124,
+   "center": {
+    "lat": 65.4884253,
+    "lon": -23.27215
+   },
+   "nodes": [
+    2853582688,
+    11130614101,
+    11130614102,
+    11130614103,
+    11130614104,
+    2853582652,
+    2853582662,
+    2853582688
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Skörðum",
+    "toilets": "yes",
+    "drinking_water": "yes",
+    "fee": "yes",
+    "website": "https://tjalda.is/tjaldsvaedid-a-skordum/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1206330348,
+   "center": {
+    "lat": 65.5920665,
+    "lon": -23.9727571
+   },
+   "nodes": [
+    11178343150,
+    11178326496,
+    11178326491,
+    11178326492,
+    11178326489,
+    11178326497,
+    11178326490,
+    11178326495,
+    11178296907,
+    11178326493,
+    11178326494,
+    11178343145,
+    11178343138,
+    11178343147,
+    11178343140,
+    11178343141,
+    11178343150
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði á Patreksfirði",
+    "name:en": "Camping Patreksfjörður",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "kitchen": "yes",
+    "website": "https://www.vesturbyggd.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1274063239,
+   "center": {
+    "lat": 64.0153738,
+    "lon": -16.9752254
+   },
+   "nodes": [
+    11830306571,
+    11830306570,
+    11830306569,
+    11830263968,
+    11830306571
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Campsite Reception",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "18:00 - 20:00"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1279750714,
+   "center": {
+    "lat": 64.6976705,
+    "lon": -14.2541126
+   },
+   "nodes": [
+    11879714300,
+    11881000337,
+    11879714297,
+    11881000335,
+    11881000338,
+    11879714307,
+    1925882614,
+    11880886317,
+    11879714301,
+    11879714304,
+    11879714300
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Camping Berunes",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "Apr 1 - Oct 1",
+    "fee": "yes",
+    "website": "https://berunes.is/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068067,
+   "center": {
+    "lat": 63.6787149,
+    "lon": -19.4509882
+   },
+   "nodes": [
+    12068007149,
+    12068007150,
+    12068007151,
+    12068007152,
+    12068007153,
+    12068007154,
+    12068007155,
+    12068007156,
+    12068007157,
+    12068007158,
+    12068007159,
+    12068007160,
+    12068007161,
+    12068007162,
+    12068007163,
+    12068007164,
+    12068007165,
+    12068007166,
+    12068007167,
+    12068007168,
+    12068007269,
+    12068007270,
+    12068007271,
+    12068007272,
+    12068007273,
+    12068007274,
+    12068007275,
+    12068007149
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þvergil",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068068,
+   "center": {
+    "lat": 63.6756951,
+    "lon": -19.4686426
+   },
+   "nodes": [
+    12068007276,
+    12068007277,
+    12068007278,
+    12068007279,
+    12068007280,
+    12068007281,
+    12068007282,
+    12068007283,
+    12068007284,
+    12068007285,
+    12068007286,
+    12068007287,
+    12068007288,
+    12068007289,
+    12068007290,
+    12068007291,
+    12068007292,
+    12068007293,
+    12068007294,
+    12068007295,
+    12068007296,
+    12068007276
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Strákagil",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068070,
+   "center": {
+    "lat": 63.6779231,
+    "lon": -19.4680064
+   },
+   "nodes": [
+    12068007304,
+    12068007305,
+    12068007306,
+    12068007307,
+    12068007308,
+    12068007309,
+    12068007310,
+    12068007311,
+    12068007312,
+    12068007313,
+    12068007314,
+    12068007315,
+    12068007316,
+    12068007317,
+    12068007318,
+    12068007304
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Þveraurar"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068071,
+   "center": {
+    "lat": 63.6782294,
+    "lon": -19.4798727
+   },
+   "nodes": [
+    12068007319,
+    12068007320,
+    12068007321,
+    12068007322,
+    12068007323,
+    12068007324,
+    12068007325,
+    12068007326,
+    12068007327,
+    12068007328,
+    12068007329,
+    12068007330,
+    12068007331,
+    12068007332,
+    12068007333,
+    12068007334,
+    12068007335,
+    12068007336,
+    12068007337,
+    12068007338,
+    12068007339,
+    12068007340,
+    12068007341,
+    12068007342,
+    12068007343,
+    12068007344,
+    12068007345,
+    12068007346,
+    12068007347,
+    12068007348,
+    12068007349,
+    12068007350,
+    12068007351,
+    12068007319
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068074,
+   "center": {
+    "lat": 63.6781397,
+    "lon": -19.4841204
+   },
+   "nodes": [
+    12068007363,
+    12068007364,
+    12068007365,
+    12068007366,
+    12068007367,
+    12068007368,
+    12068007369,
+    12068007370,
+    12068007371,
+    12068007372,
+    12068007373,
+    12068007374,
+    12068007375,
+    12068007376,
+    12068007363
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068076,
+   "center": {
+    "lat": 63.6784442,
+    "lon": -19.4849153
+   },
+   "nodes": [
+    12068007381,
+    12068007382,
+    12068007383,
+    12068007384,
+    12068007385,
+    12068007386,
+    12068007387,
+    12068007388,
+    12068007389,
+    12068007390,
+    12068007391,
+    12068007392,
+    12068007393,
+    12068007394,
+    12068007395,
+    12068007396,
+    12068007397,
+    12068007398,
+    12068007399,
+    12068007400,
+    12068007401,
+    12068007402,
+    12068007381
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068077,
+   "center": {
+    "lat": 63.6784245,
+    "lon": -19.4860866
+   },
+   "nodes": [
+    12068007403,
+    12068007404,
+    12068007405,
+    12068007406,
+    12068007407,
+    12068007408,
+    12068007409,
+    12068007410,
+    12068007411,
+    12068007412,
+    12068007413,
+    12068007414,
+    12068007415,
+    12068007416,
+    12068007417,
+    12068007418,
+    12068007419,
+    12068007420,
+    12068007421,
+    12068007422,
+    12068007423,
+    12068007403
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068079,
+   "center": {
+    "lat": 63.678651,
+    "lon": -19.4867014
+   },
+   "nodes": [
+    12068007428,
+    12068007429,
+    12068007430,
+    12068007431,
+    12068007432,
+    12068007433,
+    12068007434,
+    12068007435,
+    12068007436,
+    12068007437,
+    12068007438,
+    12068007439,
+    12068007440,
+    12068007441,
+    12068007442,
+    12068007443,
+    12068007444,
+    12068007428
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068080,
+   "center": {
+    "lat": 63.6789119,
+    "lon": -19.4864794
+   },
+   "nodes": [
+    12068007445,
+    12068007446,
+    12068007447,
+    12068007448,
+    12068007449,
+    12068007450,
+    12068007451,
+    12068007452,
+    12068007453,
+    12068007454,
+    12068007455,
+    12068007456,
+    12068007457,
+    12068007445
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068082,
+   "center": {
+    "lat": 63.6783446,
+    "lon": -19.4827254
+   },
+   "nodes": [
+    12068007462,
+    12068007463,
+    12068007464,
+    12068007465,
+    12068007466,
+    12068007467,
+    12068007468,
+    12068007469,
+    12068007470,
+    12068007471,
+    12068007472,
+    12068007473,
+    12068007474,
+    12068007475,
+    12068007476,
+    12068007477,
+    12068007478,
+    12068007479,
+    12068007480,
+    12068007481,
+    12068007462
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068083,
+   "center": {
+    "lat": 63.678795,
+    "lon": -19.482679
+   },
+   "nodes": [
+    12068007482,
+    12068007483,
+    12068007484,
+    12068007485,
+    12068007486,
+    12068007487,
+    12068007488,
+    12068007489,
+    12068007490,
+    12068007491,
+    12068007492,
+    12068007493,
+    12068007494,
+    12068007495,
+    12068007496,
+    12068007497,
+    12068007498,
+    12068007499,
+    12068007500,
+    12068007501,
+    12068007502,
+    12068007503,
+    12068007504,
+    12068007505,
+    12068007506,
+    12068007507,
+    12068007508,
+    12068007509,
+    12068007482
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068084,
+   "center": {
+    "lat": 63.6787408,
+    "lon": -19.4805914
+   },
+   "nodes": [
+    12068007510,
+    12068007511,
+    12068007512,
+    12068007513,
+    12068007514,
+    12068007515,
+    12068007516,
+    12068007517,
+    12068007518,
+    12068007519,
+    12068007520,
+    12068007510
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303068087,
+   "center": {
+    "lat": 63.6781459,
+    "lon": -19.4809075
+   },
+   "nodes": [
+    12068007540,
+    12068007541,
+    12068007542,
+    12068007543,
+    12068007544,
+    12068007545,
+    12068007546,
+    12068007547,
+    12068007548,
+    12068007549,
+    12068007550,
+    12068007540
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303098457,
+   "center": {
+    "lat": 63.679308,
+    "lon": -19.4810389
+   },
+   "nodes": [
+    12068292168,
+    12068299669,
+    12068299670,
+    12068299671,
+    12068299672,
+    12068299673,
+    12068299674,
+    12068299675,
+    12068299676,
+    12068299677,
+    12068299678,
+    12068299679,
+    12068299680,
+    12068299681,
+    12068299682,
+    12068299683,
+    12068299684,
+    12068299685,
+    12068299686,
+    12068299687,
+    12068299688,
+    12068299689,
+    12068299690,
+    12068299691,
+    12068299692,
+    12068299693,
+    12068299694,
+    12068299695,
+    12068299696,
+    12068299697,
+    12068299698,
+    12068299699,
+    12068299700,
+    12068299701,
+    12068292168
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303098458,
+   "center": {
+    "lat": 63.6781902,
+    "lon": -19.4787729
+   },
+   "nodes": [
+    12068299702,
+    12068299703,
+    12068299704,
+    12068299705,
+    12068299706,
+    12068299707,
+    12068299708,
+    12068299709,
+    12068299710,
+    12068299711,
+    12068299712,
+    12068299713,
+    12068299714,
+    12068299715,
+    12068299716,
+    12068299717,
+    12068299718,
+    12068299719,
+    12068299702
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303098459,
+   "center": {
+    "lat": 63.6779004,
+    "lon": -19.4765789
+   },
+   "nodes": [
+    12068299720,
+    12068299721,
+    12068299722,
+    12068299723,
+    12068299724,
+    12068299725,
+    12068299726,
+    12068299727,
+    12068299728,
+    12068299729,
+    12068299730,
+    12068299731,
+    12068299732,
+    12068299733,
+    12068299734,
+    12068299735,
+    12068299736,
+    12068299737,
+    12068299738,
+    12068299720
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Ármeningaflöt"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303098460,
+   "center": {
+    "lat": 63.6775838,
+    "lon": -19.4815791
+   },
+   "nodes": [
+    12068299744,
+    12068299745,
+    12068299746,
+    12068299747,
+    12068299748,
+    12068299749,
+    12068299750,
+    12068299751,
+    12068299752,
+    12068299753,
+    12068299754,
+    12068299755,
+    12068299744
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1303098461,
+   "center": {
+    "lat": 63.6777423,
+    "lon": -19.4797636
+   },
+   "nodes": [
+    12068299756,
+    12068299757,
+    12068299758,
+    12068299759,
+    12068299760,
+    12068299761,
+    12068299762,
+    12068299763,
+    12068299764,
+    12068299765,
+    12068299766,
+    12068299767,
+    12068299768,
+    12068299769,
+    12068299770,
+    12068299756
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1347942980,
+   "center": {
+    "lat": 65.4647142,
+    "lon": -19.3504619
+   },
+   "nodes": [
+    12468569719,
+    12468569720,
+    12468569721,
+    12468569722,
+    12468569723,
+    12468569724,
+    12468569725,
+    12468569726,
+    12468569727,
+    12468569728,
+    12468569729,
+    12468569730,
+    12468569731,
+    12468569719
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Lambeyri",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1416971149,
+   "center": {
+    "lat": 66.4145448,
+    "lon": -22.6709569
+   },
+   "nodes": [
+    13020965867,
+    13020965868,
+    13020965869,
+    13020965870,
+    13020965871,
+    13020965872,
+    13020965873,
+    13020965874,
+    13020965875,
+    13020965876,
+    13020965877,
+    13020965878,
+    13020965879,
+    13020965880,
+    13020965881,
+    13020965882,
+    13020965883,
+    13020965884,
+    13020965885,
+    13020965886,
+    13020965887,
+    13020965888,
+    13020965889,
+    13020965890,
+    13020965891,
+    13020965867
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1418661987,
+   "center": {
+    "lat": 64.390643,
+    "lon": -21.8280675
+   },
+   "nodes": [
+    13037309088,
+    13037309089,
+    13037309090,
+    13037309091,
+    13037309092,
+    13037309093,
+    13037309094,
+    13037309088
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Stóri-Lambhagi 4 Tjaldsvæði"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1421049645,
+   "center": {
+    "lat": 64.2551323,
+    "lon": -14.9946689
+   },
+   "nodes": [
+    11831595097,
+    13058781792,
+    13058781793,
+    13058781794,
+    13058781795,
+    13058781796,
+    13058781797,
+    13058781798,
+    13058781799,
+    13058781800,
+    13058846201,
+    13058846202,
+    11831595097
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Vestrahorn",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "opening_hours": "All year",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1422144535,
+   "center": {
+    "lat": 64.6448493,
+    "lon": -14.5160948
+   },
+   "nodes": [
+    13069609333,
+    13069609334,
+    13069609336,
+    13069609337,
+    13069609335,
+    13069609333
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Bragðavellir",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1422529296,
+   "center": {
+    "lat": 66.425533,
+    "lon": -22.489592
+   },
+   "nodes": [
+    13073034406,
+    13073034407,
+    13073034408,
+    13084614666,
+    13073034409,
+    13073034410,
+    13073034411,
+    13073034412,
+    13073034413,
+    13073034414,
+    13073034415,
+    13073034416,
+    13073034417,
+    13073034418,
+    13073034419,
+    13073034420,
+    13073034421,
+    13073034422,
+    13073034423,
+    13073034424,
+    13073034425,
+    13073034426,
+    13073034406
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1422529298,
+   "center": {
+    "lat": 66.4422342,
+    "lon": -22.4383579
+   },
+   "nodes": [
+    13073034437,
+    13073034438,
+    13073034439,
+    13073034440,
+    13073034441,
+    13073034442,
+    13073034443,
+    13073034444,
+    13073034445,
+    13073034446,
+    13073034447,
+    13073034448,
+    13073034437
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1427741675,
+   "center": {
+    "lat": 66.4101669,
+    "lon": -22.8743995
+   },
+   "nodes": [
+    13125365929,
+    13125365930,
+    13125365931,
+    13125365932,
+    13125365933,
+    13125365934,
+    13125365935,
+    13125365936,
+    13125365937,
+    13125365949,
+    13125365938,
+    13125365939,
+    13125365940,
+    13125365941,
+    13125365942,
+    13125365943,
+    13125365929
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Glúmsstaðir"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1499026644,
+   "center": {
+    "lat": 65.0274001,
+    "lon": -18.3306037
+   },
+   "nodes": [
+    13727527785,
+    13727527786,
+    13727527787,
+    13727527788,
+    13727527789,
+    13727527790,
+    13727527791,
+    13727527785
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1501065227,
+   "center": {
+    "lat": 64.0217934,
+    "lon": -20.5211373
+   },
+   "nodes": [
+    11926556106,
+    4741390876,
+    4741390877,
+    1953326174,
+    4741390879,
+    4741390880,
+    4741390881,
+    11926556109,
+    11926556108,
+    13742604866,
+    11926556107,
+    11926556106
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldvæðið í Brautarholti",
+    "name:en": "Brautarholt Campsite",
+    "fee": "yes",
+    "website": "http://southcentral.is/campsite/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1503329708,
+   "center": {
+    "lat": 63.8678403,
+    "lon": -21.1674147
+   },
+   "nodes": [
+    4777186552,
+    13758374111,
+    13758374112,
+    4777186553,
+    4777186552
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 2350479,
+   "center": {
+    "lat": 65.7027113,
+    "lon": -21.6841807
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 176023544,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 176022990,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hólmavík",
+    "fee": "yes",
+    "website": "https://www.strandabyggd.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 2818785,
+   "center": {
+    "lat": 64.244333,
+    "lon": -21.0880621
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 210008460,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 210008489,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Vatnskot",
+    "fee": "yes",
+    "website": "https://www.thingvellir.is/en/service/camping/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 4663716,
+   "center": {
+    "lat": 64.145061,
+    "lon": -21.8749901
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 26752927,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 856481833,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 856481835,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 332207262,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 856481839,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 332204215,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 332204216,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 856481868,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 856481869,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 856481870,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði í Laugardal",
+    "name:en": "Reykjavík Campsite",
+    "shower": "hot",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "no",
+    "website": "https://www.reykjavikcampsite.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 5487708,
+   "center": {
+    "lat": 64.8889222,
+    "lon": -23.6880201
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 369319551,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 198160348,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæðið í Ólafsvík",
+    "name:en": "Camping Ólafsvík",
+    "fee": "yes",
+    "website": "https://snb.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 7134891,
+   "center": {
+    "lat": 65.0335695,
+    "lon": -14.2415608
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 232478970,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 232478971,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Reyðarfirði",
+    "name:en": "Camping Reyðarfjörður",
+    "toilets": "yes",
+    "shower": "hot",
+    "kitchen": "yes",
+    "fee": "yes",
+    "website": "https://www.visitfjardabyggd.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 7138704,
+   "center": {
+    "lat": 64.0961646,
+    "lon": -21.0450818
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 229204302,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160532,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160533,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160535,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160537,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160538,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160539,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160540,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160541,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160544,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160543,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160545,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160536,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160546,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160547,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160548,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160549,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160550,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160551,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160554,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160555,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160557,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160556,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160560,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160558,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160559,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160564,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160566,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160565,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160542,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 229204286,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160534,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 620160562,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 229204351,
+     "role": "inner"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Útilífsmiðstöð skáta Úlfljótsvatni",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://ulfljotsvatn.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 9902486,
+   "center": {
+    "lat": 64.2803045,
+    "lon": -21.0849584
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 169907446,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 712312697,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Nyrðri-Leirar",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 9916862,
+   "center": {
+    "lat": 65.7366993,
+    "lon": -19.1159319
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 713418108,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 713418109,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 713418110,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 713418111,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 713418112,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæði á Hólum í Hjaltadal",
+    "shower": "no",
+    "drinking_water": "yes",
+    "kitchen": "no",
+    "fee": "yes",
+    "website": "http://www.tjoldumiskagafirdi.is"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 9923561,
+   "center": {
+    "lat": 65.7459713,
+    "lon": -19.6510422
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 357811264,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 301982958,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Sauðárkróki",
+    "name:en": "Sauðárkrókur Camping",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 9958075,
+   "center": {
+    "lat": 65.9273597,
+    "lon": -22.4262468
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 171647102,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 717503477,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldstæði í Reykjarfirði"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 10141755,
+   "center": {
+    "lat": 64.4296433,
+    "lon": -21.6250009
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 733688005,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 733688004,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 10697895,
+   "center": {
+    "lat": 64.7006437,
+    "lon": -20.874702
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 485290036,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 485290037,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 771319056,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 771319055,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 485290034,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 485290035,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 485290033,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 771319053,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 771319054,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Húsafell"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 11361844,
+   "center": {
+    "lat": 63.8567818,
+    "lon": -19.2292759
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 831409030,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 831409029,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Álftavatn"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 11829038,
+   "center": {
+    "lat": 65.6476299,
+    "lon": -18.1033404
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 866652450,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 866652452,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Hamrar",
+    "fee": "yes",
+    "website": "https://www.hamrar.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 12546769,
+   "center": {
+    "lat": 65.9333068,
+    "lon": -16.5568176
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 927085295,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 927085293,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 927085291,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 295643911,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 927085292,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 927085296,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Ásbyrgi í Vesturdal",
+    "power_supply": "no",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 12561703,
+   "center": {
+    "lat": 65.0896337,
+    "lon": -14.7682431
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 928770662,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 250805823,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Atlavík",
+    "opening_hours": "Jun-Sep",
+    "website": "https://www.hallormsstadur.is/index.php?option=com_content&view=article&id=24&Itemid=14"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 13447523,
+   "center": {
+    "lat": 65.0702591,
+    "lon": -22.730847
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 446322570,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1003265697,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið í Stykkishólmi",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 13660177,
+   "center": {
+    "lat": 64.2581581,
+    "lon": -15.2033859
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1226172481,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1226172482,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1226172485,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 701706283,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1226172479,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1020228856,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Höfn í Hornafirði",
+    "name:en": "Höfn Camping Ground",
+    "opening_hours": "15th of April to the 30th of September",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 14452771,
+   "center": {
+    "lat": 64.9119328,
+    "lon": -23.8895666
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1085835608,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 436501274,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið á Hellissandi",
+    "name:en": "Hellissandur Camping Ground",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes",
+    "website": "https://snb.is/"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 14455048,
+   "center": {
+    "lat": 64.0347878,
+    "lon": -19.834815
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1085998902,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1085998905,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1085998903,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1085998904,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1085998906,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1085998907,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Rjúpnavellir",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 14901669,
+   "center": {
+    "lat": 65.7162221,
+    "lon": -17.9017948
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1109790098,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1109790099,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Vaglaskógur"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 17676926,
+   "center": {
+    "lat": 63.9983338,
+    "lon": -21.1803578
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1289468722,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 484867350,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Í Hveragerði",
+    "toilets": "yes",
+    "shower": "yes",
+    "drinking_water": "yes",
+    "power_supply": "yes",
+    "fee": "yes"
+   }
+  },
+  {
+   "type": "relation",
+   "id": 17808139,
+   "center": {
+    "lat": 63.4193844,
+    "lon": -18.9958036
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1299341112,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1486271948,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 481202692,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1486271949,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1299341110,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1486271947,
+     "role": "outer"
+    },
+    {
+     "type": "way",
+     "ref": 1485866309,
+     "role": "outer"
+    }
+   ],
+   "tags": {
+    "tourism": "camp_site",
+    "name": "Tjaldsvæðið Vík í Mýrdal",
+    "name:en": "Vík Camping",
+    "opening_hours": "May 01-Oct 31",
+    "fee": "yes"
+   }
+  }
+ ]
+}

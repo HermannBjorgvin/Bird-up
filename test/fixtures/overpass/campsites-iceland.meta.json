@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-06-13",
+  "request": {
+    "endpoint": "https://overpass-api.de/api/interpreter",
+    "query": "[out:json];area[\"ISO3166-1\"=\"IS\"];nwr[\"tourism\"=\"camp_site\"](area);out center;"
+  },
+  "counts": {
+    "elements": 303,
+    "normalizedCampsites": 244
+  },
+  "notes": "all tourism=camp_site in Iceland, out center (spec 04 query)"
+}
