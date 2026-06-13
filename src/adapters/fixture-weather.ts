@@ -1,13 +1,12 @@
 import type { DailyDigest } from "../core/types";
 import { addDays } from "../core/dates";
-import type { WeatherDigest, WeatherSource } from "../ports/weather";
-import { REYKJAVIK_ECO } from "./fixture-campsites";
+import type { WeatherDigest } from "../ports/weather";
+import { REYKJAVIK_ECO } from "./seed-campsites";
 
 /**
- * A checked-in 16-day digest for the one S03 campsite (spec 06 Slice 1). Dates are fixed so the
- * read path and its tests are deterministic — no wall clock. The pattern carries one clear window
- * (20–21 °C, dry, calm on 2026-06-16…18) so `/api/windows` returns something meaningful to demo.
- * Slice 2 replaces this adapter with the live Open-Meteo + KV read path.
+ * A checked-in 16-day digest with fixed dates and one clear window (20–21 °C, dry, calm on
+ * 2026-06-16…18). Since S04 the read path serves KV; tests seed this blob into `wx:digest:v1`
+ * (with a controlled `fetchedAt`) so HTTP and workflow assertions stay deterministic.
  */
 const ANCHOR = "2026-06-12";
 
@@ -45,10 +44,3 @@ export const FIXTURE_DIGEST: WeatherDigest = {
   model: "best_match",
   sites: { [REYKJAVIK_ECO.id]: digest },
 };
-
-/** S03 fake `WeatherSource` — returns the checked-in digest. */
-export class FixtureWeatherSource implements WeatherSource {
-  getDigest(): Promise<WeatherDigest> {
-    return Promise.resolve(FIXTURE_DIGEST);
-  }
-}

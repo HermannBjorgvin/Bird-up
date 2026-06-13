@@ -151,4 +151,25 @@ describe("findWindows edge cases (specs/02 + S03 criteria)", () => {
   it("a run shorter than minDays yields no window", () => {
     expect(findWindows(digest([{ tMaxC: 19 }, ...flat(15, 14)]), DEFAULT_POLICY)).toEqual([]);
   });
+
+  it("a calendar gap (a dropped forecast day) ends the run — a window never spans the gap", () => {
+    const day = (date: string, tMaxC: number): DailyDigest => ({
+      date,
+      tMaxC,
+      tMinC: tMaxC - 5,
+      precipSumMm: 0,
+      gustMaxKmh: 10,
+      windMaxKmh: 10,
+    });
+    // 06-03 is missing (upstream null the adapter dropped); without the calendar-gap break this
+    // would be one bogus 4-day window bridging a day with no forecast.
+    const windows = findWindows(
+      [day("2026-06-01", 18), day("2026-06-02", 18), day("2026-06-04", 18), day("2026-06-05", 18)],
+      DEFAULT_POLICY,
+    );
+    expect(windows).toHaveLength(2);
+    expect([windows[0]!.start, windows[0]!.end]).toEqual(["2026-06-01", "2026-06-02"]);
+    expect([windows[1]!.start, windows[1]!.end]).toEqual(["2026-06-04", "2026-06-05"]);
+    expect(windows.every((w) => w.days === 2)).toBe(true);
+  });
 });

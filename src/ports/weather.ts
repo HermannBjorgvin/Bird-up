@@ -2,7 +2,7 @@ import type { DailyDigest } from "../core/types";
 
 /**
  * The digested weather blob the read path consumes — mirrors the KV `wx:digest:v1` value
- * (spec 01). In S03 a fixture adapter supplies it; from Slice 2 the KV store does.
+ * (spec 01), written by the refresh-weather workflow and served by the KV adapter.
  */
 export interface WeatherDigest {
   fetchedAt: string; // ISO instant
@@ -11,5 +11,6 @@ export interface WeatherDigest {
 }
 
 export interface WeatherSource {
-  getDigest(): Promise<WeatherDigest>;
+  /** `null` = no digest exists at all (pre-first-refresh) → 503 STALE_DATA_UNAVAILABLE (spec 03). */
+  getDigest(): Promise<WeatherDigest | null>;
 }

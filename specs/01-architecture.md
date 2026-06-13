@@ -159,7 +159,7 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 ## Cloudflare deployment
 
 - **Worker** with Static Assets: `web/dist` served for unmatched routes (asset requests are free and unlimited); `/mcp` and `/api/*` handled by the Worker.
-- **Workflows**: `refresh-weather` (schedule `0 */2 * * *`) and `refresh-campsites` (`0 3 * * 1`), declared on their bindings (currently commented out behind the schedules-API 403 gate — spec 08, re-enabled in S04); `observability.enabled` for per-step instance history in the dashboard.
+- **Workflows**: `refresh-weather` (schedule `0 */2 * * *`) and `refresh-campsites` (`0 3 * * 1`), declared on their bindings (requires Workers Paid — the account upgraded at S04, spec 08); `observability.enabled` for per-step instance history in the dashboard.
 - **Secrets/vars**: `EBIRD_API_KEY` (secret); `BASE_URL` (var — MCP clients cannot resolve relative URLs, so `mapUrl` must be absolute).
 
 ### Free-tier budget (limits as of June 2026)

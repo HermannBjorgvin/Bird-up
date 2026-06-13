@@ -71,10 +71,10 @@ dayScore = 100 · warmth · gustFactor · precipFactor
 
 Per site:
 
-1. **Existence (hard floor):** candidate windows are maximal runs of consecutive days with `tMaxC ≥ hardFloor.minPeakTempC`, at least `hardFloor.minDays` long. The floor is temperature-only by design — a warm-but-windy window *exists* but scores badly.
+1. **Existence (hard floor):** candidate windows are maximal runs of consecutive days with `tMaxC ≥ hardFloor.minPeakTempC`, at least `hardFloor.minDays` long. The floor is temperature-only by design — a warm-but-windy window *exists* but scores badly. *Consecutive* is calendar-consecutive: a gap in the digest (a forecast day the adapter dropped because upstream returned null) ends the run, so a window never spans a day with no forecast.
 2. **Score:** window score = mean of its members' `dayScore`s.
 3. **Tier:** `excellent` if any member day has `tMaxC ≥ excellentPeakTempC` **and** score ≥ `tiers.excellentMinScore`; else `good` if score ≥ `tiers.goodMinScore`; else `marginal`.
-4. **Confidence** = the *worst* member day's lead-time tier: lead ≤ `highMaxLeadDays` → `high`; ≤ `mediumMaxLeadDays` → `medium`; else `low`. Days 15–16 are always `low`.
+4. **Confidence** = the *worst* member day's lead-time tier: lead ≤ `highMaxLeadDays` → `high`; ≤ `mediumMaxLeadDays` → `medium`; else `low`. Days 15–16 are always `low`. Lead is the calendar distance from the first forecast day (day 1 = today), not the array index, so a dropped day never inflates a later day's confidence.
 5. **Horizon edge:** a window whose last day is the final forecast day gets `mayExtend: true`.
 
 Regional windows (what the API returns) merge per-site windows within one of the 8 regions: the window's date range is the union of overlapping site windows; its score is the best site's; campsites within it are ranked by their own window scores.

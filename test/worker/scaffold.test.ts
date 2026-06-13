@@ -20,14 +20,7 @@ describe("worker scaffold", () => {
     }
   });
 
-  it("refresh-weather workflow skeleton runs to completion", async () => {
-    await using instance = await introspectWorkflowInstance(env.REFRESH_WEATHER, "test-wx-1");
-    await env.REFRESH_WEATHER.create({ id: "test-wx-1" });
-
-    await instance.waitForStatus("complete");
-    expect(await instance.getOutput()).toEqual({ ok: true });
-  });
-
+  // refresh-weather grew real steps in S04 — covered in refresh-weather.test.ts with mocked fetches.
   it("refresh-campsites workflow skeleton runs to completion", async () => {
     await using instance = await introspectWorkflowInstance(env.REFRESH_CAMPSITES, "test-camp-1");
     await env.REFRESH_CAMPSITES.create({ id: "test-camp-1" });

@@ -10,5 +10,8 @@ export default defineConfig({
   test: {
     name: "worker",
     include: ["**/*.test.ts"],
+    // The post-0.13 pool has no isolatedStorage: files share one KV namespace, and most of these
+    // tests seed/clear the same `wx:digest:v1` key — run files one at a time.
+    fileParallelism: false,
   },
 });

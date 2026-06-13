@@ -1,1 +1,1 @@
-- [Review-findings ledger (S01–S03)](project_s01-open-risks.md) — S04 schedules-gate gap; spec 07 stale snippet; S03 CORS/onError/dead-knob; frozen scores pin population sd
+- [Review-findings ledger (S01–S04)](project_s01-open-risks.md) — open: gapped-digest window bug, horizon anchoring, test live-fetch hole, S06 KV-list-in-step tripwire; schedules gate resolved (paid)

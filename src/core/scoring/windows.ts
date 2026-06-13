@@ -1,4 +1,5 @@
 import type { Confidence, DailyDigest, DailyScore, Tier } from "../types";
+import { addDays, daysBetween } from "../dates";
 import type { ScoringPolicy } from "./policy";
 import { computeBaseline, scoreDay } from "./score";
 
@@ -19,9 +20,10 @@ export interface CoreWindow {
 
 const RANK: Record<Confidence, number> = { high: 2, medium: 1, low: 0 };
 
-/** Lead-time confidence for a forecast day by its position. Days 15–16 are always low (spec 02). */
-function dayConfidence(index: number, policy: ScoringPolicy): Confidence {
-  const lead = index + 1; // 1-indexed forecast day; day 1 = today
+/** Lead-time confidence by calendar lead (days from the first forecast day, 1-indexed: day 1 =
+ *  today). Calendar-based so a dropped day never inflates confidence for later days. Days 15–16
+ *  are always low (spec 02). */
+function leadConfidence(lead: number, policy: ScoringPolicy): Confidence {
   if (lead >= 15) return "low";
   if (lead <= policy.confidence.highMaxLeadDays) return "high";
   if (lead <= policy.confidence.mediumMaxLeadDays) return "medium";
@@ -40,11 +42,16 @@ export function findWindows(digests: DailyDigest[], policy: ScoringPolicy): Core
   let runStart = -1;
   for (let i = 0; i <= digests.length; i++) {
     const warm = i < digests.length && digests[i]!.tMaxC >= policy.hardFloor.minPeakTempC;
-    if (warm && runStart === -1) {
-      runStart = i;
-    } else if (!warm && runStart !== -1) {
+    // A calendar gap (a forecast day the adapter dropped because upstream returned null) ends the
+    // run: spec 02 windows are runs of *consecutive* days, so one must never span a day with no
+    // forecast.
+    const gapBreak = warm && runStart !== -1 && digests[i]!.date !== addDays(digests[i - 1]!.date, 1);
+    if (runStart !== -1 && (!warm || gapBreak)) {
       maybeEmit(runStart, i - 1);
       runStart = -1;
+    }
+    if (warm && runStart === -1) {
+      runStart = i;
     }
   }
 
@@ -66,7 +73,8 @@ export function findWindows(digests: DailyDigest[], policy: ScoringPolicy): Core
 
     let confidence: Confidence = "high";
     for (let i = lo; i <= hi; i++) {
-      const c = dayConfidence(i, policy);
+      const lead = daysBetween(digests[0]!.date, digests[i]!.date) + 1;
+      const c = leadConfidence(lead, policy);
       if (RANK[c] < RANK[confidence]) confidence = c;
     }
 

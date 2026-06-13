@@ -1,9 +1,22 @@
-import { exports } from "cloudflare:workers";
-import { describe, expect, it } from "vitest";
+import { env, exports } from "cloudflare:workers";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { FIXTURE_DIGEST } from "../../src/adapters/fixture-weather";
+import { WX_DIGEST_KEY } from "../../src/adapters/kv-weather";
 import { Recommendation } from "../../src/core/types";
 
 const ORIGIN = "https://tjaldur.test";
 const RANGE = "start_date=2026-06-12&end_date=2026-06-27";
+
+// The S03 fixture digest, served from KV now (S04): one site, one clear window. A fresh
+// `fetchedAt` keeps the staleness rules quiet — staleness.test.ts exercises them.
+const FRESH_DIGEST = { ...FIXTURE_DIGEST, fetchedAt: new Date().toISOString() };
+
+beforeAll(async () => {
+  await env.KV.put(WX_DIGEST_KEY, JSON.stringify(FRESH_DIGEST));
+});
+afterAll(async () => {
+  await env.KV.delete(WX_DIGEST_KEY);
+});
 
 async function getWindows(query: string): Promise<Response> {
   return exports.default.fetch(new Request(`${ORIGIN}/api/windows?${query}`));
@@ -19,7 +32,7 @@ async function postWindows(body: unknown): Promise<Response> {
   );
 }
 
-describe("GET/POST /api/windows (S03 integration)", () => {
+describe("GET/POST /api/windows (served from KV)", () => {
   it("GET returns 200 and a body that parses against the Recommendation schema", async () => {
     const res = await getWindows(RANGE);
     expect(res.status).toBe(200);
@@ -29,6 +42,9 @@ describe("GET/POST /api/windows (S03 integration)", () => {
     const rec = Recommendation.parse(await res.json());
     expect(rec.attribution.length).toBeGreaterThan(0);
     expect(rec.policyVersion).toBe("2026-06.2");
+    expect(rec.dataAge.weatherFetchedAt).toBe(FRESH_DIGEST.fetchedAt); // proves the KV blob is the source
+    expect(rec.dataAge.stale).toBe(false);
+    expect(rec.warnings).toEqual([]);
     expect(rec.windows).toHaveLength(1);
     expect(rec.windows[0]!.tier).toBe("excellent");
     expect(rec.windows[0]!.start).toBe("2026-06-16");
@@ -40,6 +56,22 @@ describe("GET/POST /api/windows (S03 integration)", () => {
     expect(res.status).toBe(200);
     const rec = Recommendation.parse(await res.json());
     expect(rec.windows.map((w) => w.id)).toEqual(["IS-1:2026-06-16:2026-06-18"]);
+  });
+
+  it("answers with zero subrequests at request time (KV only, no weather fetch)", async () => {
+    const realFetch = globalThis.fetch;
+    // Tests and the worker share one isolate in the post-0.13 pool, so this fake intercepts any
+    // outbound fetch the request handler would attempt. KV/service bindings don't go through it.
+    globalThis.fetch = (() => {
+      throw new Error("unexpected subrequest at request time");
+    }) as typeof fetch;
+    try {
+      const res = await getWindows(RANGE);
+      expect(res.status).toBe(200);
+      Recommendation.parse(await res.json());
+    } finally {
+      globalThis.fetch = realFetch;
+    }
   });
 
   it("a valid thresholds override changes results and stamps policyVersion +custom", async () => {

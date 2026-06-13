@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-06-12",
+  "request": {
+    "url": "https://api.open-meteo.com/v1/forecast?latitude=64.1466,63.53,64.697,65.652,65.64,65.263,64.268,64.0167,66.057,63.442&longitude=-21.8731,-18.85,-20.875,-18.104,-16.915,-14.4,-15.207,-16.9667,-23.183,-20.29&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,wind_gusts_10m_max,wind_speed_10m_max&hourly=cloud_cover&forecast_days=16&wind_speed_unit=kmh&timezone=UTC&models=best_match",
+    "params": {
+      "sites": [
+        "reykjavik-eco",
+        "thakgil",
+        "husafell",
+        "akureyri-hamrar",
+        "myvatn-bjarg",
+        "egilsstadir",
+        "hofn",
+        "skaftafell",
+        "isafjordur-tungudalur",
+        "vestmannaeyjar"
+      ]
+    }
+  },
+  "notes": "10-site batch, daily + hourly cloud_cover, 16 days (spec 04 call shape)"
+}

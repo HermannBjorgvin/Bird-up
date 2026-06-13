@@ -1,8 +1,9 @@
 import { Hono } from "hono";
 import type { Context } from "hono";
-import { REYKJAVIK_ECO } from "../adapters/fixture-campsites";
-import { FixtureWeatherSource } from "../adapters/fixture-weather";
-import { InvalidParamsError } from "../core/errors";
+import { KvStore } from "../adapters/kv-store";
+import { KvWeatherSource } from "../adapters/kv-weather";
+import { SEED_CAMPSITES, SEED_CAMPSITES_FETCHED_AT } from "../adapters/seed-campsites";
+import { InvalidParamsError, StaleDataUnavailableError } from "../core/errors";
 import { getWindows, type ServiceDeps, type WindowsParams } from "../service";
 
 type AppContext = Context<{ Bindings: Env }>;
@@ -44,9 +45,14 @@ restRoutes.post("/windows", async (c) => {
 // Unknown /api/* path → JSON 404 envelope, never the SPA shell (spec 03; carried over from S01 review).
 restRoutes.all("*", (c) => errorEnvelope(c, "NOT_FOUND", `no such endpoint: ${c.req.path}`, 404));
 
-/** S03 deps: fixture weather + the one hardcoded campsite. Slice 2+ swaps in KV-backed sources. */
+/** S04 deps: the KV-backed digest written by refresh-weather + the ten-site seed list (Slice 3 swaps in real campsites). */
 function deps(c: AppContext): ServiceDeps {
-  return { weather: new FixtureWeatherSource(), campsite: REYKJAVIK_ECO, baseUrl: c.env.BASE_URL };
+  return {
+    weather: new KvWeatherSource(new KvStore(c.env.KV)),
+    campsites: SEED_CAMPSITES,
+    campsitesFetchedAt: SEED_CAMPSITES_FETCHED_AT,
+    baseUrl: c.env.BASE_URL,
+  };
 }
 
 async function handleWindows(c: AppContext, params: WindowsParams): Promise<Response> {
@@ -58,11 +64,14 @@ async function handleWindows(c: AppContext, params: WindowsParams): Promise<Resp
     if (err instanceof InvalidParamsError) {
       return errorEnvelope(c, err.code, err.message, 400);
     }
+    if (err instanceof StaleDataUnavailableError) {
+      return errorEnvelope(c, err.code, err.message, 503);
+    }
     console.error("unexpected error in /api/windows", err);
     return errorEnvelope(c, "INTERNAL", "internal error", 500);
   }
 }
 
-function errorEnvelope(c: AppContext, code: string, message: string, status: 400 | 404 | 500): Response {
+function errorEnvelope(c: AppContext, code: string, message: string, status: 400 | 404 | 500 | 503): Response {
   return c.json({ error: { code, message } }, status);
 }

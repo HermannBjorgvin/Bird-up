@@ -13,20 +13,20 @@
     "run_worker_first": ["/api/*", "/mcp", "/mcp/*"]
   },
   "kv_namespaces": [{ "binding": "KV", "id": "09be49343b8f4182af17c775bcda9acd" }],
-  // `schedules` is the intended trigger (cron-scheduled Workflows, GA 2026-06-02) but the API
-  // 403s the field for this account as of 2026-06-12 — re-enable in S04 (see story S01 notes).
+  // Cron-scheduled Workflows: `schedules` on each binding (no triggers.crons, no scheduled()).
+  // Requires Workers Paid (API error 10208 otherwise) — the account upgraded 2026-06-13 (story S04).
   "workflows": [
     {
       "name": "refresh-weather",
       "binding": "REFRESH_WEATHER",
-      "class_name": "RefreshWeather"
-      // "schedules": ["0 */2 * * *"]
+      "class_name": "RefreshWeather",
+      "schedules": ["0 */2 * * *"]
     },
     {
       "name": "refresh-campsites",
       "binding": "REFRESH_CAMPSITES",
-      "class_name": "RefreshCampsites"
-      // "schedules": ["0 3 * * 1"]
+      "class_name": "RefreshCampsites",
+      "schedules": ["0 3 * * 1"]
     }
   ],
   "routes": [{ "pattern": "tjaldur.9z.is", "custom_domain": true }],

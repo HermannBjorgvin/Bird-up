@@ -8,3 +8,12 @@ export class InvalidParamsError extends Error {
     this.name = "InvalidParamsError";
   }
 }
+
+/** No weather digest exists at all (pre-first-refresh only — stale data is served, not refused). → 503 */
+export class StaleDataUnavailableError extends Error {
+  readonly code = "STALE_DATA_UNAVAILABLE";
+  constructor(message: string) {
+    super(message);
+    this.name = "StaleDataUnavailableError";
+  }
+}

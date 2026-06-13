@@ -63,7 +63,7 @@ Status: accepted · Last updated: 2026-06-12 · Versions verified against npm/Cl
 }
 ```
 
-> **Schedules gate (2026-06-12):** the Workflows API currently 403s any PUT whose body contains `schedules` for this account (feature GA'd 2026-06-02). The field is commented out in the live `wrangler.jsonc`; re-enabling it is an S04 acceptance criterion. Everything else about Workflows deploys and runs fine.
+> **Schedules gate, resolved (2026-06-13, story S04):** the S01-era 403 was a **paywall**, not a rollout gap — API error `10208 cron_requires_paid_plan`; cron-scheduled Workflows require Workers Paid. The owner upgraded the account to **Workers Paid ($5/mo)** on 2026-06-13, so `schedules` deploy as designed — and the plan's kept-open doors from spec 01 (30 s CPU/step, inline PNG maps) are now genuinely open. The free-plan budget table in spec 01 is conservative against the paid limits.
 
 Secrets are never in config: `npx wrangler secret put EBIRD_API_KEY` for production, a git-ignored `.dev.vars` file locally. With array-form `run_worker_first`, static requests bypass the Worker entirely (and don't count against the request quota); the Hono `notFound → env.ASSETS.fetch` fallthrough is only a safety net.
 
