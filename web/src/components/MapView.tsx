@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import type { Facilities, Window } from '../../../src/core/types'
+import type { Facilities } from '../../../src/core/types'
 import { scoreToColor } from '../lib/color'
 import { formatRange } from '../lib/dates'
 import type { CampsiteMarker } from '../lib/markers'
@@ -9,17 +9,23 @@ import type { CampsiteMarker } from '../lib/markers'
 // Iceland fits comfortably at zoom 6 around this center.
 const ICELAND_CENTER: L.LatLngTuple = [64.96, -19.0]
 
+/** A panel selection projected onto the map: which markers to highlight, and the points to fit. */
+export interface MapFocus {
+  ids: Set<string>
+  points: L.LatLngTuple[]
+}
+
 interface Props {
   markers: CampsiteMarker[]
-  selectedWindow: Window | null
+  focus: MapFocus | null
 }
 
 /**
  * Vanilla Leaflet driven imperatively through refs (react-leaflet is not a dependency — spec 08 keeps
  * the stack small). One effect builds the map once; a second rebuilds the circle-marker layer whenever
- * the data or the selected window changes, fitting bounds to a selected window's campsites.
+ * the data or the focus changes, dimming non-focused markers and fitting bounds to the focused points.
  */
-export function MapView({ markers, selectedWindow }: Props) {
+export function MapView({ markers, focus }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<L.Map | null>(null)
   const layerRef = useRef<L.LayerGroup | null>(null)
@@ -49,10 +55,8 @@ export function MapView({ markers, selectedWindow }: Props) {
     if (map === null || layer === null) return
     layer.clearLayers()
 
-    const selectedIds = selectedWindow ? new Set(selectedWindow.campsites.map((c) => c.id)) : null
-
     for (const m of markers) {
-      const inFocus = selectedIds === null || selectedIds.has(m.campsite.id)
+      const inFocus = focus === null || focus.ids.has(m.campsite.id)
       const marker = L.circleMarker([m.campsite.lat, m.campsite.lng], {
         radius: inFocus ? 7 : 4,
         color: '#00000055',
@@ -64,11 +68,11 @@ export function MapView({ markers, selectedWindow }: Props) {
       layer.addLayer(marker)
     }
 
-    if (selectedWindow && selectedWindow.campsites.length > 0) {
-      const bounds = L.latLngBounds(selectedWindow.campsites.map((c) => [c.lat, c.lng] as L.LatLngTuple))
-      map.fitBounds(bounds, { padding: [40, 40], maxZoom: 10 })
+    if (focus && focus.points.length > 0) {
+      const bounds = L.latLngBounds(focus.points)
+      map.fitBounds(bounds, { padding: [40, 40], maxZoom: 11 })
     }
-  }, [markers, selectedWindow])
+  }, [markers, focus])
   /* eslint-enable react-doctor/no-event-handler */
 
   return <div className="map" ref={containerRef} />

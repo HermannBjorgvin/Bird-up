@@ -32,6 +32,26 @@ per site. Default range is today → today+14 (the live forecast horizon; spec's
 **Tests.** 27 new node tests (`test/unit/web-{client,color,sort,dates,overrides}.test.ts`); `npm run check`
 green (tsc + tsc -b web + eslint + 117 tests).
 
+**Date range → timeline heatmap bar (superseded after S08 shipped).** The From/To date inputs
+(`DateControls`, removed) were replaced by a full-width bar below the map: a white→green per-day
+heatmap of the whole forecast horizon (`web/src/lib/timeline.ts:dailyHeat`, `color.ts:heatColor`,
+absolute scale capped at 40) with two day-snapped brush handles. The brush filters the map + sidebar
+**client-side** — the windows fetch is now fixed to the full horizon and re-queries only on `minDays`,
+since `/api/windows` already scores over the full horizon and only filters the returned list by date
+(so a full fetch is a superset of any sub-range). New `web/src/components/Timeline.tsx` +
+`test/unit/web-timeline.test.ts`; no contract/scoring change. Bar refinements: date ticks beneath,
+thick brush handles with a lucide `GripVertical` grip (`lucide-react` added), the min-trip-length
+slider moved into the bar header (the old `⚙ Filter` dropdown `ThresholdSliders` + next-week/2-week
+presets removed), and each sidebar row now shows a peak-temp range (`grouping.ts:peakTempRange`, e.g.
+"13–18°C") alongside the date and score.
+
+**Panel regrouped by placename (superseded after S08 shipped).** The flat best-first list of window
+cards was replaced with a two-level tree: recommended campsites grouped under their placename anchor
+(`region`), each site shown once at its single best window. Purely a web-layer presentation fold
+(`web/src/lib/grouping.ts:groupByPlace`) over `Recommendation.windows` — no contract/scoring change.
+Selecting a placename focuses the map on that area; selecting a site focuses that one marker. The
+orphaned `web/src/lib/sort.ts` (+ its test) was removed; `test/unit/web-grouping.test.ts` added.
+
 **One bug found & fixed during the live check:** the debounced windows effect originally depended on the
 derived `overrides`/`markers` objects, whose identity changes every render. The lint config assumes the
 React Compiler memoizes these, but the compiler is **not** enabled in the vite build, so the effect

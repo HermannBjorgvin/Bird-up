@@ -18,6 +18,20 @@ export function scoreToColor(score: number | null | undefined): string {
   })
 }
 
+const WHITE: Rgb = { r: 0xff, g: 0xff, b: 0xff }
+
+/** Timeline-bar heat: white→green on an absolute scale that tops out at 40 (mid-June scores ~25). */
+export const HEAT_FULL_SCORE = 40
+
+export function heatColor(score: number): string {
+  const t = Math.max(0, Math.min(1, score / HEAT_FULL_SCORE))
+  return toHex({
+    r: lerp(WHITE.r, GREEN.r, t),
+    g: lerp(WHITE.g, GREEN.g, t),
+    b: lerp(WHITE.b, GREEN.b, t),
+  })
+}
+
 function lerp(a: number, b: number, t: number): number {
   return Math.round(a + (b - a) * t)
 }

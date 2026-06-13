@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addDays, defaultRange, formatRange, presetRange, toIsoDate } from "../../web/src/lib/dates";
+import { addDays, defaultRange, formatDay, formatRange, toIsoDate } from "../../web/src/lib/dates";
 
 /** UTC-only date helpers for the range control (spec 05; Iceland is UTC, no timezone math). */
 
@@ -14,15 +14,16 @@ describe("toIsoDate / addDays", () => {
   });
 });
 
-describe("defaultRange / presetRange", () => {
+describe("defaultRange", () => {
   it("defaults to today → today + 14 (the forecast horizon)", () => {
     expect(defaultRange(new Date("2026-06-13T05:00:00Z"))).toEqual({ start: "2026-06-13", end: "2026-06-27" });
   });
+});
 
-  it("presets cover one and two weeks from today", () => {
-    const now = new Date("2026-06-13T05:00:00Z");
-    expect(presetRange("week", now)).toEqual({ start: "2026-06-13", end: "2026-06-20" });
-    expect(presetRange("two-weeks", now)).toEqual({ start: "2026-06-13", end: "2026-06-27" });
+describe("formatDay", () => {
+  it("renders a single UTC day as 'Mon D'", () => {
+    expect(formatDay("2026-06-13")).toBe("Jun 13");
+    expect(formatDay("2026-07-02")).toBe("Jul 2");
   });
 });
 

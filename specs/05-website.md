@@ -17,16 +17,20 @@ Status: accepted · Last updated: 2026-06-12
 
 ```
 ┌────────────────────────────────────────────────┬──────────────────────┐
-│                                                │  Next windows        │
-│                                                │  ┌────────────────┐  │
-│              Leaflet map of Iceland            │  │ Suðurland      │  │
-│                                                │  │ Jun 18–21 · 78 │  │
-│   ● campsite markers, colored by window score  │  │ excellent ·high│  │
-│   ▲ bird markers (optional layer)              │  └────────────────┘  │
-│                                                │  │ Vesturland …   │  │
-├────────────────────────────────────────────────┤                      │
-│  Date range ◄────────────►   Thresholds ⚙      │  My birds 🐦 [⇧CSV]  │
+│                                                │  Recommended camps   │
+│                                                │  ▾ Vesturland · 77   │
+│              Leaflet map of Iceland            │     Bjarteyjar…  77  │
+│                                                │     Hamar        70  │
+│   ● campsite markers, colored by window score  │  ▾ Snæfellsnes · 64  │
+│   ▲ bird markers (optional layer)              │   Ólafsvík 14–17°C 64│
+│                                                │                      │
 ├────────────────────────────────────────────────┴──────────────────────┤
+│  Jun 13–20                       Min trip length ◄──▶ 3d                │
+│  ▐░░▓▓██▓▓░░░░░░░░░░▌  ⟵grip handles brush a sub-range; white→green/day │
+│  Jun13   Jun16   Jun19   Jun22   Jun25  Jun27   ⟵ date ticks            │
+├───────────────────────────────────────┬───────────────────────────────┤
+│                                        │  My birds 🐦 [⇧CSV]           │
+├───────────────────────────────────────┴───────────────────────────────┤
 │  stale-data banner (when dataAge.stale) · attribution footer          │
 └───────────────────────────────────────────────────────────────────────┘
 ```
@@ -35,12 +39,21 @@ Status: accepted · Last updated: 2026-06-12
 
 - Campsite markers colored by their score within the selected date range (continuous scale green→grey; tier in the popup). Popup: name, facilities icons, daily strip (tMax/precip/gusts), booking link (`bookingUrl`), "accepts Camping Card" badge.
 - Bird layer (toggle, off by default): markers for recent observations near recommended campsites; **unseen-this-year species visually emphasized**, already-seen dimmed; notable/rare flagged. Popup: common + scientific name, last seen date, location name, eBird link.
-- Selecting a window in the side panel zooms/filters the map to it.
+- Selecting a placename in the side panel zooms/dims the map to that area's campsites; selecting a single campsite focuses that one marker. Selecting again clears.
+
+### Side panel
+
+Recommended campsites grouped under their **placename anchor** (the `region`, [regions.ts](../../src/core/regions.ts)) — areas close enough to share weather are shown together rather than as separate window cards. A two-level tree: each placename (best-scoring area first) lists its campsites (best-scoring site first), and each site row shows that site's single best window (`date-range · peak-temp · score`, where peak-temp is the range of daily highs, e.g. "13–18°C"). Purely a presentation fold over `Recommendation.windows`; no contract change (each `Window` already carries its `region`, each `WindowCampsite` its own `score`).
+
+### Date range — timeline bar (below the map)
+
+A full-width horizontal bar that **always paints the whole forecast horizon** as a white→green per-day heatmap: each day's intensity is its best score across all weather windows (`max` of the per-day `DailyScore.score`; white where no window covers it), faded smoothly between days at full height. Absolute scale, full green at score ≥ 40. **Date ticks** with labels run beneath the bar. Two day-snapped **brush handles** (thick, with a lucide `GripVertical` grab indicator) select a sub-range that filters the **map markers and the sidebar** client-side; the bar itself never shrinks. The selected range shows as a label. The **minimum trip length** slider (`minDays`, 1–7 — the only overridable field in [02-scoring-policy.md](02-scoring-policy.md)) lives in the bar's header; changing it re-queries.
+
+**Fetch model:** `/api/windows` scores every window over the full horizon and only *filters the returned list* by date, so a full-horizon response is a superset of any sub-range — the site fetches the whole horizon **once** and the brush filters in-browser (instant, and the bar keeps full data). The API is re-queried only when the `minDays` slider changes.
 
 ### Controls
 
-- **Date range**: defaults to today → today+16; presets "next week" / "next 2 weeks".
-- **Filter** (collapsible ⚙ panel): a single "minimum trip length (days)" slider — the only overridable field in [02-scoring-policy.md](02-scoring-policy.md) (`minDays`, 1–7) — plus a "reset to default" button. The override goes into the API call's `thresholds`; the website invents no scoring of its own. (The soft-factor model `2026-06.3` has no hard caps to expose: warmth, wind and rain are continuous score factors, not user-set thresholds.)
+- **Minimum trip length** (`minDays`): the only overridable scoring field ([02-scoring-policy.md](02-scoring-policy.md), 1–7). Lives in the timeline bar's header (above); a non-default value goes into the API call's `thresholds` and the response `policyVersion` ends `+custom`. The website invents no scoring of its own. (The soft-factor model `2026-06.3` has no hard caps to expose: warmth, wind and rain are continuous score factors, not user-set thresholds.)
 - **My birds**: textarea for pasted species (one per line) + file input for `MyEBirdData.csv`. Shows the resulting count ("142 species seen in 2026") and a clear button.
 
 ## Seen-list handling
