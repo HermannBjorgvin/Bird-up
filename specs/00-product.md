@@ -51,7 +51,7 @@ eBird has no API for personal lists, so the user supplies theirs:
 
 ## Design principle: do not over-engineer
 
-This constraint has teeth and recurs in every spec: prefer one KV blob over a database, two MCP tools over five, a fixed 8-region grouping over a clustering algorithm, and the Workers free tier over anything that needs ops.
+This constraint has teeth and recurs in every spec: prefer one KV blob over a database, two MCP tools over five, a fixed nearest-anchor area grouping over a runtime clustering algorithm, and the Workers free tier over anything that needs ops.
 
 ## Success criteria
 

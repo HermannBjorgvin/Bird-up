@@ -12,8 +12,8 @@ The eBird adapter (lazy taxonomy cache per version, per-region recent + notable 
 
 - [ ] Matching table tests: exact species code; scientific name case-insensitive; common name diacritic-tolerant ("Brunnich's Guillemot" matches "Brünnich's Guillemot"); unknown name lands in `warnings`, never errors; a mixed list resolves each entry independently.
 - [ ] Year-diff tests: provided seen list marks matched species `unseenThisYear: false` and the rest `true`; empty/absent seen list → all `true`; `notable` is flagged independently of seen-ness.
-- [ ] eBird fixture contract tests: recorded `/data/obs/IS-1/recent` and `/recent/notable` payloads normalize correctly; recorded taxonomy payload builds the name→code map.
-- [ ] Cache behavior: warm `birds:obs:{IS-n}` cache → zero eBird subrequests (injected fetch fake); cold cache → fetch then KV write with TTL 3600.
+- [ ] eBird fixture contract tests: recorded `/data/obs/geo/recent` and notable payloads normalize correctly; recorded taxonomy payload builds the name→code map.
+- [ ] Cache behavior: warm `birds:obs:{region}` cache → zero eBird subrequests (injected fetch fake); cold cache → fetch then KV write with TTL 3600.
 - [ ] Degradation: eBird down + cache present → birds served with a warning; down + no cache → `UPSTREAM_DOWN` only when `include_birds` was requested; weather answers never fail due to eBird.
 - [ ] Requests without `include_birds` make no eBird calls and contain no `birds` key (regression guard on the default mode).
 - [ ] Integration: MCP `find_weather_windows` with `include_birds: true` and a seen list returns windows whose `birds[]` carry correct `unseenThisYear`/`notable` flags and locations within 25 km of a recommended campsite; eBird attribution string joins `attribution[]`.

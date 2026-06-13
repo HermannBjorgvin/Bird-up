@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { REGION_SLUGS } from "./regions";
 
 /**
  * The shared `Recommendation` contract — the single source of truth for MCP, REST and the
@@ -7,8 +8,8 @@ import { z } from "zod";
  * `core/` stays pure: these are plain data shapes, no I/O and no platform types.
  */
 
-/** ISO 3166-2:IS — Iceland's 8 regions, shared by weather grouping, campsites and eBird. */
-export const Region = z.enum(["IS-1", "IS-2", "IS-3", "IS-4", "IS-5", "IS-6", "IS-7", "IS-8"]);
+/** Camping area — the nearest-anchor grouping for weather windows, campsites and birds (regions.ts). */
+export const Region = z.enum(REGION_SLUGS);
 export type Region = z.infer<typeof Region>;
 
 /** Campsite facilities — unknown is absent (never `false` unless the source says "no"). */
@@ -93,7 +94,7 @@ export const WindowBird = z.object({
 export type WindowBird = z.infer<typeof WindowBird>;
 
 export const Window = z.object({
-  id: z.string(), // e.g. "IS-8:2026-06-18:2026-06-21"
+  id: z.string(), // e.g. "vik:2026-06-18:2026-06-21" (region:start:end)
   region: Region,
   start: z.iso.date(),
   end: z.iso.date(),

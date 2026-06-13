@@ -77,7 +77,7 @@ Per site:
 4. **Confidence** = the *worst* member day's lead-time tier: lead ≤ `highMaxLeadDays` → `high`; ≤ `mediumMaxLeadDays` → `medium`; else `low`. Days 15–16 are always `low`. Lead is the calendar distance from the first forecast day (day 1 = today), not the array index, so a dropped day never inflates a later day's confidence.
 5. **Horizon edge:** a window whose last day is the final forecast day gets `mayExtend: true`.
 
-Regional windows (what the API returns) merge per-site windows within one of the 8 regions: the window's date range is the union of overlapping site windows; its score is the best site's; campsites within it are ranked by their own window scores.
+Regional windows (what the API returns) merge per-site windows within one camping area (nearest-anchor grouping, [04-data-sources.md](04-data-sources.md)): the window's date range is the union of overlapping site windows; its score is the best site's; campsites within it are ranked by their own window scores.
 
 ## Per-request overrides
 

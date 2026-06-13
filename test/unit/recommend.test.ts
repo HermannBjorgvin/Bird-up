@@ -41,8 +41,8 @@ function assemble(sites: AssembleInput["sites"]) {
 
 describe("assembleRecommendation (region grouping)", () => {
   it("merges same-region windows with identical spans, campsites ranked by their own score", () => {
-    const akureyri = site("akureyri", "IS-6");
-    const myvatn = site("myvatn", "IS-6");
+    const akureyri = site("akureyri", "akureyri");
+    const myvatn = site("myvatn", "akureyri");
     const rec = assemble([
       { campsite: akureyri, windows: [win("2026-06-16", "2026-06-18", 70)] },
       { campsite: myvatn, windows: [win("2026-06-16", "2026-06-18", 85)] },
@@ -50,7 +50,7 @@ describe("assembleRecommendation (region grouping)", () => {
 
     expect(rec.windows).toHaveLength(1);
     const w = rec.windows[0]!;
-    expect(w.id).toBe("IS-6:2026-06-16:2026-06-18");
+    expect(w.id).toBe("akureyri:2026-06-16:2026-06-18");
     expect(w.score).toBe(85); // the best member defines the window
     expect(w.campsites.map((c) => [c.id, c.score])).toEqual([
       ["myvatn", 85],
@@ -66,8 +66,8 @@ describe("assembleRecommendation (region grouping)", () => {
       daily: [{ date: "2026-06-16", tMaxC: 21, precipSumMm: 0, gustMaxKmh: 8, score: 90 }],
     });
     const rec = assemble([
-      { campsite: site("a", "IS-8"), windows: [win("2026-06-16", "2026-06-18", 60)] },
-      { campsite: site("b", "IS-8"), windows: [best] },
+      { campsite: site("a", "vik"), windows: [win("2026-06-16", "2026-06-18", 60)] },
+      { campsite: site("b", "vik"), windows: [best] },
     ]);
 
     const w = rec.windows[0]!;
@@ -79,26 +79,26 @@ describe("assembleRecommendation (region grouping)", () => {
 
   it("keeps different spans in the same region as separate windows", () => {
     const rec = assemble([
-      { campsite: site("a", "IS-8"), windows: [win("2026-06-14", "2026-06-16", 60)] },
-      { campsite: site("b", "IS-8"), windows: [win("2026-06-15", "2026-06-17", 65)] },
+      { campsite: site("a", "vik"), windows: [win("2026-06-14", "2026-06-16", 60)] },
+      { campsite: site("b", "vik"), windows: [win("2026-06-15", "2026-06-17", 65)] },
     ]);
-    expect(rec.windows.map((w) => w.id)).toEqual(["IS-8:2026-06-15:2026-06-17", "IS-8:2026-06-14:2026-06-16"]);
+    expect(rec.windows.map((w) => w.id)).toEqual(["vik:2026-06-15:2026-06-17", "vik:2026-06-14:2026-06-16"]);
   });
 
   it("keeps identical spans in different regions as separate windows", () => {
     const rec = assemble([
-      { campsite: site("a", "IS-1"), windows: [win("2026-06-16", "2026-06-18", 70)] },
-      { campsite: site("b", "IS-4"), windows: [win("2026-06-16", "2026-06-18", 70)] },
+      { campsite: site("a", "reykjavik"), windows: [win("2026-06-16", "2026-06-18", 70)] },
+      { campsite: site("b", "isafjordur"), windows: [win("2026-06-16", "2026-06-18", 70)] },
     ]);
     expect(rec.windows).toHaveLength(2);
-    expect(new Set(rec.windows.map((w) => w.region))).toEqual(new Set(["IS-1", "IS-4"]));
+    expect(new Set(rec.windows.map((w) => w.region))).toEqual(new Set(["reykjavik", "isafjordur"]));
   });
 
   it("sorts windows by score descending, ties broken by soonness", () => {
     const rec = assemble([
-      { campsite: site("a", "IS-1"), windows: [win("2026-06-20", "2026-06-22", 80)] },
-      { campsite: site("b", "IS-4"), windows: [win("2026-06-13", "2026-06-15", 80)] },
-      { campsite: site("c", "IS-6"), windows: [win("2026-06-12", "2026-06-14", 95)] },
+      { campsite: site("a", "reykjavik"), windows: [win("2026-06-20", "2026-06-22", 80)] },
+      { campsite: site("b", "isafjordur"), windows: [win("2026-06-13", "2026-06-15", 80)] },
+      { campsite: site("c", "akureyri"), windows: [win("2026-06-12", "2026-06-14", 95)] },
     ]);
     expect(rec.windows.map((w) => [w.score, w.start])).toEqual([
       [95, "2026-06-12"],
@@ -108,7 +108,7 @@ describe("assembleRecommendation (region grouping)", () => {
   });
 
   it("no windows anywhere → an empty windows array, schema still satisfied", () => {
-    const rec = assemble([{ campsite: site("a", "IS-1"), windows: [] }]);
+    const rec = assemble([{ campsite: site("a", "reykjavik"), windows: [] }]);
     expect(rec.windows).toEqual([]);
     expect(rec.attribution.length).toBeGreaterThan(0);
   });

@@ -29,7 +29,7 @@ Both surfaces return the shared `Recommendation` shape defined in [01-architectu
 {
   "start_date":   { "type": "string", "format": "date" },          // required
   "end_date":     { "type": "string", "format": "date" },          // required; ≤ today+16d
-  "region":       { "enum": ["IS-1","IS-2","IS-3","IS-4","IS-5","IS-6","IS-7","IS-8","all"], "default": "all" },
+  "region":       { "type": "string", "default": "all" },              // a camping-area slug (core/regions.ts) or "all"
   "min_days":     { "type": "integer", "minimum": 1, "maximum": 7 },   // shorthand for thresholds.hardFloor.minDays
   "thresholds":   { /* Partial<ScoringPolicy>, bounds per 02-scoring-policy.md */ },
   "include_birds":{ "type": "boolean", "default": false },
@@ -84,4 +84,4 @@ Caching headers: `/api/windows*` and `/api/next-windows` `Cache-Control: public,
 
 ## SVG map (`/api/map`)
 
-Templated SVG, pure string building (free-tier CPU-safe): simplified Iceland coastline path (public-domain GeoJSON baked into source at build time), campsite dots colored by window score, per-region precipitation hatching and peak-temperature labels for the requested range, legend, attribution line. Deterministic for a given (params, digest) pair — golden-string testable. PNG rendering is a deliberate non-goal ([01-architecture.md](01-architecture.md)).
+Templated SVG, pure string building (free-tier CPU-safe): simplified Iceland coastline path (public-domain GeoJSON baked into source at build time), campsite dots colored by window score, per-campsite precipitation and peak-temperature cues for the requested range (camping areas are nearest-anchor points, not polygons — no region shapes to hatch; S11 settles the exact rendering), legend, attribution line. Deterministic for a given (params, digest) pair — golden-string testable. PNG rendering is a deliberate non-goal ([01-architecture.md](01-architecture.md)).

@@ -14,7 +14,7 @@ Status: accepted · Last updated: 2026-06-12
 | MCP transport | `createMcpHandler()` from the `agents` npm package — stateless streamable HTTP | Official current recommendation; no Durable Objects needed; authless |
 | Read path | Serves from KV only; never calls weather/campsite APIs inline (eBird is the one on-demand exception, KV-cached 1h) | Fast, cheap, immune to upstream hiccups |
 | Map image | SVG templating at `/api/map`, linked by URL | PNG rasterization exceeds the free plan's 10 ms CPU; SVG is string building |
-| Regions | Fixed enum of Iceland's 8 regions (ISO 3166-2:IS) | One grouping shared by weather windows, campsites and eBird; no clustering algorithm |
+| Regions | Fixed table of ~24 camping areas, each campsite assigned to the nearest anchor (`core/regions.ts`) | One grouping shared by weather windows, campsites and birds; a baked-in nearest-anchor table, not a runtime clustering algorithm. Replaces ISO-region polygons: 8 admin regions were too coarse for members to share weather (Suðurland spans Þórsmörk→Höfn) and track politics, not weather |
 | Language/stack | TypeScript everywhere; zod for all runtime validation | Schemas double as types, validators and test assertions |
 
 ## Module boundaries (hexagonal)
@@ -88,7 +88,7 @@ scripts/
 **Read path (every user/agent request):**
 
 1. Validate params with zod (`INVALID_PARAMS` on failure).
-2. KV reads: `wx:digest:v1` + `camp:sites:v1` (+ `birds:tax:v{ver}` and `birds:obs:{IS-n}` only when `include_birds`).
+2. KV reads: `wx:digest:v1` + `camp:sites:v1` (+ `birds:tax:v{ver}` and `birds:obs:{region}` only when `include_birds`).
 3. `core`: per site, score each forecast day against that site's 16-day baseline → find windows → group by region → rank campsites within windows → (optional) bird diff.
 4. `assembleRecommendation` → JSON (+ absolute `mapUrl`).
 
@@ -111,7 +111,7 @@ Each refresh job is a cron-scheduled Workflow (`schedules` on its binding). Work
 | `wx:digest:v1` | `{ fetchedAt, model, sites: { [campsiteId]: DailyDigest[16] } }` | `refresh-weather` workflow (2h) | none (overwrite) |
 | `camp:sites:v1` | `{ fetchedAt, source, sites: Campsite[] }` | `refresh-campsites` workflow (weekly) | none |
 | `birds:tax:v{ver}` | `{ [sciNameLower]: { code, comName } }` | lazy, first need | none |
-| `birds:obs:{IS-n}` | recent observations array (`back=14`) | on-demand | 3600 s |
+| `birds:obs:{region}` | recent observations array (`back=14`), keyed by camping-area slug | on-demand | 3600 s |
 
 `DailyDigest` = `{ date, tMaxC, tMinC, precipSumMm, gustMaxKmh, windMaxKmh, cloudMeanDaytimePct }` with "daytime" fixed at 09:00–21:00 UTC ([04-data-sources.md](04-data-sources.md)).
 
@@ -130,8 +130,8 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
     campsitesFetchedAt: string; birdObsFetchedAt?: string;
   };
   windows: Array<{
-    id: string;                   // e.g. "IS-8:2026-06-18:2026-06-21"
-    region: Region;               // "IS-1" … "IS-8"
+    id: string;                   // e.g. "vik:2026-06-18:2026-06-21"
+    region: Region;               // camping-area slug, e.g. "vik" (core/regions.ts)
     start: string; end: string;   // YYYY-MM-DD, inclusive
     days: number;
     score: number;                // 0–100
@@ -154,7 +154,7 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 }
 ```
 
-`Region` enum (ISO 3166-2:IS, shared by weather grouping, campsite bucketing and eBird queries): `IS-1` Höfuðborgarsvæði, `IS-2` Suðurnes, `IS-3` Vesturland, `IS-4` Vestfirðir, `IS-5` Norðurland vestra, `IS-6` Norðurland eystra, `IS-7` Austurland, `IS-8` Suðurland.
+`Region` is a camping-area slug from the baked-in `core/regions.ts` anchor table (~24 areas spread around the coast + a couple inland, e.g. `reykjavik`, `vik`, `skaftafell`, `hofn`, `egilsstadir`, `myvatn`, `akureyri`, `isafjordur`, `borgarnes`). Each campsite is assigned to the nearest anchor (`assignRegion(lat, lng)`); the same slug set keys weather grouping, campsite bucketing and bird queries. The table is tunable — anchors need only be roughly evenly spaced; bump the anchor set freely until S07 (after which `region` is a public contract).
 
 ## Cloudflare deployment
 

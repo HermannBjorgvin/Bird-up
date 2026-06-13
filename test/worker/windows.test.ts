@@ -55,7 +55,7 @@ describe("GET/POST /api/windows (served from KV)", () => {
     const res = await postWindows({ start_date: "2026-06-12", end_date: "2026-06-27" });
     expect(res.status).toBe(200);
     const rec = Recommendation.parse(await res.json());
-    expect(rec.windows.map((w) => w.id)).toEqual(["IS-1:2026-06-16:2026-06-18"]);
+    expect(rec.windows.map((w) => w.id)).toEqual(["reykjavik:2026-06-16:2026-06-18"]);
   });
 
   it("answers with zero subrequests at request time (KV only, no weather fetch)", async () => {

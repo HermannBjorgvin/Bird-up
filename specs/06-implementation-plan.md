@@ -44,7 +44,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 
 **Spike (timeboxed ½ day, runs first)**: per the protocol in [04-data-sources.md](04-data-sources.md) — devtools capture of tjalda.is internal endpoints, ≥3 sample payloads committed as fixtures, bot-protection notes. Output: a findings note at `stories/S05-findings.md` + the **gate decision**: build `adapters/tjalda.ts` now, or ship OSM-only and demote tjalda to `bookingUrl` enrichment. (Launch blocker either way: no production tjalda fetching before the owner's clearance.)
 
-**Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); region bucketing via point-in-region polygons; `workflows/refresh-campsites.ts` steps (weekly schedule on the binding, active once the S04 gate work is done) → `camp:sites:v1`; the weather workflow now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
+**Scope**: `ports/campsites.ts`; `adapters/osm-overpass.ts` (always built — fallback + contract proof); `adapters/tjalda.ts` if gate passes; `data/campsite-overrides.json` merge step (camping-card flags, booking links); camping-area bucketing via nearest-anchor (`core/regions.ts`, [04](04-data-sources.md)); `workflows/refresh-campsites.ts` steps (weekly schedule on the binding, active once the S04 gate work is done) → `camp:sites:v1`; the weather workflow now reads the site list from KV instead of the hardcoded ten; `GET /api/campsites`.
 
 **Tests first**:
 - OSM fixture contract test: Overpass JSON → normalized `Campsite[]`; tag→facilities mapping table-driven (yes/limited/no/missing); ASCII-folded id stability (`Þakgil → thakgil`).
@@ -88,7 +88,7 @@ Cross-cutting references: architecture & shapes [01](01-architecture.md), scorin
 **Tests first**:
 - Matching table: species code hit; scientific name case-insensitive; common name diacritic-tolerant ("Brunnich's Guillemot" matches "Brünnich's Guillemot"); unknown name → warning not error; mixed list.
 - Year diff: seen list marks `unseenThisYear` correctly; empty seen list → all unseen; notable flag preserved independently of seen-ness.
-- eBird fixture contract tests: `/data/obs/IS-1/recent` and `/notable` payloads → normalized obs; taxonomy fixture → name→code map.
+- eBird fixture contract tests: `/data/obs/geo/recent` and notable payloads → normalized obs; taxonomy fixture → name→code map.
 - TTL behavior: warm cache does zero subrequests (assert via fake fetch); eBird down + cache present → served with warning; down + no cache → `UPSTREAM_DOWN` only when birds requested.
 - Integration: MCP `find_weather_windows` with `include_birds` + a seen list → windows whose `birds[]` mark seen species correctly.
 

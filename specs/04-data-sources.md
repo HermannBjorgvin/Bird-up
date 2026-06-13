@@ -15,7 +15,7 @@ Status: accepted · Last updated: 2026-06-12
 ## Conventions (all sources)
 
 - **Encoding**: UTF-8 display names everywhere (Þórsmörk stays Þórsmörk). Machine ids/slugs are ASCII-folded: `Þ/þ→th`, `Ð/ð→d`, `Æ/æ→ae`, `Ö/ö→o`, acute accents stripped (`á→a`, `é→e`, `í→i`, `ó→o`, `ú→u`, `ý→y`). Example: `Þakgil → thakgil`.
-- **Regions**: every record is bucketed into the 8-region enum ([01-architecture.md](01-architecture.md)) by point-in-region assignment from a baked-in simplified region polygon set (same GeoJSON family as the map coastline).
+- **Regions**: every record is bucketed into a camping area ([01-architecture.md](01-architecture.md)) by **nearest-anchor** assignment (`assignRegion(lat, lng)`, `core/regions.ts`) — a baked-in table of ~24 `(slug, name, lat, lng)` anchors, no polygons or GeoJSON. The `region` value is the anchor `slug`.
 - **Failure handling**: refresh workflows retry failed steps with backoff and write KV only in their final step; an instance that still errors leaves the previous KV value untouched, and the read path surfaces staleness per [03-api.md](03-api.md).
 
 ---
@@ -90,7 +90,7 @@ A small checked-in `data/campsite-overrides.json` merged by id after the adapter
 ## eBird (birds)
 
 - **Base**: `https://api.ebird.org/v2`, header `X-eBirdApiToken: ${EBIRD_API_KEY}` (Worker secret; free key from `ebird.org/api/keygen`).
-- **Observations**: `GET /data/obs/{IS-n}/recent?back=14&detail=full` per requested region (≤8 subrequests worst case for `region=all`, usually cached) → `birds:obs:{IS-n}`, TTL 1 h. Summer Iceland volume is dozens-to-low-hundreds of records per region — one call, no paging.
+- **Observations**: camping areas are nearest-anchor slugs, not ISO subdivisions, so eBird's region-code endpoint no longer applies — use the **geographic** endpoint `GET /data/obs/geo/recent?lat={anchor.lat}&lng={anchor.lng}&dist={km}&back=14` per area centroid → `birds:obs:{region}`, TTL 1 h. Worst case = the number of distinct areas in the response (≤ the anchor count, well under the 50-subrequest budget); usually a handful, mostly cached. `dist` (radius around the anchor) is a code constant finalized in S09. Summer Iceland volume is dozens-to-low-hundreds of records per area — one call, no paging.
 - **Notable** (rarities): `GET /data/obs/{IS-n}/recent/notable` — fetched with the same call pattern; notable species are flagged within the window's bird list (they remain interesting even if seen this year).
 - **Taxonomy**: `GET /ref/taxonomy/ebird?fmt=json` (~17 k taxa), fetched lazily once per taxonomy version (`/ref/taxonomy/versions`) → `birds:tax:v{ver}`. Provides the name→`speciesCode` bridge.
 - **Seen-list matching pipeline** (pure, `core/birds.ts`): for each `seen_species` entry, try in order — exact eBird species code → scientific name (case-insensitive) → common name (case-insensitive, diacritics-folded). Unmatched → `warnings`. Output: set of seen species codes; each observed species near a window gets `unseenThisYear: !seenCodes.has(code)`.
