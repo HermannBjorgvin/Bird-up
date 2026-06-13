@@ -35,4 +35,12 @@ describe("mergeOverrides (hand-curated enrichment, spec 04)", () => {
     const input = [site("a"), site("b")];
     expect(mergeOverrides(input, {})).toEqual({ sites: input, warnings: [] });
   });
+
+  it("applies the hand-curated offroad flag (highland/F-road sites)", () => {
+    const { sites } = mergeOverrides([site("landmannalaugar"), site("vik")], {
+      landmannalaugar: { offroad: true },
+    });
+    expect(sites[0]).toMatchObject({ id: "landmannalaugar", offroad: true });
+    expect(sites[1]!.offroad).toBeUndefined(); // unflagged sites stay family-car accessible
+  });
 });

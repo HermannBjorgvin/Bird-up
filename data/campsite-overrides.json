@@ -2,5 +2,29 @@
   "tjaldsvaedi-i-laugardal": {
     "campingCard": true,
     "bookingUrl": "https://reykjavikcampsite.is/"
-  }
+  },
+  "landmannalaugar": { "offroad": true },
+  "landmannahellir": { "offroad": true },
+  "holaskjol": { "offroad": true },
+  "kerlingarfjoll": { "offroad": true },
+  "hveravellir": { "offroad": true },
+  "nyidalur": { "offroad": true },
+  "drekaskali": { "offroad": true },
+  "drekaskali-warden-cabin": { "offroad": true },
+  "kverkfjoll-sigurdarskali": { "offroad": true },
+  "mulaskali": { "offroad": true },
+  "thorsmork-langidalur": { "offroad": true },
+  "basar": { "offroad": true },
+  "alftavatn": { "offroad": true },
+  "emstrur": { "offroad": true },
+  "hvanngil": { "offroad": true },
+  "hoskuldsskali": { "offroad": true },
+  "strakagil": { "offroad": true },
+  "strutur-a-maelifellssandi": { "offroad": true },
+  "strutslaug": { "offroad": true },
+  "thveraurar": { "offroad": true },
+  "thvergil": { "offroad": true },
+  "armeningaflot": { "offroad": true },
+  "bjargaflot": { "offroad": true },
+  "brudkaupflot": { "offroad": true }
 }

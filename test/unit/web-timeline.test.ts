@@ -68,18 +68,14 @@ describe("windowsInRange", () => {
 });
 
 describe("heatColor", () => {
-  it("is white at 0 and saturated green at the full-score cap", () => {
-    expect(heatColor(0)).toBe("#ffffff");
-    expect(heatColor(HEAT_FULL_SCORE)).toBe("#15803d");
-    expect(heatColor(1000)).toBe("#15803d"); // clamped
+  it("is transparent green at 0 and opaque green at the full-score cap", () => {
+    expect(heatColor(0)).toBe("rgba(21, 128, 61, 0)");
+    expect(heatColor(HEAT_FULL_SCORE)).toBe("rgba(21, 128, 61, 1)");
+    expect(heatColor(1000)).toBe("rgba(21, 128, 61, 1)"); // clamped
   });
-  it("is monotonic between white and green", () => {
-    const low = heatColor(10);
-    const high = heatColor(30);
-    expect(low).not.toBe("#ffffff");
-    expect(low).not.toBe(high);
-    // greener = lower red channel (white #ff… → green #15…)
-    const red = (hex: string) => parseInt(hex.slice(1, 3), 16);
-    expect(red(high)).toBeLessThan(red(low));
+  it("ramps alpha monotonically with score (the bar background shows through the gaps)", () => {
+    const alpha = (c: string) => Number(c.slice(c.lastIndexOf(",") + 1, -1));
+    expect(alpha(heatColor(10))).toBeGreaterThan(0);
+    expect(alpha(heatColor(30))).toBeGreaterThan(alpha(heatColor(10)));
   });
 });

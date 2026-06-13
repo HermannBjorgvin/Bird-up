@@ -3,11 +3,14 @@ import { ApiError, fetchCampsites, fetchWindows } from './api/client'
 import type { Campsite, Recommendation } from '../../src/core/types'
 import { MapView, type MapFocus } from './components/MapView'
 import { WindowsPanel, type Selection } from './components/WindowsPanel'
+import { Filters } from './components/Filters'
 import { Timeline } from './components/Timeline'
 import { Footer } from './components/Footer'
+import { Tent } from 'lucide-react'
 import { defaultRange } from './lib/dates'
-import { groupByPlace, type PlaceGroup } from './lib/grouping'
+import { curateGroups, groupByPlace, type PlaceGroup } from './lib/grouping'
 import { buildMarkers } from './lib/markers'
+import { filterCapabilities, FILTER_DEFAULTS, passingIds, type FilterState } from './lib/filters'
 import { windowsInRange } from './lib/timeline'
 import { THRESHOLD_DEFAULTS, type ThresholdValues, toOverrides } from './lib/overrides'
 
@@ -57,14 +60,40 @@ function App() {
   const [thresholds, setThresholds] = useState<ThresholdValues>(THRESHOLD_DEFAULTS)
   const [campsites, setCampsites] = useState<Campsite[]>([])
   const [data, dispatch] = useReducer(dataReducer, { rec: null, status: 'loading', error: null })
-  const [selection, setSelection] = useState<Selection | null>(null)
+  // Panel view state grab-bag — selection, the "show all" curation toggle and the campsite filters —
+  // held in one object to keep the useState count under the prefer-useReducer threshold.
+  const [view, setView] = useState<{ selection: Selection | null; showAll: boolean; filters: FilterState }>({
+    selection: null,
+    showAll: false,
+    filters: FILTER_DEFAULTS,
+  })
+  const { selection, showAll, filters } = view
+  // On mobile the results sit below the map, so scroll the highlighted map back into view on select.
+  const handleSelect = (selection: Selection | null) => {
+    setView((v) => ({ ...v, selection }))
+    if (selection !== null && window.matchMedia('(max-width: 720px)').matches) {
+      document.querySelector('.map')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+  const toggleShowAll = () => setView((v) => ({ ...v, showAll: !v.showAll }))
+  const setFilters = (next: FilterState) => setView((v) => ({ ...v, filters: next }))
 
   const { rec } = data
   // The brush narrows map + sidebar together; the timeline bar still gets the full window set.
   const visible = rec ? { ...rec, windows: windowsInRange(rec.windows, selected) } : null
-  const markers = buildMarkers(campsites, visible)
-  const groups = groupByPlace(visible)
-  const focus = deriveFocus(groups, selection)
+  // Campsite filters (family-car / drive cap) narrow both the base layer and each window's campsites,
+  // so the map markers and the sidebar drop the same sites; the timeline (weather) is left untouched.
+  const keepIds = passingIds(campsites, filters)
+  const baseCampsites = keepIds ? campsites.filter((c) => keepIds.has(c.id)) : campsites
+  const filtered =
+    keepIds && visible
+      ? { ...visible, windows: visible.windows.map((w) => ({ ...w, campsites: w.campsites.filter((c) => keepIds.has(c.id)) })) }
+      : visible
+  const markers = buildMarkers(baseCampsites, filtered)
+  const allGroups = groupByPlace(filtered)
+  const curated = curateGroups(allGroups, showAll) // default hides the weak tail; toggle reveals all
+  const focus = deriveFocus(allGroups, selection) // focus over the full set, not just the curated view
+  const capabilities = filterCapabilities(campsites)
 
   // Load the campsite base layer once (every site shows; window scores color it).
   useEffect(() => {
@@ -106,9 +135,11 @@ function App() {
   return (
     <>
       <header className="app__header">
-        <h1>Tjaldur</h1>
+        <h1>
+          <Tent className="app__logo" size={20} aria-hidden="true" /> Tjaldur
+        </h1>
         <p className="pitch">
-          Warm, calm and dry camping windows in Iceland’s 16-day forecast, and the campsites inside them.
+          Warm, calm and dry camping windows in Iceland’s two-week forecast, and the campsites inside them.
         </p>
       </header>
 
@@ -123,7 +154,17 @@ function App() {
         <aside className="panel">
           {data.status === 'loading' && <p className="status">Loading…</p>}
           {data.status === 'error' && <p className="status error">Couldn’t load windows: {data.error}</p>}
-          <WindowsPanel rec={visible} selection={selection} onSelect={setSelection} />
+          <Filters filters={filters} onChange={setFilters} capabilities={capabilities} />
+          <WindowsPanel
+            groups={curated.groups}
+            shown={curated.shown}
+            total={curated.total}
+            hasHidden={curated.hasHidden}
+            showAll={showAll}
+            onToggleShowAll={toggleShowAll}
+            selection={selection}
+            onSelect={handleSelect}
+          />
         </aside>
       </div>
 

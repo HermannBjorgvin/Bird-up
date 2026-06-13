@@ -117,11 +117,15 @@ export function Timeline({ windows, horizon, selected, onSelect, minDays, onMinD
       </div>
 
       <div className="timeline__ticks" aria-hidden="true">
-        {days.map((d, i) => (
-          <span key={d} className="timeline__tick" style={{ left: `${(i / n) * 100}%` }}>
-            {(i % labelStep === 0 || i === n - 1) && <span className="timeline__ticklabel">{formatDay(d)}</span>}
-          </span>
-        ))}
+        {days.map((d, i) => {
+          // Anchor the edge labels (first left, last right) so they don't clip past the bar.
+          const edge = i === 0 ? ' timeline__ticklabel--first' : i === n - 1 ? ' timeline__ticklabel--last' : ''
+          return (
+            <span key={d} className="timeline__tick" style={{ left: `${(i / n) * 100}%` }}>
+              {(i % labelStep === 0 || i === n - 1) && <span className={`timeline__ticklabel${edge}`}>{formatDay(d)}</span>}
+            </span>
+          )
+        })}
       </div>
     </div>
   )

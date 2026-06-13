@@ -4,8 +4,10 @@ import { CAMP_SITES_KEY } from "../adapters/kv-campsites";
 import { KvStore } from "../adapters/kv-store";
 import { OsmOverpassSource } from "../adapters/osm-overpass";
 import { mergeOverrides, type CampsiteOverrides } from "../core/overrides";
+import { mergeDriveTimes, type DriveTimes } from "../core/drive-times";
 import type { CampsiteBlob } from "../ports/campsites";
 import overridesJson from "../../data/campsite-overrides.json";
+import driveTimesJson from "../../data/drive-times.json";
 
 /**
  * Runs weekly (schedule on the binding in wrangler.jsonc): fetch + normalize the OSM campsite list,
@@ -16,6 +18,7 @@ import overridesJson from "../../data/campsite-overrides.json";
  * (4 attempts × 60 s + 30/60/120 s backoff ≈ 8 min) stays far under the weekly cadence.
  */
 const OVERRIDES = overridesJson as CampsiteOverrides;
+const DRIVE_TIMES = driveTimesJson as DriveTimes;
 
 const FETCH_STEP: WorkflowStepConfig = {
   retries: { limit: 3, delay: "30 seconds", backoff: "exponential" },
@@ -31,8 +34,9 @@ export class RefreshCampsites extends WorkflowEntrypoint<Env> {
     const sites = await step.do("fetch campsites (osm)", FETCH_STEP, () => new OsmOverpassSource().list());
 
     return step.do(`write ${CAMP_SITES_KEY}`, WRITE_STEP, async () => {
-      const { sites: merged, warnings } = mergeOverrides(sites, OVERRIDES);
+      const { sites: corrected, warnings } = mergeOverrides(sites, OVERRIDES);
       for (const w of warnings) console.warn(w);
+      const merged = mergeDriveTimes(corrected, DRIVE_TIMES);
       const blob: CampsiteBlob = { fetchedAt: new Date().toISOString(), source: "osm", sites: merged };
       await new KvStore(this.env.KV).putJson(CAMP_SITES_KEY, blob);
       return { fetchedAt: blob.fetchedAt, sites: merged.length };

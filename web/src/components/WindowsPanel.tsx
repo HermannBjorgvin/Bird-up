@@ -1,7 +1,7 @@
 import type { Region, Window } from '../../../src/core/types'
 import { formatRange } from '../lib/dates'
-import { groupByPlace, peakTempRange, type PlaceGroup } from '../lib/grouping'
-import type { Recommendation } from '../../../src/core/types'
+import { tierScore } from '../lib/format'
+import { peakTempRange, type PlaceGroup } from '../lib/grouping'
 
 const TIER_COLOR: Record<Window['tier'], string> = {
   excellent: '#15803d',
@@ -12,29 +12,37 @@ const TIER_COLOR: Record<Window['tier'], string> = {
 export type Selection = { kind: 'place'; region: Region } | { kind: 'site'; id: string }
 
 interface Props {
-  rec: Recommendation | null
+  groups: PlaceGroup[]
+  shown: number
+  total: number
+  hasHidden: boolean
+  showAll: boolean
+  onToggleShowAll: () => void
   selection: Selection | null
   onSelect: (selection: Selection | null) => void
 }
 
 /**
- * The side panel (spec 05): recommended campsites grouped under their placename anchor, each site
- * shown once at its single best window. Clicking a placename focuses the map on that area; clicking a
- * site focuses that one marker. Best-scoring area first; best-scoring site first within an area.
+ * The side panel (spec 05): recommended campsites grouped under their placename anchor, each site shown
+ * once at its single best window with its tier word + score (e.g. "marginal 26/100"). The weak tail is
+ * hidden by default; a toggle reveals every site. Clicking a placename focuses the map on that area;
+ * clicking a site focuses that one marker. Best-scoring area first; best-scoring site first within an area.
  */
-export function WindowsPanel({ rec, selection, onSelect }: Props) {
-  const groups = groupByPlace(rec)
-  const siteCount = groups.reduce((n, g) => n + g.sites.length, 0)
-
+export function WindowsPanel({ groups, shown, total, hasHidden, showAll, onToggleShowAll, selection, onSelect }: Props) {
   return (
     <section className="windows">
-      <h2>Recommended campsites ({siteCount})</h2>
+      <h2>Recommended campsites ({shown === total ? total : `${shown} of ${total}`})</h2>
       {groups.length === 0 && (
         <p className="status">No camping windows in this range: try widening the dates or lowering the minimum trip length.</p>
       )}
       {groups.map((g) => (
         <PlaceGroupBlock key={g.region} group={g} selection={selection} onSelect={onSelect} />
       ))}
+      {hasHidden && (
+        <button type="button" className="windows__toggle" onClick={onToggleShowAll}>
+          {showAll ? 'Show top windows' : `Show all ${total}, incl. weaker windows`}
+        </button>
+      )}
     </section>
   )
 }
@@ -53,7 +61,7 @@ function PlaceGroupBlock({ group, selection, onSelect }: { group: PlaceGroup } &
       >
         <span className="tier-dot" style={{ background: TIER_COLOR[headerTier] }} />
         <span className="place-group__name">{group.name}</span>
-        <span className="place-group__score">{Math.round(group.bestScore)}</span>
+        <span className="place-group__score">{tierScore(headerTier, group.bestScore)}</span>
       </button>
       <ul className="place-group__sites">
         {group.sites.map((s) => {
@@ -68,7 +76,7 @@ function PlaceGroupBlock({ group, selection, onSelect }: { group: PlaceGroup } &
               >
                 <span className="site-row__name">{s.campsite.name}</span>
                 <span className="site-row__meta">
-                  {formatRange(s.window.start, s.window.end)} · {peakTempRange(s.window)} · {Math.round(s.score)}
+                  {formatRange(s.window.start, s.window.end)} · {peakTempRange(s.window)} · {tierScore(s.window.tier, s.score)}
                 </span>
               </button>
             </li>

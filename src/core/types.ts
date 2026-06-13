@@ -46,6 +46,12 @@ export const Campsite = z.object({
   bookingUrl: z.string().optional(),
   campingCard: z.boolean().optional(),
   website: z.string().optional(),
+  // Accessibility/access enrichments (optional — backward-compatible additions to the public contract).
+  // `offroad`: hand-curated in campsite-overrides.json for highland/F-road-only sites a normal
+  // family car cannot reach. `driveMinutesFromReykjavik`: OSRM road-routing minutes, baked offline by
+  // scripts/record-drive-times.ts into data/drive-times.json (spec 04). Both absent ⇒ unknown.
+  offroad: z.boolean().optional(),
+  driveMinutesFromReykjavik: z.number().int().optional(),
   source: z.enum(["tjalda", "osm"]),
 });
 export type Campsite = z.infer<typeof Campsite>;

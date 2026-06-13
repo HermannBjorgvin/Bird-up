@@ -46,10 +46,19 @@ body {
 }
 
 .app__header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   color: var(--text-h);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
   margin: 0;
+}
+
+.app__logo {
+  color: var(--ok);
 }
 
 .app__header .pitch {
@@ -70,6 +79,14 @@ body {
   min-height: 360px;
 }
 
+/* Dark mode: tint the OSM raster tiles dark. Only the tile pane is filtered — markers, popups, the
+   zoom/attribution controls live in other panes and keep their colours. Same OSM source/attribution. */
+@media (prefers-color-scheme: dark) {
+  .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+  }
+}
+
 .panel {
   border-left: 1px solid var(--border);
   background: var(--panel);
@@ -81,13 +98,50 @@ body {
 }
 
 @media (max-width: 720px) {
+  /* Single column: the page itself scrolls (a fixed-height #root starves the panel to a few px and
+     the campsite list becomes unreachable — the map + list simply stack and the document scrolls). */
+  #root {
+    height: auto;
+    min-height: 100svh;
+  }
+  /* Flatten the two-column body so map, the date slider and the results become siblings in #root's
+     flex column, then order them: map → slider → results (the timeline is a DOM sibling after .panel). */
   .app__body {
-    grid-template-columns: 1fr;
-    grid-template-rows: 55svh auto;
+    display: contents;
+  }
+  .app__header {
+    order: 0;
+  }
+  .banner {
+    order: 1;
+  }
+  .map {
+    order: 2;
+    height: 50svh;
+  }
+  .timeline {
+    order: 3;
   }
   .panel {
+    order: 4;
     border-left: none;
     border-top: 1px solid var(--border);
+    overflow-y: visible;
+  }
+  /* The date ticks crowd together on a narrow bar — drop them on mobile (the range label still shows). */
+  .timeline__ticks {
+    display: none;
+  }
+  footer {
+    order: 5;
+    justify-content: center;
+    text-align: center;
+  }
+  footer ul {
+    justify-content: center;
+  }
+  footer .spacer {
+    display: none;
   }
 }
 
@@ -146,16 +200,16 @@ body {
 
 .site-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
   width: 100%;
   text-align: left;
   border: none;
   border-left: 2px solid var(--border);
   background: transparent;
   border-radius: 0;
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   cursor: pointer;
   font: inherit;
   color: inherit;
@@ -178,7 +232,14 @@ body {
   font-size: 0.78rem;
   opacity: 0.8;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+}
+
+/* The dimmed meta is too faint on the dark panel — give it its own legible colour at full opacity. */
+@media (prefers-color-scheme: dark) {
+  .site-row__meta {
+    opacity: 1;
+    color: #c2c8d2;
+  }
 }
 
 .tier-dot {
@@ -188,6 +249,69 @@ body {
   border-radius: 50%;
   margin-right: 0.3rem;
   vertical-align: middle;
+}
+
+.windows__toggle {
+  align-self: flex-start;
+  margin-top: 0.1rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.windows__toggle:hover {
+  border-color: var(--text);
+  color: var(--text-h);
+}
+
+/* Campsite filters (top of the panel — narrow the list/markers, never the weather) */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.filters__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.filters__toggle input {
+  cursor: pointer;
+}
+
+.filters__drive {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.filters__drive-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.filters__drive-val {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.filters__drive input[type='range'] {
+  width: 100%;
 }
 
 /* Timeline (date heatmap + brush below the map) */
@@ -240,7 +364,7 @@ body {
   height: 52px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff; /* owner: the bar is white in both themes */
+  background: var(--bg); /* themed: white in light, dark in dark — the heat is green-over-this */
   overflow: hidden;
   touch-action: none; /* pointer-drag without page scroll on touch */
 }
@@ -317,6 +441,15 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Edge labels hug the bar ends instead of centring on the tick (which would clip past the edge). */
+.timeline__ticklabel--first {
+  transform: none;
+}
+
+.timeline__ticklabel--last {
+  transform: translateX(-100%);
+}
+
 /* Banners + status */
 .banner {
   background: var(--warn-bg);
@@ -336,6 +469,48 @@ body {
   opacity: 1;
 }
 
+/* Map markers + clusters — divIcon dots (leaflet's default white icon box is overridden away) */
+.cmark-wrap,
+.ccluster-wrap {
+  background: transparent;
+  border: 0;
+}
+
+.cmark {
+  display: block;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.cmark--scored {
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.cmark--empty {
+  border: 1.5px solid #9ca3af;
+  background: transparent;
+}
+
+.cmark--dim {
+  opacity: 0.35;
+}
+
+.ccluster {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 /* Popups */
 .popup__name {
   font-weight: 600;
@@ -344,18 +519,46 @@ body {
 }
 
 .popup__facilities {
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin-bottom: 0.1rem;
+  opacity: 0.85;
 }
 
+.popup__window {
+  font-size: 0.8rem;
+}
+
+/* Days stack vertically (no horizontal scrollbar); each day a row of icon-labelled metrics. */
 .popup__daily {
-  margin-top: 0.3rem;
+  margin-top: 0.35rem;
   font-size: 0.72rem;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  overflow-x: auto;
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.popup__day {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.popup__day-date {
+  font-weight: 600;
+  min-width: 3.4rem;
+}
+
+.popup__metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+}
+
+.popup__metric svg {
+  opacity: 0.65;
 }
 
 .popup__badge {

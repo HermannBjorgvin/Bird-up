@@ -23,3 +23,16 @@ Run against the deployed site (real KV data) and record in `stories/S08-website-
 - [~] A forced-stale digest (or naturally stale data) shows the warning banner *(render path covered by `test/worker/staleness.test.ts`; not force-tested on prod to avoid corrupting prod KV; banner correctly absent on fresh data)*
 - [x] Footer carries all active attribution (Open-Meteo, OpenStreetMap, map tiles) plus the MCP "add /mcp to your agent" hint and the policy version
 - [x] No browser E2E added (deliberate, spec 07)
+
+## S08 — UX/UI revamp (2026-06-13)
+
+Web-only review fixes; verify on the deployed site with real KV (244 sites).
+
+- [x] **Mobile (≤720px):** the campsite list is reachable and the page scrolls (panel 612px, `scrollHeight` 1394 > `innerHeight` 844; was clipped to ~25px); the "show all" toggle works
+- [x] Sidebar rows + group headers read `{tier} N/100` (rows stacked name-over-meta so the longer string never clips); dark-mode meta is legible
+- [x] Default list hides the marginal tail (`8 of 164`); "Show all 164" → 164 rows + "Show top windows"; header reads "N of M"
+- [x] Map sites cluster into counts, split on zoom; clusters tint to best score; no-window sites are hollow rings
+- [x] Popup: `Jun 24` dates, lucide weather icons, vertically-stacked icon-labelled weather (no scrollbar)
+- [x] Header wordmark uses Space Grotesk + tent mark; pitch says "two-week"; timeline edge tick labels aren't clipped
+- [x] `npm run check` green (133 tests); build self-hosts the font; no runtime/markercluster error
+- Note: leaflet.markercluster needs `import L from 'leaflet'` (default), not `import * as L` — the namespace import gives a frozen copy the plugin can't patch, so `L.markerClusterGroup` is missing in the **production build** only (dev pre-bundling masks it). Caught on the first prod deploy (white screen) and fixed forward.

@@ -65,3 +65,48 @@ export function groupByPlace(rec: Recommendation | null): PlaceGroup[] {
   out.sort((a, b) => b.bestScore - a.bestScore)
   return out
 }
+
+/** Default view keeps at least this many sites so a cool fortnight (all "marginal") is never empty. */
+export const MIN_VISIBLE = 8
+
+export interface CuratedGroups {
+  groups: PlaceGroup[]
+  shown: number
+  total: number
+  hasHidden: boolean
+}
+
+/**
+ * Curate the grouped sites for the default view: keep only `good`/`excellent` windows (the core tier —
+ * no hardcoded score threshold in the web layer), but if too few qualify fall back to the top
+ * `MIN_VISIBLE` by score so the panel always shows the best handful. `showAll` returns every site.
+ * Pure presentation fold over `groupByPlace` output — counts feed the "N of M" header + toggle.
+ */
+export function curateGroups(groups: PlaceGroup[], showAll: boolean): CuratedGroups {
+  const allRows: SiteRow[] = []
+  for (const g of groups) for (const s of g.sites) allRows.push(s)
+  const total = allRows.length
+
+  const strong: string[] = []
+  for (const r of allRows) if (r.window.tier !== 'marginal') strong.push(r.campsite.id)
+
+  let keep: Set<string>
+  if (strong.length >= MIN_VISIBLE) {
+    keep = new Set(strong)
+  } else {
+    const top = allRows.sort((a, b) => b.score - a.score).slice(0, MIN_VISIBLE)
+    keep = new Set(top.map((r) => r.campsite.id))
+  }
+  const curatedCount = Math.min(keep.size, total)
+  const hasHidden = total > curatedCount
+
+  if (showAll || !hasHidden) return { groups, shown: total, total, hasHidden }
+
+  const curated: PlaceGroup[] = []
+  for (const g of groups) {
+    const sites = g.sites.filter((s) => keep.has(s.campsite.id))
+    if (sites.length > 0) curated.push({ ...g, sites, bestScore: sites[0]!.score })
+  }
+  curated.sort((a, b) => b.bestScore - a.bestScore)
+  return { groups: curated, shown: curatedCount, total, hasHidden }
+}

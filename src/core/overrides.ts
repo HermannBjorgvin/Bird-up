@@ -6,7 +6,7 @@ import type { Campsite } from "./types";
  * field set — overrides can't invent ids, coordinates or regions, only enrich known sites. Pure.
  */
 export type CampsiteOverride = Partial<
-  Pick<Campsite, "name" | "website" | "fee" | "openingHours" | "bookingUrl" | "campingCard">
+  Pick<Campsite, "name" | "website" | "fee" | "openingHours" | "bookingUrl" | "campingCard" | "offroad">
 >;
 export type CampsiteOverrides = Record<string, CampsiteOverride>;
 

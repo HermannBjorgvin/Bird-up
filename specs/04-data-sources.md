@@ -56,6 +56,8 @@ Status: accepted · Last updated: 2026-06-12
   bookingUrl?: string;   // tjalda.is deep link when known
   campingCard?: boolean; // accepts utilegukortid.is
   website?: string;
+  offroad?: boolean;            // highland/F-road-only site, no family car — hand-curated (enrichment)
+  driveMinutesFromReykjavik?: number; // OSRM road-routing minutes, baked offline (enrichment); absent = unknown
   source: "tjalda" | "osm";
 }
 ```
@@ -85,7 +87,9 @@ tjalda.is is Iceland's campsite directory + booking platform (booking backend: P
 
 ### Enrichment (either adapter)
 
-A small checked-in `data/campsite-overrides.json` merged by id after the adapter runs: `campingCard` flags (~40 sites from utilegukortid.is), missing `bookingUrl` deep links, manual corrections. Hand-maintained; survives refreshes.
+A small checked-in `data/campsite-overrides.json` merged by id after the adapter runs: `campingCard` flags (~40 sites from utilegukortid.is), missing `bookingUrl` deep links, manual corrections, and the **`offroad`** flag for the ~24 known highland/F-road-only sites a normal family car cannot reach (Landmannalaugar, Þórsmörk, Askja/Dreki, Nýidalur, Kerlingarfjöll, Hveravellir, the Laugavegur/Fjallabak trail huts…). Hand-maintained; survives refreshes. F-roads *are* identifiable in OSM (`ref` starts "F", often `4wd_only=yes`), but knowing a campsite is only reachable via one is a routing question, so the flag is curated rather than auto-derived — the set is small and stable. New highland sites aren't flagged until added by hand (owner decision: a manual list, auditable, over a noisy heuristic).
+
+**Drive times** (`driveMinutesFromReykjavik`) are baked offline, not curated: `scripts/record-drive-times.ts` (manual, like `record-fixtures.ts`) routes Reykjavík → every site once via OSRM (`router.project-osrm.org`, the OSM road graph — routes *around* the un-crossable interior, far better than straight-line for Iceland) and writes `data/drive-times.json` (id → minutes). The weekly `refresh-campsites` workflow merges it by id after overrides — **no routing service is called at runtime**. Drive times don't change week-to-week, so re-bake only when the site list shifts materially; a new site simply has no time until then (treated as "unknown"). Origin is Reykjavík for the MVP; future multi-origin estimation (from the user's location) is just more baked columns. The standard OSRM car profile may route highland F-roads optimistically, but those sites are `offroad` and the website's family-car filter excludes them, so the discrepancy is harmless.
 
 ## eBird (birds)
 

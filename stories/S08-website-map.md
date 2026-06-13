@@ -52,6 +52,38 @@ cards was replaced with a two-level tree: recommended campsites grouped under th
 Selecting a placename focuses the map on that area; selecting a site focuses that one marker. The
 orphaned `web/src/lib/sort.ts` (+ its test) was removed; `test/unit/web-grouping.test.ts` added.
 
+**UX/UI revamp (2026-06-13, after a full review — web-only, no contract/scoring/policy change).** Eight
+presentation slices: (A) **mobile P0** — `#root { height: 100svh }` + the `55svh auto` grid starved the
+panel to ~25px and the campsite list was unreachable; the `max-width:720px` rule now lets the document
+scroll (map fixed-height, list flows). Plus a dark-mode `.site-row__meta` contrast bump. (B) **score
+legibility** — rows/headers/popup now read `{tier} N/100` (`web/src/lib/format.ts:tierScore`), using the
+core `Window['tier']` (no threshold re-bucketed in `web/`). (C) **list curation** — the weak (marginal-only)
+tail is hidden by default with a top-`MIN_VISIBLE`(8) fallback and a "show all N" toggle
+(`grouping.ts:curateGroups`); header reads "N of M". (D/F) **popup** — `Jun 13` dates, a vertically-stacked
+icon-labelled weather strip (no scrollbar), and emoji facilities replaced by inlined **lucide** SVGs
+(`web/src/lib/icons.ts`, vanilla `createElementNS` for the DOM-built popup). (E) pitch "16-day"→"two-week";
+timeline first/last tick labels no longer clip. (G) **map declutter** — leaflet.markercluster (cluster bubble
+tinted to its best child score) + circleMarker→`L.marker`+divIcon dots, filled-scored vs **hollow no-window**.
+(H) **wordmark** — self-hosted Space Grotesk (`@fontsource`, latin-600 subset) on the H1 only, with a lucide
+`Tent` mark. New tests: `test/unit/web-{format,curation}.test.ts`. Deps added: `leaflet.markercluster`
+(+ `@types`), `@fontsource/space-grotesk`. `npm run check` green (133 tests); verified locally + on prod.
+**Prod-bundle gotcha (caught on the first deploy — white screen):** leaflet.markercluster patches leaflet's
+mutable CJS module object, but `import * as L from 'leaflet'` hands the bundler a frozen namespace copy, so
+`L.markerClusterGroup` was undefined in the minified build (dev pre-bundling hid it). Fixed by switching
+MapView to the default import `import L from 'leaflet'`. Also stacked the sidebar rows (name over meta) so
+the longer `{tier} N/100` string never clips in the ~325px panel.
+**Mobile layout follow-up:** on `≤720px` the two-column `.app__body` is flattened with `display: contents`
+so map, the date slider and the results become siblings in `#root`'s flex column, reordered with `order`
+to **map → slider → results** (the timeline is a DOM sibling after `.panel`). And selecting a result
+scrolls the map back into view (`App.tsx:handleSelect`, `scrollIntoView`, gated on the same media query)
+so the highlight is visible on a phone.
+**Dark-mode polish:** the OSM raster tiles are tinted dark via a CSS filter on `.leaflet-tile-pane`
+(`invert(1) hue-rotate(180deg) brightness(.9) contrast(.9)` — keeps the OSM source/attribution and leaves
+markers/popups/controls, which sit in other panes, untouched; a dedicated dark basemap would need its own
+attribution/token). The timeline bar background is now `var(--bg)` (white→dark across themes), and `heatColor`
+returns **green at a score-driven alpha** instead of a white→green hex so the themed background shows through
+(test updated). On mobile the date ticks are hidden and the footer is centred.
+
 **One bug found & fixed during the live check:** the debounced windows effect originally depended on the
 derived `overrides`/`markers` objects, whose identity changes every render. The lint config assumes the
 React Compiler memoizes these, but the compiler is **not** enabled in the vite build, so the effect
@@ -59,6 +91,24 @@ re-armed on every loading→ready render and fetched in a ~400 ms loop. Fixed by
 state (`range`, `thresholds`) and computing `overrides` inside the timer. Verified post-fix: exactly one
 `/api/campsites` + one `/api/windows` on load, one more POST per slider change — no loop.
 *(Follow-up worth considering: actually enable `babel-plugin-react-compiler` so the lint rules match the build, or relax the no-manual-memo rule.)*
+
+**Campsite filters — drive time + family-car access (2026-06-13, post-review feedback).** Two new
+**client-side** filters at the top of the side panel ([Filters.tsx](../web/src/components/Filters.tsx),
+[lib/filters.ts](../web/src/lib/filters.ts)): a *family-car-accessible-only* toggle (hides `offroad`
+highland/F-road sites) and a *max-drive-from-Reykjavík* slider. They narrow the map markers and the
+sidebar together (the weather timeline is untouched) — no re-query, instant like the date brush. This
+needed two **optional, backward-compatible** fields on the public `Campsite` schema (`offroad`,
+`driveMinutesFromReykjavik`) — the one contract touch; `WindowCampsite` is left alone, the web joins by
+id to the `/api/campsites` list. Data: `offroad` is hand-curated in `data/campsite-overrides.json`
+for ~24 known highland sites (owner chose a manual auditable list over an OSM heuristic — F-roads are in
+OSM, but "is this *campsite* only reachable via one" is a routing question, not a tag). Drive times are
+baked offline by [scripts/record-drive-times.ts](../scripts/record-drive-times.ts) (OSRM road routing
+from Reykjavík, written to `data/drive-times.json`, merged in the weekly refresh — no runtime routing
+call; see [spec 04](../specs/04-data-sources.md)). Each control self-hides until the data carries its
+attribute, so it degrades gracefully on a pre-refresh blob. New tests: `test/unit/web-filters.test.ts`,
+`drive-times.test.ts`, + a `offroad` case in `overrides.test.ts` (147 tests, `npm run check` green).
+**Operational note:** the live filters appear only after the next `refresh-campsites` run re-bakes the
+enriched blob into KV (deploy + trigger the workflow, or wait for the Monday 03:00 UTC cron).
 
 **Checklist run — deployed `tjaldur.9z.is`, 2026-06-13 (version `2ddaee22`):**
 - ✅ Map loads with OSM raster tiles + Leaflet/OpenStreetMap attribution.

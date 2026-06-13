@@ -18,18 +18,17 @@ export function scoreToColor(score: number | null | undefined): string {
   })
 }
 
-const WHITE: Rgb = { r: 0xff, g: 0xff, b: 0xff }
-
-/** Timeline-bar heat: white→green on an absolute scale that tops out at 40 (mid-June scores ~25). */
+/** Timeline-bar heat tops out at 40 (mid-June scores ~25); the bar saturates green at that score. */
 export const HEAT_FULL_SCORE = 40
 
+/**
+ * Timeline-bar heat: GREEN at a variable alpha (0→1 over score 0→40) so the bar's own theme-aware
+ * background shows through the gaps — white in light mode, dark in dark mode — rather than baking white
+ * into the gradient (which would leave bright patches on the dark-mode bar).
+ */
 export function heatColor(score: number): string {
   const t = Math.max(0, Math.min(1, score / HEAT_FULL_SCORE))
-  return toHex({
-    r: lerp(WHITE.r, GREEN.r, t),
-    g: lerp(WHITE.g, GREEN.g, t),
-    b: lerp(WHITE.b, GREEN.b, t),
-  })
+  return `rgba(${GREEN.r}, ${GREEN.g}, ${GREEN.b}, ${t})`
 }
 
 function lerp(a: number, b: number, t: number): number {
