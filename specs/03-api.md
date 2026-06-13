@@ -30,8 +30,8 @@ Both surfaces return the shared `Recommendation` shape defined in [01-architectu
   "start_date":   { "type": "string", "format": "date" },          // required
   "end_date":     { "type": "string", "format": "date" },          // required; ≤ today+16d
   "region":       { "type": "string", "default": "all" },              // a camping-area slug (core/regions.ts) or "all"
-  "min_days":     { "type": "integer", "minimum": 1, "maximum": 7 },   // shorthand for thresholds.hardFloor.minDays
-  "thresholds":   { /* Partial<ScoringPolicy>, bounds per 02-scoring-policy.md */ },
+  "min_days":     { "type": "integer", "minimum": 1, "maximum": 7 },   // shorthand for thresholds.minDays
+  "thresholds":   { /* { minDays } only — the single overridable field, bounds per 02-scoring-policy.md */ },
   "include_birds":{ "type": "boolean", "default": false },
   "seen_species": { "type": "array", "items": { "type": "string" } },  // used only with include_birds
   "max_windows":  { "type": "integer", "default": 5, "maximum": 20 }

@@ -40,7 +40,7 @@ Status: accepted · Last updated: 2026-06-12
 ### Controls
 
 - **Date range**: defaults to today → today+16; presets "next week" / "next 2 weeks".
-- **Thresholds** (collapsible ⚙ panel): sliders bound 1:1 to the overridable policy fields and bounds in [02-scoring-policy.md](02-scoring-policy.md) (min peak °C, min days, max rain, max gusts). A "reset to defaults" button. Overrides go into the API call's `thresholds` — the website invents no scoring of its own.
+- **Filter** (collapsible ⚙ panel): a single "minimum trip length (days)" slider — the only overridable field in [02-scoring-policy.md](02-scoring-policy.md) (`minDays`, 1–7) — plus a "reset to default" button. The override goes into the API call's `thresholds`; the website invents no scoring of its own. (The soft-factor model `2026-06.3` has no hard caps to expose: warmth, wind and rain are continuous score factors, not user-set thresholds.)
 - **My birds**: textarea for pasted species (one per line) + file input for `MyEBirdData.csv`. Shows the resulting count ("142 species seen in 2026") and a clear button.
 
 ## Seen-list handling

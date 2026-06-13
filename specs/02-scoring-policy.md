@@ -1,6 +1,6 @@
 # 02 — Scoring policy: what counts as a camping weather window
 
-Status: accepted (defaults are provisional by design) · Last updated: 2026-06-12
+Status: accepted (defaults are provisional by design) · Last updated: 2026-06-13
 
 > **This module is designed to be replaced.** The author has explicitly low confidence in the definition below. Everything tunable lives in one config object; the functions are pure; behavior is pinned by a table of canonical cases. Changing the definition = editing the config and the table in one diff, bumping the version. Nothing else in the system may hardcode weather judgments.
 
@@ -9,8 +9,10 @@ Status: accepted (defaults are provisional by design) · Last updated: 2026-06-1
 | Decision | Choice | Rationale |
 |---|---|---|
 | Shape | Pure functions `scoreDay` + `findWindows`, config passed explicitly | Swappable, trivially testable, no I/O |
-| Anomaly vs absolute | Relative warmth (vs the surrounding ~2 weeks) weighted highest | Owner: "comparison to the weather around the window is more important" |
-| Hard floor | Temperature-only window *existence* test, separate from scoring | A window either exists or it doesn't; rain/wind then rank it |
+| Warmth | **Purely absolute** temperature ramp (no baseline/anomaly) | Owner (2026-06-13): hard limits "defeat the purpose"; a clean "23 °C is ideal, 12 °C is nothing" reads predictably |
+| Hard caps | **None.** Every factor is soft — wind and rain discount a day but never zero it | Owner: dislikes hard caps on anything; a single stormy day shouldn't disqualify a trip |
+| Window existence | A run of days *warm enough to score* (warmth > 0, i.e. above the warmth-zero point), ≥ `minDays` long | With no floor, the warmth-zero point (12 °C) is what segments the forecast into windows |
+| Only filter | `minDays` — the single per-request override | Owner: min-days is the only knob worth exposing |
 | Confidence | By forecast lead time, not by score | Icelandic forecasts: days 1–4 actionable, 5–9 tentative, 10+ trend |
 | Units | °C, mm/day, km/h (Open-Meteo native), dates YYYY-MM-DD UTC | Iceland is UTC year-round; no conversions to get wrong |
 
@@ -19,61 +21,48 @@ Status: accepted (defaults are provisional by design) · Last updated: 2026-06-1
 ```ts
 export interface ScoringPolicy {
   version: string;
-  hardFloor: { minDays: number; minPeakTempC: number };
-  excellentPeakTempC: number;
-  weights: { tempAnomaly: number; tempAbsolute: number };  // warmth blend; only the ratio matters
-  tempAbsolute: { fullPenaltyC: number; noPenaltyC: number };  // ramp
-  precip: { idealMaxMmDay: number; hardMaxMmDay: number };     // multiplicative gate
-  gusts:  { idealMaxKmh: number; hardMaxKmh: number };         // multiplicative gate
-  anomaly: { baselineDays: number; zClamp: number };
+  minDays: number;                         // the only filter: minimum window length in days
+  warmth: { zeroC: number; oneC: number }; // absolute warmth ramp; uncapped above oneC
+  wind:   { calmKmh: number; scaleKmh: number }; // exp decay: 1 at/below calm, never 0
+  rain:   { scaleMm: number };             // exp decay: 1 at 0 mm, never 0
   tiers: { excellentMinScore: number; goodMinScore: number };
   confidence: { highMaxLeadDays: number; mediumMaxLeadDays: number };
 }
 
 export const DEFAULT_POLICY: ScoringPolicy = {
-  version: "2026-06.2",
-  hardFloor: { minDays: 2, minPeakTempC: 18 },
-  excellentPeakTempC: 20,
-  weights: { tempAnomaly: 0.40, tempAbsolute: 0.20 },
-  tempAbsolute: { fullPenaltyC: 12, noPenaltyC: 22 },
-  precip: { idealMaxMmDay: 1, hardMaxMmDay: 8 },
-  gusts:  { idealMaxKmh: 35, hardMaxKmh: 65 },
-  anomaly: { baselineDays: 16, zClamp: 2 },
-  tiers: { excellentMinScore: 70, goodMinScore: 50 },
+  version: "2026-06.3",
+  minDays: 3,
+  warmth: { zeroC: 12, oneC: 23 },
+  wind:   { calmKmh: 25, scaleKmh: 30 },
+  rain:   { scaleMm: 6 },
+  tiers:  { excellentMinScore: 70, goodMinScore: 40 },
   confidence: { highMaxLeadDays: 4, mediumMaxLeadDays: 9 },
 };
 ```
 
-Default rationale: 18 °C peaks on ≥2 days is the owner's floor; 20 °C is an Icelandic heat event; gusts ≥ ~65 km/h flatten tents regardless of warmth; 8 mm is a genuinely wet day.
+Default rationale: 23 °C is an Icelandic ideal-camping day (warmth = 1); 12 °C is where warmth bottoms out (and below it there's nothing camp-worthy, so it also marks where a window ends). Wind below ~25 km/h is unremarkable; rain scales so ~6 mm cuts a day's score to ~37 %. `minDays` 3 is the owner's default trip length. Tiers are calibrated so a calm dry ~20 °C day reads `excellent`, a calm dry ~15 °C day `marginal`.
 
 ## Day score
 
-For one site and one forecast day, given the site's `DailyDigest` and a per-site baseline computed over the whole fetched horizon (`anomaly.baselineDays` = 16 days: "the surrounding ~2 weeks"):
+For one site and one forecast day, given its `DailyDigest`. No baseline — every factor depends only on that day's numbers:
 
 ```
-baseline      = { mean, sd } of tMaxC over the horizon (population sd, ÷n; floored at 1 °C)
-zAnomaly      = clamp((tMaxC − mean) / sd, ±zClamp)
-anomalyScore  = (zAnomaly + zClamp) / (2·zClamp)                     // 0–1
-absScore      = ramp01(tMaxC, fullPenaltyC → noPenaltyC)             // 0–1
-warmth        = (w.tempAnomaly·anomalyScore + w.tempAbsolute·absScore)
-                / (w.tempAnomaly + w.tempAbsolute)                   // 0–1
-gustFactor    = 1 − ramp01(gustMaxKmh,  idealMaxKmh  → hardMaxKmh)   // 1→0 gate
-precipFactor  = 1 − ramp01(precipSumMm, idealMaxMmDay → hardMaxMmDay) // 1→0 gate
+warmth     = max(0, (tMaxC − warmth.zeroC) / (warmth.oneC − warmth.zeroC))   // 0 at zeroC, 1 at oneC, UNCAPPED above
+windFactor = exp(−max(0, gustMaxKmh − wind.calmKmh) / wind.scaleKmh)         // 1 at/below calm, decays toward 0, never reaches it
+rainFactor = exp(−precipSumMm / rain.scaleMm)                                 // 1 at 0 mm, decays toward 0, never reaches it
 
-dayScore = 100 · warmth · gustFactor · precipFactor
+dayScore = 100 · warmth · windFactor · rainFactor
 ```
 
-`ramp01(x, a → b)` = 0 below `a`, 1 above `b`, linear between. All components are 0–1; the result is 0–100.
-
-**Warmth sets the ceiling; wind and rain are multiplicative gates** (decided at S03, replacing the original all-additive weighted sum). Warmth blends relative anomaly with absolute temperature (anomaly weighted higher — only the two weights' *ratio* matters, since `warmth` divides by their sum). Gusts and precipitation then *discount* that ceiling: each factor ramps 1→0 from its ideal to its hard limit, so a day at or beyond `hardMaxKmh`/`hardMaxMmDay` scores **0 regardless of warmth** — a tent-flattening gale or a soaking is disqualifying, not merely down-weighted. This is why the canonical T5/T6 cases land at `marginal`; an additive sum with the same weights could not reach them.
+**Warmth sets the ceiling; wind and rain only discount it — softly.** Warmth is purely absolute and **uncapped above `oneC`**, so a hotter-than-ideal day scores over 1 and a hot calm dry day scores **over 100**. Wind and rain are exponential decays: they shrink the score as conditions worsen but **never reach 0**, so a gale or a soaking lowers a day without disqualifying it (no hard caps — the deliberate reversal of the original gate model). A day at/below `warmth.zeroC` has warmth 0 → dayScore 0, and is the only thing that ends a window.
 
 ## Window detection
 
 Per site:
 
-1. **Existence (hard floor):** candidate windows are maximal runs of consecutive days with `tMaxC ≥ hardFloor.minPeakTempC`, at least `hardFloor.minDays` long. The floor is temperature-only by design — a warm-but-windy window *exists* but scores badly. *Consecutive* is calendar-consecutive: a gap in the digest (a forecast day the adapter dropped because upstream returned null) ends the run, so a window never spans a day with no forecast.
-2. **Score:** window score = mean of its members' `dayScore`s.
-3. **Tier:** `excellent` if any member day has `tMaxC ≥ excellentPeakTempC` **and** score ≥ `tiers.excellentMinScore`; else `good` if score ≥ `tiers.goodMinScore`; else `marginal`.
+1. **Existence:** candidate windows are maximal runs of consecutive days *warm enough to score* — `tMaxC > warmth.zeroC` (warmth > 0) — at least `minDays` long. There is no separate temperature floor: the warmth-zero point both contributes nothing and segments the forecast. *Consecutive* is calendar-consecutive: a gap in the digest (a forecast day the adapter dropped because upstream returned null) ends the run, so a window never spans a day with no forecast.
+2. **Score:** window score = mean of its members' `dayScore`s (can exceed 100).
+3. **Tier:** `excellent` if score ≥ `tiers.excellentMinScore`; else `good` if score ≥ `tiers.goodMinScore`; else `marginal`. (Score-only — there is no special-case temperature test.)
 4. **Confidence** = the *worst* member day's lead-time tier: lead ≤ `highMaxLeadDays` → `high`; ≤ `mediumMaxLeadDays` → `medium`; else `low`. Days 15–16 are always `low`. Lead is the calendar distance from the first forecast day (day 1 = today), not the array index, so a dropped day never inflates a later day's confidence.
 5. **Horizon edge:** a window whose last day is the final forecast day gets `mayExtend: true`.
 
@@ -81,43 +70,38 @@ Regional windows (what the API returns) merge per-site windows within one campin
 
 ## Per-request overrides
 
-Callers may override a bounded subset (MCP `thresholds` argument / website sliders). zod-validated:
+Callers may override a single field (MCP `thresholds` argument / the website's min-days slider). zod-validated, `.strict()` (unknown keys rejected):
 
 | Field | Bounds |
 |---|---|
-| `hardFloor.minDays` | 1–7 |
-| `hardFloor.minPeakTempC` | 5–30 |
-| `excellentPeakTempC` | ≥ `minPeakTempC`, ≤ 35 |
-| `precip.idealMaxMmDay` / `hardMaxMmDay` | 0–50, ideal < hard |
-| `gusts.idealMaxKmh` / `hardMaxKmh` | 0–150, ideal < hard |
-| `weights.tempAnomaly` / `weights.tempAbsolute` | each 0–1; only their ratio matters (warmth blend) |
+| `minDays` | integer 1–7 |
 
-Out-of-bounds → `INVALID_PARAMS` (never silently clamped). Any override sets `policyVersion: "<base>+custom"` in the response.
+Out-of-bounds → `INVALID_PARAMS` (never silently clamped). Any override sets `policyVersion: "<base>+custom"` in the response. At the default `minDays` (3) the website sends no override, so the default page load is a plain cacheable GET on the base `policyVersion`.
 
 ## Canonical behavior table
 
-Tests transcribe this table verbatim (see [07-testing.md](07-testing.md)). Changing policy behavior means changing this table in the same commit and bumping `version`. Inputs are 16-day single-site digests, described compactly; defaults apply.
+Tests transcribe this table verbatim (see [07-testing.md](07-testing.md)). Changing policy behavior means changing this table in the same commit and bumping `version`. Inputs are 16-day single-site digests, described compactly; defaults apply (dry/calm unless stated; "cold" filler = 10 °C, below the warmth-zero point, to segment windows).
 
 | # | Case | Input sketch | Expected |
 |---|---|---|---|
-| T1 | Flat cool fortnight | tMax 15 °C all days, dry, calm | no windows |
-| T2 | Owner's floor case | 2 consecutive days tMax 18 °C, rest 13 °C; dry, calm | exactly 1 window, 2 days, exists; tier ≥ `good`; high anomaly component; **score 86.67** |
-| T3 | One hot day only | 1 day 21 °C, rest 14 °C | no windows (`minDays` unmet) |
-| T4 | Excellent | 3 days 20–21 °C, dry, gusts ≤ 25 km/h, rest 14 °C | 1 window, tier `excellent`; **score 93.78** |
-| T5 | Warm but stormy | 3 days 21 °C with gusts 70 km/h, dry | window **exists** (floor is temp-only); gust gate 0 → **score 0**; tier `marginal` |
-| T6 | Warm but soaked | 2 days 19 °C with 10 mm/day, calm | window exists; precip gate 0 → **score 0**; tier `marginal` |
-| T7 | Uniformly warm | all 16 days 19 °C, dry, calm | 1 window spanning the horizon; anomalyScore ≈ 0.5 (no spike) but warmth/gate components strong; `mayExtend: true`; window confidence `low` |
-| T8 | Relative spike, modest absolute | 3 days 18 °C among 10 °C neighbors, dry, calm | 1 window; anomaly component near max; tier `good`; **score 86.67** |
-| T9 | Edge of horizon | days 15–16 at 19 °C | window exists, `confidence: low`, `mayExtend: true` |
-| T10 | Lead-time confidence | days 2–3 at 19 °C → `high`; days 5–6 → `medium`; days 10–11 → `low` | as stated |
-| T11 | Override floor | T1 input, override `minPeakTempC: 14` | 1 window spanning horizon; `policyVersion` ends `+custom` |
-| T12 | Invalid override | `minPeakTempC: 50` | `INVALID_PARAMS` error |
+| T1 | Flat mild fortnight | tMax 15 °C all days, dry, calm | 1 window spanning the horizon (15 > 12); `marginal`; **score 27.27** |
+| T2 | Flat cold | tMax 11 °C all days (≤ zeroC) | **no windows** (warmth 0) |
+| T3 | Short warm spell | 2 days 21 °C among 10 °C neighbors | no windows (`minDays` unmet) |
+| T4 | Excellent | 4 days 21 °C, dry, gusts ≤ 25, among 10 °C | 1 window, `excellent`; **score 81.82** |
+| T5 | Warm but stormy | 4 days 21 °C with gusts 70 km/h, dry, among 10 °C | window exists and is **not** zeroed; windFactor ≈ 0.22 → **score 18.26**; `marginal` |
+| T6 | Warm but soaked | 4 days 19 °C with 10 mm/day, calm, among 10 °C | window exists and is **not** zeroed; rainFactor ≈ 0.19 → **score 12.02**; `marginal` |
+| T7 | Uniformly hot | all 16 days 28 °C, dry, calm | 1 window spanning the horizon; warmth ≈ 1.45 → **score 145.45** (over 100); `excellent`; `mayExtend: true`; confidence `low` |
+| T8 | Lead-time confidence | 3-day warm runs at days 2–4 / 5–7 / 10–12 | `high` / `medium` / `low` |
+| T9 | Edge of horizon | 3 days 19 °C at days 14–16 | window exists, `confidence: low`, `mayExtend: true` |
+| T10 | Override `minDays: 2` | T3 input | the 2-day warm run now qualifies → 1 window; `policyVersion` ends `+custom` |
+| T11 | Invalid override | `minDays: 50` | `INVALID_PARAMS` error |
 
-Exact scores for T2/T4/T8 were frozen when the tests were first written (S03, model version `2026-06.2`): **T2 = 86.67, T4 = 93.78, T8 = 86.67** (window means; T2/T8 are anomaly-maxed dry/calm days so they coincide). The table commits to tiers and orderings up front; these numbers are now part of the contract — changing them is a policy change (edit table + tests + `version` in one commit).
+Exact scores for T1/T4/T5/T6/T7 were frozen from the implementation when the soft-factor model (`2026-06.3`) was written: **T1 = 27.27, T4 = 81.82, T5 = 18.26, T6 = 12.02, T7 = 145.45** (window means; uniform-day windows so the day score equals the window score). These numbers are now part of the contract — changing them is a policy change (edit table + tests + `version` in one commit).
 
 ## Doors held open (explicitly not v1)
 
 - **Ensemble spread** (Open-Meteo ensemble API) replacing lead-time-only confidence.
 - Wind-direction/shelter awareness per campsite.
+- A relative-warmth term (anomaly vs the surrounding fortnight) blended back in, if pure-absolute proves too blunt.
 - Multiple named policies (e.g. "hardy camper") selected per request — the config-object design already permits this.
 - Learned weights from the owner's accept/reject feedback.

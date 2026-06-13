@@ -19,7 +19,7 @@ Run against the deployed site (real KV data) and record in `stories/S08-website-
 - [x] A campsite popup shows: name, facilities icons, the daily temp/precip/gust strip, booking/website link, and the Camping Card badge where applicable
 - [x] Selecting a window in the side panel zooms/filters the map to that window's campsites; deselecting restores all
 - [x] Date presets ("next week" / "next 2 weeks") and the date inputs re-query and update the map
-- [x] Threshold sliders (min peak °C, min days, max rain, max gusts) re-query debounced; a non-default value shows the "custom policy" badge; reset restores defaults
+- [x] Filter slider (min trip length, days — the only overridable field in the soft-factor `2026-06.3` model) re-queries debounced; a non-default value shows the "custom policy" badge; reset restores the default
 - [~] A forced-stale digest (or naturally stale data) shows the warning banner *(render path covered by `test/worker/staleness.test.ts`; not force-tested on prod to avoid corrupting prod KV; banner correctly absent on fresh data)*
 - [x] Footer carries all active attribution (Open-Meteo, OpenStreetMap, map tiles) plus the MCP "add /mcp to your agent" hint and the policy version
 - [x] No browser E2E added (deliberate, spec 07)

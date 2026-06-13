@@ -11,7 +11,7 @@ The website's weather half (birds come in S10): Leaflet map with campsite marker
 ## Acceptance criteria
 
 - [x] Unit tests (node project) pass for: the API-client module (URL/query/body construction for GET and POST variants, error-envelope handling) and pure helpers (score→color scale, window sorting, date formatting).
-- [x] Threshold sliders expose exactly the overridable fields and bounds of spec 02 (min peak °C, min days, max rain mm, max gusts km/h) plus a reset-to-defaults; changes re-query (debounced) and the panel shows when results are computed with a custom policy.
+- [x] Threshold sliders expose exactly the overridable fields and bounds of spec 02 plus a reset-to-defaults; changes re-query (debounced) and the panel shows when results are computed with a custom policy. *(Superseded same day: the scoring model was reworked to the soft-factor `2026-06.3` policy with no hard caps, so spec 02 now exposes only `minDays`; the panel is a single min-trip-length slider. See the scoring-redesign commit.)*
 - [x] The manual checklist `web/CHECKLIST.md` exists, covers: map loads with OSM tiles + attribution, markers colored by score for the selected range, popup shows all spec-05 fields, selecting a window zooms/filters, date presets work, forced-stale digest shows the banner, footer carries all attribution + MCP hint — and is checked off against the deployed site in this story's notes.
 - [x] Website ships as Static Assets from the same Worker; `/` serves it, `/api/*` and `/mcp` still route to the Worker.
 - [x] No browser E2E added (deliberate, spec 07).

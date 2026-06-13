@@ -48,13 +48,15 @@ describe("GET/POST /api/windows (served from KV)", () => {
 
     const rec = Recommendation.parse(await res.json());
     expect(rec.attribution.length).toBeGreaterThan(0);
-    expect(rec.policyVersion).toBe("2026-06.2");
+    expect(rec.policyVersion).toBe("2026-06.3");
     expect(rec.dataAge.weatherFetchedAt).toBe(FRESH_DIGEST.fetchedAt); // proves the KV blob is the source
     expect(rec.dataAge.stale).toBe(false);
     expect(rec.warnings).toEqual([]);
+    // Soft model (2026-06.3): every fixture day is > 12 °C, so the whole horizon is one window
+    // (no temperature floor to split it); mean score ~30 → marginal.
     expect(rec.windows).toHaveLength(1);
-    expect(rec.windows[0]!.tier).toBe("excellent");
-    expect(rec.windows[0]!.start).toBe("2026-06-16");
+    expect(rec.windows[0]!.tier).toBe("marginal");
+    expect(rec.windows[0]!.start).toBe("2026-06-12");
     expect(rec.windows[0]!.campsites[0]!.name).toBe("Reykjavík Eco Campsite");
   });
 
@@ -62,7 +64,7 @@ describe("GET/POST /api/windows (served from KV)", () => {
     const res = await postWindows({ start_date: "2026-06-12", end_date: "2026-06-27" });
     expect(res.status).toBe(200);
     const rec = Recommendation.parse(await res.json());
-    expect(rec.windows.map((w) => w.id)).toEqual(["reykjavik:2026-06-16:2026-06-18"]);
+    expect(rec.windows.map((w) => w.id)).toEqual(["reykjavik:2026-06-12:2026-06-27"]);
   });
 
   it("answers with zero subrequests at request time (KV only, no weather fetch)", async () => {
@@ -81,23 +83,23 @@ describe("GET/POST /api/windows (served from KV)", () => {
     }
   });
 
-  it("a valid thresholds override changes results and stamps policyVersion +custom", async () => {
+  it("a valid minDays override stamps policyVersion +custom and still answers", async () => {
     const res = await postWindows({
       start_date: "2026-06-12",
       end_date: "2026-06-27",
-      thresholds: { hardFloor: { minPeakTempC: 14 } },
+      thresholds: { minDays: 4 },
     });
     expect(res.status).toBe(200);
     const rec = Recommendation.parse(await res.json());
-    expect(rec.policyVersion).toBe("2026-06.2+custom");
-    expect(rec.windows.length).toBeGreaterThan(1); // floor lowered → more qualifying runs
+    expect(rec.policyVersion).toBe("2026-06.3+custom");
+    expect(rec.windows.length).toBeGreaterThan(0); // the 16-day fixture window still qualifies
   });
 
   it("an out-of-bounds override returns 400 INVALID_PARAMS", async () => {
     const res = await postWindows({
       start_date: "2026-06-12",
       end_date: "2026-06-27",
-      thresholds: { hardFloor: { minPeakTempC: 50 } },
+      thresholds: { minDays: 50 },
     });
     expect(res.status).toBe(400);
     const body = (await res.json()) as { error: { code: string } };

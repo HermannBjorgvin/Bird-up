@@ -32,7 +32,7 @@ Status: accepted · Last updated: 2026-06-12
 &forecast_days=16&wind_speed_unit=kmh&timezone=UTC&models=best_match
 ```
 
-- **Digest**: per site per day → `DailyDigest` ([01-architecture.md](01-architecture.md)). Daily fields map directly; `cloudMeanDaytimePct` = mean of hourly `cloud_cover` over 09–21 UTC. If hourly cloud digesting threatens a step's 10 ms CPU budget, drop `cloudMeanDaytimePct` to optional — it feeds no score component in policy `2026-06.2`.
+- **Digest**: per site per day → `DailyDigest` ([01-architecture.md](01-architecture.md)). Daily fields map directly; `cloudMeanDaytimePct` = mean of hourly `cloud_cover` over 09–21 UTC. If hourly cloud digesting threatens a step's 10 ms CPU budget, drop `cloudMeanDaytimePct` to optional — it feeds no score component in policy `2026-06.3`.
 - **Cadence**: `refresh-weather` workflow every 2 h → `wx:digest:v1` (~12 upstream batches/day — ~0.4% of Open-Meteo's free 10 k/day even with multi-point weighting).
 - **Attribution**: "Weather data by Open-Meteo.com" (CC BY 4.0).
 - **Notes**: `best_match` = DMI HARMONIE (2 km, ~2.5 days) spliced with ECMWF IFS (to 10 d) and global models (to 16 d). The ensemble API (`ensemble-api.open-meteo.com`) is the future confidence upgrade ([02-scoring-policy.md](02-scoring-policy.md), doors).

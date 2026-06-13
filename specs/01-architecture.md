@@ -124,7 +124,7 @@ The one contract consumed by MCP, REST and the website. The zod schema in `core/
 ```ts
 {
   generatedAt: string;            // ISO instant
-  policyVersion: string;          // e.g. "2026-06.2" or "2026-06.2+custom"
+  policyVersion: string;          // e.g. "2026-06.3" or "2026-06.3+custom"
   dataAge: {
     weatherFetchedAt: string; model: string; stale: boolean;
     campsitesFetchedAt: string; birdObsFetchedAt?: string;

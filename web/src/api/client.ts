@@ -7,11 +7,9 @@ import type { Campsite, Recommendation } from '../../../src/core/types'
  * the website can never drift from the single source of truth (CLAUDE.md hard rule 3).
  */
 
-/** The bounded override subset the threshold sliders expose (spec 02). Sent verbatim in the body. */
+/** The only override the website exposes (spec 02): the minimum window length. Sent verbatim. */
 export interface ThresholdOverrides {
-  hardFloor?: { minDays?: number; minPeakTempC?: number }
-  precip?: { hardMaxMmDay?: number }
-  gusts?: { hardMaxKmh?: number }
+  minDays?: number
 }
 
 export interface WindowsParams {
@@ -47,9 +45,7 @@ export function buildWindowsRequest(params: WindowsParams): BuiltRequest {
 }
 
 function hasOverride(t: ThresholdOverrides): boolean {
-  const leaf = (g?: Record<string, number | undefined>): boolean =>
-    g !== undefined && Object.values(g).some((v) => v !== undefined)
-  return leaf(t.hardFloor) || leaf(t.precip) || leaf(t.gusts)
+  return t.minDays !== undefined
 }
 
 /** The JSON error envelope every `/api/*` endpoint returns on failure (spec 03). */

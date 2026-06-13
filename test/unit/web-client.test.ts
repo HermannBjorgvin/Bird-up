@@ -24,27 +24,27 @@ describe("buildWindowsRequest", () => {
     expect(req.url).toBe("/api/windows?start_date=2026-06-13&end_date=2026-06-27");
   });
 
-  it("uses GET when a thresholds object is present but every field is empty (no-op override)", () => {
+  it("uses GET when a thresholds object is present but empty (no-op override)", () => {
     const req = buildWindowsRequest({
       start_date: "2026-06-13",
       end_date: "2026-06-27",
-      thresholds: { hardFloor: {}, precip: {}, gusts: {} },
+      thresholds: {},
     });
     expect(req.method).toBe("GET");
   });
 
-  it("uses POST with a JSON body when any override field is set", () => {
+  it("uses POST with a JSON body when minDays is set", () => {
     const req = buildWindowsRequest({
       start_date: "2026-06-13",
       end_date: "2026-06-27",
-      thresholds: { hardFloor: { minPeakTempC: 14 } },
+      thresholds: { minDays: 5 },
     });
     expect(req.method).toBe("POST");
     expect(req.url).toBe("/api/windows");
     expect(JSON.parse(req.body!)).toEqual({
       start_date: "2026-06-13",
       end_date: "2026-06-27",
-      thresholds: { hardFloor: { minPeakTempC: 14 } },
+      thresholds: { minDays: 5 },
     });
   });
 });
@@ -63,7 +63,7 @@ describe("fetchWindows", () => {
     expect(calls[0]!.init?.headers).toBeUndefined();
 
     await fetchWindows(
-      { start_date: "2026-06-13", end_date: "2026-06-27", thresholds: { gusts: { hardMaxKmh: 50 } } },
+      { start_date: "2026-06-13", end_date: "2026-06-27", thresholds: { minDays: 5 } },
       fakeFetch,
     );
     expect(calls[1]!.init?.method).toBe("POST");
