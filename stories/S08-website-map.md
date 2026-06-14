@@ -113,6 +113,30 @@ enriched blob into KV (deploy + trigger the workflow, or wait for the Monday 03:
 panel filter stack, so all three sit together in order — **min trip · max drive · family-car** (min trip
 still re-queries; the other two stay client-side). The timeline header now shows just the range label.
 
+**Brush re-queries + clipped windows + drive-filtered bar (2026-06-14, reactivity pass — review feedback).**
+Three related fixes to how the brush, the date range and the filters propagate:
+1. **Drive/family-car filters now reach the timeline bar** (`App.tsx:barWindows`): a window whose sites are
+   all filtered out stops contributing heat, so days only good at far-away/offroad sites cool down — the bar
+   no longer contradicts the filtered map.
+2. **Windows are clipped to the brushed range, server-side and per-site precise.** The old model fetched the
+   full horizon once and filtered the brush in-browser by *overlap*, so a window could show dates spilling
+   past the brush, and per-site scores couldn't be recomputed for the sub-range. The brush now re-queries
+   `/api/windows` for its range (debounced); the service clips each window to the range and rescores it over
+   only those days (new pure `core/scoring/windows.ts:clipWindowToRange` — `findWindows` still runs the full
+   digest so confidence is measured from today; spec 02 gained a "Per-request date range" section + canonical
+   cases TC1–TC5). The owner chose this over client-side clipping precisely for the per-site accuracy only the
+   server (holding each site's daily digest) can give. The bar keeps its own full-horizon fetch; the app now
+   holds **two** window sets (`data.horizon` for the bar, `data.range` for the brushed sidebar/map, null when
+   the brush spans the whole horizon). `policyVersion` is **not** bumped — the scoring config is unchanged,
+   only request-range handling. A full-horizon request clips to a no-op, so MCP/REST full-range callers and
+   the existing worker tests are unaffected.
+3. **`min(minDays, rangeLength)` clamp** lives in `clipWindowToRange`: a brushed range shorter than the
+   min-trip-length relaxes the floor to the range length, so a 2-day brush still surfaces a 2-day window
+   instead of going empty. `windowsInRange` (the old in-browser overlap filter) was removed.
+   New/changed tests: `test/unit/clip-windows.test.ts` (7, TC1–TC5 + confidence + no-overlap), two sub-range
+   cases in `test/worker/windows.test.ts`, `web-timeline.test.ts` drops the `windowsInRange` block.
+   `npm run check` green (155 tests).
+
 **Checklist run — deployed `tjaldur.9z.is`, 2026-06-13 (version `2ddaee22`):**
 - ✅ Map loads with OSM raster tiles + Leaflet/OpenStreetMap attribution.
 - ✅ 244 campsite markers; at the default 18 °C floor mid-June yields 1 honest window (Mývatn, excellent,

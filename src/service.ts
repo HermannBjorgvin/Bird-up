@@ -2,7 +2,7 @@ import { z } from "zod";
 import { InvalidParamsError, StaleDataUnavailableError } from "./core/errors";
 import { assembleRecommendation, type SiteWindows } from "./core/recommend";
 import { DEFAULT_POLICY, mergePolicy } from "./core/scoring/policy";
-import { findWindows } from "./core/scoring/windows";
+import { clipWindowToRange, findWindows, type CoreWindow } from "./core/scoring/windows";
 import type { Campsite, DataAge, Recommendation } from "./core/types";
 import type { WeatherSource } from "./ports/weather";
 
@@ -61,11 +61,15 @@ export async function getWindows(params: WindowsParams, deps: ServiceDeps): Prom
   if (end > horizonEnd) throw new InvalidParamsError(`end_date is beyond the forecast horizon (through ${horizonEnd})`);
   if (start < horizonStart) throw new InvalidParamsError(`start_date is before the forecast horizon (from ${horizonStart})`);
 
-  // Score each site over the full horizon (baseline = the surrounding ~2 weeks), then keep
-  // windows overlapping the requested range; recommend.ts groups them by region.
+  // Score each site over the full horizon (baseline = the surrounding ~2 weeks), then clip each
+  // window to the requested range so it fits the caller's dates instead of spilling past them —
+  // rescored per-site over only the days in range (spec 02). A full-horizon request clips to a
+  // no-op. recommend.ts then groups the survivors by region.
   const sites: SiteWindows[] = withDigest.map(({ campsite, digest }) => ({
     campsite,
-    windows: findWindows(digest, policy).filter((w) => w.start <= end && w.end >= start),
+    windows: findWindows(digest, policy)
+      .map((w) => clipWindowToRange(w, start, end, horizonStart, policy))
+      .filter((w): w is CoreWindow => w !== null),
   }));
 
   const now = new Date();

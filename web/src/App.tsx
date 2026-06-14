@@ -11,7 +11,6 @@ import { defaultRange } from './lib/dates'
 import { curateGroups, groupByPlace, type PlaceGroup } from './lib/grouping'
 import { buildMarkers } from './lib/markers'
 import { filterCapabilities, FILTER_DEFAULTS, passingIds, type FilterState } from './lib/filters'
-import { windowsInRange } from './lib/timeline'
 import { THRESHOLD_DEFAULTS, type ThresholdValues, toOverrides } from './lib/overrides'
 
 /** Project the panel selection onto the map: markers to highlight + the points to fit bounds to. */
@@ -31,18 +30,27 @@ function deriveFocus(groups: PlaceGroup[], selection: Selection | null): MapFocu
 }
 
 type Range = { start: string; end: string }
-type Status = 'loading' | 'ready' | 'error'
-type Data = { rec: Recommendation | null; status: Status; error: string | null }
-type DataAction = { type: 'loading' } | { type: 'ready'; rec: Recommendation } | { type: 'error'; error: string }
+// Two window sets (spec 05 fetch model): `horizon` is the full forecast — it always feeds the bar.
+// `range` is the brushed sub-range, re-queried server-side so windows are clipped to the brush with
+// per-site-accurate scores; it feeds the sidebar + map. `range` is null when the brush spans the whole
+// horizon (then the sidebar reuses `horizon`, so no redundant fetch).
+type Data = { horizon: Recommendation | null; range: Recommendation | null; error: string | null }
+type DataAction =
+  | { type: 'horizonReady'; rec: Recommendation }
+  | { type: 'rangeReady'; rec: Recommendation }
+  | { type: 'rangeCleared' }
+  | { type: 'error'; error: string }
 
 function dataReducer(state: Data, action: DataAction): Data {
   switch (action.type) {
-    case 'loading':
-      return { ...state, status: 'loading' }
-    case 'ready':
-      return { rec: action.rec, status: 'ready', error: null }
+    case 'horizonReady':
+      return { ...state, horizon: action.rec, error: null }
+    case 'rangeReady':
+      return { ...state, range: action.rec, error: null }
+    case 'rangeCleared':
+      return { ...state, range: null }
     case 'error':
-      return { ...state, status: 'error', error: action.error }
+      return { ...state, error: action.error }
   }
 }
 
@@ -59,7 +67,7 @@ function App() {
 
   const [thresholds, setThresholds] = useState<ThresholdValues>(THRESHOLD_DEFAULTS)
   const [campsites, setCampsites] = useState<Campsite[]>([])
-  const [data, dispatch] = useReducer(dataReducer, { rec: null, status: 'loading', error: null })
+  const [data, dispatch] = useReducer(dataReducer, { horizon: null, range: null, error: null })
   // Panel view state grab-bag — selection, the "show all" curation toggle and the campsite filters —
   // held in one object to keep the useState count under the prefer-useReducer threshold.
   const [view, setView] = useState<{ selection: Selection | null; showAll: boolean; filters: FilterState }>({
@@ -78,22 +86,35 @@ function App() {
   const toggleShowAll = () => setView((v) => ({ ...v, showAll: !v.showAll }))
   const setFilters = (next: FilterState) => setView((v) => ({ ...v, filters: next }))
 
-  const { rec } = data
-  // The brush narrows map + sidebar together; the timeline bar still gets the full window set.
-  const visible = rec ? { ...rec, windows: windowsInRange(rec.windows, selected) } : null
-  // Campsite filters (family-car / drive cap) narrow both the base layer and each window's campsites,
-  // so the map markers and the sidebar drop the same sites; the timeline (weather) is left untouched.
+  // Sidebar + map read the brushed set (server-clipped to the brush); the bar reads the full horizon.
+  // Before the first brush they're the same fetch, so `range` is null and the sidebar reuses `horizon`.
+  const sidebarRec = data.range ?? data.horizon
   const keepIds = passingIds(campsites, filters)
   const baseCampsites = keepIds ? campsites.filter((c) => keepIds.has(c.id)) : campsites
-  const filtered =
-    keepIds && visible
-      ? { ...visible, windows: visible.windows.map((w) => ({ ...w, campsites: w.campsites.filter((c) => keepIds.has(c.id)) })) }
-      : visible
+  // Campsite filters (family-car / drive cap) narrow both the base layer and each window's campsites;
+  // a window left with no passing site drops out (so the map + sidebar agree on what's reachable).
+  const filtered = sidebarRec
+    ? {
+        ...sidebarRec,
+        windows: (keepIds
+          ? sidebarRec.windows.map((w) => ({ ...w, campsites: w.campsites.filter((c) => keepIds.has(c.id)) }))
+          : sidebarRec.windows
+        ).filter((w) => w.campsites.length > 0),
+      }
+    : null
   const markers = buildMarkers(baseCampsites, filtered)
   const allGroups = groupByPlace(filtered)
   const curated = curateGroups(allGroups, showAll) // default hides the weak tail; toggle reveals all
   const focus = deriveFocus(allGroups, selection) // focus over the full set, not just the curated view
   const capabilities = filterCapabilities(campsites)
+  // The bar always paints the whole forecast (never clipped to the brush), but reacts to the campsite
+  // filters: a window whose sites are all filtered out stops contributing heat, so days only good at
+  // far-away/offroad sites cool down on the bar too.
+  const barWindows = data.horizon
+    ? keepIds
+      ? data.horizon.windows.filter((w) => w.campsites.some((c) => keepIds.has(c.id)))
+      : data.horizon.windows
+    : []
 
   // Load the campsite base layer once (every site shows; window scores color it).
   useEffect(() => {
@@ -110,17 +131,36 @@ function App() {
     }
   }, [])
 
-  // Fetch the whole horizon (debounced); the brush filters client-side, so this re-queries only when
-  // `thresholds` (minDays) changes — `horizon`'s identity is stable across brush moves. Depend on the
-  // stable state, not the derived `overrides` (its fresh identity each render would loop); recompute
-  // `overrides` inside the timer. setState happens only in the async timer/promise callbacks.
+  // Full-horizon fetch — the bar's source. Re-queries only when `minDays` changes (the horizon range
+  // is otherwise fixed). Depend on the stable primitives, not the derived `overrides` object (its fresh
+  // identity each render would loop); recompute `overrides` inside the effect.
   useEffect(() => {
     let cancelled = false
+    fetchWindows({ start_date: horizon.start, end_date: horizon.end, thresholds: toOverrides(thresholds) })
+      .then((r) => {
+        if (!cancelled) dispatch({ type: 'horizonReady', rec: r })
+      })
+      .catch((err: unknown) => {
+        if (!cancelled) dispatch({ type: 'error', error: err instanceof ApiError ? err.message : 'network error' })
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [horizon.start, horizon.end, thresholds])
+
+  // Brushed fetch — the sidebar/map source, server-clipped to the selected sub-range with per-site
+  // scores. Debounced so a drag doesn't fire per pixel. When the brush spans the whole horizon there's
+  // nothing extra to fetch — clear `range` and let the sidebar reuse the horizon result.
+  useEffect(() => {
+    if (selected.start === horizon.start && selected.end === horizon.end) {
+      dispatch({ type: 'rangeCleared' })
+      return
+    }
+    let cancelled = false
     const timer = setTimeout(() => {
-      dispatch({ type: 'loading' })
-      fetchWindows({ start_date: horizon.start, end_date: horizon.end, thresholds: toOverrides(thresholds) })
+      fetchWindows({ start_date: selected.start, end_date: selected.end, thresholds: toOverrides(thresholds) })
         .then((r) => {
-          if (!cancelled) dispatch({ type: 'ready', rec: r })
+          if (!cancelled) dispatch({ type: 'rangeReady', rec: r })
         })
         .catch((err: unknown) => {
           if (!cancelled) dispatch({ type: 'error', error: err instanceof ApiError ? err.message : 'network error' })
@@ -130,7 +170,7 @@ function App() {
       cancelled = true
       clearTimeout(timer)
     }
-  }, [horizon, thresholds])
+  }, [selected.start, selected.end, horizon.start, horizon.end, thresholds])
 
   return (
     <>
@@ -143,7 +183,7 @@ function App() {
         </p>
       </header>
 
-      {(rec?.warnings ?? []).map((w) => (
+      {(data.horizon?.warnings ?? []).map((w) => (
         <div className="banner" key={w}>
           ⚠ {w}
         </div>
@@ -152,8 +192,8 @@ function App() {
       <div className="app__body">
         <MapView markers={markers} focus={focus} />
         <aside className="panel">
-          {data.status === 'loading' && <p className="status">Loading…</p>}
-          {data.status === 'error' && <p className="status error">Couldn’t load windows: {data.error}</p>}
+          {sidebarRec === null && data.error === null && <p className="status">Loading…</p>}
+          {data.error !== null && <p className="status error">Couldn’t load windows: {data.error}</p>}
           <Filters
             filters={filters}
             onChange={setFilters}
@@ -174,9 +214,9 @@ function App() {
         </aside>
       </div>
 
-      <Timeline windows={rec?.windows ?? []} horizon={horizon} selected={selected} onSelect={setSelected} />
+      <Timeline windows={barWindows} horizon={horizon} selected={selected} onSelect={setSelected} />
 
-      <Footer attribution={rec?.attribution ?? []} policyVersion={rec?.policyVersion ?? null} />
+      <Footer attribution={data.horizon?.attribution ?? []} policyVersion={data.horizon?.policyVersion ?? null} />
     </>
   )
 }

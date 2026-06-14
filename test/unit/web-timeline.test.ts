@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dailyHeat, enumerateDays, windowsInRange } from "../../web/src/lib/timeline";
+import { dailyHeat, enumerateDays } from "../../web/src/lib/timeline";
 import { heatColor, HEAT_FULL_SCORE } from "../../web/src/lib/color";
 import type { DailyScore, Region, Window } from "../../src/core/types";
 
@@ -51,19 +51,6 @@ describe("dailyHeat", () => {
     // window mean would be 20; the bar must show the per-day 5 and 35, not a flat 20.
     const windows = [win("a", "vik", "2026-06-13", "2026-06-14", [day("2026-06-13", 5), day("2026-06-14", 35)])];
     expect(dailyHeat(windows, "2026-06-13", "2026-06-14").map((h) => h.score)).toEqual([5, 35]);
-  });
-});
-
-describe("windowsInRange", () => {
-  const windows = [
-    win("before", "vik", "2026-06-10", "2026-06-12", []),
-    win("straddle", "hofn", "2026-06-12", "2026-06-15", []),
-    win("inside", "myvatn", "2026-06-14", "2026-06-14", []),
-    win("after", "hella", "2026-06-20", "2026-06-22", []),
-  ];
-  it("keeps windows overlapping the range, drops those entirely outside", () => {
-    const ids = windowsInRange(windows, { start: "2026-06-13", end: "2026-06-16" }).map((w) => w.id);
-    expect(ids).toEqual(["straddle", "inside"]);
   });
 });
 

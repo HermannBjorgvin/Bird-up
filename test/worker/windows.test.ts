@@ -67,6 +67,27 @@ describe("GET/POST /api/windows (served from KV)", () => {
     expect(rec.windows.map((w) => w.id)).toEqual(["reykjavik:2026-06-12:2026-06-27"]);
   });
 
+  it("clips a window to a requested sub-range instead of returning it whole (spec 02)", async () => {
+    const res = await getWindows("start_date=2026-06-15&end_date=2026-06-18");
+    expect(res.status).toBe(200);
+    const rec = Recommendation.parse(await res.json());
+    expect(rec.windows).toHaveLength(1);
+    const w = rec.windows[0]!;
+    expect(w.start).toBe("2026-06-15"); // clipped to the request, not the 2026-06-12 horizon start
+    expect(w.end).toBe("2026-06-18");
+    expect(w.days).toBe(4);
+    expect(w.daily.map((d) => d.date)).toEqual(["2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18"]);
+  });
+
+  it("a range shorter than minDays still returns a window (min(minDays, range) clamp)", async () => {
+    // Default minDays is 3; a 2-day range would yield nothing without the short-range relaxation.
+    const res = await getWindows("start_date=2026-06-15&end_date=2026-06-16");
+    expect(res.status).toBe(200);
+    const rec = Recommendation.parse(await res.json());
+    expect(rec.windows).toHaveLength(1);
+    expect(rec.windows[0]!.days).toBe(2);
+  });
+
   it("answers with zero subrequests at request time (KV only, no weather fetch)", async () => {
     const realFetch = globalThis.fetch;
     // Tests and the worker share one isolate in the post-0.13 pool, so this fake intercepts any

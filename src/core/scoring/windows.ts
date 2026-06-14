@@ -98,3 +98,49 @@ export function findWindows(digests: DailyDigest[], policy: ScoringPolicy): Core
 
   return windows;
 }
+
+/**
+ * Clip one window to a requested date range `[from, to]` (inclusive), rescoring it over only the days
+ * that survive — used when the caller asks for a sub-range so windows fit the request instead of
+ * spilling past it (spec 02 "Per-request date range"). `findWindows` still runs over the whole digest
+ * (so lead-time confidence is measured from the true first forecast day, `horizonStart`, not the clip);
+ * this trims the result afterwards. The minimum length relaxes to `min(minDays, range length)` so a
+ * range shorter than `minDays` still surfaces its best run rather than going empty. Returns `null` when
+ * the surviving run is shorter than that effective minimum (including no overlap at all).
+ */
+export function clipWindowToRange(
+  window: CoreWindow,
+  from: string,
+  to: string,
+  horizonStart: string,
+  policy: ScoringPolicy,
+): CoreWindow | null {
+  const daily = window.daily.filter((d) => d.date >= from && d.date <= to);
+  const rangeDays = daysBetween(from, to) + 1;
+  const effectiveMinDays = Math.min(policy.minDays, rangeDays);
+  if (daily.length < effectiveMinDays) return null;
+
+  const score = daily.reduce((s, d) => s + d.score, 0) / daily.length;
+  const tier: Tier =
+    score >= policy.tiers.excellentMinScore ? "excellent" : score >= policy.tiers.goodMinScore ? "good" : "marginal";
+
+  let confidence: Confidence = "high";
+  for (const d of daily) {
+    const lead = daysBetween(horizonStart, d.date) + 1;
+    const c = leadConfidence(lead, policy);
+    if (RANK[c] < RANK[confidence]) confidence = c;
+  }
+
+  const end = daily[daily.length - 1]!.date;
+  return {
+    start: daily[0]!.date,
+    end,
+    days: daily.length,
+    score,
+    tier,
+    confidence,
+    // Only still "may extend past the forecast" if the clip didn't trim the original final day.
+    mayExtend: window.mayExtend && end === window.end,
+    daily,
+  };
+}

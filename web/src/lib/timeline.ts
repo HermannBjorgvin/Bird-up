@@ -3,8 +3,8 @@ import { addDays } from './dates'
 
 /**
  * Pure helpers for the timeline bar (the heatmap + brush below the map). The bar always paints the
- * full forecast horizon; the brush filters the map and sidebar client-side. Iceland is UTC, so every
- * date is a plain YYYY-MM-DD and day enumeration is timezone-free.
+ * full forecast horizon; the brush sets the sub-range the sidebar/map re-query (server-side clipping,
+ * spec 02/05). Iceland is UTC, so every date is a plain YYYY-MM-DD and day enumeration is timezone-free.
  */
 
 export interface DayHeat {
@@ -33,9 +33,4 @@ export function dailyHeat(windows: readonly Window[], start: string, end: string
     }
   }
   return enumerateDays(start, end).map((date) => ({ date, score: best.get(date) ?? 0 }))
-}
-
-/** Windows overlapping the selected range (same semantics the server used): start ≤ end && end ≥ start. */
-export function windowsInRange(windows: readonly Window[], range: { start: string; end: string }): Window[] {
-  return windows.filter((w) => w.start <= range.end && w.end >= range.start)
 }

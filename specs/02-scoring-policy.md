@@ -68,6 +68,26 @@ Per site:
 
 Regional windows (what the API returns) merge per-site windows within one camping area (nearest-anchor grouping, [04-data-sources.md](04-data-sources.md)): the window's date range is the union of overlapping site windows; its score is the best site's; campsites within it are ranked by their own window scores.
 
+## Per-request date range (clipping)
+
+`findWindows` always runs over the **whole digest** (so lead-time confidence is measured from the true first forecast day, never from the request). The caller's `start_date`/`end_date` then **clip** each window to that range so a window fits the request instead of spilling past it — the website's date brush is exactly this. Clipping is a pure post-pass (`clipWindowToRange`), so the scoring config and the canonical table above are unchanged, and `policyVersion` is **not** bumped (only request-range handling changed, not the policy).
+
+Per window, given the request range `[from, to]`:
+
+1. **Keep** only the member days within `[from, to]`. A window with no overlap drops out.
+2. **Effective minimum:** the surviving run must be at least `min(minDays, rangeLength)` days, where `rangeLength` is the number of days in `[from, to]`. A range **shorter** than `minDays` relaxes the floor to the range length, so a 2-day brush still surfaces its best 2-day run rather than going empty. A range **at least** `minDays` long keeps the normal `minDays` floor (a partial overlap shorter than `minDays` is dropped).
+3. **Rescore** over the surviving days: `start`/`end`/`days` from the kept run, `score` = their mean `dayScore`, `tier` from that score, `confidence` = the worst surviving day's lead tier (still measured from the horizon start). `mayExtend` stays true only if the clip didn't trim the original final day.
+
+A **full-horizon** request (`[from, to]` covering the whole digest) clips to a no-op — every window survives unchanged — so existing full-range callers (MCP agents, the website's timeline-bar fetch) see no behavior change.
+
+| # | Case | Input sketch (defaults; warm = 18 °C dry calm fortnight from day 1) | Expected |
+|---|---|---|---|
+| TC1 | Sub-range clip | one horizon-spanning window, request days 4–7 | window clipped to days 4–7; `days: 4`; rescored over those 4 days |
+| TC2 | Full range | same window, request = whole horizon | unchanged (no-op) |
+| TC3 | Short range relaxes the floor | same window, request a 2-day range (`minDays` 3) | a 2-day window is returned (`min(3, 2) = 2`) |
+| TC4 | Partial overlap below floor in a long range | a 2-day run, request a 5-day range covering it | dropped (range ≥ `minDays`, so the 3-day floor applies) |
+| TC5 | Clip trims the final day | window reaching the horizon edge, request ends earlier | `mayExtend: false` |
+
 ## Per-request overrides
 
 Callers may override a single field (MCP `thresholds` argument / the website's min-days slider). zod-validated, `.strict()` (unknown keys rejected):
