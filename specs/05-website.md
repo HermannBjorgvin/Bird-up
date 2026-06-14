@@ -39,7 +39,7 @@ Status: accepted · Last updated: 2026-06-12
 
 - Campsite markers colored by their score within the selected date range (continuous scale green→grey; tier in the popup). Sites are **clustered** (leaflet.markercluster) into per-area counts that split on zoom; each cluster bubble tints to the best score inside it. Markers are divIcon dots: a filled, score-coloured dot where the site has a qualifying window, a small **hollow ring** where it has none (so "no window here" no longer reads as "bad weather here"). Popup: name, **lucide** facility icons, the quality line (`date-range · {tier} N/100`), a daily strip that stacks vertically (icon-labelled tMax/precip/gusts — no horizontal scrollbar), booking link (`bookingUrl`), "accepts Camping Card" badge.
 - Bird layer (toggle, off by default): markers for recent observations near recommended campsites; **unseen-this-year species visually emphasized**, already-seen dimmed; notable/rare flagged. Popup: common + scientific name, last seen date, location name, eBird link.
-- Selecting a placename in the side panel zooms/dims the map to that area's campsites; selecting a single campsite focuses that one marker. Selecting again clears.
+- Selecting a placename in the side panel zooms/dims the map to that area's campsites; selecting a single campsite focuses that one marker — un-clustering and zooming to it, then **opening its popup** so the sidebar pick and the map agree on what you chose. Selecting again clears.
 
 ### Side panel
 

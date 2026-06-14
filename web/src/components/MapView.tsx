@@ -36,6 +36,9 @@ export function MapView({ markers, focus }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<L.Map | null>(null)
   const layerRef = useRef<L.MarkerClusterGroup | null>(null)
+  // The single-site id whose popup we last auto-opened, so a marker rebuild (brush/filter) doesn't
+  // re-zoom for the same selection — it just re-opens the popup that clearLayers() closed.
+  const openedIdRef = useRef<string | null>(null)
 
   useEffect(() => {
     if (containerRef.current === null || mapRef.current !== null) return
@@ -71,6 +74,7 @@ export function MapView({ markers, focus }: Props) {
     layer.clearLayers()
 
     const built: L.Marker[] = []
+    const byId = new Map<string, L.Marker>()
     for (const m of markers) {
       const inFocus = focus === null || focus.ids.has(m.campsite.id)
       const marker = L.marker([m.campsite.lat, m.campsite.lng], {
@@ -79,12 +83,28 @@ export function MapView({ markers, focus }: Props) {
       marker.campsiteScore = m.bestScore // read by clusterIcon to tint the bubble
       marker.bindPopup(() => buildPopup(m))
       built.push(marker)
+      byId.set(m.campsite.id, marker)
     }
     layer.addLayers(built)
 
-    if (focus && focus.points.length > 0) {
-      const bounds = L.latLngBounds(focus.points)
-      map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 })
+    // A single-site selection (clicking a campsite row) reveals that marker and opens its popup — the
+    // sidebar and map agree on what you picked. A placename selection (many sites) just frames them.
+    const onlyId = focus && focus.ids.size === 1 ? focus.ids.values().next().value! : null
+    const target = onlyId !== null ? byId.get(onlyId) : undefined
+    if (onlyId !== null && target) {
+      if (openedIdRef.current === onlyId) {
+        target.openPopup() // same selection, layer was rebuilt — reopen without disturbing the zoom
+      } else {
+        // New pick: un-cluster + zoom so the marker is actually on screen, then open its popup.
+        layer.zoomToShowLayer(target, () => target.openPopup())
+        openedIdRef.current = onlyId
+      }
+    } else {
+      openedIdRef.current = null
+      if (focus && focus.points.length > 0) {
+        const bounds = L.latLngBounds(focus.points)
+        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 })
+      }
     }
   }, [markers, focus])
   /* eslint-enable react-doctor/no-event-handler */

@@ -137,6 +137,14 @@ Three related fixes to how the brush, the date range and the filters propagate:
    cases in `test/worker/windows.test.ts`, `web-timeline.test.ts` drops the `windowsInRange` block.
    `npm run check` green (155 tests).
 
+**Selecting a campsite opens its popup (2026-06-14, UX follow-up).** Clicking a campsite row used to only
+focus/zoom the marker; it now also opens that marker's popup so the sidebar pick and the map agree
+(`MapView.tsx`). Because sites are clustered, this uses markercluster's `zoomToShowLayer` to un-cluster +
+zoom to the marker, then opens the popup in its callback. An `openedIdRef` guards against re-zooming when the
+marker layer is merely rebuilt (a brush/filter change) under the same selection — it just re-opens the popup
+`clearLayers()` closed, leaving the user's pan/zoom alone. Placename (multi-site) selections still just frame
+the area. Web-only, no contract change.
+
 **Checklist run — deployed `tjaldur.9z.is`, 2026-06-13 (version `2ddaee22`):**
 - ✅ Map loads with OSM raster tiles + Leaflet/OpenStreetMap attribution.
 - ✅ 244 campsite markers; at the default 18 °C floor mid-June yields 1 honest window (Mývatn, excellent,
