@@ -154,7 +154,13 @@ function App() {
         <aside className="panel">
           {data.status === 'loading' && <p className="status">Loading…</p>}
           {data.status === 'error' && <p className="status error">Couldn’t load windows: {data.error}</p>}
-          <Filters filters={filters} onChange={setFilters} capabilities={capabilities} />
+          <Filters
+            filters={filters}
+            onChange={setFilters}
+            capabilities={capabilities}
+            minDays={thresholds.minDays}
+            onMinDays={(minDays) => setThresholds({ minDays })}
+          />
           <WindowsPanel
             groups={curated.groups}
             shown={curated.shown}
@@ -168,14 +174,7 @@ function App() {
         </aside>
       </div>
 
-      <Timeline
-        windows={rec?.windows ?? []}
-        horizon={horizon}
-        selected={selected}
-        onSelect={setSelected}
-        minDays={thresholds.minDays}
-        onMinDays={(minDays) => setThresholds({ minDays })}
-      />
+      <Timeline windows={rec?.windows ?? []} horizon={horizon} selected={selected} onSelect={setSelected} />
 
       <Footer attribution={rec?.attribution ?? []} policyVersion={rec?.policyVersion ?? null} />
     </>

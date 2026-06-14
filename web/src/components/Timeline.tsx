@@ -14,17 +14,16 @@ interface Props {
   horizon: Range
   selected: Range
   onSelect: (range: Range) => void
-  minDays: number
-  onMinDays: (days: number) => void
 }
 
 /**
  * The date control below the map (spec 05): a white bar painting the whole forecast horizon as a
  * white→green heatmap (each day's intensity = its best score across all windows, faded between days),
  * with date ticks beneath and two day-snapped brush handles that filter the map + sidebar client-side.
- * The min-trip-length slider lives in the head. Vanilla SVG + pointer drag — no slider dependency.
+ * Vanilla SVG + pointer drag — no slider dependency. (The min-trip-length slider now lives with the
+ * other campsite filters in the side panel, `Filters.tsx`.)
  */
-export function Timeline({ windows, horizon, selected, onSelect, minDays, onMinDays }: Props) {
+export function Timeline({ windows, horizon, selected, onSelect }: Props) {
   const days = enumerateDays(horizon.start, horizon.end)
   const n = days.length
   const heat = dailyHeat(windows, horizon.start, horizon.end)
@@ -62,19 +61,6 @@ export function Timeline({ windows, horizon, selected, onSelect, minDays, onMinD
     <div className="timeline">
       <div className="timeline__head">
         <span className="timeline__label">{formatRange(selected.start, selected.end)}</span>
-        <label className="timeline__mindays">
-          <span>Min trip length</span>
-          <input
-            type="range"
-            aria-label="Minimum trip length in days"
-            min={1}
-            max={7}
-            step={1}
-            value={minDays}
-            onChange={(e) => onMinDays(Number(e.target.value))}
-          />
-          <span className="timeline__mindays-val">{minDays}d</span>
-        </label>
       </div>
 
       <div className="timeline__track">

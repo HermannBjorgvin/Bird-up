@@ -109,6 +109,9 @@ attribute, so it degrades gracefully on a pre-refresh blob. New tests: `test/uni
 `drive-times.test.ts`, + a `offroad` case in `overrides.test.ts` (147 tests, `npm run check` green).
 **Operational note:** the live filters appear only after the next `refresh-campsites` run re-bakes the
 enriched blob into KV (deploy + trigger the workflow, or wait for the Monday 03:00 UTC cron).
+*Follow-up:* the **min-trip-length** slider was then moved out of the timeline-bar header into this
+panel filter stack, so all three sit together in order — **min trip · max drive · family-car** (min trip
+still re-queries; the other two stay client-side). The timeline header now shows just the range label.
 
 **Checklist run — deployed `tjaldur.9z.is`, 2026-06-13 (version `2ddaee22`):**
 - ✅ Map loads with OSM raster tiles + Leaflet/OpenStreetMap attribution.

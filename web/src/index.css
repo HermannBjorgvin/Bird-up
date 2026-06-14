@@ -290,27 +290,27 @@ body {
   cursor: pointer;
 }
 
-.filters__drive {
+.filters__range {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
   font-size: 0.85rem;
 }
 
-.filters__drive-head {
+.filters__range-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
 }
 
-.filters__drive-val {
+.filters__range-val {
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   color: var(--text-h);
 }
 
-.filters__drive input[type='range'] {
+.filters__range input[type='range'] {
   width: 100%;
 }
 
@@ -333,24 +333,6 @@ body {
   font-weight: 600;
   color: var(--text-h);
   font-variant-numeric: tabular-nums;
-}
-
-.timeline__mindays {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-}
-
-.timeline__mindays input[type='range'] {
-  width: 90px;
-}
-
-.timeline__mindays-val {
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  color: var(--text-h);
-  min-width: 1.4rem;
 }
 
 /* Track positions the handles; the bar inside it clips the heatmap. Handles live on the track so they

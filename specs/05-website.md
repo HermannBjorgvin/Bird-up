@@ -17,15 +17,15 @@ Status: accepted · Last updated: 2026-06-12
 
 ```
 ┌────────────────────────────────────────────────┬──────────────────────┐
-│                                                │  Recommended camps   │
-│                                                │  ▾ Vesturland · 77   │
-│              Leaflet map of Iceland            │     Bjarteyjar…  77  │
-│                                                │     Hamar        70  │
-│   ● campsite markers, colored by window score  │  ▾ Snæfellsnes · 64  │
-│   ▲ bird markers (optional layer)              │   Ólafsvík 14–17°C 64│
-│                                                │                      │
+│                                                │  Min trip ◄─▶3d      │
+│                                                │  Max drive ◄─▶ No lim │
+│              Leaflet map of Iceland            │  ☐ Family-car only    │
+│                                                │ ─────────────────────│
+│   ● campsite markers, colored by window score  │  Recommended camps   │
+│   ▲ bird markers (optional layer)              │  ▾ Vesturland · 77   │
+│                                                │     Bjarteyjar…  77  │
 ├────────────────────────────────────────────────┴──────────────────────┤
-│  Jun 13–20                       Min trip length ◄──▶ 3d                │
+│  Jun 13–20                                                              │
 │  ▐░░▓▓██▓▓░░░░░░░░░░▌  ⟵grip handles brush a sub-range; white→green/day │
 │  Jun13   Jun16   Jun19   Jun22   Jun25  Jun27   ⟵ date ticks            │
 ├───────────────────────────────────────┬───────────────────────────────┤
@@ -47,14 +47,18 @@ Recommended campsites grouped under their **placename anchor** (the `region`, [r
 
 ### Date range — timeline bar (below the map)
 
-A full-width horizontal bar that **always paints the whole forecast horizon** as a per-day heatmap of **green at a score-driven alpha** over the bar's theme-aware background (white in light mode, dark in dark mode — so no bright patches on the dark bar): each day's intensity is its best score across all weather windows (`max` of the per-day `DailyScore.score`; the background shows through where no window covers it), faded smoothly between days at full height. Absolute scale, fully green at score ≥ 40. The **date ticks are hidden on mobile** (they crowd a narrow bar); the range label still shows. **Date ticks** with labels run beneath the bar. Two day-snapped **brush handles** (thick, with a lucide `GripVertical` grab indicator) select a sub-range that filters the **map markers and the sidebar** client-side; the bar itself never shrinks. The selected range shows as a label. The **minimum trip length** slider (`minDays`, 1–7 — the only overridable field in [02-scoring-policy.md](02-scoring-policy.md)) lives in the bar's header; changing it re-queries.
+A full-width horizontal bar that **always paints the whole forecast horizon** as a per-day heatmap of **green at a score-driven alpha** over the bar's theme-aware background (white in light mode, dark in dark mode — so no bright patches on the dark bar): each day's intensity is its best score across all weather windows (`max` of the per-day `DailyScore.score`; the background shows through where no window covers it), faded smoothly between days at full height. Absolute scale, fully green at score ≥ 40. The **date ticks are hidden on mobile** (they crowd a narrow bar); the range label still shows. **Date ticks** with labels run beneath the bar. Two day-snapped **brush handles** (thick, with a lucide `GripVertical` grab indicator) select a sub-range that filters the **map markers and the sidebar** client-side; the bar itself never shrinks. The selected range shows as the bar's header label. (The **minimum trip length** slider has moved out of the bar's header into the side-panel filters — see Controls.)
 
 **Fetch model:** `/api/windows` scores every window over the full horizon and only *filters the returned list* by date, so a full-horizon response is a superset of any sub-range — the site fetches the whole horizon **once** and the brush filters in-browser (instant, and the bar keeps full data). The API is re-queried only when the `minDays` slider changes.
 
 ### Controls
 
-- **Minimum trip length** (`minDays`): the only overridable scoring field ([02-scoring-policy.md](02-scoring-policy.md), 1–7). Lives in the timeline bar's header (above); a non-default value goes into the API call's `thresholds` and the response `policyVersion` ends `+custom`. The website invents no scoring of its own. (The soft-factor model `2026-06.3` has no hard caps to expose: warmth, wind and rain are continuous score factors, not user-set thresholds.)
-- **Campsite filters** (top of the side panel, `web/src/components/Filters.tsx` + `lib/filters.ts`): two **client-side** filters over the static per-site attributes ([04-data-sources.md](04-data-sources.md)) — they never re-query, narrowing the **map markers and the sidebar together** (the timeline weather bar is left untouched). (1) a **family-car-accessible-only** toggle that hides `offroad` highland/F-road sites; (2) a **max-drive-from-Reykjavík** slider (30-min steps, rightmost = "No limit") over `driveMinutesFromReykjavik`. A site of *unknown* drive distance is excluded once a cap is set (not guessed). Each control only renders when the loaded campsite data actually carries that attribute (`filterCapabilities`), so neither is a dead no-op before the enriched refresh lands — and old data degrades gracefully. The slider's upper bound is the longest known drive.
+- **Filters** (top of the side panel, `web/src/components/Filters.tsx` + `lib/filters.ts`), in display order:
+  1. **Minimum trip length** (`minDays`): the only overridable scoring field ([02-scoring-policy.md](02-scoring-policy.md), 1–7). A non-default value goes into the API call's `thresholds`, the response `policyVersion` ends `+custom`, and changing it **re-queries** (debounced) — unlike the two below, which are client-side. The website invents no scoring of its own. (The soft-factor model `2026-06.3` has no hard caps to expose: warmth, wind and rain are continuous score factors, not user-set thresholds.)
+  2. **Max drive from Reykjavík**: a slider (30-min steps, rightmost = "No limit") over `driveMinutesFromReykjavik` ([04-data-sources.md](04-data-sources.md)). A site of *unknown* drive distance is excluded once a cap is set (not guessed). Upper bound is the longest known drive.
+  3. **Family-car accessible only**: a toggle that hides `offroad` highland/F-road sites.
+
+  The drive + family-car filters are **client-side** — they never re-query, narrowing the **map markers and the sidebar together** (the timeline weather bar is left untouched). Each of those two only renders when the loaded campsite data carries its attribute (`filterCapabilities`), so neither is a dead no-op before the enriched refresh lands; min trip length is always shown.
 - **My birds**: textarea for pasted species (one per line) + file input for `MyEBirdData.csv`. Shows the resulting count ("142 species seen in 2026") and a clear button.
 
 ## Seen-list handling
