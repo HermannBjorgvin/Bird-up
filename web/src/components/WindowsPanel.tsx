@@ -3,10 +3,12 @@ import { formatRange } from '../lib/dates'
 import { tierScore } from '../lib/format'
 import { peakTempRange, type PlaceGroup } from '../lib/grouping'
 
+// Categorical tier dots in the design-system palette: moss-green (excellent) → olive (good) →
+// warm khaki-brown (marginal). Distinct from the slate "no qualifying window" cue.
 const TIER_COLOR: Record<Window['tier'], string> = {
-  excellent: '#15803d',
-  good: '#65a30d',
-  marginal: '#9ca3af',
+  excellent: '#5d7d3a',
+  good: '#8b9b45',
+  marginal: '#a98f6f',
 }
 
 export type Selection = { kind: 'place'; region: Region } | { kind: 'site'; id: string }

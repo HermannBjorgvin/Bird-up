@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev web",
+    "dev:remote": "VITE_API_BASE=https://tjaldur.9z.is vite dev web",
     "build": "vite build web",
     "test": "vitest run",
     "lint": "eslint . --max-warnings 4",

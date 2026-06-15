@@ -1,32 +1,111 @@
 :root {
-  --text: #3b3645;
-  --text-h: #08060d;
-  --bg: #fff;
-  --panel: #f7f7f8;
-  --border: #e5e4e7;
-  --ok: #1a7f37;
-  --error: #cf222e;
-  --warn-bg: #fff4d6;
-  --warn-text: #7a5b00;
+  /* ── Palette ──────────────────────────────────────────────────────────────────────
+     Five colors extracted from the design inspiration, plus two derived companions:
+     `moss-green` (a green of similar muted saturation to the brown-red/gold/slate, so the
+     warm "good weather" data scale stays on-brand) and `wood-brown` (the dark-cabin surface). */
+  --royal-gold: #f1cc5b;
+  --blue-slate: #5e7481;
+  --dust-grey: #dfdcd4;
+  --brown-red: #9f3128;
+  --khaki-beige: #bea08c;
+  --moss-green: #5d7d3a; /* derived */
+  --wood-brown: #2e241b; /* derived */
+
+  /* Dark map-tile filter, named once so the two selectors that apply it (OS-dark + forced-dark) share it. */
+  --tile-dark: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) sepia(0.25);
+
+  /* ── Semantic tokens — light-dark(lightValue, darkValue) ──────────────────────────────
+     Light = warm field-guide; dark = old wood cabin (deep walnut, parchment text, gold + terracotta).
+     `light-dark()` keys off the used `color-scheme`, so the header toggle just flips that (below). */
+  --text: light-dark(#4a4034, #c7b8a2); /* body: warm brown-grey / parchment */
+  --text-h: light-dark(#2a2017, #f1e7d4); /* headings: espresso / cream */
+  --bg: light-dark(#faf7f0, #2e241b); /* paper / wood — cards, header, timeline bar */
+  --panel: light-dark(#e7e1d3, #241b13); /* dust-grey / deep espresso side panel */
+  --border: light-dark(#cdc4b1, #463524); /* khaki / wood-grain hairline */
+  --accent: light-dark(#9f3128, #d97559); /* brown-red / terracotta — links, active states */
+  --brand: light-dark(#c8971c, #f1cc5b); /* deeper gold / royal-gold — wordmark */
+  --ok: light-dark(#5d7d3a, #8fb15c); /* moss / lighter moss — positive (camping card) */
+  --error: light-dark(#c0392b, #e5736a);
+  --warn-bg: light-dark(#f7eac2, #3a2c12);
+  --warn-text: light-dark(#6e5210, #e8c25b);
+  --empty: light-dark(#6e8088, #8a969e); /* muted slate — "no qualifying window" marker ring */
+  --muted: light-dark(#6b5d49, #b3a48d); /* secondary text (row meta, eyebrows): softer but still AA-legible */
+  --track: light-dark(#c7bea9, #9a8d79); /* the unfilled slider groove — light in both themes */
 
   font: 16px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: light dark;
+  color-scheme: light dark; /* default: follow the OS */
   color: var(--text);
   background: var(--bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --panel: #1d1f27;
-    --border: #2e303a;
-    --ok: #3fb950;
-    --error: #f85149;
-    --warn-bg: #3a2f0a;
-    --warn-text: #e3b341;
-  }
+/* The header theme toggle sets data-theme; `system` removes it, falling back to the OS line above. */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* Filter sliders, fully custom (the native unfilled track renders dark on some platforms, no matter the
+   color-scheme — there's no standard property for just that track). A light --track groove with a
+   royal-gold fill (matching the timeline bar) and a round gold thumb. The fill: Blink reads `--pct`
+   (set per-slider in Filters.tsx) for the gradient stop; Firefox uses its native ::-moz-range-progress. */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 15px;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--royal-gold) var(--pct, 0%), var(--track) var(--pct, 0%));
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -4.5px; /* centre the 15px thumb on the 6px track */
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--royal-gold);
+  border: 2px solid var(--bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--track);
+}
+
+input[type='range']::-moz-range-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--royal-gold);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--royal-gold);
+  border: 2px solid var(--bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+input[type='checkbox'] {
+  accent-color: var(--accent);
 }
 
 body {
@@ -41,8 +120,33 @@ body {
 }
 
 .app__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 0.6rem 1rem;
   border-bottom: 1px solid var(--border);
+}
+
+/* The theme toggle: a small square icon button (Monitor / Sun / Moon) at the header's right edge. */
+.theme-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .app__header h1 {
@@ -58,7 +162,7 @@ body {
 }
 
 .app__logo {
-  color: var(--ok);
+  color: var(--brand);
 }
 
 .app__header .pitch {
@@ -79,12 +183,26 @@ body {
   min-height: 360px;
 }
 
+/* Aged-paper map: warm the bright OSM raster toward a vintage field-map look. A CSS filter on the tile
+   pane only — no tile-provider swap, so the free, token-less OSM source (and its attribution) stays
+   exactly as spec 05 requires. Dark mode overrides this below with the wood-cabin tint. */
+.leaflet-tile-pane {
+  filter: sepia(0.5) saturate(0.72) brightness(1.05) contrast(0.88) hue-rotate(-8deg);
+}
+
 /* Dark mode: tint the OSM raster tiles dark. Only the tile pane is filtered — markers, popups, the
-   zoom/attribution controls live in other panes and keep their colours. Same OSM source/attribution. */
+   zoom/attribution controls live in other panes and keep their colours. Same OSM source/attribution.
+   Applies when the OS is dark and the user hasn't forced light, or when the user has forced dark — so
+   the map tracks the same theme as the `light-dark()` tokens. (filter isn't a color, so it can't ride
+   light-dark(); these two selectors are the equivalent.) */
 @media (prefers-color-scheme: dark) {
-  .leaflet-tile-pane {
-    filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+  :root:not([data-theme='light']) .leaflet-tile-pane {
+    filter: var(--tile-dark);
   }
+}
+
+:root[data-theme='dark'] .leaflet-tile-pane {
+  filter: var(--tile-dark);
 }
 
 .panel {
@@ -150,7 +268,7 @@ body {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  opacity: 0.6;
+  color: var(--muted);
   margin: 0 0 0.4rem;
 }
 
@@ -178,7 +296,7 @@ body {
 }
 
 .place-group__header[aria-pressed='true'] {
-  outline: 2px solid var(--ok);
+  outline: 2px solid var(--accent);
 }
 
 .place-group__name {
@@ -220,8 +338,8 @@ body {
 }
 
 .site-row[aria-pressed='true'] {
-  border-left-color: var(--ok);
-  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  border-left-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .site-row__name {
@@ -230,16 +348,8 @@ body {
 
 .site-row__meta {
   font-size: 0.78rem;
-  opacity: 0.8;
+  color: var(--muted);
   font-variant-numeric: tabular-nums;
-}
-
-/* The dimmed meta is too faint on the dark panel — give it its own legible colour at full opacity. */
-@media (prefers-color-scheme: dark) {
-  .site-row__meta {
-    opacity: 1;
-    color: #c2c8d2;
-  }
 }
 
 .tier-dot {
@@ -451,30 +561,21 @@ body {
   opacity: 1;
 }
 
-/* Map markers + clusters — divIcon dots (leaflet's default white icon box is overridden away) */
-.cmark-wrap,
+/* Map markers + clusters — divIcons (leaflet's default white icon box is overridden away) */
+.cpin-wrap,
 .ccluster-wrap {
   background: transparent;
   border: 0;
 }
 
-.cmark {
+/* A teardrop campsite pin (SVG inside), lifted off the map with a soft shadow. */
+.cpin {
   display: block;
-  border-radius: 50%;
-  box-sizing: border-box;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.45));
 }
 
-.cmark--scored {
-  border: 1px solid rgba(0, 0, 0, 0.35);
-}
-
-.cmark--empty {
-  border: 1.5px solid #9ca3af;
-  background: transparent;
-}
-
-.cmark--dim {
-  opacity: 0.35;
+.cpin--dim {
+  opacity: 0.4;
 }
 
 .ccluster {
@@ -484,20 +585,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  /* color is set inline per-bubble (luminance-aware: dark digits on light khaki, cream on moss/slate) */
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Popups */
 .popup__name {
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 0.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-h);
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .popup__facilities {
@@ -555,7 +658,32 @@ body {
 }
 
 .popup a {
-  color: var(--ok);
+  color: var(--accent);
+}
+
+/* Theme Leaflet's own chrome (popup box + tip, zoom buttons) so the popup is paper in light, walnut in
+   dark — never the stark-white default. Scoped under `.leaflet-container` to out-specify Leaflet's own
+   single-class rules: its stylesheet is imported after this file, so equal-specificity rules would lose. */
+.leaflet-container .leaflet-popup-content-wrapper,
+.leaflet-container .leaflet-popup-tip {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.leaflet-container .leaflet-popup-content-wrapper {
+  border: 1px solid var(--border);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-container .leaflet-popup-close-button {
+  color: var(--text);
+}
+
+.leaflet-container .leaflet-bar a,
+.leaflet-container .leaflet-bar a:hover {
+  background: var(--bg);
+  color: var(--text-h);
+  border-bottom-color: var(--border);
 }
 
 /* Footer */

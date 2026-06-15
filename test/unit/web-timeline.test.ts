@@ -55,10 +55,10 @@ describe("dailyHeat", () => {
 });
 
 describe("heatColor", () => {
-  it("is transparent green at 0 and opaque green at the full-score cap", () => {
-    expect(heatColor(0)).toBe("rgba(21, 128, 61, 0)");
-    expect(heatColor(HEAT_FULL_SCORE)).toBe("rgba(21, 128, 61, 1)");
-    expect(heatColor(1000)).toBe("rgba(21, 128, 61, 1)"); // clamped
+  it("is transparent gold at 0 and opaque gold at the full-score cap", () => {
+    expect(heatColor(0)).toBe("rgba(241, 204, 91, 0)");
+    expect(heatColor(HEAT_FULL_SCORE)).toBe("rgba(241, 204, 91, 1)");
+    expect(heatColor(1000)).toBe("rgba(241, 204, 91, 1)"); // clamped
   });
   it("ramps alpha monotonically with score (the bar background shows through the gaps)", () => {
     const alpha = (c: string) => Number(c.slice(c.lastIndexOf(",") + 1, -1));

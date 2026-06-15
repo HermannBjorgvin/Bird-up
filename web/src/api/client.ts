@@ -27,6 +27,12 @@ export interface BuiltRequest {
 const WINDOWS_PATH = '/api/windows'
 const CAMPSITES_PATH = '/api/campsites'
 
+// Dev-only: prefix every request with the deployed worker's origin when VITE_API_BASE is set, so we
+// can style locally against real KV data (spec 05). Empty in tests and production builds → same-origin
+// relative paths, so the request URLs (and the tests asserting them) are unchanged. Read defensively:
+// `import.meta.env` is Vite-only, absent under the node/worker tsconfig that also compiles this file.
+const API_BASE = (import.meta as unknown as { env?: { VITE_API_BASE?: string } }).env?.VITE_API_BASE ?? ''
+
 /** GET when there are no overrides (cacheable), POST with a JSON body when the sliders are touched. */
 export function buildWindowsRequest(params: WindowsParams): BuiltRequest {
   if (params.thresholds && hasOverride(params.thresholds)) {
@@ -64,7 +70,7 @@ type FetchFn = typeof fetch
 
 export async function fetchWindows(params: WindowsParams, fetchFn: FetchFn = fetch): Promise<Recommendation> {
   const req = buildWindowsRequest(params)
-  const res = await fetchFn(req.url, {
+  const res = await fetchFn(API_BASE + req.url, {
     method: req.method,
     headers: req.body === null ? undefined : { 'content-type': 'application/json' },
     body: req.body ?? undefined,
@@ -81,7 +87,7 @@ export interface CampsiteList {
 }
 
 export async function fetchCampsites(fetchFn: FetchFn = fetch): Promise<CampsiteList> {
-  const res = await fetchFn(CAMPSITES_PATH)
+  const res = await fetchFn(API_BASE + CAMPSITES_PATH)
   return (await unwrap(res)) as CampsiteList
 }
 

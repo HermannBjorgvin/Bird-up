@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet.markercluster'
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import type { Facilities } from '../../../src/core/types'
-import { scoreToColor } from '../lib/color'
+import { scoreToColor, textOn } from '../lib/color'
 import { formatDay, formatRange } from '../lib/dates'
 import { tierScore } from '../lib/format'
 import { svgIcon, type IconName } from '../lib/icons'
@@ -115,15 +115,25 @@ export function MapView({ markers, focus }: Props) {
 /** A campsite marker carrying its best score, so a cluster can tint itself to the best site inside it. */
 type ScoredMarker = L.Marker & { campsiteScore: number | null }
 
-/** A campsite dot: filled + score-coloured when it has a window, a small hollow ring when it has none. */
+// A classic cartographic teardrop, tip at (12, 22) of the 24×24 box — drawn as an SVG pin so it reads
+// as a map marker, not a dot. The marker carries no user text, so an SVG string (vs createElementNS) is
+// safe here; only the score color (a controlled hex) is interpolated.
+const PIN_PATH = 'M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z'
+
+/** A campsite pin: filled + score-coloured (cream centre) when it has a window; an outline pin when not. */
 function campsiteIcon(score: number | null, inFocus: boolean): L.DivIcon {
   const hasWindow = score !== null
-  const size = hasWindow ? (inFocus ? 16 : 12) : 9
-  const classes = ['cmark', hasWindow ? 'cmark--scored' : 'cmark--empty']
-  if (!inFocus) classes.push('cmark--dim')
-  const bg = hasWindow ? `background:${scoreToColor(score)};` : ''
-  const html = `<span class="${classes.join(' ')}" style="${bg}width:${size}px;height:${size}px"></span>`
-  return L.divIcon({ html, className: 'cmark-wrap', iconSize: [size, size], iconAnchor: [size / 2, size / 2] })
+  const size = hasWindow ? (inFocus ? 34 : 26) : 20
+  const dim = inFocus ? '' : ' cpin--dim'
+  const svg = hasWindow
+    ? `<svg viewBox="0 0 24 24" width="100%" height="100%">` +
+      `<path d="${PIN_PATH}" fill="${scoreToColor(score)}" stroke="rgba(0,0,0,0.4)" stroke-width="1"/>` +
+      `<circle cx="12" cy="9" r="2.7" fill="#faf7f0"/></svg>`
+    : `<svg viewBox="0 0 24 24" width="100%" height="100%">` +
+      `<path d="${PIN_PATH}" fill="none" style="stroke:var(--empty)" stroke-width="2"/></svg>`
+  const html = `<div class="cpin${dim}" style="width:${size}px;height:${size}px">${svg}</div>`
+  // Anchor the location at the pin's tip (≈ 0.92 down the box), not its centre.
+  return L.divIcon({ html, className: 'cpin-wrap', iconSize: [size, size], iconAnchor: [size / 2, size * 0.92] })
 }
 
 /** A cluster bubble: count, tinted to the best child score (grey when nothing inside has a window). */
@@ -133,8 +143,9 @@ function clusterIcon(cluster: L.MarkerCluster): L.DivIcon {
     const s = (c as ScoredMarker).campsiteScore
     if (s !== null && (best === null || s > best)) best = s
   }
-  const color = best === null ? '#9ca3af' : scoreToColor(best)
-  const html = `<div class="ccluster" style="background:${color}"><span>${cluster.getChildCount()}</span></div>`
+  const color = scoreToColor(best) // null (no scored child) → the muted-slate "no window" hue
+  const fg = textOn(color) // dark digits on a light khaki bubble, cream on a moss/slate one
+  const html = `<div class="ccluster" style="background:${color};color:${fg}"><span>${cluster.getChildCount()}</span></div>`
   return L.divIcon({ html, className: 'ccluster-wrap', iconSize: [34, 34] })
 }
 

@@ -5,6 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tjaldur — Iceland camping weather windows</title>
+    <script>
+      // Apply a saved (non-system) theme before first paint so the page doesn't flash the OS theme.
+      // Mirrors ThemeToggle's `tjaldur:theme:v1` key; `system` (or unset) leaves color-scheme to follow the OS.
+      try {
+        var t = localStorage.getItem('tjaldur:theme:v1');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

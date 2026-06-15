@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { formatDuration } from '../lib/format'
 import type { FilterCapabilities, FilterState } from '../lib/filters'
 
@@ -7,6 +8,13 @@ interface Props {
   capabilities: FilterCapabilities
   minDays: number
   onMinDays: (days: number) => void
+}
+
+/** The filled fraction of a range slider as a `--pct` CSS var, read by the gold-fill gradient (index.css). */
+function fillPct(value: number, min: number, max: number): CSSProperties {
+  const denom = max - min
+  const pct = denom <= 0 ? 100 : ((value - min) / denom) * 100
+  return { '--pct': `${pct}%` } as CSSProperties
 }
 
 /**
@@ -36,6 +44,7 @@ export function Filters({ filters, onChange, capabilities, minDays, onMinDays }:
           max={7}
           step={1}
           value={minDays}
+          style={fillPct(minDays, 1, 7)}
           onChange={(e) => onMinDays(Number(e.target.value))}
         />
       </label>
@@ -53,6 +62,7 @@ export function Filters({ filters, onChange, capabilities, minDays, onMinDays }:
             max={sliderMax}
             step={30}
             value={sliderValue}
+            style={fillPct(sliderValue, 30, sliderMax)}
             onChange={(e) => {
               const v = Number(e.target.value)
               onChange({ ...filters, maxDriveMinutes: v >= sliderMax ? null : v })

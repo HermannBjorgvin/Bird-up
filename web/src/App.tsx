@@ -6,6 +6,7 @@ import { WindowsPanel, type Selection } from './components/WindowsPanel'
 import { Filters } from './components/Filters'
 import { Timeline } from './components/Timeline'
 import { Footer } from './components/Footer'
+import { ThemeToggle } from './components/ThemeToggle'
 import { Tent } from 'lucide-react'
 import { defaultRange } from './lib/dates'
 import { curateGroups, groupByPlace, type PlaceGroup } from './lib/grouping'
@@ -175,12 +176,15 @@ function App() {
   return (
     <>
       <header className="app__header">
-        <h1>
-          <Tent className="app__logo" size={20} aria-hidden="true" /> Tjaldur
-        </h1>
-        <p className="pitch">
-          Warm, calm and dry camping windows in Iceland’s two-week forecast, and the campsites inside them.
-        </p>
+        <div className="app__titles">
+          <h1>
+            <Tent className="app__logo" size={20} aria-hidden="true" /> Tjaldur
+          </h1>
+          <p className="pitch">
+            Warm, calm and dry camping windows in Iceland’s two-week forecast, and the campsites inside them.
+          </p>
+        </div>
+        <ThemeToggle />
       </header>
 
       {(data.horizon?.warnings ?? []).map((w) => (
@@ -216,7 +220,7 @@ function App() {
 
       <Timeline windows={barWindows} horizon={horizon} selected={selected} onSelect={setSelected} />
 
-      <Footer attribution={data.horizon?.attribution ?? []} policyVersion={data.horizon?.policyVersion ?? null} />
+      <Footer attribution={data.horizon?.attribution ?? []} />
     </>
   )
 }
