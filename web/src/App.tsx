@@ -71,12 +71,13 @@ function App() {
   const [data, dispatch] = useReducer(dataReducer, { horizon: null, range: null, error: null })
   // Panel view state grab-bag — selection, the "show all" curation toggle and the campsite filters —
   // held in one object to keep the useState count under the prefer-useReducer threshold.
-  const [view, setView] = useState<{ selection: Selection | null; showAll: boolean; filters: FilterState }>({
+  const [view, setView] = useState<{ selection: Selection | null; showAll: boolean; filters: FilterState; includeBirds: boolean }>({
     selection: null,
     showAll: false,
     filters: FILTER_DEFAULTS,
+    includeBirds: true, // notable-birds overlay on by default; the toggle re-queries with/without it
   })
-  const { selection, showAll, filters } = view
+  const { selection, showAll, filters, includeBirds } = view
   // On mobile the results sit below the map, so scroll the highlighted map back into view on select.
   const handleSelect = (selection: Selection | null) => {
     setView((v) => ({ ...v, selection }))
@@ -86,6 +87,7 @@ function App() {
   }
   const toggleShowAll = () => setView((v) => ({ ...v, showAll: !v.showAll }))
   const setFilters = (next: FilterState) => setView((v) => ({ ...v, filters: next }))
+  const setIncludeBirds = (next: boolean) => setView((v) => ({ ...v, includeBirds: next }))
 
   // Sidebar + map read the brushed set (server-clipped to the brush); the bar reads the full horizon.
   // Before the first brush they're the same fetch, so `range` is null and the sidebar reuses `horizon`.
@@ -137,7 +139,7 @@ function App() {
   // identity each render would loop); recompute `overrides` inside the effect.
   useEffect(() => {
     let cancelled = false
-    fetchWindows({ start_date: horizon.start, end_date: horizon.end, thresholds: toOverrides(thresholds), include_birds: true })
+    fetchWindows({ start_date: horizon.start, end_date: horizon.end, thresholds: toOverrides(thresholds), include_birds: includeBirds })
       .then((r) => {
         if (!cancelled) dispatch({ type: 'horizonReady', rec: r })
       })
@@ -147,7 +149,7 @@ function App() {
     return () => {
       cancelled = true
     }
-  }, [horizon.start, horizon.end, thresholds])
+  }, [horizon.start, horizon.end, thresholds, includeBirds])
 
   // Brushed fetch — the sidebar/map source, server-clipped to the selected sub-range with per-site
   // scores. Debounced so a drag doesn't fire per pixel. When the brush spans the whole horizon there's
@@ -159,7 +161,7 @@ function App() {
     }
     let cancelled = false
     const timer = setTimeout(() => {
-      fetchWindows({ start_date: selected.start, end_date: selected.end, thresholds: toOverrides(thresholds), include_birds: true })
+      fetchWindows({ start_date: selected.start, end_date: selected.end, thresholds: toOverrides(thresholds), include_birds: includeBirds })
         .then((r) => {
           if (!cancelled) dispatch({ type: 'rangeReady', rec: r })
         })
@@ -171,7 +173,7 @@ function App() {
       cancelled = true
       clearTimeout(timer)
     }
-  }, [selected.start, selected.end, horizon.start, horizon.end, thresholds])
+  }, [selected.start, selected.end, horizon.start, horizon.end, thresholds, includeBirds])
 
   return (
     <>
@@ -204,6 +206,8 @@ function App() {
             capabilities={capabilities}
             minDays={thresholds.minDays}
             onMinDays={(minDays) => setThresholds({ minDays })}
+            includeBirds={includeBirds}
+            onIncludeBirds={setIncludeBirds}
           />
           <WindowsPanel
             groups={curated.groups}

@@ -11,7 +11,7 @@ export interface FilterState {
   maxDriveMinutes: number | null // null = no limit
 }
 
-export const FILTER_DEFAULTS: FilterState = { familyCarOnly: false, maxDriveMinutes: null }
+export const FILTER_DEFAULTS: FilterState = { familyCarOnly: true, maxDriveMinutes: null }
 
 export function isFilterActive(f: FilterState): boolean {
   return f.familyCarOnly || f.maxDriveMinutes !== null

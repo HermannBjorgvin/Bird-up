@@ -19,10 +19,14 @@ const landmannalaugar = site("landmannalaugar", { driveMinutesFromReykjavik: 168
 const newSite = site("new-site"); // no baked attributes yet
 
 describe("isFilterActive", () => {
-  it("is false for the defaults and true once either filter is set", () => {
-    expect(isFilterActive(FILTER_DEFAULTS)).toBe(false);
+  it("is false when nothing is set and true once either filter is set", () => {
+    expect(isFilterActive({ familyCarOnly: false, maxDriveMinutes: null })).toBe(false);
     expect(isFilterActive({ familyCarOnly: true, maxDriveMinutes: null })).toBe(true);
     expect(isFilterActive({ familyCarOnly: false, maxDriveMinutes: 120 })).toBe(true);
+  });
+
+  it("treats the defaults as active (family-car accessible is on by default)", () => {
+    expect(isFilterActive(FILTER_DEFAULTS)).toBe(true);
   });
 });
 
@@ -54,7 +58,7 @@ describe("passesFilters", () => {
 
 describe("passingIds", () => {
   it("returns null when no filter is active (caller skips narrowing)", () => {
-    expect(passingIds([reykjavik, vik], FILTER_DEFAULTS)).toBeNull();
+    expect(passingIds([reykjavik, vik], { familyCarOnly: false, maxDriveMinutes: null })).toBeNull();
   });
 
   it("returns the set of passing ids when active", () => {

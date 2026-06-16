@@ -8,6 +8,8 @@ interface Props {
   capabilities: FilterCapabilities
   minDays: number
   onMinDays: (days: number) => void
+  includeBirds: boolean
+  onIncludeBirds: (next: boolean) => void
 }
 
 /** The filled fraction of a range slider as a `--pct` CSS var, read by the gold-fill gradient (index.css). */
@@ -24,7 +26,7 @@ function fillPct(value: number, min: number, max: number): CSSProperties {
  * attribute, so they're never a dead no-op before the enriched refresh lands; min trip length is
  * always available. The filtering itself is in lib/filters.ts / the App fetch — these only drive state.
  */
-export function Filters({ filters, onChange, capabilities, minDays, onMinDays }: Props) {
+export function Filters({ filters, onChange, capabilities, minDays, onMinDays, includeBirds, onIncludeBirds }: Props) {
   // Round the upper bound up to a whole 30-min step; the rightmost position means "no limit".
   const sliderMax = Math.max(30, Math.ceil(capabilities.maxDriveMinutes / 30) * 30)
   const sliderValue = filters.maxDriveMinutes ?? sliderMax
@@ -81,6 +83,12 @@ export function Filters({ filters, onChange, capabilities, minDays, onMinDays }:
           <span>Family-car accessible only</span>
         </label>
       )}
+
+      {/* The notable-birds overlay (eBird). On by default; toggling re-queries with/without include_birds. */}
+      <label className="filters__toggle">
+        <input type="checkbox" checked={includeBirds} onChange={(e) => onIncludeBirds(e.target.checked)} />
+        <span>Notable bird sightings nearby</span>
+      </label>
     </div>
   )
 }

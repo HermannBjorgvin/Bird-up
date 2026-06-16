@@ -4,9 +4,6 @@ import { formatRange } from '../lib/dates'
 import { tierScore } from '../lib/format'
 import { groupBirds, peakTempRange, type PlaceGroup } from '../lib/grouping'
 
-/** How many rare-bird names to list under an area before collapsing the rest into "+N more". */
-const MAX_BIRDS_SHOWN = 5
-
 // Categorical tier dots in the design-system palette: moss-green (excellent) → olive (good) →
 // warm khaki-brown (marginal). Distinct from the slate "no qualifying window" cue.
 const TIER_COLOR: Record<Window['tier'], string> = {
@@ -57,8 +54,6 @@ function PlaceGroupBlock({ group, selection, onSelect }: { group: PlaceGroup } &
   const placeSelected = selection?.kind === 'place' && selection.region === group.region
   const headerTier = group.sites[0]!.window.tier
   const birds = groupBirds(group)
-  const shownBirds = birds.slice(0, MAX_BIRDS_SHOWN)
-  const moreBirds = birds.length - shownBirds.length
 
   return (
     <div className="place-group">
@@ -73,12 +68,9 @@ function PlaceGroupBlock({ group, selection, onSelect }: { group: PlaceGroup } &
         <span className="place-group__score">{tierScore(headerTier, group.bestScore)}</span>
       </button>
       {birds.length > 0 && (
-        <p className="place-group__birds" title={`Rare birds reported within 25 km in the last 2 weeks: ${birds.map((b) => b.comName).join(', ')}`}>
+        <p className="place-group__birds" title="Notable bird sightings reported within 25 km in the last 2 weeks">
           <Bird size={13} aria-hidden="true" />
-          <span>
-            {shownBirds.map((b) => b.comName).join(', ')}
-            {moreBirds > 0 ? ` +${moreBirds} more` : ''}
-          </span>
+          <span>{birds.map((b) => b.comName).join(', ')}</span>
         </p>
       )}
       <ul className="place-group__sites">
