@@ -47,11 +47,13 @@ export function MapView({ markers, focus }: Props) {
       attribution: '© OpenStreetMap contributors',
       maxZoom: 18,
     }).addTo(map)
-    // Cluster the 244 sites into per-area counts (the bubble tints to the best camping score inside it);
-    // they break apart on zoom-in, and overlapping/duplicate sites spiderfy at the deepest zoom.
+    // Clustering is disabled: every campsite shows as its own pin at all zooms. `disableClusteringAtZoom: 0`
+    // means cluster only at zoom ≤ -1 (i.e. never; markercluster checks this option with `!== null`, so 0
+    // is honoured). We keep the markerClusterGroup wrapper for its `zoomToShowLayer` (the popup-on-select
+    // focus) and `addLayers`; the cluster bubble / spiderfy options below are inert while it never clusters.
     layerRef.current = L.markerClusterGroup({
       maxClusterRadius: 50,
-      disableClusteringAtZoom: 11,
+      disableClusteringAtZoom: 0,
       spiderfyOnMaxZoom: true,
       showCoverageOnHover: false,
       iconCreateFunction: clusterIcon,
@@ -120,17 +122,19 @@ type ScoredMarker = L.Marker & { campsiteScore: number | null }
 // safe here; only the score color (a controlled hex) is interpolated.
 const PIN_PATH = 'M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z'
 
-/** A campsite pin: filled + score-coloured (cream centre) when it has a window; an outline pin when not. */
+/** A campsite pin: filled + score-coloured (cream centre) when it has a window; a translucent, see-through
+ *  pin when not — same size, but it recedes instead of competing with the scored ones. */
 function campsiteIcon(score: number | null, inFocus: boolean): L.DivIcon {
   const hasWindow = score !== null
-  const size = hasWindow ? (inFocus ? 34 : 26) : 20
+  // Same footprint for both states (fill tells them apart, not size); focused pins grow.
+  const size = inFocus ? 34 : 26
   const dim = inFocus ? '' : ' cpin--dim'
   const svg = hasWindow
     ? `<svg viewBox="0 0 24 24" width="100%" height="100%">` +
       `<path d="${PIN_PATH}" fill="${scoreToColor(score)}" stroke="rgba(0,0,0,0.4)" stroke-width="1"/>` +
       `<circle cx="12" cy="9" r="2.7" fill="#faf7f0"/></svg>`
     : `<svg viewBox="0 0 24 24" width="100%" height="100%">` +
-      `<path d="${PIN_PATH}" fill="none" style="stroke:var(--empty)" stroke-width="2"/></svg>`
+      `<path d="${PIN_PATH}" style="fill:var(--empty);fill-opacity:0.35" stroke="rgba(0,0,0,0.2)" stroke-width="1"/></svg>`
   const html = `<div class="cpin${dim}" style="width:${size}px;height:${size}px">${svg}</div>`
   // Anchor the location at the pin's tip (≈ 0.92 down the box), not its centre.
   return L.divIcon({ html, className: 'cpin-wrap', iconSize: [size, size], iconAnchor: [size / 2, size * 0.92] })
