@@ -1,0 +1,962 @@
+[
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-15 09:40",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-14 18:10",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-14 16:24",
+  "locName": "Grænavatn",
+  "lat": 65.5431844,
+  "lng": -17.0015144,
+  "howMany": 4
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-14 16:00",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-14 12:42",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-14 12:42",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-14 11:27",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-13 11:58",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit IS-Norðurland eystra (65,7957,-17,4371)",
+  "lat": 65.79565,
+  "lng": -17.437132,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-13 11:52",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-13 06:25",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-13 06:25",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-13 06:25",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 14:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 14:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 14:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 10:33",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 10:07",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 16:45",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:44",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 15:25",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:56",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-10 09:11",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-10 09:11",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-08 17:28",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-05 20:05",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-05 10:35",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-05 09:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 21:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-04 17:28",
+  "locName": "21 Garðarsbraut, Húsavík, Norðurþing, IS (66,045, −17,339)",
+  "lat": 66.0447307,
+  "lng": -17.3389874,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 14:57",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 14:57",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 11:26",
+  "locName": "Reykjadalur--Hólmatjörn",
+  "lat": 65.7917978,
+  "lng": -17.436161,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 11:26",
+  "locName": "Reykjadalur--Hólmatjörn",
+  "lat": 65.7917978,
+  "lng": -17.436161,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 11:05",
+  "locName": "Aðaldalur--Sandur (general area)",
+  "lat": 65.9570171,
+  "lng": -17.5481701,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 10:26",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 09:32",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 09:32",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-02 15:00",
+  "locName": "Ljósavatnsskarð--Stórutjarnir",
+  "lat": 65.7100155,
+  "lng": -17.7215481,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "agwtea1",
+  "comName": "Green-winged Teal (American)",
+  "sciName": "Anas crecca",
+  "obsDt": "2026-06-02 11:37",
+  "locName": "Mývatn--Kritartjörn",
+  "lat": 65.5737972,
+  "lng": -17.0523262,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-01 22:49",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ }
+]

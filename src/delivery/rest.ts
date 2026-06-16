@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import type { Context } from "hono";
 import { CAMP_SITES_KEY } from "../adapters/kv-campsites";
+import { EbirdSource } from "../adapters/ebird";
 import { KvStore } from "../adapters/kv-store";
 import { KvWeatherSource } from "../adapters/kv-weather";
 import { InvalidParamsError, StaleDataUnavailableError } from "../core/errors";
@@ -23,7 +24,7 @@ restRoutes.get("/health", (c) => c.json({ ok: true }));
 
 restRoutes.get("/windows", (c) => {
   const q = c.req.query();
-  return handleWindows(c, { start_date: q.start_date, end_date: q.end_date });
+  return handleWindows(c, { start_date: q.start_date, end_date: q.end_date, include_birds: q.include_birds === "true" });
 });
 
 restRoutes.post("/windows", async (c) => {
@@ -41,6 +42,7 @@ restRoutes.post("/windows", async (c) => {
     start_date: typeof b.start_date === "string" ? b.start_date : undefined,
     end_date: typeof b.end_date === "string" ? b.end_date : undefined,
     thresholds: b.thresholds,
+    include_birds: b.include_birds === true,
   });
 });
 
@@ -73,6 +75,8 @@ async function deps(c: AppContext): Promise<ServiceDeps> {
     campsites: campsites?.sites ?? [],
     campsitesFetchedAt: campsites?.fetchedAt ?? "",
     baseUrl: c.env.BASE_URL,
+    // Only when the eBird key is configured (local .dev.vars / prod secret); else birds are skipped.
+    birds: c.env.EBIRD_API_KEY ? new EbirdSource(store, c.env.EBIRD_API_KEY) : undefined,
   };
 }
 

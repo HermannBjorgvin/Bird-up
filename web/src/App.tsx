@@ -137,7 +137,7 @@ function App() {
   // identity each render would loop); recompute `overrides` inside the effect.
   useEffect(() => {
     let cancelled = false
-    fetchWindows({ start_date: horizon.start, end_date: horizon.end, thresholds: toOverrides(thresholds) })
+    fetchWindows({ start_date: horizon.start, end_date: horizon.end, thresholds: toOverrides(thresholds), include_birds: true })
       .then((r) => {
         if (!cancelled) dispatch({ type: 'horizonReady', rec: r })
       })
@@ -159,7 +159,7 @@ function App() {
     }
     let cancelled = false
     const timer = setTimeout(() => {
-      fetchWindows({ start_date: selected.start, end_date: selected.end, thresholds: toOverrides(thresholds) })
+      fetchWindows({ start_date: selected.start, end_date: selected.end, thresholds: toOverrides(thresholds), include_birds: true })
         .then((r) => {
           if (!cancelled) dispatch({ type: 'rangeReady', rec: r })
         })

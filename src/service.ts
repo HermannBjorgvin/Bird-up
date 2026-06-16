@@ -1,9 +1,11 @@
 import { z } from "zod";
+import { attachBirds } from "./core/birds";
 import { InvalidParamsError, StaleDataUnavailableError } from "./core/errors";
-import { assembleRecommendation, type SiteWindows } from "./core/recommend";
+import { assembleRecommendation, EBIRD_ATTRIBUTION, type SiteWindows } from "./core/recommend";
 import { DEFAULT_POLICY, mergePolicy } from "./core/scoring/policy";
 import { clipWindowToRange, findWindows, type CoreWindow } from "./core/scoring/windows";
 import type { Campsite, DataAge, Recommendation } from "./core/types";
+import type { BirdSource } from "./ports/birds";
 import type { WeatherSource } from "./ports/weather";
 
 /**
@@ -15,6 +17,7 @@ export interface WindowsParams {
   start_date: string | undefined;
   end_date: string | undefined;
   thresholds?: unknown;
+  include_birds?: boolean; // MVP: attach notable (rare) eBird sightings near the windows' campsites
 }
 
 export interface ServiceDeps {
@@ -22,6 +25,7 @@ export interface ServiceDeps {
   campsites: Campsite[];
   campsitesFetchedAt: string; // the campsite source's own age (the seed list's authoring date in S04)
   baseUrl: string;
+  birds?: BirdSource; // present only when an eBird key is configured; omitted → birds silently skipped
 }
 
 const DateStr = z.iso.date();
@@ -85,7 +89,7 @@ export async function getWindows(params: WindowsParams, deps: ServiceDeps): Prom
     campsitesFetchedAt: deps.campsitesFetchedAt,
   };
 
-  return assembleRecommendation({
+  const rec = assembleRecommendation({
     sites,
     policyVersion: version,
     dataAge,
@@ -93,6 +97,19 @@ export async function getWindows(params: WindowsParams, deps: ServiceDeps): Prom
     mapUrl: `${deps.baseUrl}/api/map?start=${start}&end=${end}`,
     generatedAt: now.toISOString(),
   });
+
+  // Bird overlay (opt-in): attach notable (rare) sightings near each window's campsites. Degrades —
+  // an eBird failure never fails the weather answer (it just omits birds + adds a warning, spec 03).
+  if (params.include_birds === true && deps.birds !== undefined) {
+    const regions = [...new Set(rec.windows.map((w) => w.region))];
+    const { byRegion, fetchedAt, degraded } = await deps.birds.notableByRegion(regions);
+    rec.windows = attachBirds(rec.windows, byRegion, new Set());
+    rec.attribution = [...rec.attribution, EBIRD_ATTRIBUTION];
+    rec.dataAge = { ...rec.dataAge, birdObsFetchedAt: fetchedAt };
+    if (degraded) rec.warnings = [...rec.warnings, "some bird sightings were temporarily unavailable"];
+  }
+
+  return rec;
 }
 
 function validateDate(value: string | undefined, field: string): string {

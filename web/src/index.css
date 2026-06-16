@@ -310,6 +310,21 @@ body {
   font-weight: 600;
 }
 
+/* Rare-bird overlay (eBird notable sightings within 25 km) — a highlight, so it uses the brand accent. */
+.place-group__birds {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.25rem 0 0 0.35rem;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.place-group__birds svg {
+  flex-shrink: 0;
+}
+
 .place-group__sites {
   list-style: none;
   margin: 0.2rem 0 0;

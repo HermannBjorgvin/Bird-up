@@ -16,6 +16,7 @@ export interface WindowsParams {
   start_date: string
   end_date: string
   thresholds?: ThresholdOverrides
+  include_birds?: boolean // attach notable (rare) eBird sightings near the windows' campsites
 }
 
 export interface BuiltRequest {
@@ -43,10 +44,12 @@ export function buildWindowsRequest(params: WindowsParams): BuiltRequest {
         start_date: params.start_date,
         end_date: params.end_date,
         thresholds: params.thresholds,
+        ...(params.include_birds === true ? { include_birds: true } : {}),
       }),
     }
   }
   const q = new URLSearchParams({ start_date: params.start_date, end_date: params.end_date })
+  if (params.include_birds === true) q.set('include_birds', 'true')
   return { url: `${WINDOWS_PATH}?${q.toString()}`, method: 'GET', body: null }
 }
 

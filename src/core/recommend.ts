@@ -4,6 +4,8 @@ import type { CoreWindow } from "./scoring/windows";
 /** Attribution lines required on every response (spec 04). eBird's line is added with birds. */
 export const WEATHER_ATTRIBUTION = "Weather data by Open-Meteo.com";
 export const OSM_ATTRIBUTION = "Campsite data © OpenStreetMap contributors";
+/** Required verbatim when birds are included (spec 04, eBird terms). */
+export const EBIRD_ATTRIBUTION = "Bird observation data from eBird.org, Cornell Lab of Ornithology";
 
 /** One site's scored windows, pre-grouping. */
 export interface SiteWindows {

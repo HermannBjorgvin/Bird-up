@@ -1,4 +1,4 @@
-import type { Recommendation, Region, Window, WindowCampsite } from '../../../src/core/types'
+import type { Recommendation, Region, Window, WindowBird, WindowCampsite } from '../../../src/core/types'
 import { REGIONS } from '../../../src/core/regions'
 
 /** Peak-temp estimate for a window: the range of daily highs (tMaxC), e.g. "13–18°C" or "18°C". */
@@ -36,6 +36,20 @@ export interface PlaceGroup {
 }
 
 const REGION_NAME = new Map<Region, string>(REGIONS.map((r) => [r.slug, r.name]))
+
+/** Notable (rare) birds across a group's windows, deduped by species — the sidebar's "rare nearby" line. */
+export function groupBirds(group: PlaceGroup): WindowBird[] {
+  const seen = new Set<string>()
+  const out: WindowBird[] = []
+  for (const s of group.sites) {
+    for (const b of s.window.birds ?? []) {
+      if (seen.has(b.speciesCode)) continue
+      seen.add(b.speciesCode)
+      out.push(b)
+    }
+  }
+  return out
+}
 
 export function groupByPlace(rec: Recommendation | null): PlaceGroup[] {
   if (!rec) return []
