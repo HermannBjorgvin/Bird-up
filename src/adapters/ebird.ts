@@ -92,7 +92,11 @@ export class EbirdSource implements BirdSource {
     let degraded = false;
     if (obs === null) {
       try {
-        const res = await this.fetchFn(NOTABLE_URL, {
+        // Call through a local, not `this.fetchFn(...)`: invoking the global fetch as a method binds
+        // `this` to the instance, which the production Workers runtime rejects ("Illegal invocation").
+        // Local workerd is lenient, so this only surfaces in prod (cf. the leaflet default-import gotcha).
+        const doFetch = this.fetchFn;
+        const res = await doFetch(NOTABLE_URL, {
           headers: { "X-eBirdApiToken": this.apiKey, "User-Agent": USER_AGENT },
         });
         if (!res.ok) throw new Error(`eBird responded ${res.status}`);
