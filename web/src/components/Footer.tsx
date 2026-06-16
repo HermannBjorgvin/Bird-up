@@ -1,4 +1,4 @@
-const REPO_URL = 'https://github.com/hermannbjorgvin/tjaldur'
+const REPO_URL = 'https://github.com/HermannBjorgvin/tjaldur'
 
 interface Props {
   attribution: string[]
