@@ -13,11 +13,10 @@
  * the normalizer reads before writing — the fixture never ships contributor PII.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
-import { buildNotableUrl, normalizeNotable } from "../src/adapters/ebird";
+import { normalizeNotable, NOTABLE_URL } from "../src/adapters/ebird";
 import { buildForecastUrl } from "../src/adapters/openmeteo";
 import { OVERPASS_ENDPOINT, OVERPASS_QUERY, normalizeOverpass } from "../src/adapters/osm-overpass";
 import { SEED_CAMPSITES } from "../src/adapters/seed-campsites";
-import { REGIONS } from "../src/core/regions";
 
 async function recordOpenMeteo(): Promise<void> {
   const dir = new URL("../test/fixtures/openmeteo/", import.meta.url);
@@ -105,32 +104,30 @@ function scrubObs(o: Record<string, unknown>): Record<string, unknown> {
 async function recordEbird(): Promise<void> {
   const key = process.env.EBIRD_API_KEY;
   if (!key) throw new Error("EBIRD_API_KEY env var required (e.g. EBIRD_API_KEY=$(grep ^EBIRD_API_KEY= .dev.vars | cut -d= -f2-) npx vite-node scripts/record-fixtures.ts ebird)");
-  const anchor = REGIONS.find((r) => r.slug === "myvatn")!; // Mývatn: a reliably birdy area
   const dir = new URL("../test/fixtures/ebird/", import.meta.url);
-  const url = buildNotableUrl(anchor.lat, anchor.lng);
-  console.log(`GET ${url}`);
-  const res = await fetch(url, { headers: { "X-eBirdApiToken": key } });
+  console.log(`GET ${NOTABLE_URL}`);
+  const res = await fetch(NOTABLE_URL, { headers: { "X-eBirdApiToken": key } });
   if (!res.ok) throw new Error(`eBird responded ${res.status}`);
   const raw = (await res.json()) as Array<Record<string, unknown>>;
   const body = raw.map(scrubObs); // whitelist to the normalizer's reads — no subId/validity metadata lands
   const normalized = normalizeNotable(body);
 
   mkdirSync(dir, { recursive: true });
-  writeFileSync(new URL("notable-myvatn.json", dir), JSON.stringify(body, null, 1));
+  writeFileSync(new URL("notable-iceland.json", dir), JSON.stringify(body, null, 1));
   writeFileSync(
-    new URL("notable-myvatn.meta.json", dir),
+    new URL("notable-iceland.meta.json", dir),
     JSON.stringify(
       {
         recordedAt: new Date().toISOString().slice(0, 10),
-        request: { url, anchor: anchor.slug },
+        request: { url: NOTABLE_URL },
         counts: { records: body.length, normalized: normalized.length },
-        notes: "geo notable (rare) sightings around the Mývatn anchor; fields whitelisted to the normalizer's reads (PII-free)",
+        notes: "Iceland-wide notable (rare) sightings; fields whitelisted to the normalizer's reads (PII-free)",
       },
       null,
       2,
     ),
   );
-  console.log(`wrote test/fixtures/ebird/notable-myvatn.json (+ .meta.json): ${body.length} records`);
+  console.log(`wrote test/fixtures/ebird/notable-iceland.json (+ .meta.json): ${body.length} records`);
 }
 
 const target = process.argv[2] ?? "openmeteo";

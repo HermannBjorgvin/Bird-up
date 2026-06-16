@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-06-16",
+  "request": {
+    "url": "https://api.ebird.org/v2/data/obs/IS/recent/notable?back=14"
+  },
+  "counts": {
+    "records": 386,
+    "normalized": 386
+  },
+  "notes": "Iceland-wide notable (rare) sightings; fields whitelisted to the normalizer's reads (PII-free)"
+}

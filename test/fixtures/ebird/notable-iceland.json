@@ -1,0 +1,3861 @@
+[
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-15 20:29",
+  "locName": "Reykhólar--Langavatn",
+  "lat": 65.4418567,
+  "lng": -22.2022533,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 19:23",
+  "locName": "1 Klausturvegur, Kirkjubæjarklaustur, Skaftárhreppur, IS (63,786, −18,06)",
+  "lat": 63.78606,
+  "lng": -18.0598615,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "laplon",
+  "comName": "Lapland Longspur",
+  "sciName": "Calcarius lapponicus",
+  "obsDt": "2026-06-15 18:35",
+  "locName": "Vatnajökulsþjóðgarður NP--Jökulsárlón",
+  "lat": 64.0450909,
+  "lng": -16.1804581
+ },
+ {
+  "speciesCode": "graher1",
+  "comName": "Gray Heron",
+  "sciName": "Ardea cinerea",
+  "obsDt": "2026-06-15 18:09",
+  "locName": "Leirskál, Snæfellsbær, IS (64.834, -22.862)",
+  "lat": 64.8338059,
+  "lng": -22.8623175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 14:14",
+  "locName": "Höfn--Hagatún 8",
+  "lat": 64.254415,
+  "lng": -15.212957,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "snogoo",
+  "comName": "Snow Goose",
+  "sciName": "Anser caerulescens",
+  "obsDt": "2026-06-15 14:03",
+  "locName": "Heimaey--Rauf (Puffin lookout)",
+  "lat": 63.4035899,
+  "lng": -20.2883823,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-15 09:40",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:32",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:31",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:31",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:31",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:31",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:31",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-15 09:31",
+  "locName": "Öræfi--Svínafell",
+  "lat": 63.983755,
+  "lng": -16.8540573,
+  "howMany": 3
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-15 07:45",
+  "locName": "Höfn, Sveitarfélagið Hornafjörður, IS (64,255, −15,209)",
+  "lat": 64.2552352,
+  "lng": -15.2087276,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-14 18:10",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 18:05",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-14 16:24",
+  "locName": "Grænavatn",
+  "lat": 65.5431844,
+  "lng": -17.0015144,
+  "howMany": 4
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-14 16:00",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursha1",
+  "comName": "European Shag",
+  "sciName": "Gulosus aristotelis",
+  "obsDt": "2026-06-14 15:26",
+  "locName": "Hvalnesviti, Sveitarfélagið Hornafjörður, IS (64,404, −14,54)",
+  "lat": 64.4036939,
+  "lng": -14.5402574,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-14 13:50",
+  "locName": "Höfn--Hrossabithagi",
+  "lat": 64.2567506,
+  "lng": -15.204134,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cowpig1",
+  "comName": "Common Wood-Pigeon",
+  "sciName": "Columba palumbus",
+  "obsDt": "2026-06-14 13:06",
+  "locName": "Dilksneslundur í Nesjum, Höfn í Hornafirði (64.2820,-15.1960)",
+  "lat": 64.282036,
+  "lng": -15.195971,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-14 12:42",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-14 12:42",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-14 11:27",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-14 11:22",
+  "locName": "Reykhólar",
+  "lat": 65.4424275,
+  "lng": -22.2026825,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-14 11:22",
+  "locName": "Reykhólar",
+  "lat": 65.4424275,
+  "lng": -22.2026825,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "manshe",
+  "comName": "Manx Shearwater",
+  "sciName": "Puffinus puffinus",
+  "obsDt": "2026-06-14 08:48",
+  "locName": "Vatnajökulsþjóðgarður NP--Jökulsárlón",
+  "lat": 64.0450909,
+  "lng": -16.1804581,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 17:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:50",
+  "locName": "Öræfi--Kvísker",
+  "lat": 63.978145,
+  "lng": -16.4369202,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-13 16:31",
+  "locName": "Lón--suðurhluti (south part)",
+  "lat": 66.1050775,
+  "lng": -16.9289872,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "osprey",
+  "comName": "Osprey",
+  "sciName": "Pandion haliaetus",
+  "obsDt": "2026-06-13 16:30",
+  "locName": "Kvísker, Sveitarfélagið Hornafjörður, IS (63,978, -16,436)",
+  "lat": 63.977733,
+  "lng": -16.4360199,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 14:07",
+  "locName": "Höfn--Hagatún 8",
+  "lat": 64.254415,
+  "lng": -15.212957,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 13:23",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 13:23",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 13:23",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 13:23",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 13:23",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-13 13:23",
+  "locName": "Höfn",
+  "lat": 64.2551196,
+  "lng": -15.2088761,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comcuc",
+  "comName": "Common Cuckoo",
+  "sciName": "Cuculus canorus",
+  "obsDt": "2026-06-13 12:42",
+  "locName": "2 Fjörður, Seyðisfjörður, Múlaþing, IS (65.262, -14.011)",
+  "lat": 65.2619417,
+  "lng": -14.0113533,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-13 11:58",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit IS-Norðurland eystra (65,7957,-17,4371)",
+  "lat": 65.79565,
+  "lng": -17.437132,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-13 11:52",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-13 06:25",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-13 06:25",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-13 06:25",
+  "locName": "Húsavík--hafnarsvæði (harbour area)",
+  "lat": 66.0447964,
+  "lng": -17.349987,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-13 00:41",
+  "locName": "vogelhut",
+  "lat": 65.4414414,
+  "lng": -22.1961352,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-12 14:32",
+  "locName": "Lón--suðurhluti (south part)",
+  "lat": 66.1050775,
+  "lng": -16.9289872,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-12 14:32",
+  "locName": "Lón--suðurhluti (south part)",
+  "lat": 66.1050775,
+  "lng": -16.9289872,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-12 14:32",
+  "locName": "Lón--suðurhluti (south part)",
+  "lat": 66.1050775,
+  "lng": -16.9289872,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-12 14:32",
+  "locName": "Lón--suðurhluti (south part)",
+  "lat": 66.1050775,
+  "lng": -16.9289872,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:17",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:16",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:16",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:16",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:16",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:16",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-12 14:16",
+  "locName": "Borgarfjörður eystri--höfnin (harbour)",
+  "lat": 65.5276577,
+  "lng": -13.8139129,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 12:38",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-12 10:56",
+  "locName": "Blönduhlíð--Kúskerpi",
+  "lat": 65.4625387,
+  "lng": -19.2477036,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-12 10:02",
+  "locName": "Þingeyjarsveit, IS (65,71, −17,726)",
+  "lat": 65.7104537,
+  "lng": -17.7261175,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-11 20:13",
+  "locName": "Hallormsstaðarskógur--Trjásafnið (arboretum)",
+  "lat": 65.0926157,
+  "lng": -14.7583079,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurrob1",
+  "comName": "European Robin",
+  "sciName": "Erithacus rubecula",
+  "obsDt": "2026-06-11 20:13",
+  "locName": "Hallormsstaðarskógur--Trjásafnið (arboretum)",
+  "lat": 65.0926157,
+  "lng": -14.7583079,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-11 18:20",
+  "locName": "Fjallavegur, Norðurþing, IS (66,099, −16,911)",
+  "lat": 66.0989854,
+  "lng": -16.9107545,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-11 14:47",
+  "locName": "Höfn--Hagatún 8",
+  "lat": 64.254415,
+  "lng": -15.212957,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 14:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 14:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 14:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-11 12:07",
+  "locName": "Norðurgarður, Húsavík, Norðurþing, IS (66,043, −17,358)",
+  "lat": 66.0431217,
+  "lng": -17.3583673,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "hoocro1",
+  "comName": "Hooded Crow",
+  "sciName": "Corvus cornix",
+  "obsDt": "2026-06-11 10:50",
+  "locName": "Garður--Garðskagi lighthouse",
+  "lat": 64.0819553,
+  "lng": -22.6919174,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 10:33",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 10:07",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-11 08:46",
+  "locName": "Aðaldalsvegur, Þingeyjarsveit, IS (65,773, −17,417)",
+  "lat": 65.7729994,
+  "lng": -17.4171107,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-10 21:50",
+  "locName": "Reykjavík--Neshagi",
+  "lat": 64.1425983,
+  "lng": -21.9602859,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "cursan",
+  "comName": "Curlew Sandpiper",
+  "sciName": "Calidris ferruginea",
+  "obsDt": "2026-06-10 19:20",
+  "locName": "Álftanes--Kasthúsatjörn",
+  "lat": 64.1118389,
+  "lng": -22.0153999,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cursan",
+  "comName": "Curlew Sandpiper",
+  "sciName": "Calidris ferruginea",
+  "obsDt": "2026-06-10 18:18",
+  "locName": "Álftanes--Kasthúsatjörn",
+  "lat": 64.1118389,
+  "lng": -22.0153999,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-10 17:33",
+  "locName": "Höfn--Hagatún 8",
+  "lat": 64.254415,
+  "lng": -15.212957,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 16:45",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cursan",
+  "comName": "Curlew Sandpiper",
+  "sciName": "Calidris ferruginea",
+  "obsDt": "2026-06-10 16:05",
+  "locName": "Álftanes--Kasthúsatjörn",
+  "lat": 64.1118389,
+  "lng": -22.0153999,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:44",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-10 15:44",
+  "locName": "Heimaey--Hamarsvegur/Höfðavegur",
+  "lat": 63.4220099,
+  "lng": -20.2940226,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-10 15:39",
+  "locName": "Mývatn--Höfði forest",
+  "lat": 65.5790265,
+  "lng": -16.9550006,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cursan",
+  "comName": "Curlew Sandpiper",
+  "sciName": "Calidris ferruginea",
+  "obsDt": "2026-06-10 15:30",
+  "locName": "Álftanes--Kasthúsatjörn",
+  "lat": 64.1118389,
+  "lng": -22.0153999,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 15:25",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cursan",
+  "comName": "Curlew Sandpiper",
+  "sciName": "Calidris ferruginea",
+  "obsDt": "2026-06-10 14:28",
+  "locName": "Álftanes--Kasthúsatjörn",
+  "lat": 64.1118389,
+  "lng": -22.0153999,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-10 13:02",
+  "locName": "Ytri-Húsabakki, Sveitarfélagið Skagafjörður, IS (65,611, −19,473)",
+  "lat": 65.6111711,
+  "lng": -19.4732615,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "banswa",
+  "comName": "Bank Swallow",
+  "sciName": "Riparia riparia",
+  "obsDt": "2026-06-10 12:52",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:56",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-10 09:55",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-10 09:11",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-10 09:11",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-09 22:11",
+  "locName": "Höfn--Óslandstjörn (pond)",
+  "lat": 64.2428231,
+  "lng": -15.2087259,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-09 17:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-09 15:58",
+  "locName": "Höfn--Hagatún 8",
+  "lat": 64.254415,
+  "lng": -15.212957,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-09 15:19",
+  "locName": "Höfn--Óslandstjörn (pond)",
+  "lat": 64.2428231,
+  "lng": -15.2087259,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-09 14:15",
+  "locName": "Höfn--Óslandstjörn (pond)",
+  "lat": 64.2428231,
+  "lng": -15.2087259,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-09 14:15",
+  "locName": "Höfn--Óslandstjörn (pond)",
+  "lat": 64.2428231,
+  "lng": -15.2087259,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-09 13:12",
+  "locName": "Garður--Garðskagi-Gerðar (shoreline walk)",
+  "lat": 64.0792165,
+  "lng": -22.6655245,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "dunlin3",
+  "comName": "Dunlin (arctica)",
+  "sciName": "Calidris alpina",
+  "obsDt": "2026-06-09 13:08",
+  "locName": "Hellissandur--beach",
+  "lat": 64.9176546,
+  "lng": -23.8883905,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "dunlin3",
+  "comName": "Dunlin (arctica)",
+  "sciName": "Calidris alpina",
+  "obsDt": "2026-06-09 13:08",
+  "locName": "Hellissandur--beach",
+  "lat": 64.9176546,
+  "lng": -23.8883905,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "dunlin3",
+  "comName": "Dunlin (arctica)",
+  "sciName": "Calidris alpina",
+  "obsDt": "2026-06-09 13:08",
+  "locName": "Hellissandur--beach",
+  "lat": 64.9176546,
+  "lng": -23.8883905,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-09 07:56",
+  "locName": "Kópavogur (bay)",
+  "lat": 64.104193,
+  "lng": -21.9112873,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "sabgul",
+  "comName": "Sabine's Gull",
+  "sciName": "Xema sabini",
+  "obsDt": "2026-06-08 21:44",
+  "locName": "Tjörn Við Fjallsá",
+  "lat": 64.0035136,
+  "lng": -16.3700165,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-08 21:10",
+  "locName": "Staðarsveit--Langaholt",
+  "lat": 64.813822,
+  "lng": -23.1416702,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-08 17:28",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-08 16:31",
+  "locName": "Heimaey--Stórhöfði",
+  "lat": 63.3999779,
+  "lng": -20.2858257,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-08 16:31",
+  "locName": "Æðarvarp Við Fossárdal",
+  "lat": 64.7577868,
+  "lng": -14.4781267,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comchi1",
+  "comName": "Common Chiffchaff",
+  "sciName": "Phylloscopus collybita",
+  "obsDt": "2026-06-08 11:58",
+  "locName": "47, Kjósarhreppur, IS (64,353, −21,455)",
+  "lat": 64.3531656,
+  "lng": -21.454842,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-08 10:16",
+  "locName": "Berufjörður--Teigarhorn",
+  "lat": 64.6762285,
+  "lng": -14.3442732,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-08 10:16",
+  "locName": "Berufjörður--Teigarhorn",
+  "lat": 64.6762285,
+  "lng": -14.3442732,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-08 06:08",
+  "locName": "Víkingavatn",
+  "lat": 66.0961999,
+  "lng": -16.8303676,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-07 12:14",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-07 12:14",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-07 12:14",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-07 12:14",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-07 10:42",
+  "locName": "Njarðvíkurfitjar",
+  "lat": 63.9753463,
+  "lng": -22.5407782,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-07 09:21",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-07 09:21",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-07 09:21",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-07 09:21",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-07 09:21",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "bongul",
+  "comName": "Bonaparte's Gull",
+  "sciName": "Chroicocephalus philadelphia",
+  "obsDt": "2026-06-07 08:51",
+  "locName": "Suðurströnd, Seltjarnarnes, Seltjarnarnesbær, IS (64,155, −22,012)",
+  "lat": 64.1551935,
+  "lng": -22.0124248,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "bongul",
+  "comName": "Bonaparte's Gull",
+  "sciName": "Chroicocephalus philadelphia",
+  "obsDt": "2026-06-07 07:56",
+  "locName": "Seltjarnarnes--general area",
+  "lat": 64.1550663,
+  "lng": -22.0210389,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-07 07:13",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-07 07:13",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurwoo",
+  "comName": "Eurasian Woodcock",
+  "sciName": "Scolopax rusticola",
+  "obsDt": "2026-06-06 23:10",
+  "locName": "Laugarvatn--Laugarvatnsskógur",
+  "lat": 64.2156006,
+  "lng": -20.7374775,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-06 22:53",
+  "locName": "Grímsey--Sandvíkurtjörn",
+  "lat": 66.541496,
+  "lng": -18.016354,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-06 22:53",
+  "locName": "Grímsey--Sandvíkurtjörn",
+  "lat": 66.541496,
+  "lng": -18.016354,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-06 22:37",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-06 22:37",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-06 22:37",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-06 22:37",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-06 21:28",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-06 21:28",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "bongul",
+  "comName": "Bonaparte's Gull",
+  "sciName": "Chroicocephalus philadelphia",
+  "obsDt": "2026-06-06 18:38",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "lesyel",
+  "comName": "Lesser Yellowlegs",
+  "sciName": "Tringa flavipes",
+  "obsDt": "2026-06-06 18:38",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "lesyel",
+  "comName": "Lesser Yellowlegs",
+  "sciName": "Tringa flavipes",
+  "obsDt": "2026-06-06 18:38",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "lesyel",
+  "comName": "Lesser Yellowlegs",
+  "sciName": "Tringa flavipes",
+  "obsDt": "2026-06-06 18:38",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "lesyel",
+  "comName": "Lesser Yellowlegs",
+  "sciName": "Tringa flavipes",
+  "obsDt": "2026-06-06 17:53",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "bongul",
+  "comName": "Bonaparte's Gull",
+  "sciName": "Chroicocephalus philadelphia",
+  "obsDt": "2026-06-06 17:53",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "lesyel",
+  "comName": "Lesser Yellowlegs",
+  "sciName": "Tringa flavipes",
+  "obsDt": "2026-06-06 17:45",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "bongul",
+  "comName": "Bonaparte's Gull",
+  "sciName": "Chroicocephalus philadelphia",
+  "obsDt": "2026-06-06 17:45",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 17:10",
+  "locName": "10 Njarðarbraut, Njarðvík, Reykjanesbær, IS (63,973, −22,533)",
+  "lat": 63.9734257,
+  "lng": -22.5334386,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-06 17:02",
+  "locName": "Fákaleira 4a, Höfn í Hornafirði, Is",
+  "lat": 64.2541945,
+  "lng": -15.2037816,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-06 13:33",
+  "locName": "94 Garðbraut, Garður, Suðurnesjabær, IS (64,073, −22,655)",
+  "lat": 64.0732504,
+  "lng": -22.6553986,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ambduc",
+  "comName": "American Black Duck",
+  "sciName": "Anas rubripes",
+  "obsDt": "2026-06-06 12:56",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ambduc",
+  "comName": "American Black Duck",
+  "sciName": "Anas rubripes",
+  "obsDt": "2026-06-06 12:56",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comcuc",
+  "comName": "Common Cuckoo",
+  "sciName": "Cuculus canorus",
+  "obsDt": "2026-06-06 12:53",
+  "locName": "Túngata 13, Seyðisfjörður IS-Eastern Region 65.25952, -14.00244",
+  "lat": 65.259518,
+  "lng": -14.002444,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-06 11:56",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-06 10:29",
+  "locName": "Njarðvíkurfitjar",
+  "lat": 63.9753463,
+  "lng": -22.5407782,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcur",
+  "comName": "Eurasian Curlew",
+  "sciName": "Numenius arquata",
+  "obsDt": "2026-06-06 10:17",
+  "locName": "Sléttuvegur, Norðurþing, IS (66,475, -15,928)",
+  "lat": 66.4746156,
+  "lng": -15.9284249,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:41",
+  "locName": "Sandgerðistjörn (ponds)",
+  "lat": 64.0433252,
+  "lng": -22.7095985,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:37",
+  "locName": "Sandgerði--north beach",
+  "lat": 64.0420667,
+  "lng": -22.7146196,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:37",
+  "locName": "Sandgerði--north beach",
+  "lat": 64.0420667,
+  "lng": -22.7146196,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:37",
+  "locName": "Sandgerði--north beach",
+  "lat": 64.0420667,
+  "lng": -22.7146196,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:37",
+  "locName": "Sandgerði--north beach",
+  "lat": 64.0420667,
+  "lng": -22.7146196,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:37",
+  "locName": "Sandgerði--north beach",
+  "lat": 64.0420667,
+  "lng": -22.7146196,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-06 09:37",
+  "locName": "Sandgerði--north beach",
+  "lat": 64.0420667,
+  "lng": -22.7146196,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-06 07:26",
+  "locName": "Grindavík--Vatnsstæði (Járngerðarstaðatjarnir) (ponds)",
+  "lat": 63.8353279,
+  "lng": -22.4479329,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-06 07:26",
+  "locName": "Grindavík--Vatnsstæði (Járngerðarstaðatjarnir) (ponds)",
+  "lat": 63.8353279,
+  "lng": -22.4479329,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-06 07:11",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-06 07:11",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-06 07:11",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-06 07:11",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "litsti",
+  "comName": "Little Stint",
+  "sciName": "Calidris minuta",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-05 22:03",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-05 20:48",
+  "locName": "Innstrandavegur, Strandabyggð, IS (65,439, -21,468)",
+  "lat": 65.439447,
+  "lng": -21.4682672,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-05 20:05",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-05 17:42",
+  "locName": "Njarðvík, Reykjanesbær, IS (63,977, −22,546)",
+  "lat": 63.9774288,
+  "lng": -22.5460675,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-05 17:16",
+  "locName": "Grímseyjarferja--norðurhluti (Grímsey ferry--northern part)",
+  "lat": 66.432916,
+  "lng": -18.1072515,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "bongul",
+  "comName": "Bonaparte's Gull",
+  "sciName": "Chroicocephalus philadelphia",
+  "obsDt": "2026-06-05 17:05",
+  "locName": "Bakkatjörn (pond only)",
+  "lat": 64.1557624,
+  "lng": -22.0162153,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comcuc",
+  "comName": "Common Cuckoo",
+  "sciName": "Cuculus canorus",
+  "obsDt": "2026-06-05 16:00",
+  "locName": "seydidfjordur",
+  "lat": 65.2650577,
+  "lng": -14.0113235,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-05 14:57",
+  "locName": "Grindavík--Vatnsstæði (Járngerðarstaðatjarnir) (ponds)",
+  "lat": 63.8353279,
+  "lng": -22.4479329,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-05 12:44",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comswi",
+  "comName": "Common Swift",
+  "sciName": "Apus apus",
+  "obsDt": "2026-06-05 12:44",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilpha",
+  "comName": "Wilson's Phalarope",
+  "sciName": "Phalaropus tricolor",
+  "obsDt": "2026-06-05 12:44",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-05 12:44",
+  "locName": "Grímsey",
+  "lat": 66.5437541,
+  "lng": -18.001442,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-05 12:22",
+  "locName": "Snartartunguvegur, Staður IS-Westfjords 65.44079, -21.48113",
+  "lat": 65.440792,
+  "lng": -21.481126,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-05 12:15",
+  "locName": "Þórustaðavegur, Staður IS-Westfjords 65.43938, -21.46826",
+  "lat": 65.439379,
+  "lng": -21.468259,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "sursco",
+  "comName": "Surf Scoter",
+  "sciName": "Melanitta perspicillata",
+  "obsDt": "2026-06-05 12:00",
+  "locName": "Djúpvegur, Súðavíkurhreppur, IS (65,908, -22,988)",
+  "lat": 65.9083092,
+  "lng": -22.9879583,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-05 11:28",
+  "locName": "Sléttuvegur, Norðurþing, IS (66,286, -16,419)",
+  "lat": 66.285849,
+  "lng": -16.4194429,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-05 10:35",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "pifgoo",
+  "comName": "Pink-footed Goose",
+  "sciName": "Anser brachyrhynchus",
+  "obsDt": "2026-06-05 09:45",
+  "locName": "Kópavogslækur",
+  "lat": 64.1045991,
+  "lng": -21.9022923,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-05 09:20",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 21:08",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-04 20:50",
+  "locName": "Bakkatjörn (pond only)",
+  "lat": 64.1557624,
+  "lng": -22.0162153,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-04 20:50",
+  "locName": "Bakkatjörn (pond only)",
+  "lat": 64.1557624,
+  "lng": -22.0162153,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "houspa",
+  "comName": "House Sparrow",
+  "sciName": "Passer domesticus",
+  "obsDt": "2026-06-04 17:28",
+  "locName": "21 Garðarsbraut, Húsavík, Norðurþing, IS (66,045, −17,339)",
+  "lat": 66.0447307,
+  "lng": -17.3389874,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-04 16:52",
+  "locName": "28 Bakkavegur, Bakkagerði, Múlaþing, IS (65.531, -13.817)",
+  "lat": 65.5313504,
+  "lng": -13.8166852,
+  "howMany": 4
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 14:57",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 14:57",
+  "locName": "Reykjadalur--Leirtjörn austan vegar",
+  "lat": 65.7901084,
+  "lng": -17.4271274,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-04 14:24",
+  "locName": "Garður--Gerðafjara",
+  "lat": 64.077378,
+  "lng": -22.6538944,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 11:26",
+  "locName": "Reykjadalur--Hólmatjörn",
+  "lat": 65.7917978,
+  "lng": -17.436161,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 11:26",
+  "locName": "Reykjadalur--Hólmatjörn",
+  "lat": 65.7917978,
+  "lng": -17.436161,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "compoc",
+  "comName": "Common Pochard",
+  "sciName": "Aythya ferina",
+  "obsDt": "2026-06-04 11:05",
+  "locName": "Aðaldalur--Sandur (general area)",
+  "lat": 65.9570171,
+  "lng": -17.5481701,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 10:26",
+  "locName": "Vestmannsvatn/Hólkotstjörn (general wetland from road)",
+  "lat": 65.7961755,
+  "lng": -17.4353302,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 09:32",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "arcloo",
+  "comName": "Arctic Loon",
+  "sciName": "Gavia arctica",
+  "obsDt": "2026-06-04 09:32",
+  "locName": "Lake Vestmannsvatn",
+  "lat": 65.7981364,
+  "lng": -17.4262378,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-03 20:09",
+  "locName": "Reykhólar",
+  "lat": 65.4424275,
+  "lng": -22.2026825,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilsni1",
+  "comName": "Wilson's Snipe",
+  "sciName": "Gallinago delicata",
+  "obsDt": "2026-06-03 19:00",
+  "locName": "301, Akranes IS-Western Region 64.39691, -21.55821",
+  "lat": 64.396907,
+  "lng": -21.558213,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "wilsni1",
+  "comName": "Wilson's Snipe",
+  "sciName": "Gallinago delicata",
+  "obsDt": "2026-06-03 19:00",
+  "locName": "301, Akranes IS-Western Region 64.39691, -21.55821",
+  "lat": 64.396907,
+  "lng": -21.558213,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "dabbra1",
+  "comName": "Brant (Dark-bellied)",
+  "sciName": "Branta bernicla",
+  "obsDt": "2026-06-03 18:40",
+  "locName": "Stöðvarfjörður--Stöðvaralda",
+  "lat": 64.8380644,
+  "lng": -13.9552975,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "whwsco2",
+  "comName": "White-winged Scoter",
+  "sciName": "Melanitta deglandi",
+  "obsDt": "2026-06-03 16:55",
+  "locName": "Berufjörður--Ós Búlandsár",
+  "lat": 64.6941301,
+  "lng": -14.371325,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "x00665",
+  "comName": "King x Common Eider (hybrid)",
+  "sciName": "Somateria spectabilis x mollissima",
+  "obsDt": "2026-06-03 16:38",
+  "locName": "Suðurfirðir--Reykjafjörður",
+  "lat": 65.6367264,
+  "lng": -23.4826551,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "dabbra1",
+  "comName": "Brant (Dark-bellied)",
+  "sciName": "Branta bernicla",
+  "obsDt": "2026-06-03 16:32",
+  "locName": "Miðnes--Fuglavíkurtjörn",
+  "lat": 64.0115106,
+  "lng": -22.7071099,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "dabbra1",
+  "comName": "Brant (Dark-bellied)",
+  "sciName": "Branta bernicla",
+  "obsDt": "2026-06-03 16:32",
+  "locName": "Miðnes--Fuglavíkurtjörn",
+  "lat": 64.0115106,
+  "lng": -22.7071099,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "dabbra1",
+  "comName": "Brant (Dark-bellied)",
+  "sciName": "Branta bernicla",
+  "obsDt": "2026-06-03 16:32",
+  "locName": "Miðnes--Fuglavíkurtjörn",
+  "lat": 64.0115106,
+  "lng": -22.7071099,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-03 16:20",
+  "locName": "Grindavík--Vatnsstæði (Járngerðarstaðatjarnir) (ponds)",
+  "lat": 63.8353279,
+  "lng": -22.4479329,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "woosan",
+  "comName": "Wood Sandpiper",
+  "sciName": "Tringa glareola",
+  "obsDt": "2026-06-03 14:45",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "woosan",
+  "comName": "Wood Sandpiper",
+  "sciName": "Tringa glareola",
+  "obsDt": "2026-06-03 14:26",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "woosan",
+  "comName": "Wood Sandpiper",
+  "sciName": "Tringa glareola",
+  "obsDt": "2026-06-03 14:26",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-03 14:26",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-03 14:26",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "woosan",
+  "comName": "Wood Sandpiper",
+  "sciName": "Tringa glareola",
+  "obsDt": "2026-06-03 14:26",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-03 14:26",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-03 14:18",
+  "locName": "Bakkatjörn (pond only)",
+  "lat": 64.1557624,
+  "lng": -22.0162153,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "woosan",
+  "comName": "Wood Sandpiper",
+  "sciName": "Tringa glareola",
+  "obsDt": "2026-06-03 12:51",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eurcoo",
+  "comName": "Eurasian Coot",
+  "sciName": "Fulica atra",
+  "obsDt": "2026-06-03 12:51",
+  "locName": "Síki í Garði (ponds only)",
+  "lat": 64.075652,
+  "lng": -22.6553535,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ruff",
+  "comName": "Ruff",
+  "sciName": "Calidris pugnax",
+  "obsDt": "2026-06-03 11:07",
+  "locName": "Seltjarnarnes--general area",
+  "lat": 64.1550663,
+  "lng": -22.0210389,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "batgod",
+  "comName": "Bar-tailed Godwit",
+  "sciName": "Limosa lapponica",
+  "obsDt": "2026-06-03 10:30",
+  "locName": "Höfn--Sílavík",
+  "lat": 64.2576453,
+  "lng": -15.1961517,
+  "howMany": 2
+ },
+ {
+  "speciesCode": "doveki",
+  "comName": "Dovekie",
+  "sciName": "Alle alle",
+  "obsDt": "2026-06-03 10:15",
+  "locName": "Iceland Grimsey Island",
+  "lat": 66.5439639,
+  "lng": -18.0195495,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "comhom1",
+  "comName": "Western House-Martin",
+  "sciName": "Delichon urbicum",
+  "obsDt": "2026-06-03 09:29",
+  "locName": "Denmark Strait 1",
+  "lat": 63.3322419,
+  "lng": -28.5027182,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "blkter",
+  "comName": "Black Tern",
+  "sciName": "Chlidonias niger",
+  "obsDt": "2026-06-02 18:30",
+  "locName": "Lón (Pollurinn)",
+  "lat": 66.0979207,
+  "lng": -16.9244385,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "sabgul",
+  "comName": "Sabine's Gull",
+  "sciName": "Xema sabini",
+  "obsDt": "2026-06-02 17:06",
+  "locName": "Þjóðvegur, Sveitarfélagið Hornafjörður, IS (64,004, -16,369)",
+  "lat": 64.0036898,
+  "lng": -16.3685513,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eursis",
+  "comName": "Eurasian Siskin",
+  "sciName": "Spinus spinus",
+  "obsDt": "2026-06-02 15:00",
+  "locName": "Karlsson Summerhouse - 7 Melhúsasund,(64.04, -20.808)",
+  "lat": 64.0403328,
+  "lng": -20.8076169,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-02 15:00",
+  "locName": "Ljósavatnsskarð--Stórutjarnir",
+  "lat": 65.7100155,
+  "lng": -17.7215481,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "ambduc",
+  "comName": "American Black Duck",
+  "sciName": "Anas rubripes",
+  "obsDt": "2026-06-02 14:41",
+  "locName": "5 Garðvegur, Sandgerði, Suðurnesjabær, IS (64,044, -22,714)",
+  "lat": 64.0439017,
+  "lng": -22.7138001,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "sabgul",
+  "comName": "Sabine's Gull",
+  "sciName": "Xema sabini",
+  "obsDt": "2026-06-02 11:43",
+  "locName": "Þjóðvegur, Sveitarfélagið Hornafjörður, IS (64,006, -16,365)",
+  "lat": 64.006254,
+  "lng": -16.3647336,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "agwtea1",
+  "comName": "Green-winged Teal (American)",
+  "sciName": "Anas crecca",
+  "obsDt": "2026-06-02 11:37",
+  "locName": "Mývatn--Kritartjörn",
+  "lat": 65.5737972,
+  "lng": -17.0523262,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "sabgul",
+  "comName": "Sabine's Gull",
+  "sciName": "Xema sabini",
+  "obsDt": "2026-06-02 09:22",
+  "locName": "Fjallsárbrú, pollur, IS (64,003, -16,369)",
+  "lat": 64.0034722,
+  "lng": -16.3686285,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "cangoo",
+  "comName": "Canada Goose",
+  "sciName": "Branta canadensis",
+  "obsDt": "2026-06-02 09:02",
+  "locName": "Blönduhlíð--Úlfsstaðir",
+  "lat": 65.4709138,
+  "lng": -19.2634964,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "eucdov",
+  "comName": "Eurasian Collared-Dove",
+  "sciName": "Streptopelia decaocto",
+  "obsDt": "2026-06-02 05:09",
+  "locName": "Höfn--Hrossabithagi",
+  "lat": 64.2567506,
+  "lng": -15.204134,
+  "howMany": 1
+ },
+ {
+  "speciesCode": "rinduc",
+  "comName": "Ring-necked Duck",
+  "sciName": "Aythya collaris",
+  "obsDt": "2026-06-01 22:49",
+  "locName": "Ljósavatnsskarð--Bæjartjörn",
+  "lat": 65.7108628,
+  "lng": -17.7251959,
+  "howMany": 1
+ }
+]

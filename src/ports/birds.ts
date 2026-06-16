@@ -10,9 +10,9 @@ export interface BirdObservations {
 
 export interface BirdSource {
   /**
-   * Notable observations for the given region slugs. **Never throws** — birds are an optional overlay,
-   * so an upstream failure degrades (omits that region, sets `degraded`) rather than failing the
-   * weather answer (spec 03 degradation rules).
+   * Notable observations across Iceland, bucketed by nearest region anchor. **Never throws** — birds
+   * are an optional overlay, so an upstream failure degrades (empty obs, `degraded: true`) rather than
+   * failing the weather answer (spec 03 degradation rules).
    */
-  notableByRegion(regions: Region[]): Promise<BirdObservations>;
+  notableByRegion(): Promise<BirdObservations>;
 }

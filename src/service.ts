@@ -101,8 +101,7 @@ export async function getWindows(params: WindowsParams, deps: ServiceDeps): Prom
   // Bird overlay (opt-in): attach notable (rare) sightings near each window's campsites. Degrades —
   // an eBird failure never fails the weather answer (it just omits birds + adds a warning, spec 03).
   if (params.include_birds === true && deps.birds !== undefined) {
-    const regions = [...new Set(rec.windows.map((w) => w.region))];
-    const { byRegion, fetchedAt, degraded } = await deps.birds.notableByRegion(regions);
+    const { byRegion, fetchedAt, degraded } = await deps.birds.notableByRegion();
     rec.windows = attachBirds(rec.windows, byRegion, new Set());
     rec.attribution = [...rec.attribution, EBIRD_ATTRIBUTION];
     rec.dataAge = { ...rec.dataAge, birdObsFetchedAt: fetchedAt };
