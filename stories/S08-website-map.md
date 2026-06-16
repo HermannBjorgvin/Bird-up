@@ -12,7 +12,7 @@ The website's weather half (birds come in S10): Leaflet map with campsite marker
 
 - [x] Unit tests (node project) pass for: the API-client module (URL/query/body construction for GET and POST variants, error-envelope handling) and pure helpers (score→color scale, window sorting, date formatting).
 - [x] Threshold sliders expose exactly the overridable fields and bounds of spec 02 plus a reset-to-defaults; changes re-query (debounced) and the panel shows when results are computed with a custom policy. *(Superseded same day: the scoring model was reworked to the soft-factor `2026-06.3` policy with no hard caps, so spec 02 now exposes only `minDays`; the panel is a single min-trip-length slider. See the scoring-redesign commit.)*
-- [x] The manual checklist `web/CHECKLIST.md` exists, covers: map loads with OSM tiles + attribution, markers colored by score for the selected range, popup shows all spec-05 fields, selecting a window zooms/filters, date presets work, forced-stale digest shows the banner, footer carries all attribution + MCP hint — and is checked off against the deployed site in this story's notes.
+- [x] The manual checklist `web/CHECKLIST.md` exists, covers: map loads with OSM tiles + attribution, markers colored by score for the selected range, popup shows all spec-05 fields, selecting a window zooms/filters, date presets work, forced-stale digest shows the banner, footer carries all attribution + MCP hint — and is checked off against the deployed site in this story's notes. *(superseded 2026-06-15: the footer no longer carries the MCP hint or policy version — it was trimmed to the Open-Meteo weather credit + a `source` repo link, with OSM on the map's own Leaflet attribution control; the MCP hint returns when S07 ships. Spec 05 and `web/CHECKLIST.md` updated to match.)*
 - [x] Website ships as Static Assets from the same Worker; `/` serves it, `/api/*` and `/mcp` still route to the Worker.
 - [x] No browser E2E added (deliberate, spec 07).
 
@@ -159,4 +159,46 @@ the area. Web-only, no contract change.
 - ✅ Footer: Open-Meteo + OpenStreetMap + map-tiles attribution, MCP "add /mcp to your agent" hint, policy version.
 - ◑ Stale-data banner: not force-tested on prod (would require corrupting prod KV); the render path
   (`rec.warnings` → banner) is covered by `test/worker/staleness.test.ts`. Banner correctly absent on fresh data.
-- Note: the footer's `/mcp` link 404s until S07 ships (this story was built before S07 by owner decision).
+- Note: the footer's `/mcp` link 404s until S07 ships (this story was built before S07 by owner decision). *(2026-06-15: the `/mcp` link was removed from the footer entirely — see the design-system note below — so there's no longer a 404ing link; it returns when S07 ships.)*
+
+**Design-system theme + marker/footer refresh (2026-06-15/16 — web-only, no contract/scoring/policy change).**
+A palette the owner extracted from design inspiration (royal-gold / blue-slate / dust-grey / brown-red /
+khaki-beige, plus two derived companions: a harmonized `moss-green` for the score scale and a `wood-brown`
+dark surface) became a real design system in [index.css](../web/src/index.css): raw palette tokens →
+semantic tokens via the `light-dark()` CSS function, driving **two themes — light "field guide", dark
+"old wood cabin."** A header toggle ([ThemeToggle.tsx](../web/src/components/ThemeToggle.tsx), lucide
+Monitor/Sun/Moon) cycles **system → light → dark**, persisted as the versioned `tjaldur:theme:v1`
+localStorage key and applied before first paint by an inline script in [index.html](../web/index.html)
+(no FOUT). `system` flips `color-scheme`, which is what `light-dark()` keys off; the map-tile filter,
+which can't ride `light-dark()`, gets explicit OS-dark / forced-dark selectors sharing one `--tile-dark`.
+
+Visual changes, all presentation-layer:
+- **Map.** OSM tiles get a CSS aged-paper filter (vintage in light, wood-tinted in dark — no
+  tile-provider swap, so the free token-less source + attribution stay). Markers are now **SVG teardrop
+  pins** (anchored at the tip) instead of dots: scored pins ramp khaki→moss-green, no-window pins are a
+  **translucent slate** fill (was an outline ring). **Clustering is disabled**
+  (`disableClusteringAtZoom: 0`) — every site shows individually at all zooms; the `markerClusterGroup`
+  wrapper is kept only for `zoomToShowLayer` (popup-on-select) and `addLayers`. Both pin states share one
+  footprint (focused pins grow); fill, not size, distinguishes them.
+- **Gold accent.** The timeline heat bar is royal-gold (`heatColor`), and the filter sliders are fully
+  custom (the native unfilled track renders dark regardless of `accent-color`/`color-scheme`): a light
+  `--track` groove + gold fill + round thumb, the fill driven by a `--pct` var (Blink) / `::-moz-range-progress`
+  (Firefox). The map score scale stayed khaki→moss (gold is the *control* accent, not the data colour —
+  the owner reverted a brief experiment that made recommended markers gold, since a cool fortnight then
+  read as a grey map).
+- **Popup + chrome.** Leaflet's popup box/tip/zoom-controls are themed (paper/walnut) — rescoped under
+  `.leaflet-container` to out-specify Leaflet's own later-loaded CSS (an equal-specificity bug that left
+  the popup unstyled in prod). Popup title strengthened with a divider. Sidebar meta + the eyebrow moved
+  off low-opacity tan onto a legible `--muted` token (AA in both themes).
+- **Footer trimmed** to the Open-Meteo weather credit + a `source` link (OSM on the map's Leaflet
+  control; MCP hint + policy line dropped until S07). [Footer.tsx](../web/src/components/Footer.tsx) filters
+  OSM out of the API `attribution[]`; the `policyVersion` prop was removed.
+
+Tooling: **`npm run dev:remote`** runs Vite HMR against the *deployed* API (`VITE_API_BASE`,
+[client.ts](../web/src/api/client.ts)) so styling previews against real KV data without deploying (unset
+in tests/prod builds → same-origin). New file `ThemeToggle.tsx`; deps already present
+(`@fontsource/space-grotesk`, `lucide-react`). Tests updated for the new colours
+(`web-color`, `web-timeline`); `npm run check` green (155 tests). [spec 05](../specs/05-website.md)
+updated (map markers, gold bar, theme system, trimmed footer, `dev:remote`). Deployed `tjaldur.9z.is`
+(versions `22839252` design system, `d76af2cb` unclustered/translucent pins) and the checklist re-run
+recorded in `web/CHECKLIST.md` (§ design-system refresh).
