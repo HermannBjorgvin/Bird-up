@@ -17,6 +17,12 @@ import type { Store } from "../ports/store";
 
 /** Iceland-wide notable feed (spec 04). `back=14` matches the forecast horizon's recency. */
 export const NOTABLE_URL = "https://api.ebird.org/v2/data/obs/IS/recent/notable?back=14";
+/**
+ * Identifying User-Agent (spec 04: be polite). Also load-bearing in production: Cloudflare Workers'
+ * default outbound fetch sends no real UA, and eBird's edge rejects that — so a request that works from
+ * curl and local workerd fails from the deployed Worker without it.
+ */
+const USER_AGENT = "tjaldur/0.1 (+https://tjaldur.9z.is)";
 /** Single versioned KV key for the country feed (hard rule 5). */
 export const NOTABLE_CACHE_KEY = "birds:notable:IS:v1";
 /** 1 h TTL on the notable cache (spec 04). */
@@ -86,7 +92,9 @@ export class EbirdSource implements BirdSource {
     let degraded = false;
     if (obs === null) {
       try {
-        const res = await this.fetchFn(NOTABLE_URL, { headers: { "X-eBirdApiToken": this.apiKey } });
+        const res = await this.fetchFn(NOTABLE_URL, {
+          headers: { "X-eBirdApiToken": this.apiKey, "User-Agent": USER_AGENT },
+        });
         if (!res.ok) throw new Error(`eBird responded ${res.status}`);
         obs = normalizeNotable(await res.json());
         await this.store.putJson(NOTABLE_CACHE_KEY, obs, { ttlSeconds: NOTABLE_CACHE_TTL_S });
