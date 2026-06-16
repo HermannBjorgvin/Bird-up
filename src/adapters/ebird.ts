@@ -98,7 +98,9 @@ export class EbirdSource implements BirdSource {
         if (!res.ok) throw new Error(`eBird responded ${res.status}`);
         obs = normalizeNotable(await res.json());
         await this.store.putJson(NOTABLE_CACHE_KEY, obs, { ttlSeconds: NOTABLE_CACHE_TTL_S });
-      } catch {
+      } catch (e) {
+        // Birds degrade silently for the user (spec 03), but log the upstream cause for the owner's tail.
+        console.error("eBird notable fetch failed:", e instanceof Error ? e.message : String(e));
         obs = []; // upstream failed and nothing cached → serve no birds, flag degraded (never throw)
         degraded = true;
       }
