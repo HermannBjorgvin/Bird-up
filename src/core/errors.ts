@@ -17,3 +17,15 @@ export class StaleDataUnavailableError extends Error {
     this.name = "StaleDataUnavailableError";
   }
 }
+
+/**
+ * A live upstream fetch failed and nothing cached can be served (spec 03). Only birds raise this, and
+ * only when the caller asked for them (`include_birds`) — weather answers never throw it. → 502
+ */
+export class UpstreamDownError extends Error {
+  readonly code = "UPSTREAM_DOWN";
+  constructor(message: string) {
+    super(message);
+    this.name = "UpstreamDownError";
+  }
+}

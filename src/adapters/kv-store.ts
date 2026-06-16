@@ -8,7 +8,10 @@ export class KvStore implements Store {
     return this.kv.get<T>(key, "json");
   }
 
-  async putJson(key: string, value: unknown): Promise<void> {
-    await this.kv.put(key, JSON.stringify(value));
+  async putJson(key: string, value: unknown, opts?: { ttlSeconds?: number }): Promise<void> {
+    // KV enforces a 60 s floor on expirationTtl; below that, store permanently rather than throw.
+    const ttl = opts?.ttlSeconds;
+    const putOpts = ttl !== undefined && ttl >= 60 ? { expirationTtl: ttl } : undefined;
+    await this.kv.put(key, JSON.stringify(value), putOpts);
   }
 }
