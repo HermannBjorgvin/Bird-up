@@ -23,11 +23,15 @@ export function scoreToColor(score: number | null | undefined): string {
   })
 }
 
-/** Timeline-bar heat tops out at 40 (mid-June scores ~25); the bar saturates royal-gold at that score. */
-export const HEAT_FULL_SCORE = 40
+/**
+ * Timeline-bar heat is on the same absolute 0–100 scale as everything else: full gold = a perfect day
+ * (23 °C, calm, dry → score 100; warmth ramp peaks at 23 °C, so 100·warmth·wind·rain = 100). Cool weeks
+ * read fainter on purpose — the bar tells the honest truth, it does not normalize to the best day on screen.
+ */
+export const HEAT_FULL_SCORE = 100
 
 /**
- * Timeline-bar heat: royal-GOLD at a variable alpha (0→1 over score 0→40) so the bar's own theme-aware
+ * Timeline-bar heat: royal-GOLD at a variable alpha (0→1 over score 0→100) so the bar's own theme-aware
  * background shows through the gaps — warm paper in light mode, dark wood in dark mode — rather than
  * baking a surface color into the gradient (which would leave bright patches on the dark-mode bar).
  */
